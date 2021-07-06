@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>JCAlways</title>
+  <icon>https://blog.zhangsifan.com/icon.png</icon>
+  
+  <link href="https://blog.zhangsifan.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.zhangsifan.com/"/>
+  <updated>2021-06-02T02:08:06.334Z</updated>
+  <id>https://blog.zhangsifan.com/</id>
+  
+  <author>
+    <name>Always</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uniapp创建Vue3应用</title>
+    <link href="https://blog.zhangsifan.com/posts/210601v3/"/>
+    <id>https://blog.zhangsifan.com/posts/210601v3/</id>
+    <published>2021-06-01T08:00:00.000Z</published>
+    <updated>2021-06-02T02:08:06.334Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://ask.dcloud.net.cn/article/37834&quot;&gt;文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;创建-H5-工程&quot;&gt;&lt;a href=&quot;#创建-H5-工程&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Vue3" scheme="https://blog.zhangsifan.com/tags/Vue3/"/>
+    
+    <category term="uniapp" scheme="https://blog.zhangsifan.com/tags/uniapp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>uniapp创建Vue2应用</title>
+    <link href="https://blog.zhangsifan.com/posts/210601v2/"/>
+    <id>https://blog.zhangsifan.com/posts/210601v2/</id>
+    <published>2021-06-01T07:00:00.000Z</published>
+    <updated>2021-06-02T01:45:32.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://ask.dcloud.net.cn/article/37834&quot;&gt;文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="uniapp" scheme="https://blog.zhangsifan.com/tags/uniapp/"/>
+    
+    <category term="Vue2" scheme="https://blog.zhangsifan.com/tags/Vue2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue3基础</title>
+    <link href="https://blog.zhangsifan.com/posts/20210525v3/"/>
+    <id>https://blog.zhangsifan.com/posts/20210525v3/</id>
+    <published>2021-05-25T00:49:00.000Z</published>
+    <updated>2021-05-25T01:02:41.412Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;创建-Vue3-项目&quot;&gt;&lt;a href=&quot;#创建-Vue3-项目&quot; class=&quot;headerlink&quot; title=&quot;创建 Vue3 项目&quot;&gt;&lt;/a&gt;创建 Vue3 项目&lt;/h1&gt;&lt;h2 id=&quot;使用-vue-cli-创建&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Vue.js" scheme="https://blog.zhangsifan.com/tags/Vue-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript基础</title>
+    <link href="https://blog.zhangsifan.com/posts/210525ts/"/>
+    <id>https://blog.zhangsifan.com/posts/210525ts/</id>
+    <published>2021-05-25T00:24:00.000Z</published>
+    <updated>2021-05-25T00:49:16.702Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;安装-TypeScript&quot;&gt;&lt;a href=&quot;#安装-TypeScript&quot; class=&quot;headerlink&quot; title=&quot;安装 TypeScript&quot;&gt;&lt;/a&gt;安装 TypeScript&lt;/h1&gt;&lt;p&gt;命令行运行如下命令，全局安装</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="TypeScript" scheme="https://blog.zhangsifan.com/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VuePress搭建流程</title>
+    <link href="https://blog.zhangsifan.com/posts/20210513vp/"/>
+    <id>https://blog.zhangsifan.com/posts/20210513vp/</id>
+    <published>2020-02-22T15:24:38.000Z</published>
+    <updated>2021-05-14T09:00:09.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note blue icon flat&quot;&gt;&lt;i class=&quot;note-icon fas fa-bullhorn&quot;&gt;&lt;/i&gt;&lt;p&gt;📖 本教程更新于 2021 年 02 月 25 日&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;在线文档&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Vue" scheme="https://blog.zhangsifan.com/tags/Vue/"/>
+    
+    <category term="VuePress" scheme="https://blog.zhangsifan.com/tags/VuePress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Yapi搭建流程</title>
+    <link href="https://blog.zhangsifan.com/posts/210513ya/"/>
+    <id>https://blog.zhangsifan.com/posts/210513ya/</id>
+    <published>2020-02-22T15:24:38.000Z</published>
+    <updated>2021-05-13T07:29:28.831Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note blue icon flat&quot;&gt;&lt;i class=&quot;note-icon fas fa-bullhorn&quot;&gt;&lt;/i&gt;&lt;p&gt;📖 本教程更新于 2021 年 02 月 25 日&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;搭建步骤&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Yapi" scheme="https://blog.zhangsifan.com/tags/Yapi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文章导航</title>
+    <link href="https://blog.zhangsifan.com/posts/navs/"/>
+    <id>https://blog.zhangsifan.com/posts/navs/</id>
+    <published>2019-10-31T16:00:00.000Z</published>
+    <updated>2021-06-01T07:53:56.580Z</updated>
+    
+    
+    <summary type="html">为方便用户访问本博客内容,提供文章导航服务,请选择对应的文章进行浏览!</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jquery的常见问题</title>
+    <link href="https://blog.zhangsifan.com/posts/210513jq/"/>
+    <id>https://blog.zhangsifan.com/posts/210513jq/</id>
+    <published>2019-10-14T12:29:46.000Z</published>
+    <updated>2021-05-13T07:29:24.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;你在公司是怎么使用-jquery-的？&quot;&gt;&lt;a href=&quot;#你在公司是怎么使用-jquery-的？&quot; class=&quot;headerlink&quot; title=&quot;你在公司是怎么使用 jquery 的？&quot;&gt;&lt;/a&gt;你在公司是怎么使用 jquery</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="JavaScript" scheme="https://blog.zhangsifan.com/tags/JavaScript/"/>
+    
+    <category term="Jquery" scheme="https://blog.zhangsifan.com/tags/Jquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客搭建流程</title>
+    <link href="https://blog.zhangsifan.com/posts/210417hs/"/>
+    <id>https://blog.zhangsifan.com/posts/210417hs/</id>
+    <published>2019-09-19T12:00:00.000Z</published>
+    <updated>2021-05-13T10:09:15.703Z</updated>
+    
+    
+    <summary type="html">博客搭建步骤</summary>
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.zhangsifan.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git的配置与常用指令</title>
+    <link href="https://blog.zhangsifan.com/posts/210417zl/"/>
+    <id>https://blog.zhangsifan.com/posts/210417zl/</id>
+    <published>2019-08-25T12:00:00.000Z</published>
+    <updated>2021-05-14T08:35:01.299Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;安装Git客户端&quot;&gt;&lt;a href=&quot;#安装Git客户端&quot; class=&quot;headerlink&quot; title=&quot;安装Git客户端&quot;&gt;&lt;/a&gt;安装Git客户端&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="Git" scheme="https://blog.zhangsifan.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bootstrap基础</title>
+    <link href="https://blog.zhangsifan.com/posts/210417bs/"/>
+    <id>https://blog.zhangsifan.com/posts/210417bs/</id>
+    <published>2019-08-05T16:00:00.000Z</published>
+    <updated>2021-05-14T09:12:21.223Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://getbootstrap.com/&quot;&gt;英文网站&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://getbootstrap.net/&quot;&gt;中文网站&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="CSS" scheme="https://blog.zhangsifan.com/categories/CSS/"/>
+    
+    <category term="Bootstrap" scheme="https://blog.zhangsifan.com/categories/CSS/Bootstrap/"/>
+    
+    
+    <category term="CSS" scheme="https://blog.zhangsifan.com/tags/CSS/"/>
+    
+    <category term="Bootstrap" scheme="https://blog.zhangsifan.com/tags/Bootstrap/"/>
+    
+  </entry>
+  
+</feed>
