@@ -40,9 +40,9 @@
     <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
     
     
-    <category term="Vue3" scheme="https://blog.zhangsifan.com/tags/Vue3/"/>
-    
     <category term="uniapp" scheme="https://blog.zhangsifan.com/tags/uniapp/"/>
+    
+    <category term="Vue3" scheme="https://blog.zhangsifan.com/tags/Vue3/"/>
     
   </entry>
   
@@ -70,9 +70,9 @@
     <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
     
     
-    <category term="uniapp" scheme="https://blog.zhangsifan.com/tags/uniapp/"/>
-    
     <category term="Vue2" scheme="https://blog.zhangsifan.com/tags/Vue2/"/>
+    
+    <category term="uniapp" scheme="https://blog.zhangsifan.com/tags/uniapp/"/>
     
   </entry>
   
