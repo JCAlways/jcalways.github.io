@@ -6,7 +6,7 @@
   <link href="https://blog.zhangsifan.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zhangsifan.com/"/>
-  <updated>2021-06-02T02:08:06.334Z</updated>
+  <updated>2021-08-23T02:17:03.319Z</updated>
   <id>https://blog.zhangsifan.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VMware16安装macOS Big Sur</title>
+    <link href="https://blog.zhangsifan.com/posts/210823mk/"/>
+    <id>https://blog.zhangsifan.com/posts/210823mk/</id>
+    <published>2021-08-23T01:29:54.194Z</published>
+    <updated>2021-08-23T02:17:03.319Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;下载-macOS-Big-Sur&quot;&gt;&lt;a href=&quot;#下载-macOS-Big-Sur&quot; class=&quot;headerlink&quot; title=&quot;下载 macOS Big Sur&quot;&gt;&lt;/a&gt;下载 macOS Big</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="VMware" scheme="https://blog.zhangsifan.com/tags/VMware/"/>
+    
+    <category term="MacOS" scheme="https://blog.zhangsifan.com/tags/MacOS/"/>
+    
+    <category term="Big Sur" scheme="https://blog.zhangsifan.com/tags/Big-Sur/"/>
+    
+  </entry>
   
   <entry>
     <title>uniapp创建Vue3应用</title>
@@ -189,7 +218,7 @@
     <link href="https://blog.zhangsifan.com/posts/navs/"/>
     <id>https://blog.zhangsifan.com/posts/navs/</id>
     <published>2019-10-31T16:00:00.000Z</published>
-    <updated>2021-06-01T07:53:56.580Z</updated>
+    <updated>2021-08-23T01:33:09.897Z</updated>
     
     
     <summary type="html">为方便用户访问本博客内容,提供文章导航服务,请选择对应的文章进行浏览!</summary>
