@@ -6,7 +6,7 @@
   <link href="https://blog.zhangsifan.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zhangsifan.com/"/>
-  <updated>2021-08-23T02:17:03.319Z</updated>
+  <updated>2021-08-25T01:02:27.514Z</updated>
   <id>https://blog.zhangsifan.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信公众号授权登录-网页</title>
+    <link href="https://blog.zhangsifan.com/posts/20210824wl/"/>
+    <id>https://blog.zhangsifan.com/posts/20210824wl/</id>
+    <published>2021-08-24T08:40:08.818Z</published>
+    <updated>2021-08-25T01:02:27.514Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;微信开放平台测试号系统&quot;&gt;&lt;a href=&quot;#微信开放平台测试号系统&quot; class=&quot;headerlink&quot; title=&quot;微信开放平台测试号系统&quot;&gt;&lt;/a&gt;微信开放平台测试号系统&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术文档" scheme="https://blog.zhangsifan.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+    
+    <category term="WeChat" scheme="https://blog.zhangsifan.com/tags/WeChat/"/>
+    
+    <category term="公众号" scheme="https://blog.zhangsifan.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+    <category term="微信登录" scheme="https://blog.zhangsifan.com/tags/%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>VMware16安装macOS Big Sur</title>
