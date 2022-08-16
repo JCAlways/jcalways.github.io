@@ -14,7 +14,7 @@ timezone: ""
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://blog.zhangsifan.com
-permalink: :year/:month/:day/:title/
+permalink: /posts/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -102,4 +102,22 @@ theme: butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ""
+  type: git
+  repository: git@github.com:JCAlways/jcalways.github.io.git
+  branch: master
+
+algolia:
+  appId: "YQUJUB5NGV"
+  apiKey: "501be01d4df300779328014a1a5ba292"
+  adminApiKey: "7e2b35b929876e054ae115f1aae550bf"
+  chunkSize: 5000
+  indexName: "my-hexo-blog"
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
