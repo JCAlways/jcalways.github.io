@@ -38,6 +38,8 @@ jobs:
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
+      - name: install algolia
+        run: yarn algolia
       - name: Build frontend
         run: yarn build
       - name: Get Algolia
