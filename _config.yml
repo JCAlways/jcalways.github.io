@@ -107,17 +107,8 @@ deploy:
   branch: master
 
 algolia:
-  appId: "YQUJUB5NGV"
+  applicationID: "YQUJUB5NGV"
   apiKey: "501be01d4df300779328014a1a5ba292"
   adminApiKey: "7e2b35b929876e054ae115f1aae550bf"
   chunkSize: 5000
   indexName: "my-hexo-blog"
-  fields:
-    - content:strip:truncate,0,500
-    - excerpt:strip
-    - gallery
-    - permalink
-    - photos
-    - slug
-    - tags
-    - title
