@@ -35,8 +35,8 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 > 待整理
 
 # Vue.Js
-
-> 待整理
+> [Fingerprintjs使用教程](/posts/20220903sg/)
+> [Nprogress使用教程](/posts/20220903nr/)
 
 # 微信小程序
 
