@@ -6,7 +6,8 @@ on:
     branches: [master]
   # 手动触发部署
   workflow_dispatch:
-
+env:
+  HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
 jobs:
   docs:
     runs-on: ubuntu-latest
