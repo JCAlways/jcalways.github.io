@@ -40,6 +40,8 @@ jobs:
         run: yarn --frozen-lockfile
       - name: install algolia
         run: yarn add algolia
+      - name: 'set'
+        run: export HEXO_ALGOLIA_INDEXING_KEY=7e2b35b929876e054ae115f1aae550bf
       - name: Build frontend
         run: yarn build
       - name: Get Algolia
@@ -51,4 +53,4 @@ jobs:
           build_dir: ./public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HEXO_ALGOLIA_INDEXING_KEY: '7e2b35b929876e054ae115f1aae550bf'
+          HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
