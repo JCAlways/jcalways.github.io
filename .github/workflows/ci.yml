@@ -10,7 +10,8 @@ on:
 jobs:
   docs:
     runs-on: ubuntu-latest
-
+    env:
+      HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
     steps:
       - uses: actions/checkout@v2
         with:
@@ -41,7 +42,7 @@ jobs:
         run: yarn add algolia
       - name: Build frontend
         env:
-          HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
+          HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
         run: yarn build
       - name: Get Algolia
         run: yarn algolia
