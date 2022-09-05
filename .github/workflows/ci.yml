@@ -10,8 +10,7 @@ on:
 jobs:
   docs:
     runs-on: ubuntu-latest
-    env:
-      HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
+
     steps:
       - uses: actions/checkout@v2
         with:
