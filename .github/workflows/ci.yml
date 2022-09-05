@@ -40,6 +40,8 @@ jobs:
       - name: install algolia
         run: yarn add algolia
       - name: Build frontend
+        env:
+          HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
         run: yarn build
       - name: Get Algolia
         run: yarn algolia
