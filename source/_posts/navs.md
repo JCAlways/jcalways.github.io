@@ -37,6 +37,7 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 # Vue.Js
 > [Fingerprintjs使用教程](/posts/20220903sg/)
 > [Nprogress使用教程](/posts/20220903nr/)
+> [Vue3使用高德地图](/posts/20220905ap/)
 
 # 微信小程序
 
