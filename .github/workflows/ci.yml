@@ -33,7 +33,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -51,4 +50,3 @@ jobs:
           build_dir: ./public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
