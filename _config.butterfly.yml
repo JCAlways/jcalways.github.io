@@ -32,7 +32,7 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://github.com/xxxxx || Github
+  fab fa-github: https://github.com/JCAlways || Github
   fas fa-rss: /atom.xml || RSS
 
 # search (搜索)
