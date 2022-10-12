@@ -4,7 +4,7 @@ date: 2019-8-17 20:00:00
 categories:
   - JavaScript
 tags: JavaScript
-cover: https://i.loli.net/2019/10/14/moZyndVtYAwRiLe.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 变量

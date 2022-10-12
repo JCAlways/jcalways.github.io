@@ -7,7 +7,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/10/14/moZyndVtYAwRiLe.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # javascript的typeof返回哪些数据类型

@@ -9,7 +9,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/10/16/yKq39c4lZ87ewMW.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 > React：用于构建用户界面的 JavaScript 库（框架）

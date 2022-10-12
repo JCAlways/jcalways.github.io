@@ -9,7 +9,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/10/14/UdL7vKVRFe4IcNO.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Promise构造器

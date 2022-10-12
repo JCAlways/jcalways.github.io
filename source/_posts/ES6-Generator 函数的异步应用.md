@@ -5,7 +5,7 @@ categories:
 - JavaScript
 - ES6
 tags: ES6
-cover: https://i.loli.net/2019/10/14/QFBkHCZNIxthO36.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Generator 函数的异步应用

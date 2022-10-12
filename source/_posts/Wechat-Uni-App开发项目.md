@@ -8,7 +8,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/11/24/JsraOCx62EmePQb.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # uni-app---[官方网站](https://uniapp.dcloud.io/)

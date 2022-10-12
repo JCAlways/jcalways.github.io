@@ -9,7 +9,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/10/14/UdL7vKVRFe4IcNO.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 安装Node.js
@@ -75,7 +75,7 @@ fs模块中的常用方法
 
 
 | API                                         | 作用              | 备注           |
-|---------------------------------------------|-------------------|----------------|
+| ------------------------------------------- | ----------------- | -------------- |
 | fs.access(path, callback)                   | 判断路径是否存在  |                |
 | fs.appendFile(file, data, callback)         | 向文件中追加内容  |                |
 | fs.copyFile(src, callback)                  | 复制文件          |                |
@@ -154,7 +154,7 @@ path模块其它方法列表
 
 
 | 方法                       | 作用                               |
-|----------------------------|------------------------------------|
+| -------------------------- | ---------------------------------- |
 | path.basename(path[, ext]) | 获取返回 path 的最后一部分(文件名) |
 | path.dirname(path)         | 返回目录名                         |
 | path.extname(path)         | 返回路径中文件的扩展名(包含.)      |

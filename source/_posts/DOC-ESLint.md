@@ -7,7 +7,7 @@ keywords:
 description: 
 top_img: 
 comments: 
-cover: 
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # vscode中的vscode的配置代码

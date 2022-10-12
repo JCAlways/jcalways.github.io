@@ -8,7 +8,7 @@ keywords: Xmind笔记
 description: HTML到Node.js之前笔记汇总
 top_img: 
 comments: 
-cover: 
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 前端与移动开发

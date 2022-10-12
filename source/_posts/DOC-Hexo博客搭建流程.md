@@ -7,7 +7,7 @@ keywords: 博客搭建
 description: 博客搭建步骤
 top_img: 
 comments: 
-cover: https://i.loli.net/2019/10/14/J3N8wOX9h1RTC6j.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 ## 安装hexo

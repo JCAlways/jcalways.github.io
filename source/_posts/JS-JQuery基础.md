@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - JQuery
 tags: JavaScript
-cover: https://i.loli.net/2019/10/14/moZyndVtYAwRiLe.jpg
+cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 什么是 Jquery
