@@ -1,15 +1,19 @@
-- class_name: 友情链接
-  class_desc: 那些人，那些事
+- class_name: 我的站点
+  class_desc: 欢迎访问我的其它站点
   link_list:
     - name: 天天起始页
       link: https://www.zhangsifan.com
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
       descr: 简洁的起始页
+    - name: 在线文档
+      link: https://office.zhangsifan.com
+      avatar: https://open-demo.wps.cn/v1/webofficedemo/images/app-64.png
+      descr: WPS WebOffice
 
 - class_name: 技术支持
   class_desc: 特别鸣谢
   link_list:
     - name: Always-Team
       link: https://always-team.github.io/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+      avatar: https://x1.haoxianggroup.cn/static/20220516143528_78.jpg
       descr: Always-Team

@@ -419,7 +419,7 @@ footer:
   owner:
     enable: true
     since: 2019
-  custom_text: <a href="https://beian.miit.gov.cn/#/Integrated/index"><span>京ICP备19044601号</span></a>
+  # custom_text: <a href="https://beian.miit.gov.cn/#/Integrated/index"><span>京ICP备19044601号</span></a>
   copyright: true # Copyright of theme and framework
 
 # Analysis
@@ -658,7 +658,7 @@ aside:
       link: https://github.com/JCAlways
   card_announcement:
     enable: true
-    content: 欢迎访问我的博客!内容持续更新中,敬请期待!
+    content: 有朋自远方来,不亦乐乎!
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
