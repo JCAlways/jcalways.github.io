@@ -5,10 +5,14 @@
       link: https://www.zhangsifan.com
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
       descr: 简洁的起始页
-    - name: 在线文档
+    - name: WPS WebOffice
       link: https://office.zhangsifan.com
       avatar: https://open-demo.wps.cn/v1/webofficedemo/images/app-64.png
-      descr: WPS WebOffice
+      descr: WPS WebOffice 文档
+    - name: Alist
+      link: https://pan.zhangsifan.com
+      avatar: https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg
+      descr: 我的网盘集合
 
 - class_name: 技术支持
   class_desc: 特别鸣谢
