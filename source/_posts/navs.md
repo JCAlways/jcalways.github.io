@@ -11,52 +11,10 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 ---
 
 {% note blue 'fas fa-bullhorn' simple %}
-本导航更新于 2022 年 09 月 03 日,持续更新中!
+本导航更新于 2023 年 03 月 20 日,持续更新中!
 {% endnote %}
 
-# HTML
-
-> 待整理
-
-# CSS
-
-> 待整理
-
-# JavaScript
-
-> 待整理
-
-# TypeScript
-
-> 待整理
-
-# Node.Js
-
-> 待整理
-
-# Vue.Js
 > [Fingerprintjs使用教程](/posts/20220903sg/)
 > [Nprogress使用教程](/posts/20220903nr/)
 > [Vue3使用高德地图](/posts/20220905ap/)
 > [vue.draggable vue3-拖拽排序组件使用](/posts/20220909px/)
-
-# 微信小程序
-
-> 待整理
-
-# react.Js
-
-> 待整理
-
-# uni-app
-
-> 待整理
-
-# Android
-
-> 待整理
-
-# 技术文档
-
-> 待整理
-
