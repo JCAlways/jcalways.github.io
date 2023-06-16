@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: 
+Sitemap: https://blog.zhangsifan.com/sitemap.txt
+Sitemap: https://blog.zhangsifan.com/sitemap.xml
+Sitemap: https://blog.zhangsifan.com/atom.xml
