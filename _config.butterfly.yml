@@ -420,7 +420,7 @@ footer:
     enable: true
     since: 2019
   # custom_text: <a href="https://beian.miit.gov.cn/#/Integrated/index"><span>京ICP备19044601号</span></a>
-  custom_text: <a style="display:flex;justify-content:center" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:50px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a>
+  custom_text: <a style="display:flex;justify-content:center" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a>
 
   copyright: true # Copyright of theme and framework
 

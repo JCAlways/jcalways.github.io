@@ -29,19 +29,19 @@
 - class_name: 我的作品
   class_desc:
   link_list:
-    - name: 浩翔控股集团官网
+    - name: 浩翔集团官网
       link: https://www.haoxianggroup.cn
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团官网
-    - name: 浩翔控股集团内部办公系统
+    - name: 内部办公系统
       link: https://oa.haoxianggroup.cn
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团内部办公系统
-    - name: 浩翔控股集团地产销售系统
+    - name: 地产销售系统
       link: https://oa.haoxianggroup.cn
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团地产销售系统
-    - name: 浩翔控股集团财务系统
+    - name: 财务系统
       link: https://oa.haoxianggroup.cn
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团财务系统
