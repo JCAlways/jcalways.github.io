@@ -13,6 +13,10 @@
       link: https://pan.zhangsifan.com
       avatar: https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg
       descr: 我的网盘集合
+    - name: 青龙面板
+      link: http://ql.zhangsifan.com
+      avatar: https://qn.whyour.cn/logo.png
+      descr: 青龙面板
 
 - class_name: 技术支持
   class_desc: 特别鸣谢

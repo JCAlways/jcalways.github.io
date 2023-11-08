@@ -30,3 +30,9 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 [GeeTest3.0 使用教程](/posts/20230330gt/)
 
 [GeeTest4.0 使用教程](/posts/20230329gt/)
+
+## web office 类
+
+[WPS WEB Office 前端使用教程](/posts/20221010bg/)
+
+[利用 kkFileView 实现在线预览文件](/posts/20221021ov)
