@@ -42,11 +42,11 @@
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团内部办公系统
     - name: 地产销售系统
-      link: https://oa.haoxianggroup.cn
+      link: https://oa.haoxianggroup.cn/property/
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团地产销售系统
     - name: 财务系统
-      link: https://oa.haoxianggroup.cn
+      link: https://oa.haoxianggroup.cn/finance
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团财务系统
     - name: 山西会展网
