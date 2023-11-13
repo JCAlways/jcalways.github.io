@@ -1,7 +1,7 @@
+--- # --------------------------------------
+
 # Main menu navigation (導航目錄)
 # see https://butterfly.js.org/posts/4aa8abbe/#導航菜單
-# --------------------------------------
-
 menu:
   首页: / || fas fa-home
   文章总览: /archives/ || fas fa-archive
@@ -204,6 +204,9 @@ post_edit:
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url:
+
+# show scroll percent in scroll-to-top button
+rightside_scroll_percent: true
 
 # Related Articles
 related_post:
@@ -634,8 +637,15 @@ subtitle:
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
 
-# Loading Animation (加載動畫)
-preloader: true
+# 加载动画 Loading Animation
+preloader:
+  enable: false
+  # source
+  # 1. fullpage-loading
+  # 2. pace (progress bar)
+  source: 1
+  # pace theme (see https://codebyzach.github.io/pace/)
+  pace_css_url:
 
 # aside (側邊欄)
 # --------------------------------------
@@ -855,7 +865,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+  # - <link rel="stylesheet" href="/xxx.css">
   bottom:
     # - <script src="xxxx"></script>
 
