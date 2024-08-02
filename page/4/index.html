@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享开发过程中遇到的问题,以及一些技术文章!"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zhangsifan.com/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-EWZ3LRRMDJ');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: JCAlways","link":"链接: ","source":"来源: JCAlways","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JCAlways',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-08-02 07:06:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="JCAlways"><span class="site-name">JCAlways</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Node-Node%E4%B8%AD%E7%9A%84%E8%B7%A8%E5%9F%9F/" title="Node中的跨域"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node中的跨域"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Node-Node%E4%B8%AD%E7%9A%84%E8%B7%A8%E5%9F%9F/" title="Node中的跨域">Node中的跨域</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-13T18:15:47.000Z" title="发表于 2019-10-13 18:15:47">2019-10-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Node-js/">Node.js</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Node-js/">Node.js</a></span></div><div class="content">什么是跨域不同源的AJAX就是跨域
+协议,域名 ,端口相同就是同源
+问题演示
+浏览器向 web 服务器发起 http 请求时 ，如果同时满足以下三个条件时，就会出现跨域问题，从而导致 ajax 请求失败：
+
+你的浏览器多管闲事了。跨域问题出现的基本原因是浏览器出于安全性的考虑——同源策略：ajax 请求必须是同源，封杀了你跨域请求。可以安装一个浏览器插件allow-control-allow-origin来测试一下。 如果使用 postman 软件（它不是浏览器）来发请求，就不会有这个问题了。
+
+你的请求是 xhr 请求。就是常说的 ajax 请求。浏览器请求图片资源，js 文件,css 文件是可以跨域的（不是 ajax 请求）
+
+发出请求不符合同源策略要求。
+
+同源是指：协议相同，域名相同，端口相同。即发 ajax 请求的所在的页面 与 所请求的接口的 url 必须是同源的。
+以下就是不同源的：
+从http://127.0.0.1:5500/message_front/index.html 请求http://localhost:8080/msg
+
+在前后端分离开发的场景下，前端的页面 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-ArrayBuffer/" title="ArrayBuffer"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ArrayBuffer"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-ArrayBuffer/" title="ArrayBuffer">ArrayBuffer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">ArrayBufferArrayBuffer对象、TypedArray视图和DataView&#96;视图是 JavaScript 操作二进制数据的一个接口。这些对象早就存在，属于独立的规格（2011 年 2 月发布），ES6 将它们纳入了 ECMAScript 规格，并且增加了新的方法。它们都是以数组的语法处理二进制数据，所以统称为二进制数组。
+这个接口的原始设计目的，与 WebGL 项目有关。所谓 WebGL，就是指浏览器与显卡之间的通信接口，为了满足 JavaScript 与显卡之间大量的、实时的数据交换，它们之间的数据通信必须是二进制的，而不能是传统的文本格式。文本格式传递一个 32 位整数，两端的 JavaScript 脚本与显卡都要进行格式转化，将非常耗时。这时要是存在一种机制，可以像 C 语言那样，直接操作字节，将 4 个字节的 32 位整数，以二进制形式原封不动地送入显卡，脚本的性能就会大幅提升。
+二进制数组就是在这种背景下诞生的。它很像 C 语言的数组，允许开发者以数组下标的形式，直接操作内存，大大增强了 JavaScript 处理二进制数据的能力，使得开发者有可能通 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-Class%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Class 的基本语法"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Class 的基本语法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Class%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Class 的基本语法">Class 的基本语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Class 的基本语法简介JavaScript 语言中，生成实例对象的传统方法是通过构造函数。下面是一个例子。
+12345678910function Point(x, y) &#123;  this.x = x;  this.y = y;&#125;Point.prototype.toString = function() &#123;  return &quot;(&quot; + this.x + &quot;, &quot; + this.y + &quot;)&quot;;&#125;;var p = new Point(1, 2);
+
+上面这种写法跟传统的面向对象语言（比如 C++ 和 Java）差异很大，很容易让新学习这门语言的程序员感到困惑。
+ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。
+基本上，ES6 的class可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。上面的代码用 ES6 的class改写，就是 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-Class%20%E7%9A%84%E7%BB%A7%E6%89%BF/" title="Class 的继承"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Class 的继承"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Class%20%E7%9A%84%E7%BB%A7%E6%89%BF/" title="Class 的继承">Class 的继承</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Class 的继承简介Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
+123class Point &#123;&#125;class ColorPoint extends Point &#123;&#125;
+
+上面代码定义了一个ColorPoint类，该类通过extends关键字，继承了Point类的所有属性和方法。但是由于没有部署任何代码，所以这两个类完全一样，等于复制了一个Point类。下面，我们在ColorPoint内部加上代码。
+12345678910class ColorPoint extends Point &#123;  constructor(x, y, color) &#123;    super(x, y); // 调用父类的constructor(x, y)    this.color = color;  &#125;  toString() &#123;    return this.color + &quot; &quot; + super.toString(); // 调用父类的toStrin ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-ECMAScript%206%20%E7%AE%80%E4%BB%8B/" title="ECMAScript 6 简介"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ECMAScript 6 简介"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-ECMAScript%206%20%E7%AE%80%E4%BB%8B/" title="ECMAScript 6 简介">ECMAScript 6 简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">ECMAScript 6 简介ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+ECMAScript 和 JavaScript 的关系一个常见的问题是，ECMAScript 和 JavaScript 到底是什么关系？
+要讲清楚这个问题，需要回顾历史。1996 年 11 月，JavaScript 的创造者 Netscape 公司，决定将 JavaScript 提交给标准化组织 ECMA，希望这种语言能够成为国际标准。次年，ECMA 发布 262 号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，并将这种语言称为 ECMAScript，这个版本就是 1.0 版。
+该标准从一开始就是针对 JavaScript 语言制定的，但是之所以不叫 JavaScript，有两个原因。一是商标，Java 是 Sun 公司的商标，根据授权协议，只有 Netscape 公司可以合法地使用 JavaScript 这个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-Generator%20%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%82%E6%AD%A5%E5%BA%94%E7%94%A8/" title="Generator 函数的异步应用"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Generator 函数的异步应用"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Generator%20%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%82%E6%AD%A5%E5%BA%94%E7%94%A8/" title="Generator 函数的异步应用">Generator 函数的异步应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Generator 函数的异步应用异步编程对 JavaScript 语言太重要。Javascript 语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。本章主要介绍 Generator 函数如何完成异步操作。
+传统方法ES6 诞生以前，异步编程的方法，大概有下面四种。
+
+回调函数
+事件监听
+发布&#x2F;订阅
+Promise 对象
+
+Generator 函数将 JavaScript 异步编程带入了一个全新的阶段。
+基本概念异步所谓”异步”，简单说就是一个任务不是连续完成的，可以理解成该任务被人为分成两段，先执行第一段，然后转而执行其他任务，等做好了准备，再回过头执行第二段。
+比如，有一个任务是读取文件进行处理，任务的第一段是向操作系统发出请求，要求读取文件。然后，程序执行其他任务，等到操作系统返回文件，再接着执行任务的第二段（处理文件）。这种不连续的执行，就叫做异步。
+相应地，连续的执行就叫做同步。由于是连续执行，不能插入其他任务，所以操作系统从硬盘读取文件的这段时间，程序只能干等着。
+回调函数JavaScript 语言对异步编程的实现，就是回调函数。所谓回调函 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-Generator%20%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator 函数的语法"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Generator 函数的语法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Generator%20%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E6%B3%95/" title="Generator 函数的语法">Generator 函数的语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Generator 函数的语法简介基本概念Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。本章详细介绍 Generator 函数的语法和 API，它的异步编程应用请看《Generator 函数的异步应用》一章。
+Generator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
+执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
+形式上，Generator 函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。
+1234567function* helloWorldGenerator() &#123;  yield &quot;hello&quot;;  yield &quot;world&quot;;   ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-Iterator%20%E5%92%8C%20for...of%20%E5%BE%AA%E7%8E%AF/" title="Iterator 和 for...of 循环"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Iterator 和 for...of 循环"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Iterator%20%E5%92%8C%20for...of%20%E5%BE%AA%E7%8E%AF/" title="Iterator 和 for...of 循环">Iterator 和 for...of 循环</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Iterator 和 for…of 循环Iterator（遍历器）的概念JavaScript 原有的表示“集合”的数据结构，主要是数组（Array）和对象（Object），ES6 又添加了Map和Set。这样就有了四种数据集合，用户还可以组合使用它们，定义自己的数据结构，比如数组的成员是Map，Map的成员是对象。这样就需要一种统一的接口机制，来处理所有不同的数据结构。
+遍历器（Iterator）就是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 Iterator 接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。
+Iterator 的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是 ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供for...of消费。
+Iterator 的遍历过程是这样的。
+（1）创建一个指针对象，指向当前数据结构的起始位置。也就是说，遍历器对象本质上，就是一个指针对象。
+（2）第一次调用指针对象的next方法，可以将指针 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-Mixin/" title="Mixin"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mixin"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Mixin/" title="Mixin">Mixin</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">MixinJavaScript 语言的设计是单一继承，即子类只能继承一个父类，不允许继承多个父类。这种设计保证了对象继承的层次结构是树状的，而不是复杂的网状结构。
+但是，这大大降低了编程的灵活性。因为实际开发中，有时不可避免，子类需要继承多个父类。举例来说，“猫”可以继承“哺乳类动物”，也可以继承“宠物”。
+各种单一继承的编程语言，有不同的多重继承解决方案。比如，Java 语言也是子类只能继承一个父类，但是还允许继承多个界面（interface），这样就间接实现了多重继承。Interface 与父类一样，也是一个类，只不过它只定义接口（method signature），不定义实现，因此又被称为“抽象类”。凡是继承于 Interface 的方法，都必须自己定义实现，否则就会报错。这样就避免了多重继承的最大问题：多个父类的同名方法的碰撞（naming collision）。
+JavaScript 语言没有采用 Interface 的方案，而是通过代理（delegation）实现了从其他类引入方法。
+123456789var Enumerable_first = function() &# ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-Module%20%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%AE%9E%E7%8E%B0/" title="Module 的加载实现"><img class="post-bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Module 的加载实现"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-Module%20%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%AE%9E%E7%8E%B0/" title="Module 的加载实现">Module 的加载实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ES6/">ES6</a></span></div><div class="content">Module 的加载实现上一章介绍了模块的语法，本章介绍如何在浏览器和 Node 之中加载 ES6 模块，以及实际开发中经常遇到的一些问题（比如循环加载）。
+浏览器加载传统方法HTML 网页中，浏览器通过&lt;script&gt;标签加载 JavaScript 脚本。
+1234567&lt;!-- 页面内嵌的脚本 --&gt;&lt;script type=&quot;application/javascript&quot;&gt;  // module code&lt;/script&gt;&lt;!-- 外部脚本 --&gt;&lt;script type=&quot;application/javascript&quot; src=&quot;path/to/myModule.js&quot;&gt;&lt;/script&gt;
+
+上面代码中，由于浏览器脚本的默认语言是 JavaScript，因此type=&quot;application/javascript&quot;可以省略。
+默认情况下，浏览器是同步加载 JavaScript 脚本，即渲染引擎遇到&lt;script ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JCAlways</div><div class="author-info__description">分享开发过程中遇到的问题,以及一些技术文章!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JCAlways"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">有朋自远方来,不亦乐乎!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20240417re/" title="Google reCAPTCHA使用教程"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google reCAPTCHA使用教程"/></a><div class="content"><a class="title" href="/posts/20240417re/" title="Google reCAPTCHA使用教程">Google reCAPTCHA使用教程</a><time datetime="2024-04-17T00:00:00.000Z" title="发表于 2024-04-17 00:00:00">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230806pa/" title="通行密钥开发 Passkey"><img src="https://developers.google.cn/identity/passkeys/key-visual2.png?hl=zh-cn" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通行密钥开发 Passkey"/></a><div class="content"><a class="title" href="/posts/20230806pa/" title="通行密钥开发 Passkey">通行密钥开发 Passkey</a><time datetime="2023-08-06T00:00:00.000Z" title="发表于 2023-08-06 00:00:00">2023-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230505tr/" title="Tauri使用教程"><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*1zzctUzwIArJxD6MU_G7pQ.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tauri使用教程"/></a><div class="content"><a class="title" href="/posts/20230505tr/" title="Tauri使用教程">Tauri使用教程</a><time datetime="2023-05-05T00:00:00.000Z" title="发表于 2023-05-05 00:00:00">2023-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230330gt/" title="GeeTest3.0使用教程"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GeeTest3.0使用教程"/></a><div class="content"><a class="title" href="/posts/20230330gt/" title="GeeTest3.0使用教程">GeeTest3.0使用教程</a><time datetime="2023-03-30T00:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230329gt/" title="GeeTest4.0使用教程"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GeeTest4.0使用教程"/></a><div class="content"><a class="title" href="/posts/20230329gt/" title="GeeTest4.0使用教程">GeeTest4.0使用教程</a><time datetime="2023-03-29T00:00:00.000Z" title="发表于 2023-03-29 00:00:00">2023-03-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">47</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/JQuery/"><span class="card-category-list-name">JQuery</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/React-js/"><span class="card-category-list-name">React.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Vue-js/"><span class="card-category-list-name">Vue.js</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web-Office/"><span class="card-category-list-name">Web Office</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/reCAPTCHA/" style="font-size: 1.1em; color: #999">reCAPTCHA</a> <a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.1em; color: #999">导航</a> <a href="/tags/WPS-Office/" style="font-size: 1.1em; color: #999">WPS Office</a> <a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8A%E4%BC%A0/" style="font-size: 1.1em; color: #999">文件夹上传</a> <a href="/tags/GeeTest/" style="font-size: 1.18em; color: #999ca1">GeeTest</a> <a href="/tags/Vue-js/" style="font-size: 1.26em; color: #999fa8">Vue.js</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/Node-js/" style="font-size: 1.34em; color: #99a3b0">Node.js</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 1.42em; color: #99a6b7">JavaScript</a> <a href="/tags/React-jjs/" style="font-size: 1.1em; color: #999">React.jjs</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/kkFileViews/" style="font-size: 1.1em; color: #999">kkFileViews</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88/" style="font-size: 1.1em; color: #999">在线预览</a> <a href="/tags/Tauri/" style="font-size: 1.1em; color: #999">Tauri</a> <a href="/tags/%E6%8B%96%E6%8B%BD/" style="font-size: 1.1em; color: #999">拖拽</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.18em; color: #999ca1">微信小程序</a> <a href="/tags/%E9%80%9A%E8%A1%8C%E7%A7%98%E9%92%A5/" style="font-size: 1.1em; color: #999">通行秘钥</a> <a href="/tags/Fingerprintjs/" style="font-size: 1.1em; color: #999">Fingerprintjs</a> <a href="/tags/Element-Plus/" style="font-size: 1.1em; color: #999">Element-Plus</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 1.1em; color: #999">高德地图</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-10-09T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-02T07:06:12.283Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By JCAlways</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a style="display:flex;justify-content:center" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
