@@ -788,10 +788,10 @@ hexo-deployer-git@^4.0.0:
     nunjucks "^3.2.3"
     picocolors "^1.0.0"
 
-hexo-douban@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.npmmirror.com/hexo-douban/-/hexo-douban-2.3.5.tgz#6f404d987925783b9e1d9f95dbc38de94c294201"
-  integrity sha512-H1ni2INAG4l1E5J5fI2GAjVPtFLtF3g2cgTSYUZsh1xxeE8pXq20Lj35O7Yeuj8ontzYXPHmlOxyBhosNgAm9g==
+hexo-douban@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.npmmirror.com/hexo-douban/-/hexo-douban-2.3.6.tgz#2b0d58f265e488f2094c2a92be5a72ce9b40a167"
+  integrity sha512-08XVaNcRz+gMsyp6fBQFHj27Fgwtp54H2XvyvXDPr6DbZWEcpTgc7x/Z+k9S80jdtQME5GqlohZub9wEf7s8PA==
   dependencies:
     hexo-fs "4.1.1"
     hexo-log "3.2.0"
@@ -851,10 +851,10 @@ hexo-generator-feed@^3.0.0:
     hexo-util "^2.1.0"
     nunjucks "^3.0.0"
 
-hexo-generator-index@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmmirror.com/hexo-generator-index/-/hexo-generator-index-3.0.0.tgz"
-  integrity sha512-83AuNN4cWdLVi//3ugR8E3kR6rrOwhXZt+hOCm1IjtIGj353/GlrtpMHpqZHU5kqipzj4miy9dweVdukXglVWw==
+hexo-generator-index@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/hexo-generator-index/-/hexo-generator-index-4.0.0.tgz#2f20cf9d231db30edbccd5be32c92c8aeb5d6d63"
+  integrity sha512-KeM7mOCKWINGFAk1E+CkjMMgqFIv8oaRbGxR7ipkQAp44o4aopkVftma4sdIplOq9WQEWfVYDUK5gEv9J3nzUg==
   dependencies:
     hexo-pagination "3.0.0"
 
@@ -1004,10 +1004,10 @@ hexo-wordcount@^6.0.1:
   resolved "https://registry.npmjs.org/hexo-wordcount/-/hexo-wordcount-6.0.1.tgz"
   integrity sha512-tbo2P9xRWEKQmRf7+XuPjx9It1MnaE26nA+EEb2DN39gK1x+26W7Nm4Iyp4AugQjBWYYDx7OLn4gp1WFxQpQew==
 
-hexo@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.npmmirror.com/hexo/-/hexo-7.2.0.tgz#0c2b0eeb3f16c557638b6dbd5956a425460d7d0f"
-  integrity sha512-RYIzl7jfG0i2jH/k5IZg4C1anyHfmKHNUsBKIn9LU0V3iQ0WQrwuOLFDJwaZDenqmzHYJhAVCGAkrBDfF/IlVg==
+hexo@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.npmmirror.com/hexo/-/hexo-7.3.0.tgz#a9a487874c5ed71c22e91e32dd5d825709a1474f"
+  integrity sha512-dOe8mzBKrvjubW5oBmyhcnQDpC+M2xmAMLae5K+o+SkHxyvAhShkS2VQZoTsOLIJKY6xilv7dzCjCvE7ol/NHQ==
   dependencies:
     abbrev "^2.0.0"
     archy "^1.0.0"
