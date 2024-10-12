@@ -3,11 +3,11 @@
   link_list:
     - name: 天天起始页
       link: https://www.zhangsifan.com
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      avatar: https://www.zhangsifan.com/apple-touch-icon.png
       descr: 简洁的起始页
     - name: 统一认证平台
       link: https://account.zhangsifan.com
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      avatar: https://www.zhangsifan.com/apple-touch-icon.png
       descr: 统一认证平台
     - name: WPS WebOffice
       link: https://office.zhangsifan.com
@@ -31,7 +31,7 @@
       descr: Always-Team
     - name: Butterfly
       link: https://butterfly.js.org/
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      avatar: https://butterfly.js.org/img/favicon.ico
       descr: "🦋 A Hexo Theme: Butterfly"
 
 - class_name: 我的作品

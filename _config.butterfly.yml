@@ -73,7 +73,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: https://www.zhangsifan.com/favicon.ico
 
 # Avatar (頭像)
 avatar:
