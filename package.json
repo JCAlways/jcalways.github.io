@@ -6,7 +6,8 @@
     "algolia": "hexo algolia",
     "build": "hexo generate",
     "clean": "hexo clean",
-    "server": "hexo server"
+    "server": "hexo server",
+    "douban": "hexo douban"
   },
   "hexo": {
     "version": "7.3.0"
@@ -28,7 +29,7 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-butterfly": "^5.0.0",
+    "hexo-theme-butterfly": "^5.1.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1"
   }
