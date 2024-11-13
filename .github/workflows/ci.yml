@@ -13,16 +13,16 @@ jobs:
     env:
       HEXO_ALGOLIA_INDEXING_KEY: 7e2b35b929876e054ae115f1aae550bf
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           # 选择要使用的 node 版本
-          node-version: "18"
+          node-version: "20"
       # 安装依赖
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -38,7 +38,7 @@ jobs:
         run: yarn algolia
 
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
           build_dir: ./public
