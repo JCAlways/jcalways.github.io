@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Node基础 | JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装 Node.js软件下载地址 NPM介绍 CommonJS 包规范是理论，NPM 是其中一 种实践。 对于 Node 而言，NPM 帮助其完成了第三 方模块的发布、安装和依赖等。借助 NPM， Node 与第三方模块之间形成了很好的一个 生态系统。  NPM 命令123456789npm..."><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/posts/Node-Node%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: JCAlways","link":"链接: ","source":"来源: JCAlways","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Node基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a><a class="nav-page-title" href="/"><span class="site-name">Node基础</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Node基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-09-29T20:00:00.000Z" title="发表于 2019-09-29 20:00:00">2019-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-13T07:34:20.480Z" title="更新于 2024-11-13 07:34:20">2024-11-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/Node-js/">Node.js</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h1><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">软件下载地址</a></p>
+<h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>CommonJS 包规范是理论，NPM 是其中一 种实践。</li>
+<li>对于 Node 而言，NPM 帮助其完成了第三 方模块的发布、安装和依赖等。借助 NPM， Node 与第三方模块之间形成了很好的一个 生态系统。</li>
+</ul>
+<h2 id="NPM-命令"><a href="#NPM-命令" class="headerlink" title="NPM 命令"></a>NPM 命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm -v  # 查看版本</span><br><span class="line">npm  # 帮助说明</span><br><span class="line">npm search 包名  # 搜索模块包</span><br><span class="line">npm install 包名  # 在当前目录下安装包</span><br><span class="line">npm install -g 包名  # 全局模式安装包</span><br><span class="line">npm remove 包名  # 删除一个模块</span><br><span class="line">npm install 文件路径  # 从本地安装</span><br><span class="line">npm install 包名 -registry=地址  # 从镜像源安装</span><br><span class="line">npm config set registry 地址  # 设置镜像源</span><br></pre></td></tr></table></figure>
+
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入http模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="comment">// 创建服务</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`有人访问了本服务器`</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;&lt;h1&gt;hello world!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 启动服务</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8081</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功，请在http://localhost:8081中访问....&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><ul>
+<li>核心模块<ul>
+<li>就是 nodejs 自带的模块，在安装完 nodejs 之后，就可以随意使用啦。相当于学习 js 时使用的 Array 对象。</li>
+<li>全部模块的源代码 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/tree/master/lib">https://github.com/nodejs/node/tree/master/lib</a></li>
+</ul>
+</li>
+<li>自定义模块<ul>
+<li>程序员自己写的模块。就相当于我们在学习 js 时的自定义函数。</li>
+</ul>
+</li>
+<li>第三方模块<ul>
+<li>其他程序员写好的模块。nodejs 生态提供了一个专门的工具 npm 来管理第三方模块，后面我们会专门讲到。</li>
+<li>相当于别人写好的函数或者库。例如我们前面学习的 JQuery 库，arttemplate 等。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Node-的全局变量"><a href="#Node-的全局变量" class="headerlink" title="Node 的全局变量"></a>Node 的全局变量</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__filename; <span class="comment">// 当前文件的绝对路径</span></span><br><span class="line">__dirname; <span class="comment">// 当前文件所在目录的绝对路径</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="fs-模块-文件系统"><a href="#fs-模块-文件系统" class="headerlink" title="fs 模块(文件系统)"></a>fs 模块(文件系统)</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">文档地址</a></p>
+</blockquote>
+<p>fs 模块中的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fs.access(path, callback)</td>
+<td>判断路径是否存在</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.appendFile(file, data, callback)</td>
+<td>向文件中追加内容</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.copyFile(src, callback)</td>
+<td>复制文件</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.mkdir(path, callback)</td>
+<td>创建目录</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.readDir(path, callback)</td>
+<td>读取目录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.rename(oldPath, newPath, callback)</td>
+<td>重命名文件&#x2F;目录</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.rmdir(path, callback)</td>
+<td>删除目录</td>
+<td>只能删除空目录</td>
+</tr>
+<tr>
+<td>fs.stat(path, callback)</td>
+<td>获取文件&#x2F;目录信息</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.unlink(path, callback)</td>
+<td>删除文件</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.watch(filename[, options][, listener])</td>
+<td>监视文件&#x2F;目录</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.watchFile(filename[, options], listener)</td>
+<td>监视文件</td>
+<td></td>
+</tr>
+<tr>
+<td>fs.existsSync(absolutePath)</td>
+<td>判断路径是否存在</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><ul>
+<li>fs.readFile</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./12.txt&quot;</span>, <span class="string">&quot;utf8&quot;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 读出文件自动被调用</span></span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fs.readFileSync</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;./1.txt&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>());</span><br></pre></td></tr></table></figure>
+
+<h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><h3 id="覆盖写入"><a href="#覆盖写入" class="headerlink" title="覆盖写入"></a>覆盖写入</h3><ul>
+<li>fs.writeFile</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&quot;2.txt&quot;</span>, <span class="string">&quot;我是文本&quot;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fs.writeFileSync</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;我是文本&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="追加写入"><a href="#追加写入" class="headerlink" title="追加写入"></a>追加写入</h3><ul>
+<li>fs.appendFile</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;我是文本&quot;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fs.appendFileSync</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">appendFileSync</span>(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;我是文本&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="path-模块-路径"><a href="#path-模块-路径" class="headerlink" title="path 模块(路径)"></a>path 模块(路径)</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/path.html#path_path">文档地址</a></p>
+</blockquote>
+<p>path 模块其它方法列表</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path.basename(path[, ext])</td>
+<td>获取返回 path 的最后一部分(文件名)</td>
+</tr>
+<tr>
+<td>path.dirname(path)</td>
+<td>返回目录名</td>
+</tr>
+<tr>
+<td>path.extname(path)</td>
+<td>返回路径中文件的扩展名(包含.)</td>
+</tr>
+<tr>
+<td>path.format(pathObject)</td>
+<td>将一个对象格式化为一个路径字符串</td>
+</tr>
+<tr>
+<td>path.join([…paths])</td>
+<td>拼接路径</td>
+</tr>
+<tr>
+<td>path.parse(path)</td>
+<td>把路径字符串解析成对象的格式</td>
+</tr>
+<tr>
+<td>path.resolve([…paths])</td>
+<td>基于当前<strong>工作目录</strong>拼接路径</td>
+</tr>
+</tbody></table>
+<h1 id="http-模块"><a href="#http-模块" class="headerlink" title="http 模块"></a>http 模块</h1><h2 id="搭建-web-服务器"><a href="#搭建-web-服务器" class="headerlink" title="搭建 web 服务器"></a>搭建 web 服务器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * req - 本次请求的信息</span></span><br><span class="line"><span class="comment"> * res - 本次响应的信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&quot;content-type&quot;</span>, <span class="string">&quot;text/html;charset=utf-8&quot;</span>); <span class="comment">// 设置响应头</span></span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;helloworld&quot;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">url</span>); <span class="comment">// 客户端浏览器本次请求的地址</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8080</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="req-请求对象"><a href="#req-请求对象" class="headerlink" title="req-请求对象"></a>req-请求对象</h2><ul>
+<li>req.url。客户端浏览器本次请求的地址</li>
+<li>req.method。 获取请求行中的请求方法</li>
+<li>req.headers。 获取请求</li>
+</ul>
+<h2 id="res-响应对象"><a href="#res-响应对象" class="headerlink" title="res-响应对象"></a>res-响应对象</h2><ul>
+<li><p>res.end()</p>
+<ul>
+<li>设置响应体。把把本次的处理结果返回给客户端浏览器</li>
+<li>如果不写这一句，则客户端浏览器<code>永远收不到响应</code>。</li>
+</ul>
+</li>
+<li><p>res.setHeader() 设置响应头，比如设置响应体的编码</p>
+<p><code>res.setHeader(&#39;content-type&#39;, &#39;text/html;charset=utf-8&#39;);</code></p>
+</li>
+<li><p>res.statusCode 设置状态码</p>
+<p><code>res.statusCode=500</code></p>
+</li>
+</ul>
+<h2 id="为不同的文件类型设置不同的-Content-Type"><a href="#为不同的文件类型设置不同的-Content-Type" class="headerlink" title="为不同的文件类型设置不同的 Content-Type"></a>为不同的文件类型设置不同的 Content-Type</h2><p>通过使用 res 对象中的 setHeader 方法，我们可以设置 content-type 这个响应头。这个响应头的作用是告诉浏览器，本次响应的内容是什么格式的内容。以方便浏览器进行处理。</p>
+<p>常见的几中文件类型及 content-type 如下。</p>
+<ul>
+<li>.html：res.setHeader(‘content-type’, ‘text&#x2F;html;charset&#x3D;utf8’)</li>
+<li>.css：res.setHeader(‘content-type’, ‘text&#x2F;css;charset&#x3D;utf8’)</li>
+<li>.js：res.setHeader(‘content-type’, ‘application&#x2F;javascript’)</li>
+<li>.png：res.setHeader(‘content-type’, ‘image&#x2F;png’)</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com">JCAlways</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com/posts/Node-Node%E5%9F%BA%E7%A1%80/">https://blog.zhangsifan.com/posts/Node-Node%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.zhangsifan.com" target="_blank">JCAlways</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Node-js/">Node.js</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/Node-Express%E6%A1%86%E6%9E%B6/" title="Express框架"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Express框架</div></div><div class="info-2"><div class="info-item-1">Express 介绍 Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架 Express 是一个第三方模块，有丰富的 API 支持，强大而灵活的中间件特性 Express 不对 Node.js 已有的特性进行二次抽象，只是在它之上扩展了 Web 应用所需的基本功能 链接 Express 官网 Express 中文文档（非官方） Express GitHub 仓库    Hello World 下载 Express 包  12npm init -ynpm i express   代码  123456789101112// 0. 加载 Expressconst express = require(&quot;express&quot;);// 1. 调用 express() 得到一个 app//    类似于 http.createServer()const app = express();// 2. 设置请求对应的处理函数//    当客户端以 GET 方法请求 /...</div></div></div></a><a class="pagination-related" href="/posts/DOC-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" title="Hexo博客搭建流程"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hexo博客搭建流程</div></div><div class="info-2"><div class="info-item-1">博客搭建步骤</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/Node-Express%E6%A1%86%E6%9E%B6/" title="Express框架"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-10</div><div class="info-item-2">Express框架</div></div><div class="info-2"><div class="info-item-1">Express 介绍 Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架 Express 是一个第三方模块，有丰富的 API 支持，强大而灵活的中间件特性 Express 不对 Node.js 已有的特性进行二次抽象，只是在它之上扩展了 Web 应用所需的基本功能 链接 Express 官网 Express 中文文档（非官方） Express GitHub 仓库    Hello World 下载 Express 包  12npm init -ynpm i express   代码  123456789101112// 0. 加载 Expressconst express = require(&quot;express&quot;);// 1. 调用 express() 得到一个 app//    类似于 http.createServer()const app = express();// 2. 设置请求对应的处理函数//    当客户端以 GET 方法请求 /...</div></div></div></a><a class="pagination-related" href="/posts/Node-MySQL%E4%BD%BF%E7%94%A8/" title="Node操作MySQL"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-14</div><div class="info-item-2">Node操作MySQL</div></div><div class="info-2"><div class="info-item-1">数据库的增删改查增1insert into 表名(字段名1,字段名2,......) values(值1,值2,......)  删1delete  from 表名  where 删除条件  改1update 表名 set 字段1=值1, 字段2=值2,...  where 修改条件  查1SELECT  字段名1, 字段名2, .....  FROM 表名	WHERE &lt;条件表达式&gt;  Node.js 中使用 MySQL初始化文件夹1npm init -y  安装插件1npm i mysql  创建 server.js 将代码复制进去12345678910111213141516var mysql = require(&quot;mysql&quot;);var connection = mysql.createConnection(&#123;  host: &quot;localhost&quot;,  user: &quot;root&quot;,  password: &quot;root&quot;,  database:...</div></div></div></a><a class="pagination-related" href="/posts/Node-Node%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/" title="Node中的会话技术"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-13</div><div class="info-item-2">Node中的会话技术</div></div><div class="info-2"><div class="info-item-1">会话技术有很多的网站都有登录的功能： 123|--login.html (登录页)|--index.html(主页)|--vip.html(设置页)  实际开发中，我们必须解决：  页面之间的状态共享问题：例如用户从 login.html 页面登陆之后，再去访问 index.html 或者 setting.html 页面时，应该还是能够获取用户的登陆信息。 权限控制。必须先 login 成功，之后才访问 vip.html。  由于 http 是无状态的，就是无记忆的，对于 HTTP 协议而言，无状态同样指每次 request 请求之间是相互独立的，当前请求并不会记录上一次请求信息。每次请求都是独立的，没有关联的，所以服务器和客户端都不知道是否是登录过的。 什么是会话控制会话控制就是用来弥补 http 无记忆的缺陷的一种技术。它能够将数据持久化（保存数据）的保存在客户端(浏览器)或者服务器端，从而让浏览器和服务器进行多次数据交换时，产生连续性。 让每一次的请求和响应都知道对方是谁。  会话控制的分类Cookie–将数据保存到客户端（浏览器）（饼干，甜点）Cookie...</div></div></div></a><a class="pagination-related" href="/posts/Node-Node%E4%B8%AD%E7%9A%84%E8%B7%A8%E5%9F%9F/" title="Node中的跨域"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-13</div><div class="info-item-2">Node中的跨域</div></div><div class="info-2"><div class="info-item-1">什么是跨域不同源的AJAX就是跨域 协议,域名 ,端口相同就是同源 问题演示 浏览器向 web 服务器发起 http 请求时 ，如果同时满足以下三个条件时，就会出现跨域问题，从而导致 ajax 请求失败：  你的浏览器多管闲事了。跨域问题出现的基本原因是浏览器出于安全性的考虑——同源策略：ajax 请求必须是同源，封杀了你跨域请求。可以安装一个浏览器插件allow-control-allow-origin来测试一下。 如果使用 postman 软件（它不是浏览器）来发请求，就不会有这个问题了。  你的请求是 xhr 请求。就是常说的 ajax 请求。浏览器请求图片资源，js 文件,css 文件是可以跨域的（不是 ajax 请求）  发出请求不符合同源策略要求。  同源是指：协议相同，域名相同，端口相同。即发 ajax 请求的所在的页面 与 所请求的接口的 url 必须是同源的。 以下就是不同源的： 从http://127.0.0.1:5500/message_front/index.html...</div></div></div></a><a class="pagination-related" href="/posts/Node-Promise/" title="Promise"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-14</div><div class="info-item-2">Promise</div></div><div class="info-2"><div class="info-item-1">Promise 构造器Promise 是一个构造器，用来创建 Promise 类型的对象 。就好像 Array 是一个构造器，用来创建数组。 格式123456789var p1 = new Promise(function(resolve, reject) &#123;  alert(1);  //   在某一个时刻去调用  // resolve():把p1的状态由 pending -----&gt; resolved  // reject() :把p1的状态由 pending -----&gt; rejected  console.log(222);  resolve(456);&#125;);console.dir(p1);  三种状态pendingpending,”行将发生的”。相当于是一个初始状态。 1234var p = new Promise((ok, err) =&gt; &#123;  console.info(&quot;发呆.....&quot;);&#125;);console.dir(p);  resolved创建 Promise...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JCAlways"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">有朋自远方来,不亦乐乎!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="toc-number">1.</span> <span class="toc-text">安装 Node.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NPM"><span class="toc-number">2.</span> <span class="toc-text">NPM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPM-%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">NPM 命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello-World"><span class="toc-number">3.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">5.</span> <span class="toc-text">Node 的全局变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fs-%E6%A8%A1%E5%9D%97-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">6.</span> <span class="toc-text">fs 模块(文件系统)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">写入文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%E5%86%99%E5%85%A5"><span class="toc-number">6.2.1.</span> <span class="toc-text">覆盖写入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5"><span class="toc-number">6.2.2.</span> <span class="toc-text">追加写入</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#path-%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84"><span class="toc-number">7.</span> <span class="toc-text">path 模块(路径)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#http-%E6%A8%A1%E5%9D%97"><span class="toc-number">8.</span> <span class="toc-text">http 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA-web-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">8.1.</span> <span class="toc-text">搭建 web 服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.2.</span> <span class="toc-text">req-请求对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#res-%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.3.</span> <span class="toc-text">res-响应对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E8%AE%BE%E7%BD%AE%E4%B8%8D%E5%90%8C%E7%9A%84-Content-Type"><span class="toc-number">8.4.</span> <span class="toc-text">为不同的文件类型设置不同的 Content-Type</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20241017dv/" title="PageSpy使用教程"><img src="https://www.pagespy.org/assets/doc-banner-331e6b44.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PageSpy使用教程"/></a><div class="content"><a class="title" href="/posts/20241017dv/" title="PageSpy使用教程">PageSpy使用教程</a><time datetime="2024-10-17T00:00:00.000Z" title="发表于 2024-10-17 00:00:00">2024-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240924wg/" title="风灵月影下载"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风灵月影下载"/></a><div class="content"><a class="title" href="/posts/20240924wg/" title="风灵月影下载">风灵月影下载</a><time datetime="2024-09-24T00:00:00.000Z" title="发表于 2024-09-24 00:00:00">2024-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240417re/" title="Google reCAPTCHA使用教程"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google reCAPTCHA使用教程"/></a><div class="content"><a class="title" href="/posts/20240417re/" title="Google reCAPTCHA使用教程">Google reCAPTCHA使用教程</a><time datetime="2024-04-17T00:00:00.000Z" title="发表于 2024-04-17 00:00:00">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230806pa/" title="通行密钥开发 Passkey"><img src="https://developers.google.cn/identity/passkeys/key-visual2.png?hl=zh-cn" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通行密钥开发 Passkey"/></a><div class="content"><a class="title" href="/posts/20230806pa/" title="通行密钥开发 Passkey">通行密钥开发 Passkey</a><time datetime="2023-08-06T00:00:00.000Z" title="发表于 2023-08-06 00:00:00">2023-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230505tr/" title="Tauri使用教程"><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*1zzctUzwIArJxD6MU_G7pQ.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tauri使用教程"/></a><div class="content"><a class="title" href="/posts/20230505tr/" title="Tauri使用教程">Tauri使用教程</a><time datetime="2023-05-05T00:00:00.000Z" title="发表于 2023-05-05 00:00:00">2023-05-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By JCAlways</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a style="display:flex;justify-content:center" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
