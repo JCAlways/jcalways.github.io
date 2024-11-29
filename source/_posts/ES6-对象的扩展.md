@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 对象的扩展
@@ -51,7 +51,7 @@ const o = {
 // 等同于
 
 const o = {
-  method: function() {
+  method: function () {
     return "Hello!";
   },
 };
@@ -143,7 +143,7 @@ const obj = {
 // 等同于
 
 var obj = {
-  class: function() {},
+  class: function () {},
 };
 ```
 
@@ -287,7 +287,7 @@ descriptor.set.name; // "set foo"
 ```javascript
 new Function().name; // "anonymous"
 
-var doSomething = function() {
+var doSomething = function () {
   // ...
 };
 doSomething.bind().name; // "bound doSomething"
@@ -335,7 +335,7 @@ ES5 可以通过下面的代码，部署`Object.is`。
 
 ```javascript
 Object.defineProperty(Object, "is", {
-  value: function(x, y) {
+  value: function (x, y) {
     if (x === y) {
       // 针对+0 不等于 -0的情况
       return x !== 0 || 1 / x === 1 / y;
@@ -1076,7 +1076,7 @@ const obj = {
 
 // 报错
 const obj = {
-  foo: function() {
+  foo: function () {
     return super.foo;
   },
 };

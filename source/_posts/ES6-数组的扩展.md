@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 数组的扩展
@@ -290,9 +290,9 @@ let array = [...nodeList];
 
 ```javascript
 let arrayLike = {
-  "0": "a",
-  "1": "b",
-  "2": "c",
+  0: "a",
+  1: "b",
+  2: "c",
   length: 3,
 };
 
@@ -319,7 +319,7 @@ let arr = [...map.keys()]; // [1, 2, 3]
 Generator 函数运行后，返回一个遍历器对象，因此也可以使用扩展运算符。
 
 ```javascript
-const go = function*() {
+const go = function* () {
   yield 1;
   yield 2;
   yield 3;
@@ -345,9 +345,9 @@ let arr = [...obj]; // TypeError: Cannot spread non-iterable object
 
 ```javascript
 let arrayLike = {
-  "0": "a",
-  "1": "b",
-  "2": "c",
+  0: "a",
+  1: "b",
+  2: "c",
   length: 3,
 };
 
@@ -582,7 +582,7 @@ i32a.copyWithin(0, 2);
 上面代码找出数组中第一个小于 0 的成员。
 
 ```javascript
-[1, 5, 10, 15].find(function(value, index, arr) {
+[1, 5, 10, 15].find(function (value, index, arr) {
   return value > 9;
 }); // 10
 ```
@@ -592,7 +592,7 @@ i32a.copyWithin(0, 2);
 数组实例的`findIndex`方法的用法与`find`方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回`-1`。
 
 ```javascript
-[1, 5, 10, 15].findIndex(function(value, index, arr) {
+[1, 5, 10, 15].findIndex(function (value, index, arr) {
   return value > 9;
 }); // 2
 ```

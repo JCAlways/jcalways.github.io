@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # ArrayBuffer
@@ -819,7 +819,7 @@ dv.setFloat32(8, 2.5, true);
 如果不确定正在使用的计算机的字节序，可以采用下面的判断方式。
 
 ```javascript
-const littleEndian = (function() {
+const littleEndian = (function () {
   const buffer = new ArrayBuffer(2);
   new DataView(buffer).setInt16(0, 256, true);
   return new Int16Array(buffer)[0] === 256;
@@ -841,7 +841,7 @@ let xhr = new XMLHttpRequest();
 xhr.open("GET", someUrl);
 xhr.responseType = "arraybuffer";
 
-xhr.onload = function() {
+xhr.onload = function () {
   let arrayBuffer = xhr.response;
   // ···
 };
@@ -852,7 +852,7 @@ xhr.send();
 如果知道传回来的是 32 位整数，可以像下面这样处理。
 
 ```javascript
-xhr.onreadystatechange = function() {
+xhr.onreadystatechange = function () {
   if (req.readyState === 4) {
     const arrayResponse = xhr.response;
     const dataView = new DataView(arrayResponse);
@@ -901,14 +901,14 @@ let socket = new WebSocket("ws://127.0.0.1:8081");
 socket.binaryType = "arraybuffer";
 
 // Wait until socket is open
-socket.addEventListener("open", function(event) {
+socket.addEventListener("open", function (event) {
   // Send binary data
   const typedArray = new Uint8Array(4);
   socket.send(typedArray.buffer);
 });
 
 // Receive binary data
-socket.addEventListener("message", function(event) {
+socket.addEventListener("message", function (event) {
   const arrayBuffer = event.data;
   // ···
 });
@@ -920,10 +920,10 @@ Fetch API 取回的数据，就是`ArrayBuffer`对象。
 
 ```javascript
 fetch(url)
-  .then(function(response) {
+  .then(function (response) {
     return response.arrayBuffer();
   })
-  .then(function(arrayBuffer) {
+  .then(function (arrayBuffer) {
     // ...
   });
 ```
@@ -937,7 +937,7 @@ const fileInput = document.getElementById("fileInput");
 const file = fileInput.files[0];
 const reader = new FileReader();
 reader.readAsArrayBuffer(file);
-reader.onload = function() {
+reader.onload = function () {
   const arrayBuffer = reader.result;
   // ···
 };
@@ -1013,7 +1013,7 @@ const w = new Worker("myworker.js");
 ```javascript
 // 主线程
 w.postMessage("hi");
-w.onmessage = function(ev) {
+w.onmessage = function (ev) {
   console.log(ev.data);
 };
 ```
@@ -1024,7 +1024,7 @@ Worker 线程也是通过监听`message`事件，来获取主线程发来的消�
 
 ```javascript
 // Worker 线程
-onmessage = function(ev) {
+onmessage = function (ev) {
   console.log(ev.data);
   postMessage("ho");
 };
@@ -1053,7 +1053,7 @@ Worker 线程从事件的`data`属性上面取到数据。
 
 ```javascript
 // Worker 线程
-onmessage = function(ev) {
+onmessage = function (ev) {
   // 主线程共享的数据，就是 1KB 的共享内存
   const sharedBuffer = ev.data;
 
@@ -1090,7 +1090,7 @@ Worker 线程收到数据后的处理如下。
 ```javascript
 // Worker 线程
 let ia;
-onmessage = function(ev) {
+onmessage = function (ev) {
   ia = ev.data;
   console.log(ia.length); // 100000
   console.log(ia[37]); // 输出 163，因为这是第38个质数

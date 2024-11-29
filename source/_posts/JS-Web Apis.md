@@ -4,7 +4,7 @@ date: 2019-8-29 20:00:00
 categories:
   - JavaScript
 tags: JavaScript
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # DOM (文档对象模型/Document Object Model)
@@ -91,7 +91,7 @@ document.documentElement; // 返回hhtml元素
 > 通过 on 的方式给元素注册事件的时候,注册用一个事件,那么最后的事件会覆盖前面的事件
 
 ```js
-document.querySelectorAll(".box").onclick = function() {
+document.querySelectorAll(".box").onclick = function () {
   // 处理程序
 };
 ```
@@ -136,13 +136,13 @@ document.querySelectorAll(".box").onclick = function() {
 
 ```js
 var div = document.querySelector(".box");
-div.addEventListener("touchstart", function() {
+div.addEventListener("touchstart", function () {
   console.log("按下事件");
 });
-div.addEventListener("touchend", function() {
+div.addEventListener("touchend", function () {
   console.log("抬起事件");
 });
-div.addEventListener("touchmove", function() {
+div.addEventListener("touchmove", function () {
   console.log("移动事件");
 });
 ```
@@ -315,11 +315,11 @@ node.cloneNode(boolean); // true(复制标签复制内容) / false(复制标签)
 
 ```js
 // 窗口加载事件
-window.onload = function() {};
-document.addEventListener("DOMContentLoaded", function() {});
+window.onload = function () {};
+document.addEventListener("DOMContentLoaded", function () {});
 // 窗口大小变化
-window.onresize = function() {};
-document.addEventListener("resize", function() {});
+window.onresize = function () {};
+document.addEventListener("resize", function () {});
 ```
 
 ## 定时器
@@ -330,7 +330,7 @@ document.addEventListener("resize", function() {});
 
 ```js
 // 开启定时器
-setTimeout(function() {}, time);
+setTimeout(function () {}, time);
 // 取消定时器
 clearTimeout(定时器编号);
 ```
@@ -341,7 +341,7 @@ clearTimeout(定时器编号);
 
 ```js
 // 开启定时器
-setInterval(function() {}, time);
+setInterval(function () {}, time);
 // 取消定时器
 clearInterval(定时器编号);
 ```
@@ -452,7 +452,7 @@ window.pageYOffset; // 页面被卷起的高度
 > 不需要调用 立马能够执行
 
 ```js
-(function() {})();
+(function () {})();
 ```
 
 # click 延时解决方案

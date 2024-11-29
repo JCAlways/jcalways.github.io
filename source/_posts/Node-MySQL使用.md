@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 数据库的增删改查
@@ -65,7 +65,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 let sql = ``; //sql查询语句
-connection.query(sql, function(error, results, fields) {
+connection.query(sql, function (error, results, fields) {
   if (error) throw error;
   console.log(results);
 });

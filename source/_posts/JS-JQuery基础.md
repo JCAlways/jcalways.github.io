@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - JQuery
 tags: JavaScript
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 什么是 Jquery
@@ -30,11 +30,11 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 ## 入口函数
 
 ```js
-$(document).ready(function() {
+$(document).ready(function () {
   // 代码
 });
 // 或者
-$(function() {
+$(function () {
   // 代码
   alert(1);
 });
@@ -95,15 +95,15 @@ $("div").get(index);
 
 ```js
 $("div").on({
-  click: function() {},
-  mouseenter: function() {},
+  click: function () {},
+  mouseenter: function () {},
 });
 ```
 
 ### 事件委派/委托
 
 ```js
-$("ul").on("click", "li", function() {
+$("ul").on("click", "li", function () {
   alert("hello world!");
 });
 ```
@@ -111,7 +111,7 @@ $("ul").on("click", "li", function() {
 ### 给动态添加的元素添加事件
 
 ```js
-$("div").on("click", "p", function() {
+$("div").on("click", "p", function () {
   alert("给动态生成的元素绑定事件");
 });
 ```
@@ -330,12 +330,12 @@ toFixed(数量);
 
 ```js
 // 用来遍历元素
-$("元素").each(function(index, item) {
+$("元素").each(function (index, item) {
   // item是DOM对象
   $(item).css();
 });
 // 用来遍历数据
-$.each(对象, function(index, element) {});
+$.each(对象, function (index, element) {});
 ```
 
 ### 创建元素

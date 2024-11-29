@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Class 的继承
@@ -429,7 +429,7 @@ const b = new B();
 《对象的扩展》一章给出过`Object.setPrototypeOf`方法的实现。
 
 ```javascript
-Object.setPrototypeOf = function(obj, proto) {
+Object.setPrototypeOf = function (obj, proto) {
   obj.__proto__ = proto;
   return obj;
 };
@@ -502,7 +502,7 @@ p2.__proto__.__proto__ === p1.__proto__; // true
 因此，通过子类实例的`__proto__.__proto__`属性，可以修改父类实例的行为。
 
 ```javascript
-p2.__proto__.__proto__.printName = function() {
+p2.__proto__.__proto__.printName = function () {
   console.log("Ha");
 };
 

@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Reflect
@@ -49,7 +49,7 @@ Reflect.has(Object, "assign"); // true
 
 ```javascript
 Proxy(target, {
-  set: function(target, name, value, receiver) {
+  set: function (target, name, value, receiver) {
     var success = Reflect.set(target, name, value, receiver);
     if (success) {
       log("property " + name + " on " + target + " set to " + value);

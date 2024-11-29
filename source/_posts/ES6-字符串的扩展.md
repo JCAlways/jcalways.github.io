@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 字符串的扩展
@@ -373,7 +373,7 @@ $("#result").append(`
 
 ```javascript
 // 普通字符串
-`In JavaScript '\n' is a line-feed.`// 多行字符串
+`In JavaScript '\n' is a line-feed.` // 多行字符串
 `In JavaScript this is
  not legal.`;
 
@@ -440,8 +440,9 @@ function authorize(user, action) {
 let x = 1;
 let y = 2;
 
-`${x} + ${y} = ${x + y}`// "1 + 2 = 3"
-
+`${x} + ${y} = ${
+  x + y
+}` // "1 + 2 = 3"
 `${x} + ${y * 2} = ${x + y * 2}`;
 // "1 + 4 = 5"
 
@@ -762,10 +763,7 @@ function SaferHTML(templateData) {
     let arg = String(arguments[i]);
 
     // Escape special characters in the substitution.
-    s += arg
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+    s += arg.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     // Don't escape special characters in the template.
     s += templateData[i];
@@ -893,7 +891,7 @@ String.raw({ raw: ["t", "e", "s", "t"] }, 0, 1, 2);
 作为函数，`String.raw`的代码实现基本如下。
 
 ```javascript
-String.raw = function(strings, ...values) {
+String.raw = function (strings, ...values) {
   let output = "";
   let index;
   for (index = 0; index < values.length; index++) {

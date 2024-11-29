@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Iterator 和 for...of 循环
@@ -42,7 +42,7 @@ it.next(); // { value: undefined, done: true }
 function makeIterator(array) {
   var nextIndex = 0;
   return {
-    next: function() {
+    next: function () {
       return nextIndex < array.length
         ? { value: array[nextIndex++], done: false }
         : { value: undefined, done: true };
@@ -65,7 +65,7 @@ function makeIterator(array) {
 function makeIterator(array) {
   var nextIndex = 0;
   return {
-    next: function() {
+    next: function () {
       return nextIndex < array.length
         ? { value: array[nextIndex++] }
         : { done: true };
@@ -88,7 +88,7 @@ function idMaker() {
   var index = 0;
 
   return {
-    next: function() {
+    next: function () {
       return { value: index++, done: false };
     },
   };
@@ -124,9 +124,9 @@ ES6 规定，默认的 Iterator 接口部署在数据结构的`Symbol.iterator`�
 
 ```javascript
 const obj = {
-  [Symbol.iterator]: function() {
+  [Symbol.iterator]: function () {
     return {
-      next: function() {
+      next: function () {
         return {
           value: 1,
           done: true,
@@ -211,7 +211,7 @@ function Obj(value) {
   this.next = null;
 }
 
-Obj.prototype[Symbol.iterator] = function() {
+Obj.prototype[Symbol.iterator] = function () {
   var iterator = { next: next };
 
   var current = this;
@@ -343,10 +343,7 @@ while (!$result.done) {
 对数组和 Set 结构进行解构赋值时，会默认调用`Symbol.iterator`方法。
 
 ```javascript
-let set = new Set()
-  .add("a")
-  .add("b")
-  .add("c");
+let set = new Set().add("a").add("b").add("c");
 
 let [x, y] = set;
 // x='a'; y='b'
@@ -383,7 +380,7 @@ let arr = [...iterable];
 `yield*`后面跟的是一个可遍历的结构，它会调用该结构的遍历器接口。
 
 ```javascript
-let generator = function*() {
+let generator = function* () {
   yield 1;
   yield* [2, 3, 4];
   yield 5;
@@ -434,9 +431,9 @@ var str = new String("hi");
 
 [...str]; // ["h", "i"]
 
-str[Symbol.iterator] = function() {
+str[Symbol.iterator] = function () {
   return {
-    next: function() {
+    next: function () {
       if (this._first) {
         this._first = false;
         return { value: "bye", done: false };
@@ -566,7 +563,7 @@ for (let v of obj) {
 ```javascript
 const arr = ["red", "green", "blue"];
 
-arr.forEach(function(element, index) {
+arr.forEach(function (element, index) {
   console.log(element); // red green blue
   console.log(index); // 0 1 2
 });
@@ -787,7 +784,7 @@ for (var index = 0; index < myArray.length; index++) {
 这种写法比较麻烦，因此数组提供内置的`forEach`方法。
 
 ```javascript
-myArray.forEach(function(value) {
+myArray.forEach(function (value) {
   console.log(value);
 });
 ```

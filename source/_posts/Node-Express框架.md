@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Express 介绍
@@ -110,7 +110,7 @@ res.status(200).json({ name: "abc" });
 ```js
 const express = require("express");
 const app = express();
-app.get("/get", function(req, res) {
+app.get("/get", function (req, res) {
   // 直接返回对象
   res.json({ name: "abc" });
 });
@@ -126,7 +126,7 @@ express 框架会自动收集 get 参数，并保存在 req 对象的`query`属�
 ```js
 const express = require("express");
 const app = express();
-app.get("/get", function(req, res) {
+app.get("/get", function (req, res) {
   // 直接返回对象
   console.log(req.query);
 
@@ -143,7 +143,7 @@ app.listen("8088", () => {
 
 ```js
 const app = express();
-app.post("/post", function(req, res) {
+app.post("/post", function (req, res) {
   res.send({ name: "abc" });
 });
 app.listen("8088", () => {
@@ -166,7 +166,7 @@ const bodyParser = require("body-parser");
 // 2. 使用包
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post("/add", function(req, res) {
+app.post("/add", function (req, res) {
   //3. 可以通过req.body来获取post传递的键值对
   res.json(req.body);
 });
@@ -190,7 +190,7 @@ const upload = multer({ dest: "uploads/" }); // 上传的文件会保存在这�
 // 3. 使用
 // 这个路由使用第二个参数 .upload.single表示单文件上传， 'cover' 表示要上传的文件在本次上次数据中的键名。类似于<input type="file" name='cover'/>
 
-app.post("postfile", upload.single("cover"), function(req, res) {});
+app.post("postfile", upload.single("cover"), function (req, res) {});
 ```
 
 # 常见问题
@@ -203,7 +203,7 @@ app.post("postfile", upload.single("cover"), function(req, res) {});
 var fs = require("fs");
 function getMime() {
   //1
-  fs.readFile("mime.json", function(err, data) {
+  fs.readFile("mime.json", function (err, data) {
     //console.log(data.toString());
     return data; //3
   });
@@ -218,11 +218,11 @@ console.log(getMime()); /*由于异步操作没有拿到数据，如何解决，
 ```js
 var fs = require("fs");
 function getMime(callback) {
-  fs.readFile("mime.json", function(err, data) {
+  fs.readFile("mime.json", function (err, data) {
     callback(data);
   });
 }
-getMime(function(result) {
+getMime(function (result) {
   console.log(result.toString());
 });
 ```

@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 安装 Node.js
@@ -193,7 +193,7 @@ const server = http.createServer((req, res) => {
   console.log(req.url); // 客户端浏览器本次请求的地址
 });
 
-server.listen(8080, function() {
+server.listen(8080, function () {
   console.log("success");
 });
 ```

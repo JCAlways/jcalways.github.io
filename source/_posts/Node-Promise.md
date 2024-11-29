@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Promise 构造器
@@ -19,7 +19,7 @@ Promise 是一个构造器，用来创建 Promise 类型的对象 。就好像 A
 ## 格式
 
 ```js
-var p1 = new Promise(function(resolve, reject) {
+var p1 = new Promise(function (resolve, reject) {
   alert(1);
   //   在某一个时刻去调用
   // resolve():把p1的状态由 pending -----> resolved

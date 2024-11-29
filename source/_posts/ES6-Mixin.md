@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Mixin
@@ -19,8 +19,8 @@ JavaScript 语言的设计是单一继承，即子类只能继承一个父类，
 JavaScript 语言没有采用 Interface 的方案，而是通过代理（delegation）实现了从其他类引入方法。
 
 ```javascript
-var Enumerable_first = function() {
-  this.first = function() {
+var Enumerable_first = function () {
+  this.first = function () {
     return this[0];
   };
 };
@@ -59,7 +59,7 @@ obj.vowels(); // true
 Underscore 的类似方法是`_.extend`。
 
 ```javascript
-var Person = function(fName, lName) {
+var Person = function (fName, lName) {
   this.firstName = fName;
   this.lastName = lName;
 };
@@ -67,10 +67,10 @@ var Person = function(fName, lName) {
 var sam = new Person("Sam", "Lowry");
 
 var NameMixin = {
-  fullName: function() {
+  fullName: function () {
     return this.firstName + " " + this.lastName;
   },
-  rename: function(first, last) {
+  rename: function (first, last) {
     this.firstName = first;
     this.lastName = last;
     return this;

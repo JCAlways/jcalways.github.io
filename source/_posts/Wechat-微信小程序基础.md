@@ -8,7 +8,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 微信小程序开发准备
@@ -864,7 +864,7 @@ Page({
     audioSrc:
       "http://m10.music.126.net/20191130104652/2466ef3c0dc4c3a159cf970e0f16c14b/ymusic/075e/025c/520c/049c0bb5455612be6aebef319191d974.mp3",
   },
-  onReady: function(e) {
+  onReady: function (e) {
     // 使用 wx.createAudioContext 获取 audio 上下文 context
     this.audioCtx = wx.createAudioContext("my");
     // 强制播放
@@ -1222,7 +1222,7 @@ Page({
   data: {
     msg: "233",
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     mk.abc(this.data.msg);
   },
 });
@@ -1283,11 +1283,11 @@ Page({
     msg: "学习小程序!",
   },
 
-  foo: function() {
+  foo: function () {
     console.log("wxml无法调用该函数...");
   },
 
-  sayHi: function() {
+  sayHi: function () {
     console.log("你好，小程序!");
   },
 });
@@ -1324,7 +1324,7 @@ Page({
 ```js
 // wxs/m1.wxs
 module.exports.name = "小张";
-module.exports.sayHello = function(name) {
+module.exports.sayHello = function (name) {
   return "你好!" + name + "!";
 };
 ```

@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 什么是跨域
@@ -188,7 +188,7 @@ jquery 中的 ajax 已经封装好了的 jsonp 方式，你可以直接使用。
 $.ajax({
   type: "GET",
   url: "http://localhost:4000/getTime",
-  success: function(result) {
+  success: function (result) {
     console.log(result);
   },
   dataType: "jsonp", // 必须要指定dataType为jsonp
@@ -243,7 +243,7 @@ app.listen(3000, () => {
     </div>
     <script>
       function buildCallBackFunction(options, callbackFunName) {
-        window[callbackFunName] = function(result) {
+        window[callbackFunName] = function (result) {
           options.success(result);
           window[callbackFunName] = null;
           delete window[callbackFunName];
@@ -270,7 +270,7 @@ app.listen(3000, () => {
       function buildScript(url) {
         var script = document.createElement("script");
         script.setAttribute("src", url);
-        script.onload = function() {
+        script.onload = function () {
           document.getElementsByTagName("head")[0].removeChild(script);
         };
         document.getElementsByTagName("head")[0].appendChild(script);
@@ -292,7 +292,7 @@ app.listen(3000, () => {
         url: "http://localhost:3005/jsonp/jsonp",
         // params: 'a=1&b=2',
         params: { a: 1, b: 2 },
-        success: function(result) {
+        success: function (result) {
           console.log(result);
         },
       });

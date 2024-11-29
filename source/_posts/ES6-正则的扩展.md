@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 正则的扩展
@@ -89,8 +89,8 @@ ES6 新增了使用大括号表示 Unicode 字符，这种表示法在正则表�
 
 ```javascript
 /\u{61}/.test("a") / // false
-a /
-u.test("a") / // true
+  a /
+  u.test("a") / // true
   𠮷 /
   u.test("𠮷"); // true
 ```

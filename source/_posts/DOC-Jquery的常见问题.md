@@ -7,7 +7,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 你在公司是怎么使用 jquery 的？
@@ -171,8 +171,8 @@ $(document).ready() 方法可以在 DOM 载入就绪时就对其进行操纵，�
 3 通过$.ajax 方法来获取数据，只要设置 cache:false 即可
 31. $.getScript()方法 和 $.getJson() 方法有什么区别？
     答案:
-    1 $.getScript() 方法可以直接加载.js文件，并且不需要对javascript文件进行处理，javascript文件会自动执行。
-2 $.getJson() 是用于加载 JSON 文件的 ，用法和\$.getScript()
+    1 $.getScript() 方法可以直接加载.js 文件，并且不需要对 javascript 文件进行处理，javascript 文件会自动执行。
+    2 $.getJson() 是用于加载 JSON 文件的 ，用法和\$.getScript()
 32. 你读过有关于 jQuery 的书吗？
     《jquery 基础教程》 《jquery 实战》《锋利的 jquery》 《巧用 jquery》 《jQuery 用户界面库学习指南》等
     重点：其中《锋利的 jquery》这本书可以看一下
@@ -205,7 +205,7 @@ $(document).ready() 方法可以在 DOM 载入就绪时就对其进行操纵，�
     (function(window, undefined) {})(window);
     jQuery 利用 JS 函数作用域的特性，采用立即调用表达式包裹了自身，解决命名空间和变量污染问题
     window.jQuery = window.$ = jQuery;
-在闭包当中将 jQuery 和 $ 绑定到 window 上，从而将 jQuery 和 \$ 暴露为全局变量
+    在闭包当中将 jQuery 和 $ 绑定到 window 上，从而将 jQuery 和 \$ 暴露为全局变量
 39. jQuery.fn 的 init 方法返回的 this 指的是什么对象？ 为什么要返回 this？
     答案：
     jQuery.fn 的 init 方法 返回的 this 就是 jQuery 对象
@@ -217,7 +217,7 @@ $(document).ready() 方法可以在 DOM 载入就绪时就对其进行操纵，�
 41. jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？
     答案：
     浅拷贝（只复制一份原始对象的引用） var newObject = $.extend({}, oldObject);
-深拷贝（对原始对象属性所引用的对象进行进行递归拷贝） var newObject = $.extend(true, {}, oldObject);
+    深拷贝（对原始对象属性所引用的对象进行进行递归拷贝） var newObject = $.extend(true, {}, oldObject);
 42. jQuery 中的 bind(), live(), delegate(), on()的区别？
     答案：
     bind 直接绑定在目标元素上

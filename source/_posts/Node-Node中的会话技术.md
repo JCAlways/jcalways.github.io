@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 会话技术
@@ -68,7 +68,7 @@ cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-C
 后端
 
 ```javascript
-app.all("*", function(req, res, next) {
+app.all("*", function (req, res, next) {
   console.log(
     `${Date.now()}:来自${req.connection.remoteAddress} 访问了 ${req.method}-${
       req.url

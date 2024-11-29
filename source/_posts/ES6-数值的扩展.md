@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 数值的扩展
@@ -23,13 +23,13 @@ ES6 提供了二进制和八进制数值的新的写法，分别用前缀`0b`（
 
 ```javascript
 // 非严格模式
-(function() {
+(function () {
   console.log(0o11 === 011);
 })()(
   // true
 
   // 严格模式
-  function() {
+  function () {
     "use strict";
     console.log(0o11 === 011);
   }
@@ -270,7 +270,7 @@ Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1); // false
 这个函数的实现很简单，就是跟安全整数的两个边界值比较一下。
 
 ```javascript
-Number.isSafeInteger = function(n) {
+Number.isSafeInteger = function (n) {
   return (
     typeof n === "number" &&
     Math.round(n) === n &&
@@ -361,7 +361,7 @@ Math.trunc(undefined); // NaN
 ```javascript
 Math.trunc =
   Math.trunc ||
-  function(x) {
+  function (x) {
     return x < 0 ? Math.ceil(x) : Math.floor(x);
   };
 ```
@@ -404,7 +404,7 @@ Math.sign(undefined); // NaN
 ```javascript
 Math.sign =
   Math.sign ||
-  function(x) {
+  function (x) {
     x = +x; // convert to a number
     if (x === 0 || isNaN(x)) {
       return x;
@@ -436,7 +436,7 @@ Math.cbrt("hello"); // NaN
 ```javascript
 Math.cbrt =
   Math.cbrt ||
-  function(x) {
+  function (x) {
     var y = Math.pow(Math.abs(x), 1 / 3);
     return x < 0 ? -y : y;
   };
@@ -560,7 +560,7 @@ Math.fround({}); // NaN
 ```javascript
 Math.fround =
   Math.fround ||
-  function(x) {
+  function (x) {
     return new Float32Array([x])[0];
   };
 ```
@@ -602,7 +602,7 @@ Math.expm1(1); // 1.718281828459045
 ```javascript
 Math.expm1 =
   Math.expm1 ||
-  function(x) {
+  function (x) {
     return Math.exp(x) - 1;
   };
 ```
@@ -623,7 +623,7 @@ Math.log1p(-2); // NaN
 ```javascript
 Math.log1p =
   Math.log1p ||
-  function(x) {
+  function (x) {
     return Math.log(1 + x);
   };
 ```
@@ -645,7 +645,7 @@ Math.log10(100000); // 5
 ```javascript
 Math.log10 =
   Math.log10 ||
-  function(x) {
+  function (x) {
     return Math.log(x) / Math.LN10;
   };
 ```
@@ -669,7 +669,7 @@ Math.log2(1 << 29); // 29
 ```javascript
 Math.log2 =
   Math.log2 ||
-  function(x) {
+  function (x) {
     return Math.log(x) / Math.LN2;
   };
 ```

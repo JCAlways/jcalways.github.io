@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Symbol
@@ -80,7 +80,7 @@ Symbol 值不能与其他类型的值进行运算，会报错。
 let sym = Symbol("My symbol");
 
 "your symbol is " +
-  sym// TypeError: can't convert symbol to string
+  sym // TypeError: can't convert symbol to string
   `your symbol is ${sym}`;
 // TypeError: can't convert symbol to string
 ```
@@ -751,7 +751,7 @@ class MySplitter {
 
 ```javascript
 const myIterable = {};
-myIterable[Symbol.iterator] = function*() {
+myIterable[Symbol.iterator] = function* () {
   yield 1;
   yield 2;
   yield 3;
@@ -822,7 +822,7 @@ String(obj); // 'str'
 
 ```javascript
 // 例一
-({ [Symbol.toStringTag]: "Foo" }.toString());
+({ [Symbol.toStringTag]: "Foo" }).toString();
 // "[object Foo]"
 
 // 例二
@@ -885,7 +885,7 @@ class MyClass {
   }
 }
 
-var foo = function() {
+var foo = function () {
   return 2;
 };
 
@@ -903,7 +903,7 @@ class MyClass {
   }
 }
 
-var foo = function() {
+var foo = function () {
   return 2;
 };
 

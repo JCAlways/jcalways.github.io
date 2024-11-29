@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Generator 函数的语法
@@ -110,7 +110,7 @@ function* f() {
 
 var generator = f();
 
-setTimeout(function() {
+setTimeout(function () {
   generator.next();
 }, 2000);
 ```
@@ -153,7 +153,7 @@ for (var f of flat(arr)){
 ```javascript
 var arr = [1, [[2, 3], 4], [5, 6]];
 
-var flat = function*(a) {
+var flat = function* (a) {
   var length = a.length;
   for (var i = 0; i < length; i++) {
     var item = a[i];
@@ -200,7 +200,7 @@ function* demo() {
 
 ```javascript
 var myIterable = {};
-myIterable[Symbol.iterator] = function*() {
+myIterable[Symbol.iterator] = function* () {
   yield 1;
   yield 2;
   yield 3;
@@ -302,14 +302,14 @@ genObj.next("b");
 
 ```javascript
 function wrapper(generatorFunction) {
-  return function(...args) {
+  return function (...args) {
     let generatorObject = generatorFunction(...args);
     generatorObject.next();
     return generatorObject;
   };
 }
 
-const wrapped = wrapper(function*() {
+const wrapped = wrapper(function* () {
   console.log(`First input: ${yield}`);
   return "DONE";
 });
@@ -437,7 +437,7 @@ for (let n of numbers()) {
 Generator 函数返回的遍历器对象，都有一个`throw`方法，可以在函数体外抛出错误，然后在 Generator 函数体内捕获。
 
 ```javascript
-var g = function*() {
+var g = function* () {
   try {
     yield;
   } catch (e) {
@@ -463,7 +463,7 @@ try {
 `throw`方法可以接受一个参数，该参数会被`catch`语句接收，建议抛出`Error`对象的实例。
 
 ```javascript
-var g = function*() {
+var g = function* () {
   try {
     yield;
   } catch (e) {
@@ -480,7 +480,7 @@ i.throw(new Error("出错了！"));
 注意，不要混淆遍历器对象的`throw`方法和全局的`throw`命令。上面代码的错误，是用遍历器对象的`throw`方法抛出的，而不是用`throw`命令抛出的。后者只能被函数体外的`catch`语句捕获。
 
 ```javascript
-var g = function*() {
+var g = function* () {
   while (true) {
     try {
       yield;
@@ -508,7 +508,7 @@ try {
 如果 Generator 函数内部没有部署`try...catch`代码块，那么`throw`方法抛出的错误，将被外部`try...catch`代码块捕获。
 
 ```javascript
-var g = function*() {
+var g = function* () {
   while (true) {
     yield;
     console.log("内部捕获", e);
@@ -743,7 +743,7 @@ g.next(); // { value: 7, done: true }
 `next()`是将`yield`表达式替换成一个值。
 
 ```javascript
-const g = function*(x, y) {
+const g = function* (x, y) {
   let result = yield x + y;
   return result;
 };
@@ -869,12 +869,12 @@ gen.next().value; // "close"
 从语法角度看，如果`yield`表达式后面跟的是一个遍历器对象，需要在`yield`表达式后面加上星号，表明它返回的是一个遍历器对象。这被称为`yield*`表达式。
 
 ```javascript
-let delegatedIterator = (function*() {
+let delegatedIterator = (function* () {
   yield "Hello!";
   yield "Bye!";
 })();
 
-let delegatingIterator = (function*() {
+let delegatingIterator = (function* () {
   yield "Greetings!";
   yield* delegatedIterator;
   yield "Ok, bye.";
@@ -928,7 +928,7 @@ gen().next(); // { value:"a", done:false }
 实际上，任何数据结构只要有 Iterator 接口，就可以被`yield*`遍历。
 
 ```javascript
-let read = (function*() {
+let read = (function* () {
   yield "hello";
   yield* "hello";
 })();
@@ -1075,7 +1075,7 @@ let obj = {
 
 ```javascript
 let obj = {
-  myGeneratorMethod: function*() {
+  myGeneratorMethod: function* () {
     // ···
   },
 };
@@ -1088,7 +1088,7 @@ Generator 函数总是返回一个遍历器，ES6 规定这个遍历器是 Gener
 ```javascript
 function* g() {}
 
-g.prototype.hello = function() {
+g.prototype.hello = function () {
   return "hi!";
 };
 
@@ -1203,7 +1203,7 @@ Generator 是实现状态机的最佳结构。比如，下面的`clock`函数就
 
 ```javascript
 var ticking = true;
-var clock = function() {
+var clock = function () {
   if (ticking) console.log("Tick!");
   else console.log("Tock!");
   ticking = !ticking;
@@ -1213,7 +1213,7 @@ var clock = function() {
 上面代码的`clock`函数一共有两种状态（`Tick`和`Tock`），每运行一次，就改变一次状态。这个函数如果用 Generator 实现，就是下面这样。
 
 ```javascript
-var clock = function*() {
+var clock = function* () {
   while (true) {
     console.log("Tick!");
     yield;
@@ -1300,7 +1300,7 @@ function* main() {
 }
 
 function request(url) {
-  makeAjaxCall(url, function(response) {
+  makeAjaxCall(url, function (response) {
     it.next(response);
   });
 }
@@ -1333,10 +1333,10 @@ function* numbers() {
 如果有一个多步操作非常耗时，采用回调函数，可能会写成下面这样。
 
 ```javascript
-step1(function(value1) {
-  step2(value1, function(value2) {
-    step3(value2, function(value3) {
-      step4(value3, function(value4) {
+step1(function (value1) {
+  step2(value1, function (value2) {
+    step3(value2, function (value3) {
+      step4(value3, function (value4) {
         // Do something with value4
       });
     });
@@ -1352,10 +1352,10 @@ Promise.resolve(step1)
   .then(step3)
   .then(step4)
   .then(
-    function(value4) {
+    function (value4) {
       // Do something with value4
     },
-    function(error) {
+    function (error) {
       // Handle any error from step1 through step4
     }
   )

@@ -7,7 +7,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 标准排序
@@ -217,7 +217,7 @@ for (var i = 1; i <= 10; i++) {
   arr.push(ran);
 }
 console.log(
-  arr.sort(function(a, b) {
+  arr.sort(function (a, b) {
     return a - b;
   })
 );
@@ -565,7 +565,7 @@ function fn() {
     }
   }
   //返回升序排序的数组
-  return arr.sort(function(x, y) {
+  return arr.sort(function (x, y) {
     return x - y;
   });
 }

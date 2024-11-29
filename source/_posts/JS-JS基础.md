@@ -4,7 +4,7 @@ date: 2019-8-17 20:00:00
 categories:
   - JavaScript
 tags: JavaScript
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 变量
@@ -160,7 +160,7 @@ function 函数名称() {
   // 代码
 }
 // 函数表达式 (匿名函数)
-var 函数名称 = function() {
+var 函数名称 = function () {
   // 代码
 };
 ```
@@ -236,7 +236,7 @@ var obj = {
 ```js
 var obj = new Object();
 obj.uname = "张三";
-obj.sayHi = function() {
+obj.sayHi = function () {
   console.log("hello");
 };
 ```
@@ -249,7 +249,7 @@ obj.sayHi = function() {
 function 构造函数名(uname, age) {
   this.uname = uname;
   this.age = age;
-  this.sayHi = function() {
+  this.sayHi = function () {
     console.log("hello");
   };
 }
@@ -408,7 +408,7 @@ arr.reverse();
 
 ```js
 var arr = [3, 4, 7, 1];
-arr.sort(function(a, b) {
+arr.sort(function (a, b) {
   return a - b; // a-b升序 b-a 降序
 }); // 1 3 4 7
 ```

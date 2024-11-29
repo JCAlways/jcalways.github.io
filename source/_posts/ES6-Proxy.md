@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Proxy
@@ -20,11 +20,11 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 var obj = new Proxy(
   {},
   {
-    get: function(target, key, receiver) {
+    get: function (target, key, receiver) {
       console.log(`getting ${key}!`);
       return Reflect.get(target, key, receiver);
     },
-    set: function(target, key, value, receiver) {
+    set: function (target, key, value, receiver) {
       console.log(`setting ${key}!`);
       return Reflect.set(target, key, value, receiver);
     },
@@ -59,7 +59,7 @@ Proxy 对象的所有用法，都是上面这种形式，不同的只是`handler
 var proxy = new Proxy(
   {},
   {
-    get: function(target, property) {
+    get: function (target, property) {
       return 35;
     },
   }
@@ -98,7 +98,7 @@ Proxy 实例也可以作为其他对象的原型对象。
 var proxy = new Proxy(
   {},
   {
-    get: function(target, property) {
+    get: function (target, property) {
       return 35;
     },
   }
@@ -114,23 +114,23 @@ obj.time; // 35
 
 ```javascript
 var handler = {
-  get: function(target, name) {
+  get: function (target, name) {
     if (name === "prototype") {
       return Object.prototype;
     }
     return "Hello, " + name;
   },
 
-  apply: function(target, thisBinding, args) {
+  apply: function (target, thisBinding, args) {
     return args[0];
   },
 
-  construct: function(target, args) {
+  construct: function (target, args) {
     return { value: args[1] };
   },
 };
 
-var fproxy = new Proxy(function(x, y) {
+var fproxy = new Proxy(function (x, y) {
   return x + y;
 }, handler);
 
@@ -174,7 +174,7 @@ var person = {
 };
 
 var proxy = new Proxy(person, {
-  get: function(target, property) {
+  get: function (target, property) {
     if (property in target) {
       return target[property];
     } else {
@@ -236,15 +236,15 @@ arr[-1]; // c
 利用 Proxy，可以将读取属性的操作（`get`），转变为执行某个函数，从而实现属性的链式操作。
 
 ```javascript
-var pipe = (function() {
-  return function(value) {
+var pipe = (function () {
+  return function (value) {
     var funcStack = [];
     var oproxy = new Proxy(
       {},
       {
-        get: function(pipeObject, fnName) {
+        get: function (pipeObject, fnName) {
           if (fnName === "get") {
-            return funcStack.reduce(function(val, fn) {
+            return funcStack.reduce(function (val, fn) {
               return fn(val);
             }, value);
           }
@@ -260,12 +260,7 @@ var pipe = (function() {
 
 var double = (n) => n * 2;
 var pow = (n) => n * n;
-var reverseInt = (n) =>
-  n
-    .toString()
-    .split("")
-    .reverse()
-    .join("") | 0;
+var reverseInt = (n) => n.toString().split("").reverse().join("") | 0;
 
 pipe(3).double.pow.reverseInt.get; // 63
 ```
@@ -279,7 +274,7 @@ const dom = new Proxy(
   {},
   {
     get(target, property) {
-      return function(attrs = {}, ...children) {
+      return function (attrs = {}, ...children) {
         const el = document.createElement(property);
         for (let prop of Object.keys(attrs)) {
           el.setAttribute(prop, attrs[prop]);
@@ -318,7 +313,7 @@ document.body.appendChild(el);
 const proxy = new Proxy(
   {},
   {
-    get: function(target, property, receiver) {
+    get: function (target, property, receiver) {
       return receiver;
     },
   }
@@ -332,7 +327,7 @@ proxy.getReceiver === proxy; // true
 const proxy = new Proxy(
   {},
   {
-    get: function(target, property, receiver) {
+    get: function (target, property, receiver) {
       return receiver;
     },
   }
@@ -378,7 +373,7 @@ proxy.foo;
 
 ```javascript
 let validator = {
-  set: function(obj, prop, value) {
+  set: function (obj, prop, value) {
     if (prop === "age") {
       if (!Number.isInteger(value)) {
         throw new TypeError("The age is not an integer");
@@ -437,7 +432,7 @@ proxy._prop = "c";
 
 ```javascript
 const handler = {
-  set: function(obj, prop, value, receiver) {
+  set: function (obj, prop, value, receiver) {
     obj[prop] = receiver;
   },
 };
@@ -450,7 +445,7 @@ proxy.foo === proxy; // true
 
 ```javascript
 const handler = {
-  set: function(obj, prop, value, receiver) {
+  set: function (obj, prop, value, receiver) {
     obj[prop] = receiver;
   },
 };
@@ -474,7 +469,7 @@ Object.defineProperty(obj, "foo", {
 });
 
 const handler = {
-  set: function(obj, prop, value, receiver) {
+  set: function (obj, prop, value, receiver) {
     obj[prop] = "baz";
   },
 };
@@ -491,7 +486,7 @@ proxy.foo; // "bar"
 ```javascript
 "use strict";
 const handler = {
-  set: function(obj, prop, value, receiver) {
+  set: function (obj, prop, value, receiver) {
     obj[prop] = receiver;
     // 无论有没有下面这一行，都会报错
     return false;
@@ -521,11 +516,11 @@ var handler = {
 下面是一个例子。
 
 ```javascript
-var target = function() {
+var target = function () {
   return "I am the target";
 };
 var handler = {
-  apply: function() {
+  apply: function () {
     return "I am the proxy";
   },
 };
@@ -594,7 +589,7 @@ var obj = { a: 10 };
 Object.preventExtensions(obj);
 
 var p = new Proxy(obj, {
-  has: function(target, prop) {
+  has: function (target, prop) {
     return false;
   },
 });
@@ -666,8 +661,8 @@ var handler = {
 - `newTarget`：创造实例对象时，`new`命令作用的构造函数（下面例子的`p`）
 
 ```javascript
-var p = new Proxy(function() {}, {
-  construct: function(target, args) {
+var p = new Proxy(function () {}, {
+  construct: function (target, args) {
     console.log("called: " + args.join(", "));
     return { value: args[0] * 10 };
   },
@@ -681,8 +676,8 @@ new p(1).value;
 `construct`方法返回的必须是一个对象，否则会报错。
 
 ```javascript
-var p = new Proxy(function() {}, {
-  construct: function(target, argumentsList) {
+var p = new Proxy(function () {}, {
+  construct: function (target, argumentsList) {
     return 1;
   },
 });
@@ -799,7 +794,7 @@ Object.getPrototypeOf(p) === proto; // true
 var p = new Proxy(
   {},
   {
-    isExtensible: function(target) {
+    isExtensible: function (target) {
       console.log("called");
       return true;
     },
@@ -827,7 +822,7 @@ Object.isExtensible(proxy) === Object.isExtensible(target);
 var p = new Proxy(
   {},
   {
-    isExtensible: function(target) {
+    isExtensible: function (target) {
       return false;
     },
   }
@@ -931,7 +926,7 @@ Object.keys(proxy);
 var p = new Proxy(
   {},
   {
-    ownKeys: function(target) {
+    ownKeys: function (target) {
       return ["a", "b", "c"];
     },
   }
@@ -946,7 +941,7 @@ Object.getOwnPropertyNames(p);
 ```javascript
 const obj = { hello: "world" };
 const proxy = new Proxy(obj, {
-  ownKeys: function() {
+  ownKeys: function () {
     return ["a", "b"];
   },
 });
@@ -964,7 +959,7 @@ for (let key in proxy) {
 var obj = {};
 
 var p = new Proxy(obj, {
-  ownKeys: function(target) {
+  ownKeys: function (target) {
     return [123, true, undefined, null, {}, []];
   },
 });
@@ -986,7 +981,7 @@ Object.defineProperty(obj, "a", {
 });
 
 var p = new Proxy(obj, {
-  ownKeys: function(target) {
+  ownKeys: function (target) {
     return ["b"];
   },
 });
@@ -1007,7 +1002,7 @@ var obj = {
 Object.preventExtensions(obj);
 
 var p = new Proxy(obj, {
-  ownKeys: function(target) {
+  ownKeys: function (target) {
     return ["a", "b"];
   },
 });
@@ -1028,7 +1023,7 @@ Object.getOwnPropertyNames(p);
 var p = new Proxy(
   {},
   {
-    preventExtensions: function(target) {
+    preventExtensions: function (target) {
       return true;
     },
   }
@@ -1045,7 +1040,7 @@ Object.preventExtensions(p); // 报错
 var p = new Proxy(
   {},
   {
-    preventExtensions: function(target) {
+    preventExtensions: function (target) {
       console.log("called");
       Object.preventExtensions(target);
       return true;
@@ -1071,7 +1066,7 @@ var handler = {
   },
 };
 var proto = {};
-var target = function() {};
+var target = function () {};
 var proxy = new Proxy(target, handler);
 Object.setPrototypeOf(proxy, proto);
 // Error: Changing the prototype is forbidden
@@ -1108,7 +1103,7 @@ proxy.foo; // TypeError: Revoked
 
 ```javascript
 const target = {
-  m: function() {
+  m: function () {
     console.log(this === proxy);
   },
 };

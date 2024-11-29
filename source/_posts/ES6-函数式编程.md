@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 函数式编程
@@ -32,7 +32,7 @@ add(1, 1); // 2
 
 ```javascript
 function add(a) {
-  return function(b) {
+  return function (b) {
     return a + b;
   };
 }
@@ -82,7 +82,10 @@ flip(1, 2, 3); // => [2, 1, 3]
 
 ```javascript
 let f = {};
-f.flip = (fn) => (a, b, ...args) => fn(b, a, ...args.reverse());
+f.flip =
+  (fn) =>
+  (a, b, ...args) =>
+    fn(b, a, ...args.reverse());
 ```
 
 # 执行边界
@@ -108,10 +111,12 @@ until(3); // 5
 
 ```javascript
 let f = {};
-f.until = (condition, f) => (...args) => {
-  var r = f.apply(null, args);
-  return condition(r) ? r : f.until(condition, f)(r);
-};
+f.until =
+  (condition, f) =>
+  (...args) => {
+    var r = f.apply(null, args);
+    return condition(r) ? r : f.until(condition, f)(r);
+  };
 ```
 
 上面代码的关键就是，如果满足条件就返回结果，否则不断递归执行。

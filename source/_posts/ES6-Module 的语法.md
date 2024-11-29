@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Module 的语法
@@ -351,7 +351,7 @@ import * as circle from "./circle";
 
 // 下面两行都是不允许的
 circle.foo = "hello";
-circle.area = function() {};
+circle.area = function () {};
 ```
 
 # export default 命令
@@ -362,7 +362,7 @@ circle.area = function() {};
 
 ```javascript
 // export-default.js
-export default function() {
+export default function () {
   console.log("foo");
 }
 ```
@@ -482,7 +482,7 @@ import _, { each, each as forEach } from "lodash";
 对应上面代码的`export`语句如下。
 
 ```javascript
-export default function(obj) {
+export default function (obj) {
   // ···
 }
 
@@ -579,7 +579,7 @@ export someIdentifier, { namedIdentifier } from "someModule";
 
 export * from "circle";
 export var e = 2.71828182846;
-export default function(x) {
+export default function (x) {
   return Math.exp(x);
 }
 ```

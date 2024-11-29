@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # ECMAScript 6 简介
@@ -111,7 +111,7 @@ Your runtime supports 57% of ECMAScript 6
 input.map((item) => item + 1);
 
 // 转码后
-input.map(function(item) {
+input.map(function (item) {
   return item + 1;
 });
 ```
@@ -299,7 +299,7 @@ babel.transform("code();", options);
 // => { code, map, ast }
 
 // 文件转码（异步）
-babel.transformFile("filename.js", options, function(err, result) {
+babel.transformFile("filename.js", options, function (err, result) {
   result; // => { code, map, ast }
 });
 

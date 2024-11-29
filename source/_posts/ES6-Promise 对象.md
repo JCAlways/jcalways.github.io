@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Promise 对象
@@ -56,10 +56,10 @@ const promise = new Promise(function(resolve, reject) {
 
 ```javascript
 promise.then(
-  function(value) {
+  function (value) {
     // success
   },
-  function(error) {
+  function (error) {
     // failure
   }
 );
@@ -86,12 +86,12 @@ timeout(100).then((value) => {
 Promise 新建后就会立即执行。
 
 ```javascript
-let promise = new Promise(function(resolve, reject) {
+let promise = new Promise(function (resolve, reject) {
   console.log("Promise");
   resolve();
 });
 
-promise.then(function() {
+promise.then(function () {
   console.log("resolved.");
 });
 
@@ -108,14 +108,14 @@ console.log("Hi!");
 
 ```javascript
 function loadImageAsync(url) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     const image = new Image();
 
-    image.onload = function() {
+    image.onload = function () {
       resolve(image);
     };
 
-    image.onerror = function() {
+    image.onerror = function () {
       reject(new Error("Could not load image at " + url));
     };
 
@@ -129,9 +129,9 @@ function loadImageAsync(url) {
 下面是一个用`Promise`对象实现的 Ajax 操作的例子。
 
 ```javascript
-const getJSON = function(url) {
-  const promise = new Promise(function(resolve, reject) {
-    const handler = function() {
+const getJSON = function (url) {
+  const promise = new Promise(function (resolve, reject) {
+    const handler = function () {
       if (this.readyState !== 4) {
         return;
       }
@@ -153,10 +153,10 @@ const getJSON = function(url) {
 };
 
 getJSON("/posts.json").then(
-  function(json) {
+  function (json) {
     console.log("Contents: " + json);
   },
-  function(error) {
+  function (error) {
     console.error("出错了", error);
   }
 );
@@ -167,11 +167,11 @@ getJSON("/posts.json").then(
 如果调用`resolve`函数和`reject`函数时带有参数，那么它们的参数会被传递给回调函数。`reject`函数的参数通常是`Error`对象的实例，表示抛出的错误；`resolve`函数的参数除了正常的值以外，还可能是另一个 Promise 实例，比如像下面这样。
 
 ```javascript
-const p1 = new Promise(function(resolve, reject) {
+const p1 = new Promise(function (resolve, reject) {
   // ...
 });
 
-const p2 = new Promise(function(resolve, reject) {
+const p2 = new Promise(function (resolve, reject) {
   // ...
   resolve(p1);
 });
@@ -182,11 +182,11 @@ const p2 = new Promise(function(resolve, reject) {
 注意，这时`p1`的状态就会传递给`p2`，也就是说，`p1`的状态决定了`p2`的状态。如果`p1`的状态是`pending`，那么`p2`的回调函数就会等待`p1`的状态改变；如果`p1`的状态已经是`resolved`或者`rejected`，那么`p2`的回调函数将会立刻执行。
 
 ```javascript
-const p1 = new Promise(function(resolve, reject) {
+const p1 = new Promise(function (resolve, reject) {
   setTimeout(() => reject(new Error("fail")), 3000);
 });
 
-const p2 = new Promise(function(resolve, reject) {
+const p2 = new Promise(function (resolve, reject) {
   setTimeout(() => resolve(p1), 1000);
 });
 
@@ -229,10 +229,10 @@ Promise 实例具有`then`方法，也就是说，`then`方法是定义在原型
 
 ```javascript
 getJSON("/posts.json")
-  .then(function(json) {
+  .then(function (json) {
     return json.post;
   })
-  .then(function(post) {
+  .then(function (post) {
     // ...
   });
 ```
@@ -243,7 +243,7 @@ getJSON("/posts.json")
 
 ```javascript
 getJSON("/post/1.json")
-  .then(function(post) {
+  .then(function (post) {
     return getJSON(post.commentURL);
   })
   .then(
@@ -275,10 +275,10 @@ getJSON("/post/1.json")
 
 ```javascript
 getJSON("/posts.json")
-  .then(function(posts) {
+  .then(function (posts) {
     // ...
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // 处理 getJSON 和 前一个回调函数运行时发生的错误
     console.log("发生错误！", error);
   });
@@ -300,10 +300,10 @@ p.then((val) => console.log("fulfilled:", val)).then(null, (err) =>
 下面是一个例子。
 
 ```javascript
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   throw new Error("test");
 });
-promise.catch(function(error) {
+promise.catch(function (error) {
   console.log(error);
 });
 // Error: test
@@ -313,22 +313,22 @@ promise.catch(function(error) {
 
 ```javascript
 // 写法一
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   try {
     throw new Error("test");
   } catch (e) {
     reject(e);
   }
 });
-promise.catch(function(error) {
+promise.catch(function (error) {
   console.log(error);
 });
 
 // 写法二
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   reject(new Error("test"));
 });
-promise.catch(function(error) {
+promise.catch(function (error) {
   console.log(error);
 });
 ```
@@ -338,15 +338,15 @@ promise.catch(function(error) {
 如果 Promise 状态已经变成`resolved`，再抛出错误是无效的。
 
 ```javascript
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   resolve("ok");
   throw new Error("test");
 });
 promise
-  .then(function(value) {
+  .then(function (value) {
     console.log(value);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error);
   });
 // ok
@@ -358,13 +358,13 @@ Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到
 
 ```javascript
 getJSON("/post/1.json")
-  .then(function(post) {
+  .then(function (post) {
     return getJSON(post.commentURL);
   })
-  .then(function(comments) {
+  .then(function (comments) {
     // some code
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // 处理前面三个Promise产生的错误
   });
 ```
@@ -376,21 +376,21 @@ getJSON("/post/1.json")
 ```javascript
 // bad
 promise.then(
-  function(data) {
+  function (data) {
     // success
   },
-  function(err) {
+  function (err) {
     // error
   }
 );
 
 // good
 promise
-  .then(function(data) {
+  .then(function (data) {
     //cb
     // success
   })
-  .catch(function(err) {
+  .catch(function (err) {
     // error
   });
 ```
@@ -400,14 +400,14 @@ promise
 跟传统的`try/catch`代码块不同的是，如果没有使用`catch`方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。
 
 ```javascript
-const someAsyncThing = function() {
-  return new Promise(function(resolve, reject) {
+const someAsyncThing = function () {
+  return new Promise(function (resolve, reject) {
     // 下面一行会报错，因为x没有声明
     resolve(x + 2);
   });
 };
 
-someAsyncThing().then(function() {
+someAsyncThing().then(function () {
   console.log("everything is great");
 });
 
@@ -423,7 +423,7 @@ setTimeout(() => {
 这个脚本放在服务器执行，退出码就是`0`（即表示执行成功）。不过，Node 有一个`unhandledRejection`事件，专门监听未捕获的`reject`错误，上面的脚本会触发这个事件的监听函数，可以在监听函数里面抛出错误。
 
 ```javascript
-process.on("unhandledRejection", function(err, p) {
+process.on("unhandledRejection", function (err, p) {
   throw err;
 });
 ```
@@ -435,13 +435,13 @@ process.on("unhandledRejection", function(err, p) {
 再看下面的例子。
 
 ```javascript
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   resolve("ok");
-  setTimeout(function() {
+  setTimeout(function () {
     throw new Error("test");
   }, 0);
 });
-promise.then(function(value) {
+promise.then(function (value) {
   console.log(value);
 });
 // ok
@@ -453,18 +453,18 @@ promise.then(function(value) {
 一般总是建议，Promise 对象后面要跟`catch`方法，这样可以处理 Promise 内部发生的错误。`catch`方法返回的还是一个 Promise 对象，因此后面还可以接着调用`then`方法。
 
 ```javascript
-const someAsyncThing = function() {
-  return new Promise(function(resolve, reject) {
+const someAsyncThing = function () {
+  return new Promise(function (resolve, reject) {
     // 下面一行会报错，因为x没有声明
     resolve(x + 2);
   });
 };
 
 someAsyncThing()
-  .catch(function(error) {
+  .catch(function (error) {
     console.log("oh no", error);
   })
-  .then(function() {
+  .then(function () {
     console.log("carry on");
   });
 // oh no [ReferenceError: x is not defined]
@@ -475,10 +475,10 @@ someAsyncThing()
 
 ```javascript
 Promise.resolve()
-  .catch(function(error) {
+  .catch(function (error) {
     console.log("oh no", error);
   })
-  .then(function() {
+  .then(function () {
     console.log("carry on");
   });
 // carry on
@@ -489,23 +489,23 @@ Promise.resolve()
 `catch`方法之中，还能再抛出错误。
 
 ```javascript
-const someAsyncThing = function() {
-  return new Promise(function(resolve, reject) {
+const someAsyncThing = function () {
+  return new Promise(function (resolve, reject) {
     // 下面一行会报错，因为x没有声明
     resolve(x + 2);
   });
 };
 
 someAsyncThing()
-  .then(function() {
+  .then(function () {
     return someOtherAsyncThing();
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log("oh no", error);
     // 下面一行会报错，因为 y 没有声明
     y + 2;
   })
-  .then(function() {
+  .then(function () {
     console.log("carry on");
   });
 // oh no [ReferenceError: x is not defined]
@@ -515,15 +515,15 @@ someAsyncThing()
 
 ```javascript
 someAsyncThing()
-  .then(function() {
+  .then(function () {
     return someOtherAsyncThing();
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log("oh no", error);
     // 下面一行会报错，因为y没有声明
     y + 2;
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log("carry on", error);
   });
 // oh no [ReferenceError: x is not defined]
@@ -550,7 +550,7 @@ promise
 ```javascript
 server
   .listen(port)
-  .then(function() {
+  .then(function () {
     // ...
   })
   .finally(server.stop);
@@ -583,7 +583,7 @@ promise.then(
 它的实现也很简单。
 
 ```javascript
-Promise.prototype.finally = function(callback) {
+Promise.prototype.finally = function (callback) {
   let P = this.constructor;
   return this.then(
     (value) => P.resolve(callback()).then(() => value),
@@ -639,15 +639,15 @@ const p = Promise.all([p1, p2, p3]);
 
 ```javascript
 // 生成一个Promise对象的数组
-const promises = [2, 3, 5, 7, 11, 13].map(function(id) {
+const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
   return getJSON("/post/" + id + ".json");
 });
 
 Promise.all(promises)
-  .then(function(posts) {
+  .then(function (posts) {
     // ...
   })
-  .catch(function(reason) {
+  .catch(function (reason) {
     // ...
   });
 ```
@@ -727,7 +727,7 @@ const p = Promise.race([p1, p2, p3]);
 ```javascript
 const p = Promise.race([
   fetch("/resource-that-may-take-a-while"),
-  new Promise(function(resolve, reject) {
+  new Promise(function (resolve, reject) {
     setTimeout(() => reject(new Error("request timeout")), 5000);
   }),
 ]);
@@ -767,7 +767,7 @@ new Promise((resolve) => resolve("foo"));
 
 ```javascript
 let thenable = {
-  then: function(resolve, reject) {
+  then: function (resolve, reject) {
     resolve(42);
   },
 };
@@ -777,13 +777,13 @@ let thenable = {
 
 ```javascript
 let thenable = {
-  then: function(resolve, reject) {
+  then: function (resolve, reject) {
     resolve(42);
   },
 };
 
 let p1 = Promise.resolve(thenable);
-p1.then(function(value) {
+p1.then(function (value) {
   console.log(value); // 42
 });
 ```
@@ -797,7 +797,7 @@ p1.then(function(value) {
 ```javascript
 const p = Promise.resolve("Hello");
 
-p.then(function(s) {
+p.then(function (s) {
   console.log(s);
 });
 // Hello
@@ -814,7 +814,7 @@ p.then(function(s) {
 ```javascript
 const p = Promise.resolve();
 
-p.then(function() {
+p.then(function () {
   // ...
 });
 ```
@@ -824,11 +824,11 @@ p.then(function() {
 需要注意的是，立即`resolve`的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时。
 
 ```javascript
-setTimeout(function() {
+setTimeout(function () {
   console.log("three");
 }, 0);
 
-Promise.resolve().then(function() {
+Promise.resolve().then(function () {
   console.log("two");
 });
 
@@ -850,7 +850,7 @@ const p = Promise.reject("出错了");
 // 等同于
 const p = new Promise((resolve, reject) => reject("出错了"));
 
-p.then(null, function(s) {
+p.then(null, function (s) {
   console.log(s);
 });
 // 出错了
@@ -882,8 +882,8 @@ Promise.reject(thenable).catch((e) => {
 我们可以将图片的加载写成一个`Promise`，一旦加载完成，`Promise`的状态就发生变化。
 
 ```javascript
-const preloadImage = function(path) {
-  return new Promise(function(resolve, reject) {
+const preloadImage = function (path) {
+  return new Promise(function (resolve, reject) {
     const image = new Image();
     image.onload = resolve;
     image.onerror = reject;
@@ -898,12 +898,12 @@ const preloadImage = function(path) {
 
 ```javascript
 function getFoo() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     resolve("foo");
   });
 }
 
-const g = function*() {
+const g = function* () {
   try {
     const foo = yield getFoo();
     console.log(foo);
@@ -919,10 +919,10 @@ function run(generator) {
     if (result.done) return result.value;
 
     return result.value.then(
-      function(value) {
+      function (value) {
         return go(it.next(value));
       },
-      function(error) {
+      function (error) {
         return go(it.throw(error));
       }
     );
@@ -1009,7 +1009,7 @@ console.log("next");
 
 ```javascript
 function getUsername(userId) {
-  return database.users.get({ id: userId }).then(function(user) {
+  return database.users.get({ id: userId }).then(function (user) {
     return user.name;
   });
 }

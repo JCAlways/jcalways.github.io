@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # MVVM 原理
@@ -254,14 +254,14 @@ function EventEmitter() {
   };
 }
 
-EventEmitter.prototype.$on = function(eventType, callback) {
+EventEmitter.prototype.$on = function (eventType, callback) {
   this.subs[eventType] = this.subs[eventType] || [];
   this.subs[eventType].push(callback);
 };
 
 // 参数中的 ... 表示函数的剩余（rest）参数
 // 它会把所有参数放到一个数组中
-EventEmitter.prototype.$emit = function(eventType, ...args) {
+EventEmitter.prototype.$emit = function (eventType, ...args) {
   const subs = this.subs[eventType];
   if (subs) {
     subs.forEach((callback) => {
@@ -294,7 +294,7 @@ EventEmitter.prototype.$emit = function(eventType, ...args) {
       <input type="text" v-model="msg" />
       <button v-on:click="sayHi">按钮</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://gcore.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       var vm = new Vue({
         el: "#app",
@@ -373,7 +373,7 @@ function Observe(data) {
   });
 }
 
-Observe.prototype.walk = function(key, val) {
+Observe.prototype.walk = function (key, val) {
   Object.defineProperty(this.data, key, {
     configurable: false,
     enumerable: true,
@@ -409,7 +409,7 @@ function Compile(el, vm) {
   this.compileElement(el);
 }
 
-Compile.prototype.compileElement = function(el) {
+Compile.prototype.compileElement = function (el) {
   // 获取子节点
   let childNodes = el.childNodes;
 
@@ -441,7 +441,7 @@ Compile.prototype.compileElement = function(el) {
   });
 };
 
-Compile.prototype.compile = function(node) {
+Compile.prototype.compile = function (node) {
   // 获取元素节点上的所有属性
   let attrs = node.attributes;
 
@@ -484,12 +484,12 @@ function Watcher(sub) {
   this.subs = {};
 }
 
-Watcher.prototype.$on = function(sub, cb) {
+Watcher.prototype.$on = function (sub, cb) {
   this.subs[sub] = this.subs[sub] || [];
   this.subs[sub].push(cb);
 };
 
-Watcher.prototype.$emit = function(sub, newVal) {
+Watcher.prototype.$emit = function (sub, newVal) {
   this.subs[sub].forEach((cb) => {
     cb(newVal);
   });

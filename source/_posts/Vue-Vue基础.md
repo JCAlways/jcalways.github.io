@@ -9,7 +9,7 @@ keywords:
 description:
 top_img:
 comments:
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Vue 是什么之前端现状
@@ -524,7 +524,7 @@ data: {
 > 全局过滤器
 
 ```js
-Vue.filter("过滤器名称", function(value) {
+Vue.filter("过滤器名称", function (value) {
   return value;
 });
 var vm = new Vue({});

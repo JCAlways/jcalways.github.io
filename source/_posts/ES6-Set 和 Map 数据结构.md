@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Set 和 Map 数据结构
@@ -106,9 +106,7 @@ Set 实例的方法分为两大类：操作方法（用于操作数据）和遍�
 上面这些属性和方法的实例如下。
 
 ```javascript
-s.add(1)
-  .add(2)
-  .add(2);
+s.add(1).add(2).add(2);
 // 注意2被加入了两次
 
 s.size; // 2
@@ -391,7 +389,7 @@ WeakSet 没有`size`属性，没有办法遍历它的成员。
 ws.size; // undefined
 ws.forEach; // undefined
 
-ws.forEach(function(item) {
+ws.forEach(function (item) {
   console.log("WeakSet has " + item);
 });
 // TypeError: undefined is not a function
@@ -597,10 +595,7 @@ m.set(undefined, "nah"); // 键是 undefined
 `set`方法返回的是当前的`Map`对象，因此可以采用链式写法。
 
 ```javascript
-let map = new Map()
-  .set(1, "a")
-  .set(2, "b")
-  .set(3, "c");
+let map = new Map().set(1, "a").set(2, "b").set(3, "c");
 ```
 
 **（3）get(key)**
@@ -610,7 +605,7 @@ let map = new Map()
 ```javascript
 const m = new Map();
 
-const hello = function() {
+const hello = function () {
   console.log("hello");
 };
 m.set(hello, "Hello ES6!"); // 键是函数
@@ -744,10 +739,7 @@ const map = new Map([
 结合数组的`map`方法、`filter`方法，可以实现 Map 的遍历和过滤（Map 本身没有`map`和`filter`方法）。
 
 ```javascript
-const map0 = new Map()
-  .set(1, "a")
-  .set(2, "b")
-  .set(3, "c");
+const map0 = new Map().set(1, "a").set(2, "b").set(3, "c");
 
 const map1 = new Map([...map0].filter(([k, v]) => k < 3));
 // 产生 Map 结构 {1 => 'a', 2 => 'b'}
@@ -759,7 +751,7 @@ const map2 = new Map([...map0].map(([k, v]) => [k * 2, "_" + v]));
 此外，Map 还有一个`forEach`方法，与数组的`forEach`方法类似，也可以实现遍历。
 
 ```javascript
-map.forEach(function(value, key, map) {
+map.forEach(function (value, key, map) {
   console.log("Key: %s, Value: %s", key, value);
 });
 ```
@@ -768,12 +760,12 @@ map.forEach(function(value, key, map) {
 
 ```javascript
 const reporter = {
-  report: function(key, value) {
+  report: function (key, value) {
     console.log("Key: %s, Value: %s", key, value);
   },
 };
 
-map.forEach(function(value, key, map) {
+map.forEach(function (value, key, map) {
   this.report(key, value);
 }, reporter);
 ```
@@ -1089,7 +1081,7 @@ myWeakmap.set(myElement, { timesClicked: 0 });
 
 myElement.addEventListener(
   "click",
-  function() {
+  function () {
     let logoData = myWeakmap.get(myElement);
     logoData.timesClicked++;
   },

@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 修饰器
@@ -55,7 +55,7 @@ function testable(target) {
 
 ```javascript
 function testable(isTestable) {
-  return function(target) {
+  return function (target) {
     target.isTestable = isTestable;
   };
 }
@@ -94,7 +94,7 @@ obj.isTestable; // true
 ```javascript
 // mixins.js
 export function mixins(...list) {
-  return function(target) {
+  return function (target) {
     Object.assign(target.prototype, ...list);
   };
 }
@@ -217,7 +217,7 @@ class Math {
 function log(target, name, descriptor) {
   var oldValue = descriptor.value;
 
-  descriptor.value = function() {
+  descriptor.value = function () {
     console.log(`Calling ${name} with`, arguments);
     return oldValue.apply(this, arguments);
   };
@@ -358,7 +358,7 @@ function doSomething(name) {
 }
 
 function loggingDecorator(wrapped) {
-  return function() {
+  return function () {
     console.log("Starting");
     const result = wrapped.apply(this, arguments);
     console.log("Finished");
@@ -513,10 +513,10 @@ export default function publish(topic, channel) {
     console.log("数据: ", v);
   });
 
-  return function(target, name, descriptor) {
+  return function (target, name, descriptor) {
     const fn = descriptor.value;
 
-    descriptor.value = function() {
+    descriptor.value = function () {
       let value = fn.apply(this, arguments);
       msgChannel.publish(topic, value);
     };
@@ -589,7 +589,7 @@ obj.foo(); // 'foo'
 
 ```javascript
 export function mixins(...list) {
-  return function(target) {
+  return function (target) {
     Object.assign(target.prototype, ...list);
   };
 }

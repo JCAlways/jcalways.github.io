@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 含义
@@ -19,16 +19,16 @@ async 函数是什么？一句话，它就是 Generator 函数的语法糖。
 ```javascript
 const fs = require("fs");
 
-const readFile = function(fileName) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(fileName, function(error, data) {
+const readFile = function (fileName) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(fileName, function (error, data) {
       if (error) return reject(error);
       resolve(data);
     });
   });
 };
 
-const gen = function*() {
+const gen = function* () {
   const f1 = yield readFile("/etc/fstab");
   const f2 = yield readFile("/etc/shells");
   console.log(f1.toString());
@@ -39,7 +39,7 @@ const gen = function*() {
 写成`async`函数，就是下面这样。
 
 ```javascript
-const asyncReadFile = async function() {
+const asyncReadFile = async function () {
   const f1 = await readFile("/etc/fstab");
   const f2 = await readFile("/etc/shells");
   console.log(f1.toString());
@@ -88,7 +88,7 @@ async function getStockPriceByName(name) {
   return stockPrice;
 }
 
-getStockPriceByName("goog").then(function(result) {
+getStockPriceByName("goog").then(function (result) {
   console.log(result);
 });
 ```
@@ -292,7 +292,7 @@ f().then((v) => console.log(v));
 
 ```javascript
 async function f() {
-  await new Promise(function(resolve, reject) {
+  await new Promise(function (resolve, reject) {
     throw new Error("出错了");
   });
 }
@@ -310,7 +310,7 @@ f()
 ```javascript
 async function f() {
   try {
-    await new Promise(function(resolve, reject) {
+    await new Promise(function (resolve, reject) {
       throw new Error("出错了");
     });
   } catch (e) {}
@@ -372,7 +372,7 @@ async function myFunction() {
 // 另一种写法
 
 async function myFunction() {
-  await somethingThatReturnsAPromise().catch(function(err) {
+  await somethingThatReturnsAPromise().catch(function (err) {
     console.log(err);
   });
 }
@@ -421,7 +421,7 @@ function dbFuc(db) {
   let docs = [{}, {}, {}];
 
   // 可能得到错误结果
-  docs.forEach(async function(doc) {
+  docs.forEach(async function (doc) {
     await db.post(doc);
   });
 }
@@ -494,7 +494,7 @@ async function fn(args) {
 // 等同于
 
 function fn(args) {
-  return spawn(function*() {
+  return spawn(function* () {
     // ...
   });
 }
@@ -506,7 +506,7 @@ function fn(args) {
 
 ```javascript
 function spawn(genF) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     const gen = genF();
     function step(nextF) {
       let next;
@@ -519,19 +519,19 @@ function spawn(genF) {
         return resolve(next.value);
       }
       Promise.resolve(next.value).then(
-        function(v) {
-          step(function() {
+        function (v) {
+          step(function () {
             return gen.next(v);
           });
         },
-        function(e) {
-          step(function() {
+        function (e) {
+          step(function () {
             return gen.throw(e);
           });
         }
       );
     }
-    step(function() {
+    step(function () {
       return gen.next(undefined);
     });
   });
@@ -556,7 +556,7 @@ function chainAnimationsPromise(elem, animations) {
 
   // 使用then方法，添加所有动画
   for (let anim of animations) {
-    p = p.then(function(val) {
+    p = p.then(function (val) {
       ret = val;
       return anim(elem);
     });
@@ -564,10 +564,10 @@ function chainAnimationsPromise(elem, animations) {
 
   // 返回一个部署了错误捕捉机制的Promise
   return p
-    .catch(function(e) {
+    .catch(function (e) {
       /* 忽略错误，继续执行 */
     })
-    .then(function() {
+    .then(function () {
       return ret;
     });
 }
@@ -579,7 +579,7 @@ function chainAnimationsPromise(elem, animations) {
 
 ```javascript
 function chainAnimationsGenerator(elem, animations) {
-  return spawn(function*() {
+  return spawn(function* () {
     let ret = null;
     try {
       for (let anim of animations) {
@@ -802,7 +802,7 @@ async function () {
 注意，`for await...of`循环也可以用于同步遍历器。
 
 ```javascript
-(async function() {
+(async function () {
   for await (const x of ["a", "b"]) {
     console.log(x);
   }
@@ -908,7 +908,7 @@ async function* readLines(path) {
 上面代码定义的异步 Generator 函数的用法如下。
 
 ```javascript
-(async function() {
+(async function () {
   for await (const line of readLines(filePath)) {
     console.log(line);
   }
@@ -1014,7 +1014,7 @@ async function f() {
   return await takeAsync(gen());
 }
 
-f().then(function(result) {
+f().then(function (result) {
   console.log(result); // ['a', 'b', 'c']
 });
 ```
@@ -1066,7 +1066,7 @@ async function* gen2() {
 与同步 Generator 函数一样，`for await...of`循环会展开`yield*`。
 
 ```javascript
-(async function() {
+(async function () {
   for await (const x of gen2()) {
     console.log(x);
   }

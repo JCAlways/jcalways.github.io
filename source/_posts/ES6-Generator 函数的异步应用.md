@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Generator 函数的异步应用
@@ -40,7 +40,7 @@ JavaScript 语言对异步编程的实现，就是回调函数。所谓回调函
 读取文件进行处理，是这样写的。
 
 ```javascript
-fs.readFile("/etc/passwd", "utf-8", function(err, data) {
+fs.readFile("/etc/passwd", "utf-8", function (err, data) {
   if (err) throw err;
   console.log(data);
 });
@@ -57,8 +57,8 @@ fs.readFile("/etc/passwd", "utf-8", function(err, data) {
 回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。假定读取`A`文件之后，再读取`B`文件，代码如下。
 
 ```javascript
-fs.readFile(fileA, "utf-8", function(err, data) {
-  fs.readFile(fileB, "utf-8", function(err, data) {
+fs.readFile(fileA, "utf-8", function (err, data) {
+  fs.readFile(fileB, "utf-8", function (err, data) {
     // ...
   });
 });
@@ -72,16 +72,16 @@ Promise 对象就是为了解决这个问题而提出的。它不是新的语法
 var readFile = require("fs-readfile-promise");
 
 readFile(fileA)
-  .then(function(data) {
+  .then(function (data) {
     console.log(data.toString());
   })
-  .then(function() {
+  .then(function () {
     return readFile(fileB);
   })
-  .then(function(data) {
+  .then(function (data) {
     console.log(data.toString());
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log(err);
   });
 ```
@@ -206,10 +206,10 @@ var g = gen();
 var result = g.next();
 
 result.value
-  .then(function(data) {
+  .then(function (data) {
     return data.json();
   })
-  .then(function(data) {
+  .then(function (data) {
     g.next(data);
   });
 ```
@@ -284,7 +284,7 @@ f(x + 5);
 
 // 等同于
 
-var thunk = function() {
+var thunk = function () {
   return x + 5;
 };
 
@@ -306,8 +306,8 @@ JavaScript 语言是传值调用，它的 Thunk 函数含义有所不同。在 J
 fs.readFile(fileName, callback);
 
 // Thunk版本的readFile（单参数版本）
-var Thunk = function(fileName) {
-  return function(callback) {
+var Thunk = function (fileName) {
+  return function (callback) {
     return fs.readFile(fileName, callback);
   };
 };
@@ -322,10 +322,10 @@ readFileThunk(callback);
 
 ```javascript
 // ES5版本
-var Thunk = function(fn) {
-  return function() {
+var Thunk = function (fn) {
+  return function () {
     var args = Array.prototype.slice.call(arguments);
-    return function(callback) {
+    return function (callback) {
       args.push(callback);
       return fn.apply(this, args);
     };
@@ -333,9 +333,9 @@ var Thunk = function(fn) {
 };
 
 // ES6版本
-const Thunk = function(fn) {
-  return function(...args) {
-    return function(callback) {
+const Thunk = function (fn) {
+  return function (...args) {
+    return function (callback) {
       return fn.call(this, ...args, callback);
     };
   };
@@ -377,7 +377,7 @@ var thunkify = require("thunkify");
 var fs = require("fs");
 
 var read = thunkify(fs.readFile);
-read("package.json")(function(err, str) {
+read("package.json")(function (err, str) {
   // ...
 });
 ```
@@ -386,7 +386,7 @@ Thunkify 的源码与上一节那个简单的转换器非常像。
 
 ```javascript
 function thunkify(fn) {
-  return function() {
+  return function () {
     var args = new Array(arguments.length);
     var ctx = this;
 
@@ -394,10 +394,10 @@ function thunkify(fn) {
       args[i] = arguments[i];
     }
 
-    return function(done) {
+    return function (done) {
       var called;
 
-      args.push(function() {
+      args.push(function () {
         if (called) return;
         called = true;
         done.apply(null, arguments);
@@ -459,7 +459,7 @@ var fs = require("fs");
 var thunkify = require("thunkify");
 var readFileThunk = thunkify(fs.readFile);
 
-var gen = function*() {
+var gen = function* () {
   var r1 = yield readFileThunk("/etc/fstab");
   console.log(r1.toString());
   var r2 = yield readFileThunk("/etc/shells");
@@ -475,10 +475,10 @@ var gen = function*() {
 var g = gen();
 
 var r1 = g.next();
-r1.value(function(err, data) {
+r1.value(function (err, data) {
   if (err) throw err;
   var r2 = g.next(data);
-  r2.value(function(err, data) {
+  r2.value(function (err, data) {
     if (err) throw err;
     g.next(data);
   });
@@ -518,7 +518,7 @@ run(g);
 有了这个执行器，执行 Generator 函数方便多了。不管内部有多少个异步操作，直接把 Generator 函数传入`run`函数即可。当然，前提是每一个异步操作，都要是 Thunk 函数，也就是说，跟在`yield`命令后面的必须是 Thunk 函数。
 
 ```javascript
-var g = function*() {
+var g = function* () {
   var f1 = yield readFileThunk("fileA");
   var f2 = yield readFileThunk("fileB");
   // ...
@@ -541,7 +541,7 @@ Thunk 函数并不是 Generator 函数自动执行的唯一方案。因为自动
 下面是一个 Generator 函数，用于依次读取两个文件。
 
 ```javascript
-var gen = function*() {
+var gen = function* () {
   var f1 = yield readFile("/etc/fstab");
   var f2 = yield readFile("/etc/shells");
   console.log(f1.toString());
@@ -561,7 +561,7 @@ co(gen);
 `co`函数返回一个`Promise`对象，因此可以用`then`方法添加回调函数。
 
 ```javascript
-co(gen).then(function() {
+co(gen).then(function () {
   console.log("Generator 函数执行完成");
 });
 ```
@@ -591,16 +591,16 @@ co 模块其实就是将两种自动执行器（Thunk 函数和 Promise 对象�
 ```javascript
 var fs = require("fs");
 
-var readFile = function(fileName) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(fileName, function(error, data) {
+var readFile = function (fileName) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(fileName, function (error, data) {
       if (error) return reject(error);
       resolve(data);
     });
   });
 };
 
-var gen = function*() {
+var gen = function* () {
   var f1 = yield readFile("/etc/fstab");
   var f2 = yield readFile("/etc/shells");
   console.log(f1.toString());
@@ -613,8 +613,8 @@ var gen = function*() {
 ```javascript
 var g = gen();
 
-g.next().value.then(function(data) {
-  g.next(data).value.then(function(data) {
+g.next().value.then(function (data) {
+  g.next(data).value.then(function (data) {
     g.next(data);
   });
 });
@@ -629,7 +629,7 @@ function run(gen) {
   function next(data) {
     var result = g.next(data);
     if (result.done) return result.value;
-    result.value.then(function(data) {
+    result.value.then(function (data) {
       next(data);
     });
   }
@@ -652,7 +652,7 @@ co 就是上面那个自动执行器的扩展，它的源码只有几十行，�
 function co(gen) {
   var ctx = this;
 
-  return new Promise(function(resolve, reject) {});
+  return new Promise(function (resolve, reject) {});
 }
 ```
 
@@ -662,7 +662,7 @@ function co(gen) {
 function co(gen) {
   var ctx = this;
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     if (typeof gen === "function") gen = gen.call(ctx);
     if (!gen || typeof gen.next !== "function") return resolve(gen);
   });
@@ -675,7 +675,7 @@ function co(gen) {
 function co(gen) {
   var ctx = this;
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     if (typeof gen === "function") gen = gen.call(ctx);
     if (!gen || typeof gen.next !== "function") return resolve(gen);
 
@@ -729,13 +729,13 @@ co 支持并发的异步操作，即允许某些操作同时进行，等到它�
 
 ```javascript
 // 数组的写法
-co(function*() {
+co(function* () {
   var res = yield [Promise.resolve(1), Promise.resolve(2)];
   console.log(res);
 }).catch(onerror);
 
 // 对象的写法
-co(function*() {
+co(function* () {
   var res = yield {
     1: Promise.resolve(1),
     2: Promise.resolve(2),
@@ -747,7 +747,7 @@ co(function*() {
 下面是另一个例子。
 
 ```javascript
-co(function*() {
+co(function* () {
   var values = [n1, n2, n3];
   yield values.map(somethingAsync);
 });
@@ -777,7 +777,7 @@ const fs = require("fs");
 const stream = fs.createReadStream("./les_miserables.txt");
 let valjeanCount = 0;
 
-co(function*() {
+co(function* () {
   while (true) {
     const res = yield Promise.race([
       new Promise((resolve) => stream.once("data", resolve)),

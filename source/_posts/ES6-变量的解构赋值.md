@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 变量的解构赋值
@@ -642,13 +642,13 @@ console.log(id, status, number);
 **（5）函数参数的默认值**
 
 ```javascript
-jQuery.ajax = function(
+jQuery.ajax = function (
   url,
   {
     async = true,
-    beforeSend = function() {},
+    beforeSend = function () {},
     cache = true,
-    complete = function() {},
+    complete = function () {},
     crossDomain = false,
     global = true,
     // ... more config

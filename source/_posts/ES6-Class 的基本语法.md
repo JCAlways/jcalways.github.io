@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Class 的基本语法
@@ -20,7 +20,7 @@ function Point(x, y) {
   this.y = y;
 }
 
-Point.prototype.toString = function() {
+Point.prototype.toString = function () {
   return "(" + this.x + ", " + this.y + ")";
 };
 
@@ -157,11 +157,11 @@ Object.getOwnPropertyNames(Point.prototype);
 上面代码中，`toString`方法是`Point`类内部定义的方法，它是不可枚举的。这一点与 ES5 的行为不一致。
 
 ```javascript
-var Point = function(x, y) {
+var Point = function (x, y) {
   // ...
 };
 
-Point.prototype.toString = function() {
+Point.prototype.toString = function () {
   // ...
 };
 
@@ -303,7 +303,7 @@ p1.__proto__ === p2.__proto__;
 var p1 = new Point(2, 3);
 var p2 = new Point(3, 2);
 
-p1.__proto__.printName = function() {
+p1.__proto__.printName = function () {
   return "Oops";
 };
 

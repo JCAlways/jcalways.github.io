@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 函数的扩展
@@ -242,15 +242,15 @@ foo(undefined, null);
 指定了默认值以后，函数的`length`属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，`length`属性将失真。
 
 ```javascript
-(function(a) {}
+(function (a) {})
   .length(
     // 1
-    function(a = 5) {}
+    function (a = 5) {}
   )
   .length(
     // 0
-    function(a, b, c = 5) {}
-  ).length); // 2
+    function (a, b, c = 5) {}
+  ).length; // 2
 ```
 
 上面代码中，`length`属性的返回值，等于函数的参数个数减去指定了默认值的参数个数。比如，上面最后一个函数，定义了 3 个参数，其中有一个参数`c`指定了默认值，因此`length`属性等于`3`减去`1`，最后得到`2`。
@@ -258,16 +258,16 @@ foo(undefined, null);
 这是因为`length`属性的含义是，该函数预期传入的参数个数。某个参数指定默认值以后，预期传入的参数个数就不包括这个参数了。同理，后文的 rest 参数也不会计入`length`属性。
 
 ```javascript
-(function(...args) {}.length); // 0
+(function (...args) {}).length; // 0
 ```
 
 如果设置了默认值的参数不是尾参数，那么`length`属性也不再计入后面的参数了。
 
 ```javascript
-(function(a = 0, b, c) {}.length(
+(function (a = 0, b, c) {}).length(
   // 0
-  function(a, b = 1, c) {}
-).length); // 1
+  function (a, b = 1, c) {}
+).length; // 1
 ```
 
 ## 作用域
@@ -360,7 +360,7 @@ bar(); // ReferenceError: foo is not defined
 var x = 1;
 function foo(
   x,
-  y = function() {
+  y = function () {
     x = 2;
   }
 ) {
@@ -381,7 +381,7 @@ x; // 1
 var x = 1;
 function foo(
   x,
-  y = function() {
+  y = function () {
     x = 2;
   }
 ) {
@@ -459,7 +459,7 @@ const sortNumbers = (...numbers) => numbers.sort();
 
 ```javascript
 function push(array, ...items) {
-  items.forEach(function(item) {
+  items.forEach(function (item) {
     array.push(item);
     console.log(item);
   });
@@ -481,15 +481,15 @@ function f(a, ...b, c) {
 函数的`length`属性，不包括 rest 参数。
 
 ```javascript
-(function(a) {}
+(function (a) {})
   .length(
     // 1
-    function(...a) {}
+    function (...a) {}
   )
   .length(
     // 0
-    function(a, ...b) {}
-  ).length); // 1
+    function (a, ...b) {}
+  ).length; // 1
 ```
 
 # 严格模式
@@ -560,9 +560,9 @@ function doSomething(a, b = a) {
 第二种是把函数包在一个无参数的立即执行函数里面。
 
 ```javascript
-const doSomething = (function() {
+const doSomething = (function () {
   "use strict";
-  return function(value = 42) {
+  return function (value = 42) {
     return value;
   };
 })();
@@ -582,7 +582,7 @@ foo.name; // "foo"
 需要注意的是，ES6 对这个属性的行为做出了一些修改。如果将一个匿名函数赋值给一个变量，ES5 的`name`属性，会返回空字符串，而 ES6 的`name`属性会返回实际的函数名。
 
 ```javascript
-var f = function() {};
+var f = function () {};
 
 // ES5
 f.name; // ""
@@ -620,7 +620,7 @@ foo
   .name(
     // "bound foo"
 
-    function() {}
+    function () {}
   )
   .bind({}).name; // "bound "
 ```
@@ -635,7 +635,7 @@ ES6 允许使用“箭头”（`=>`）定义函数。
 var f = (v) => v;
 
 // 等同于
-var f = function(v) {
+var f = function (v) {
   return v;
 };
 ```
@@ -645,13 +645,13 @@ var f = function(v) {
 ```javascript
 var f = () => 5;
 // 等同于
-var f = function() {
+var f = function () {
   return 5;
 };
 
 var sum = (num1, num2) => num1 + num2;
 // 等同于
-var sum = function(num1, num2) {
+var sum = function (num1, num2) {
   return num1 + num2;
 };
 ```
@@ -715,7 +715,7 @@ const square = (n) => n * n;
 
 ```javascript
 // 正常函数写法
-[1, 2, 3].map(function(x) {
+[1, 2, 3].map(function (x) {
   return x * x;
 });
 
@@ -727,7 +727,7 @@ const square = (n) => n * n;
 
 ```javascript
 // 正常函数写法
-var result = values.sort(function(a, b) {
+var result = values.sort(function (a, b) {
   return a - b;
 });
 
@@ -787,7 +787,7 @@ function Timer() {
   // 箭头函数
   setInterval(() => this.s1++, 1000);
   // 普通函数
-  setInterval(function() {
+  setInterval(function () {
     this.s2++;
   }, 1000);
 }
@@ -808,7 +808,7 @@ setTimeout(() => console.log("s2: ", timer.s2), 3100);
 var handler = {
   id: "123456",
 
-  init: function() {
+  init: function () {
     document.addEventListener(
       "click",
       (event) => this.doSomething(event.type),
@@ -816,7 +816,7 @@ var handler = {
     );
   },
 
-  doSomething: function(type) {
+  doSomething: function (type) {
     console.log("Handling " + type + " for " + this.id);
   },
 };
@@ -840,7 +840,7 @@ function foo() {
 function foo() {
   var _this = this;
 
-  setTimeout(function() {
+  setTimeout(function () {
     console.log("id:", _this.id);
   }, 100);
 }
@@ -888,9 +888,9 @@ foo(2, 4, 6, 8);
 另外，由于箭头函数没有自己的`this`，所以当然也就不能用`call()`、`apply()`、`bind()`这些方法去改变`this`的指向。
 
 ```javascript
-(function() {
+(function () {
   return [(() => this.x).bind({ x: "inner" })()];
-}.call({ x: "outer" }));
+}).call({ x: "outer" });
 // ['outer']
 ```
 
@@ -935,9 +935,9 @@ button.addEventListener("click", () => {
 ```javascript
 function insert(value) {
   return {
-    into: function(array) {
+    into: function (array) {
       return {
-        after: function(afterValue) {
+        after: function (afterValue) {
           array.splice(array.indexOf(afterValue) + 1, 0, value);
           return array;
         },
@@ -946,9 +946,7 @@ function insert(value) {
   };
 }
 
-insert(2)
-  .into([1, 3])
-  .after(1); //[1, 2, 3]
+insert(2).into([1, 3]).after(1); //[1, 2, 3]
 ```
 
 上面这个函数，可以使用箭头函数改写。
@@ -963,15 +961,16 @@ let insert = (value) => ({
   }),
 });
 
-insert(2)
-  .into([1, 3])
-  .after(1); //[1, 2, 3]
+insert(2).into([1, 3]).after(1); //[1, 2, 3]
 ```
 
 下面是一个部署管道机制（pipeline）的例子，即前一个函数的输出是后一个函数的输入。
 
 ```javascript
-const pipeline = (...funcs) => (val) => funcs.reduce((a, b) => b(a), val);
+const pipeline =
+  (...funcs) =>
+  (val) =>
+    funcs.reduce((a, b) => b(a), val);
 
 const plus1 = (a) => a + 1;
 const mult2 = (a) => a * 2;
@@ -1237,7 +1236,7 @@ factorial(5); // 120
 
 ```javascript
 function currying(fn, n) {
-  return function(m) {
+  return function (m) {
     return fn.call(this, m, n);
   };
 }
@@ -1367,7 +1366,7 @@ function tco(f) {
   };
 }
 
-var sum = tco(function(x, y) {
+var sum = tco(function (x, y) {
   if (y > 0) {
     return sum(x + 1, y - 1);
   } else {

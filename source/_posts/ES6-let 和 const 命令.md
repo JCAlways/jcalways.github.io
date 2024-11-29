@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # let 和 const 命令
@@ -46,7 +46,7 @@ console.log(i);
 ```javascript
 var a = [];
 for (var i = 0; i < 10; i++) {
-  a[i] = function() {
+  a[i] = function () {
     console.log(i);
   };
 }
@@ -60,7 +60,7 @@ a[6](); // 10
 ```javascript
 var a = [];
 for (let i = 0; i < 10; i++) {
-  a[i] = function() {
+  a[i] = function () {
     console.log(i);
   };
 }
@@ -371,7 +371,7 @@ function f() {
   console.log("I am outside!");
 }
 
-(function() {
+(function () {
   if (false) {
     // 重复声明一次函数f
     function f() {
@@ -391,7 +391,7 @@ function f() {
   console.log("I am outside!");
 }
 
-(function() {
+(function () {
   function f() {
     console.log("I am inside!");
   }
@@ -419,7 +419,7 @@ function f() {
   console.log("I am outside!");
 }
 
-(function() {
+(function () {
   if (false) {
     // 重复声明一次函数f
     function f() {
@@ -439,7 +439,7 @@ function f() {
 function f() {
   console.log("I am outside!");
 }
-(function() {
+(function () {
   var f = undefined;
   if (false) {
     function f() {
@@ -466,7 +466,7 @@ function f() {
 // 函数表达式
 {
   let a = "secret";
-  let f = function() {
+  let f = function () {
     return a;
   };
 }
@@ -657,7 +657,7 @@ typeof window !== "undefined"
   : this;
 
 // 方法二
-var getGlobal = function() {
+var getGlobal = function () {
   if (typeof self !== "undefined") {
     return self;
   }

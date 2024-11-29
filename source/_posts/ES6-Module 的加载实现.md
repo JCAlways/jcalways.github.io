@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Module 的加载实现
@@ -235,10 +235,10 @@ obj = {}; // TypeError
 // mod.js
 function C() {
   this.sum = 0;
-  this.add = function() {
+  this.add = function () {
     this.sum += 1;
   };
-  this.show = function() {
+  this.show = function () {
     console.log(this.sum);
   };
 }
@@ -598,11 +598,11 @@ exports.done = true;
 var a = require("a"); // 安全的写法
 var foo = require("a").foo; // 危险的写法
 
-exports.good = function(arg) {
+exports.good = function (arg) {
   return a.foo("good", arg); // 使用的是 a.foo 的最新值
 };
 
-exports.bad = function(arg) {
+exports.bad = function (arg) {
   return foo("bad", arg); // 使用的是一个部分加载时的值
 };
 ```
@@ -730,14 +730,14 @@ true
 var odd = require("./odd");
 var counter = 0;
 exports.counter = counter;
-exports.even = function(n) {
+exports.even = function (n) {
   counter++;
   return n == 0 || odd(n - 1);
 };
 
 // odd.js
 var even = require("./even").even;
-module.exports = function(n) {
+module.exports = function (n) {
   return n != 0 && even(n - 1);
 };
 ```
@@ -813,7 +813,7 @@ export class q {
 
 ```html
 <script>
-  System.import("app/es6-file").then(function(m) {
+  System.import("app/es6-file").then(function (m) {
     console.log(new m.q().es6); // hello
   });
 </script>

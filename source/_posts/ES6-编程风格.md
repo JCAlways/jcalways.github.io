@@ -5,7 +5,7 @@ categories:
   - JavaScript
   - ES6
 tags: ES6
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 编程风格
@@ -209,7 +209,7 @@ const atom = {
 
   value: 1,
 
-  addValue: function(value) {
+  addValue: function (value) {
     return atom.value + value;
   },
 };
@@ -265,7 +265,7 @@ const nodes = Array.from(foo);
 
 ```javascript
 // bad
-[1, 2, 3].map(function(x) {
+[1, 2, 3].map(function (x) {
   return x * x;
 });
 
@@ -283,7 +283,7 @@ const nodes = Array.from(foo);
 ```javascript
 // bad
 const self = this;
-const boundMethod = function(...params) {
+const boundMethod = function (...params) {
   return method.apply(self, params);
 };
 
@@ -364,7 +364,7 @@ for (let item of map.entries()) {
 function Queue(contents = []) {
   this._queue = [...contents];
 }
-Queue.prototype.pop = function() {
+Queue.prototype.pop = function () {
   const value = this._queue[0];
   this._queue.splice(0, 1);
   return value;
@@ -392,7 +392,7 @@ function PeekableQueue(contents) {
   Queue.apply(this, contents);
 }
 inherits(PeekableQueue, Queue);
-PeekableQueue.prototype.peek = function() {
+PeekableQueue.prototype.peek = function () {
   return this._queue[0];
 };
 
