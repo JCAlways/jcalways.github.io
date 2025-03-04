@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JCAlways">
+<meta property="og:url" content="https://blog.zhangsifan.com/page/6/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="博客,Blog,个人博客,张思帆,zhangsifan,zhangsifan.com,blog.zhangsifan.com,JCAlways,Always-Team,前端,前端技术,前端知识分享,前端技术分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg"><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/page/6/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JCAlways',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">JCAlways</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-let%20%E5%92%8C%20const%20%E5%91%BD%E4%BB%A4/" title="let 和 const 命令"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="let 和 const 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-let%20%E5%92%8C%20const%20%E5%91%BD%E4%BB%A4/" title="let 和 const 命令">let 和 const 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">let 和 const 命令let 命令基本用法ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 1234567&#123;  let a = 10;  var b = 1;&#125;a; // ReferenceError: a is not defined.b; // 1  上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明的变量只在它所在的代码块有效。 for循环的计数器，就很合适使用let命令。 123456for (let i = 0; i &lt; 10; i++) &#123;  // ...&#125;console.log(i);// ReferenceError: i is not defined  上面代码中，计数器i只在for循环体内有效，在循环体外引用就会报错。 下面的代码如果使用var，最后输出的是10。 1234567var a = [];for (var i =...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E4%BF%AE%E9%A5%B0%E5%99%A8/" title="修饰器"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="修饰器"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E4%BF%AE%E9%A5%B0%E5%99%A8/" title="修饰器">修饰器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">修饰器类的修饰许多面向对象的语言都有修饰器（Decorator）函数，用来修改类的行为。目前，有一个提案将这项功能，引入了 ECMAScript。 12345678910@testableclass MyTestableClass &#123;  // ...&#125;function testable(target) &#123;  target.isTestable = true;&#125;MyTestableClass.isTestable; // true  上面代码中，@testable就是一个修饰器。它修改了MyTestableClass这个类的行为，为它加上了静态属性isTestable。testable函数的参数target是MyTestableClass类本身。 基本上，修饰器的行为就是下面这样。 1234567@decoratorclass A &#123;&#125;// 等同于class A &#123;&#125;A = decorator(A) ||...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式编程"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数式编程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式编程">函数式编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">函数式编程JavaScript 语言从一诞生，就具有函数式编程的烙印。它将函数作为一种独立的数据类型，与其他数据类型处于完全平等的地位。在 JavaScript 语言中，你可以采用面向对象编程，也可以采用函数式编程。有人甚至说，JavaScript 是有史以来第一种被大规模采用的函数式编程语言。 ES6 的种种新增功能，使得函数式编程变得更方便、更强大。本章介绍 ES6 如何进行函数式编程。 柯里化柯里化（currying）指的是将一个多参数的函数拆分成一系列函数，每个拆分后的函数都只接受一个参数（unary）。 12345function add(a, b) &#123;  return a + b;&#125;add(1, 1); // 2  上面代码中，函数add接受两个参数a和b。 柯里化就是将上面的函数拆分成两个函数，每个函数都只接受一个参数。 12345678910function add(a) &#123;  return function (b) &#123;    return a + b;  &#125;;&#125;// 或者采用箭头函数写法const...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/" title="函数的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/" title="函数的扩展">函数的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">函数的扩展函数参数的默认值基本用法ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法。 12345678function log(x, y) &#123;  y = y || &quot;World&quot;;  console.log(x, y);&#125;log(&quot;Hello&quot;); // Hello Worldlog(&quot;Hello&quot;, &quot;China&quot;); // Hello Chinalog(&quot;Hello&quot;, &quot;&quot;); // Hello World  上面代码检查函数log的参数y有没有赋值，如果没有，则指定默认值为World。这种写法的缺点在于，如果参数y赋值了，但是对应的布尔值为false，则该赋值不起作用。就像上面代码的最后一行，参数y等于空字符，结果被改为默认值。 为了避免这个问题，通常需要先判断一下参数y是否被赋值，如果没有，再等于默认值。 123if (typeof y === &quot;undefined&quot;) &#123;  y =...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5/" title="参考链接"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="参考链接"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5/" title="参考链接">参考链接</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">参考链接官方文件 ECMAScript® 2015 Language Specification: ECMAScript 2015 规格 ECMAScript® 2016 Language Specification: ECMAScript 2016 规格 ECMAScript® 2017 Language Specification：ECMAScript 2017 规格（草案） ECMAScript Current Proposals: ECMAScript 当前的所有提案 ECMAScript Active Proposals: 已经进入正式流程的提案 ECMAscript proposals：从阶段 0 到阶段 4 的所有提案列表 TC39 meeting agendas: TC39 委员会历年的会议记录 ECMAScript Daily: TC39 委员会的动态 The TC39 Process: 提案进入正式规格的流程 TC39: A Process Sketch, Stages 0 and 1: Stage 0 和 Stage 1 的含义 TC39 Process...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="变量的解构赋值"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值">变量的解构赋值</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">变量的解构赋值数组的解构赋值基本用法ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。 以前，为变量赋值，只能直接指定值。 123let a = 1;let b = 2;let c = 3;  ES6 允许写成下面这样。 1let [a, b, c] = [1, 2, 3];  上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。 本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。下面是一些使用嵌套数组进行解构的例子。 1234567891011121314151617181920let [foo, [[bar], baz]] = [1, [[2], 3]];foo; // 1bar; // 2baz; // 3let [, , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];third; // &quot;baz&quot;let [x, , y] = [1, 2, 3];x; // 1y; //...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/" title="字符串的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符串的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/" title="字符串的扩展">字符串的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">字符串的扩展ES6 加强了对 Unicode 的支持，并且扩展了字符串对象。 字符的 Unicode 表示法JavaScript 允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。 12&quot;\u0061&quot;;// &quot;a&quot;  但是，这种表示法只限于码点在\u0000~&#96;\uFFFF&#96;之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。 12345&quot;\uD842\uDFB7&quot;;// &quot;𠮷&quot;&quot;\u20BB7&quot;;// &quot; 7&quot;  上面代码表示，如果直接在\u后面跟上超过0xFFFF的数值（比如\u20BB7），JavaScript 会理解成\u20BB+7。由于\u20BB是一个不可打印字符，所以只会显示一个空格，后面跟着一个7。 ES6 对这一点做出了改进，只要将码点放入大括号，就能正确解读该字符。 1234567891011&quot;\u&#123;20BB7&#125;&quot;;//...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95/" title="数值的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数值的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95/" title="数值的扩展">数值的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">数值的扩展二进制和八进制表示法ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。 120b111110111 === 503; // true0o767 === 503; // true  从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6 进一步明确，要使用前缀0o表示。 123456789101112// 非严格模式(function () &#123;  console.log(0o11 === 011);&#125;)()(  // true  // 严格模式  function () &#123;    &quot;use strict&quot;;    console.log(0o11 === 011);  &#125;)(); // Uncaught SyntaxError: Octal literals are not allowed in strict mode.  如果要将0b和0o前缀的字符串数值转为十进制，要使用Number方法。 12Number(&quot;0b111&quot;);...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" title="对象的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="对象的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" title="对象的扩展">对象的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">对象的扩展属性的简洁表示法ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。 123456const foo = &quot;bar&quot;;const baz = &#123; foo &#125;;baz; // &#123;foo: &quot;bar&quot;&#125;// 等同于const baz = &#123; foo: foo &#125;;  上面代码表明，ES6 允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值。下面是另一个例子。 1234567891011function f(x, y) &#123;  return &#123; x, y &#125;;&#125;// 等同于function f(x, y) &#123;  return &#123; x: x, y: y &#125;;&#125;f(1, 2); // Object &#123;x: 1, y: 2&#125;  除了属性简写，方法也可以简写。 12345678910111213const o = &#123;  method()...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/" title="数组的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数组的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/" title="数组的扩展">数组的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">数组的扩展扩展运算符含义扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。 12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll(&#x27;div&#x27;)]// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]  该运算符主要用于函数调用。 12345678910function push(array, ...items) &#123;  array.push(...items);&#125;function add(x, y) &#123;  return x + y;&#125;const numbers = [4, 38];add(...numbers); //...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JCAlways"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20241017dv/" title="PageSpy使用教程"><img src="https://www.pagespy.org/assets/doc-banner-D915jpec.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PageSpy使用教程"/></a><div class="content"><a class="title" href="/posts/20241017dv/" title="PageSpy使用教程">PageSpy使用教程</a><time datetime="2024-10-17T00:00:00.000Z" title="发表于 2024-10-17 00:00:00">2024-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240924wg/" title="风灵月影下载"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风灵月影下载"/></a><div class="content"><a class="title" href="/posts/20240924wg/" title="风灵月影下载">风灵月影下载</a><time datetime="2024-09-24T00:00:00.000Z" title="发表于 2024-09-24 00:00:00">2024-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240417re/" title="Google reCAPTCHA使用教程"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google reCAPTCHA使用教程"/></a><div class="content"><a class="title" href="/posts/20240417re/" title="Google reCAPTCHA使用教程">Google reCAPTCHA使用教程</a><time datetime="2024-04-17T00:00:00.000Z" title="发表于 2024-04-17 00:00:00">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230806pa/" title="通行密钥开发 Passkey"><img src="https://developers.google.cn/identity/passkeys/key-visual2.png?hl=zh-cn" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通行密钥开发 Passkey"/></a><div class="content"><a class="title" href="/posts/20230806pa/" title="通行密钥开发 Passkey">通行密钥开发 Passkey</a><time datetime="2023-08-06T00:00:00.000Z" title="发表于 2023-08-06 00:00:00">2023-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230505tr/" title="Tauri使用教程"><img src="https://v2.tauri.app/og.png?v=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tauri使用教程"/></a><div class="content"><a class="title" href="/posts/20230505tr/" title="Tauri使用教程">Tauri使用教程</a><time datetime="2023-05-05T00:00:00.000Z" title="发表于 2023-05-05 00:00:00">2023-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">47</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/JQuery/"><span class="card-category-list-name">JQuery</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/React-js/"><span class="card-category-list-name">React.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Vue-js/"><span class="card-category-list-name">Vue.js</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web-Office/"><span class="card-category-list-name">Web Office</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8A%E4%BC%A0/" style="font-size: 1.1em; color: #999">文件夹上传</a> <a href="/tags/%E9%80%9A%E8%A1%8C%E7%A7%98%E9%92%A5/" style="font-size: 1.1em; color: #999">通行秘钥</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 1.1em; color: #999">高德地图</a> <a href="/tags/%E6%8B%96%E6%8B%BD/" style="font-size: 1.1em; color: #999">拖拽</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/Vue-js/" style="font-size: 1.26em; color: #999fa8">Vue.js</a> <a href="/tags/reCAPTCHA/" style="font-size: 1.1em; color: #999">reCAPTCHA</a> <a href="/tags/JavaScript/" style="font-size: 1.42em; color: #99a6b7">JavaScript</a> <a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.1em; color: #999">导航</a> <a href="/tags/Element-Plus/" style="font-size: 1.1em; color: #999">Element-Plus</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88/" style="font-size: 1.1em; color: #999">在线预览</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.18em; color: #999ca1">微信小程序</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/React-jjs/" style="font-size: 1.1em; color: #999">React.jjs</a> <a href="/tags/PageSpy/" style="font-size: 1.1em; color: #999">PageSpy</a> <a href="/tags/WPS-Office/" style="font-size: 1.1em; color: #999">WPS Office</a> <a href="/tags/kkFileViews/" style="font-size: 1.1em; color: #999">kkFileViews</a> <a href="/tags/GeeTest/" style="font-size: 1.18em; color: #999ca1">GeeTest</a> <a href="/tags/Fingerprintjs/" style="font-size: 1.1em; color: #999">Fingerprintjs</a> <a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/Tauri/" style="font-size: 1.1em; color: #999">Tauri</a> <a href="/tags/Node-js/" style="font-size: 1.34em; color: #99a3b0">Node.js</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/09/">
+            <span class="card-archive-list-date">
+              九月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              四月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/08/">
+            <span class="card-archive-list-date">
+              八月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/05/">
+            <span class="card-archive-list-date">
+              五月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/10/">
+            <span class="card-archive-list-date">
+              十月 2022
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/09/">
+            <span class="card-archive-list-date">
+              九月 2022
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">71</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-09-11T12:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">237.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-04T01:22:34.507Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By JCAlways</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.4</a></div><div class="footer_custom_text"><a style="display:flex;justify-content:center" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
