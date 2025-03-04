@@ -21,6 +21,10 @@
       link: http://ql.zhangsifan.com
       avatar: https://qn.whyour.cn/logo.png
       descr: 青龙面板
+    - name: PageSpy
+      link: http://pagespy.zhangsifan.com
+      avatar: https://pagespy.zhangsifan.com/favicon.svg
+      descr: 像使用谷歌浏览器的控制台一样简单地开始远程调试。
 
 - class_name: 技术支持
   class_desc: 特别鸣谢
