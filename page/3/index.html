@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JCAlways">
+<meta property="og:url" content="https://blog.zhangsifan.com/page/3/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="博客,Blog,个人博客,张思帆,zhangsifan,zhangsifan.com,blog.zhangsifan.com,JCAlways,Always-Team,前端,前端技术,前端知识分享,前端技术分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg"><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/page/3/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JCAlways',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">JCAlways</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Vue-Vuex/" title="VueX"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VueX"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Vue-Vuex/" title="VueX">VueX</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-11-12T14:30:00.000Z" title="发表于 2019-11-12 14:30:00">2019-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Vue-js/">Vue.js</a></span></div><div class="content">VueX 介绍 官方网站Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。(管理数据共享的工具)  看图结论：  state 管理数据，管理的数据是响应式的，当数据改变时驱动视图更新。 mutations 更新数据，state 中的数据只能使用 mutations 去改变数据。 actions 请求数据，响应成功后把数据提交给 mutations  初始化功能安装1npm i vuex --save  新建 store.js 文件123456789101112// 初始化一个vuex的实例（数据仓库） 导出即可import Vue from &quot;vue&quot;;import Vuex from &quot;vuex&quot;;// 使用安装Vue.use(Vuex);// 初始化const store = new Vuex.Store(&#123;  state: null,  mutations: null,  actions:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/Vue-vue%E7%9A%84%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/" title="Vue的钩子函数"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue的钩子函数"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Vue-vue%E7%9A%84%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/" title="Vue的钩子函数">Vue的钩子函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-23T20:00:00.000Z" title="发表于 2019-10-23 20:00:00">2019-10-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Vue-js/">Vue.js</a></span></div><div class="content">前言 官方介绍文档 官方使用文档   </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Vue-Vue-Cli%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Vue-Cli的使用"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue-Cli的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Vue-Vue-Cli%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Vue-Cli的使用">Vue-Cli的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-22T20:00:00.000Z" title="发表于 2019-10-22 20:00:00">2019-10-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Vue-js/">Vue.js</a></span></div><div class="content">Vue-Cli 官方网站   vue-cli是一个辅助开发工具&#x3D;&gt; 代码编译 + 样式 + 语法校验 + 输出设置 + 其他 … 作用: 可以为开发者提供一个**标准的项目开发结构** 和配置 开发者不需要再关注  安装 vue-cli解决powershell禁止运行脚本 1set-ExecutionPolicy RemoteSigned  采用 npm 的方式安装1npm i -g @vue/cli  采用 cmpn 的方式安装 cnpm 官网  123npm install -g cnpm --registry=https://registry.npm.taobao.orgcnpm i -g @vue/cli  查看安装版本号123vue -V//或者vue --version  vue-cli 2.0 补丁1npm install -g @vue/cli-init  初始化项目创建 2.0 项目12345678#  heroes 创建的项目名称vue  init webpack-simple 项目名称# 切换到当前目录cd  heroes# 安装依赖npm...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/Vue-Vue%E5%9F%BA%E7%A1%80/" title="Vue基础"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Vue-Vue%E5%9F%BA%E7%A1%80/" title="Vue基础">Vue基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-16T20:00:00.000Z" title="发表于 2019-10-16 20:00:00">2019-10-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Vue-js/">Vue.js</a></span></div><div class="content">Vue 是什么之前端现状  Vue 是一个优秀的**前端框架** 国内大多数中小型公司都在用,  开发者按照 Vue 的**规范**进行开发 &#x3D;&gt; 不按照规范开发 就会报错    和 DOM**解耦** Vue 框架 显示数据 获取数据都不再通过 dom 对象 适应当前**SPA**的项目开发 &#x3D;&gt; single page application 单页应用程序 &#x3D;&gt;只有一个 html 页面 传统网站开发 一般来说 需求不大 当下各种新框架都采用了**类Vue或者类React**的语法去作 为主语法, 微信小程序&#x2F;MpVue&#x2F;uni-app   Vue 特点  响应式数据 数据驱动视图 可以让我们只关注数据 Vue 中数据是响应式的 &#x3D;&gt; 数据变化 &#x3D;&gt; 视图一定变化 MVVM 双向绑定 &#x3D;&gt; 数据 &lt;&#x3D;&gt; 视图 , 数据变化 &#x3D;&#x3D;&gt;视图变化 ,视图变化 &#x3D;&gt;...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Vue-MVVM%E5%8E%9F%E7%90%86/" title="MVVM原理"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MVVM原理"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Vue-MVVM%E5%8E%9F%E7%90%86/" title="MVVM原理">MVVM原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-16T14:00:00.000Z" title="发表于 2019-10-16 14:00:00">2019-10-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Vue-js/">Vue.js</a></span></div><div class="content">MVVM 原理常见的面试问题：  Vue 数据绑定的原理？ MVVM 数据绑定的原理？ Vue 双向数据绑定的原理？ Vue 数据响应式原理？ 数据响应式原理？   当前比较流行的前端框架都是采用的 MVVM 的方式： 什么是 MVVM？ 简单一句话：数据驱动视图。 介绍感受 MVVM 传统的 DOM 操作方式 模板引擎方式 数据驱动视图方式（MVVM）  什么是 MVVM 简单一句话：数据驱动视图   123456789101112131415161718192021&lt;!-- 视图 --&gt;&lt;template&gt;  &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;&lt;/template&gt;&lt;!--  - 把普通的 JavaScript 对象和视图 DOM 之间建立了一种映射关系：  - 数据的改变影响视图  - 视图（表单元素）的改变影响数据--&gt;&lt;script&gt;  // Model 普通数据对象  export default &#123;    data()...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/DOC-Jquery%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Jquery的常见问题"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jquery的常见问题"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/DOC-Jquery%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Jquery的常见问题">Jquery的常见问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-14T20:29:46.000Z" title="发表于 2019-10-14 20:29:46">2019-10-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/">技术文档</a></span></div><div class="content">你在公司是怎么使用 jquery 的？ 在项目中是怎么用的，就是面试官想考核你是否具备实际的项目开发经验，这个时候可以结合项目中的实际情况来解答（比如用过的选择器，复选框，表单，ajax，事件等）配置 jquery 环境，下载 jquery 类库，在 jsp 页面引入 jquery 类库即可 1&lt;script type=&quot;text/javascript&quot; src=&quot;jquery/jquery-1.7.2.min.js&quot; /&gt;  接下来通过在 1&lt;script&gt; $(function()&#123;&#125;); &lt;/script&gt; 你为什么要使用 jquery?(或者是这样问的：你认为 jquery 有哪些好处？) 因为 jQuery 是轻量级的框架，大小不到 30kb,它有强大的选择器，出色的 DOM 操作的封装，有可靠的事件处理机制(jQuery 在处理事件绑定的时候相当的可靠)，完善的 ajax(它的 ajax 封装的非常的好，不需要考虑复杂浏览器的兼容性和 XMLHttpRequest...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Node-Promise/" title="Promise"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Promise"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Node-Promise/" title="Promise">Promise</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-14T18:15:47.000Z" title="发表于 2019-10-14 18:15:47">2019-10-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Node-js/">Node.js</a></span></div><div class="content">Promise 构造器Promise 是一个构造器，用来创建 Promise 类型的对象 。就好像 Array 是一个构造器，用来创建数组。 格式123456789var p1 = new Promise(function (resolve, reject) &#123;  alert(1);  //   在某一个时刻去调用  // resolve():把p1的状态由 pending -----&gt; resolved  // reject() :把p1的状态由 pending -----&gt; rejected  console.log(222);  resolve(456);&#125;);console.dir(p1);  三种状态pendingpending,”行将发生的”。相当于是一个初始状态。 1234var p = new Promise((ok, err) =&gt; &#123;  console.info(&quot;发呆.....&quot;);&#125;);console.dir(p);  resolved创建 Promise...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/Node-MySQL%E4%BD%BF%E7%94%A8/" title="Node操作MySQL"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node操作MySQL"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Node-MySQL%E4%BD%BF%E7%94%A8/" title="Node操作MySQL">Node操作MySQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-14T14:57:48.000Z" title="发表于 2019-10-14 14:57:48">2019-10-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Node-js/">Node.js</a></span></div><div class="content">数据库的增删改查增1insert into 表名(字段名1,字段名2,......) values(值1,值2,......)  删1delete  from 表名  where 删除条件  改1update 表名 set 字段1=值1, 字段2=值2,...  where 修改条件  查1SELECT  字段名1, 字段名2, .....  FROM 表名	WHERE &lt;条件表达式&gt;  Node.js 中使用 MySQL初始化文件夹1npm init -y  安装插件1npm i mysql  创建 server.js 将代码复制进去12345678910111213141516var mysql = require(&quot;mysql&quot;);var connection = mysql.createConnection(&#123;  host: &quot;localhost&quot;,  user: &quot;root&quot;,  password: &quot;root&quot;,  database:...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/" title="Xmind笔记汇总">Xmind笔记汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-13T20:39:11.000Z" title="发表于 2019-10-13 20:39:11">2019-10-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/">技术文档</a></span></div><div class="content">HTML到Node.js之前笔记汇总</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/DOC-24%E9%81%93JavaScript%E7%AE%97%E6%B3%95/" title="24道JavaScript算法题"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24道JavaScript算法题"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/DOC-24%E9%81%93JavaScript%E7%AE%97%E6%B3%95/" title="24道JavaScript算法题">24道JavaScript算法题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-13T20:29:46.000Z" title="发表于 2019-10-13 20:29:46">2019-10-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/">技术文档</a></span></div><div class="content">标准排序第一种123456789101112var arr = [5, 8, 3, 6, 9];for (var i = 0; i &lt; arr.length; i++) &#123;  for (var j = i + 1; j &lt; arr.length; j++) &#123;    var temp;    if (arr[i] &gt; arr[j]) &#123;      temp = arr[i];      arr[i] = arr[j];      arr[j] = temp;    &#125;  &#125;&#125;console.log(arr);  第二种：冒泡排序123456789101112var arr = [5, 4, 6, 1, 3, 2];for (var i = 0; i &lt; arr.length; i++) &#123;  for (var j = 0; j &lt; arr.length - i + 1; j++) &#123;    var temp;    if (arr[j] &gt; arr[j + 1])...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JCAlways"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20241017dv/" title="PageSpy使用教程"><img src="https://www.pagespy.org/assets/doc-banner-D915jpec.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PageSpy使用教程"/></a><div class="content"><a class="title" href="/posts/20241017dv/" title="PageSpy使用教程">PageSpy使用教程</a><time datetime="2024-10-17T00:00:00.000Z" title="发表于 2024-10-17 00:00:00">2024-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240924wg/" title="风灵月影下载"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风灵月影下载"/></a><div class="content"><a class="title" href="/posts/20240924wg/" title="风灵月影下载">风灵月影下载</a><time datetime="2024-09-24T00:00:00.000Z" title="发表于 2024-09-24 00:00:00">2024-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240417re/" title="Google reCAPTCHA使用教程"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google reCAPTCHA使用教程"/></a><div class="content"><a class="title" href="/posts/20240417re/" title="Google reCAPTCHA使用教程">Google reCAPTCHA使用教程</a><time datetime="2024-04-17T00:00:00.000Z" title="发表于 2024-04-17 00:00:00">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230806pa/" title="通行密钥开发 Passkey"><img src="https://developers.google.cn/identity/passkeys/key-visual2.png?hl=zh-cn" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="通行密钥开发 Passkey"/></a><div class="content"><a class="title" href="/posts/20230806pa/" title="通行密钥开发 Passkey">通行密钥开发 Passkey</a><time datetime="2023-08-06T00:00:00.000Z" title="发表于 2023-08-06 00:00:00">2023-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20230505tr/" title="Tauri使用教程"><img src="https://v2.tauri.app/og.png?v=1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tauri使用教程"/></a><div class="content"><a class="title" href="/posts/20230505tr/" title="Tauri使用教程">Tauri使用教程</a><time datetime="2023-05-05T00:00:00.000Z" title="发表于 2023-05-05 00:00:00">2023-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">47</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/JQuery/"><span class="card-category-list-name">JQuery</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/React-js/"><span class="card-category-list-name">React.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Vue-js/"><span class="card-category-list-name">Vue.js</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web-Office/"><span class="card-category-list-name">Web Office</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/React-jjs/" style="font-size: 1.1em; color: #999">React.jjs</a> <a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.1em; color: #999">导航</a> <a href="/tags/Fingerprintjs/" style="font-size: 1.1em; color: #999">Fingerprintjs</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.18em; color: #999ca1">微信小程序</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/Vue-js/" style="font-size: 1.26em; color: #999fa8">Vue.js</a> <a href="/tags/JavaScript/" style="font-size: 1.42em; color: #99a6b7">JavaScript</a> <a href="/tags/reCAPTCHA/" style="font-size: 1.1em; color: #999">reCAPTCHA</a> <a href="/tags/PageSpy/" style="font-size: 1.1em; color: #999">PageSpy</a> <a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/kkFileViews/" style="font-size: 1.1em; color: #999">kkFileViews</a> <a href="/tags/Tauri/" style="font-size: 1.1em; color: #999">Tauri</a> <a href="/tags/Element-Plus/" style="font-size: 1.1em; color: #999">Element-Plus</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 1.1em; color: #999">高德地图</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88/" style="font-size: 1.1em; color: #999">在线预览</a> <a href="/tags/WPS-Office/" style="font-size: 1.1em; color: #999">WPS Office</a> <a href="/tags/%E9%80%9A%E8%A1%8C%E7%A7%98%E9%92%A5/" style="font-size: 1.1em; color: #999">通行秘钥</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/GeeTest/" style="font-size: 1.18em; color: #999ca1">GeeTest</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/%E6%8B%96%E6%8B%BD/" style="font-size: 1.1em; color: #999">拖拽</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/Node-js/" style="font-size: 1.34em; color: #99a3b0">Node.js</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8A%E4%BC%A0/" style="font-size: 1.1em; color: #999">文件夹上传</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/09/">
+            <span class="card-archive-list-date">
+              九月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              四月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/08/">
+            <span class="card-archive-list-date">
+              八月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/05/">
+            <span class="card-archive-list-date">
+              五月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/10/">
+            <span class="card-archive-list-date">
+              十月 2022
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/09/">
+            <span class="card-archive-list-date">
+              九月 2022
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">71</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-09-11T12:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">237.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-10T07:04:28.235Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By JCAlways</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text"><a style="display:flex;justify-content:center" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
