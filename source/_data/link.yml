@@ -23,7 +23,7 @@
       descr: 青龙面板
     - name: PageSpy
       link: http://pagespy.zhangsifan.com
-      avatar: https://pagespy.zhangsifan.com/favicon.svg
+      avatar: https://www.pagespy.org/favicon.svg
       descr: 像使用谷歌浏览器的控制台一样简单地开始远程调试。
 
 - class_name: 技术支持
@@ -57,14 +57,18 @@
       link: https://oa.haoxianggroup.cn/finance
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 浩翔控股集团财务系统
+    - name: 物业系统
+      link: https://oa.haoxianggroup.cn/property_management
+      avatar: https://x1.haoxianggroup.cn/static/favicon.ico
+      descr: 浩翔控股集团物业系统
     - name: 红星销售系统
       link: https://oa.haoxianggroup.cn/1
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
       descr: 红星商业管理系统
-    - name: 红星销售系统
+    - name: 红星商家系统
       link: https://hxxs.0356.live/
       avatar: https://x1.haoxianggroup.cn/static/favicon.ico
-      descr: 红星商业销售系统
+      descr: 红星商业商家系统
     - name: 山西会展网
       link: https://www.shanxihuizhanwang.com/
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
