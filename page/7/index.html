@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JCAlways">
+<meta property="og:url" content="https://blog.zhangsifan.com/page/7/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="分享开发过程中遇到的问题,以及一些技术文章!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="博客,Blog,个人博客,张思帆,zhangsifan,zhangsifan.com,blog.zhangsifan.com,JCAlways,Always-Team,前端,前端技术,前端知识分享,前端技术分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/page/7/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JCAlways',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">JCAlways</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" title="对象的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="对象的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/" title="对象的扩展">对象的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">对象的扩展属性的简洁表示法ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。 123456const foo = &quot;bar&quot;;const baz = &#123; foo &#125;;baz; // &#123;foo: &quot;bar&quot;&#125;// 等同于const baz = &#123; foo: foo &#125;;  上面代码表明，ES6 允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值。下面是另一个例子。 1234567891011function f(x, y) &#123;  return &#123; x, y &#125;;&#125;// 等同于function f(x, y) &#123;  return &#123; x: x, y: y &#125;;&#125;f(1, 2); // Object &#123;x: 1, y: 2&#125;  除了属性简写，方法也可以简写。 12345678910111213const o = &#123;  method() &...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95/" title="数值的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数值的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95/" title="数值的扩展">数值的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">数值的扩展二进制和八进制表示法ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。 120b111110111 === 503; // true0o767 === 503; // true  从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6 进一步明确，要使用前缀0o表示。 123456789101112// 非严格模式(function () &#123;  console.log(0o11 === 011);&#125;)()(  // true  // 严格模式  function () &#123;    &quot;use strict&quot;;    console.log(0o11 === 011);  &#125;)(); // Uncaught SyntaxError: Octal literals are not allowed in strict mode.  如果要将0b和0o前缀的字符串数值转为十进制，要使用Number方法。 12Number(&quot;0b111&quot;); //...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/" title="数组的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数组的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/" title="数组的扩展">数组的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">数组的扩展扩展运算符含义扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。 12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll(&#x27;div&#x27;)]// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]  该运算符主要用于函数调用。 12345678910function push(array, ...items) &#123;  array.push(...items);&#125;function add(x, y) &#123;  return x + y;&#125;const numbers = [4, 38];add(...numbers); // 42  上面代码中，array.push(...items)和add(...numbers)这两行，都是函数的调用，它们的都使用了扩展运算符。...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E6%9C%80%E6%96%B0%E6%8F%90%E6%A1%88/" title="最新提案"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="最新提案"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%9C%80%E6%96%B0%E6%8F%90%E6%A1%88/" title="最新提案">最新提案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">最新提案本章介绍一些尚未进入标准、但很有希望的最新提案。 do 表达式本质上，块级作用域是一个语句，将多个操作封装在一起，没有返回值。 1234&#123;  let t = f();  t = t * t + 1;&#125;  上面代码中，块级作用域将两个语句封装在一起。但是，在块级作用域以外，没有办法得到t的值，因为块级作用域不返回值，除非t是全局变量。 现在有一个提案，使得块级作用域可以变为表达式，也就是说可以返回值，办法就是在块级作用域之前加上do，使它变为do表达式，然后就会返回内部最后执行的表达式的值。 1234let x = do &#123;  let t = f();  t * t + 1;&#125;;  上面代码中，变量x会得到整个块级作用域的返回值（t * t + 1）。 do表达式的逻辑非常简单：封装的是什么，就会返回什么。 12345// 等同于 &lt;表达式&gt;do &#123; &lt;表达式&gt;; &#125;// 等同于 &lt;语句&gt;do &#123; &lt;语句&gt; &#125;  do表达式的好处是可以封装多个语句...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/" title="编程风格"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编程风格"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E7%BC%96%E7%A8%8B%E9%A3%8E%E6%A0%BC/" title="编程风格">编程风格</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">编程风格本章探讨如何将 ES6 的新语法，运用到编码实践之中，与传统的 JavaScript 语法结合在一起，写出合理的、易于阅读和维护的代码。 多家公司和组织已经公开了它们的风格规范，下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。 块级作用域（1）let 取代 var ES6 提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用。 123456789&quot;use strict&quot;;if (true) &#123;  let x = &quot;hello&quot;;&#125;for (let i = 0; i &lt; 10; i++) &#123;  console.log(i);&#125;  上面代码如果用var替代let，实际上就声明了两个全局变量，这显然不是本意。变量应该只在其声明的代码块内有效，var命令做不到这一点。 var命令存在变量提升效用，let命令没有这个问题。 123456&quot;use strict&quot;;if (true) &...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ES6-%E6%AD%A3%E5%88%99%E7%9A%84%E6%89%A9%E5%B1%95/" title="正则的扩展"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则的扩展"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E6%AD%A3%E5%88%99%E7%9A%84%E6%89%A9%E5%B1%95/" title="正则的扩展">正则的扩展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">正则的扩展RegExp 构造函数在 ES5 中，RegExp构造函数的参数有两种情况。 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。 123var regex = new RegExp(&quot;xyz&quot;, &quot;i&quot;);// 等价于var regex = /xyz/i;  第二种情况是，参数是一个正则表示式，这时会返回一个原有正则表达式的拷贝。 123var regex = new RegExp(/xyz/i);// 等价于var regex = /xyz/i;  但是，ES5 不允许此时使用第二个参数添加修饰符，否则会报错。 12var regex = new RegExp(/xyz/, &quot;i&quot;);// Uncaught TypeError: Cannot supply flags when constructing one RegExp from another  ES6 改变了这种行为。如果RegExp构造函数第一个参数是一个正则对象，那么可以使用第二个参数指定修饰符。而且，返回的正则表达式...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/ES6-%E8%AF%BB%E6%87%82%20ECMAScript%20%E8%A7%84%E6%A0%BC/" title="读懂 ECMAScript 规格"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="读懂 ECMAScript 规格"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ES6-%E8%AF%BB%E6%87%82%20ECMAScript%20%E8%A7%84%E6%A0%BC/" title="读懂 ECMAScript 规格">读懂 ECMAScript 规格</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-11T17:38:11.000Z" title="发表于 2019-10-11 17:38:11">2019-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/ES6/">ES6</a></span></div><div class="content">读懂 ECMAScript 规格概述规格文件是计算机语言的官方标准，详细描述语法规则和实现方法。 一般来说，没有必要阅读规格，除非你要写编译器。因为规格写得非常抽象和精炼，又缺乏实例，不容易理解，而且对于解决实际的应用问题，帮助不大。但是，如果你遇到疑难的语法问题，实在找不到答案，这时可以去查看规格文件，了解语言标准是怎么说的。规格是解决问题的“最后一招”。 这对 JavaScript 语言很有必要。因为它的使用场景复杂，语法规则不统一，例外很多，各种运行环境的行为不一致，导致奇怪的语法问题层出不穷，任何语法书都不可能囊括所有情况。查看规格，不失为一种解决语法问题的最可靠、最权威的终极方法。 本章介绍如何读懂 ECMAScript 6 的规格文件。 ECMAScript 6 的规格，可以在 ECMA 国际标准组织的官方网站（www.ecma-international.org/ecma-262/6.0/）免费下载和在线阅读。 这个规格文件相当庞大，一共有 26 章，A4 打印的话，足足有 545 页。它的特点就是规定得非常细致，每一个语法行为、每一个函数的实现都做了详尽的清晰的描...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/Node-Express%E6%A1%86%E6%9E%B6/" title="Express框架"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Express框架"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Node-Express%E6%A1%86%E6%9E%B6/" title="Express框架">Express框架</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-10T20:00:00.000Z" title="发表于 2019-10-10 20:00:00">2019-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Node-js/">Node.js</a></span></div><div class="content">Express 介绍 Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架 Express 是一个第三方模块，有丰富的 API 支持，强大而灵活的中间件特性 Express 不对 Node.js 已有的特性进行二次抽象，只是在它之上扩展了 Web 应用所需的基本功能 链接 Express 官网 Express 中文文档（非官方） Express GitHub 仓库    Hello World 下载 Express 包  12npm init -ynpm i express   代码  123456789101112// 0. 加载 Expressconst express = require(&quot;express&quot;);// 1. 调用 express() 得到一个 app//    类似于 http.createServer()const app = express();// 2. 设置请求对应的处理函数//    当客户端以 GET 方法请求 / 的时候就会调用第二个参数：请求处理函数app.get(&quot;/&quot;...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Node-Node%E5%9F%BA%E7%A1%80/" title="Node基础"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node基础"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Node-Node%E5%9F%BA%E7%A1%80/" title="Node基础">Node基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-29T20:00:00.000Z" title="发表于 2019-09-29 20:00:00">2019-09-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/Node-js/">Node.js</a></span></div><div class="content">安装 Node.js软件下载地址 NPM介绍 CommonJS 包规范是理论，NPM 是其中一 种实践。 对于 Node 而言，NPM 帮助其完成了第三 方模块的发布、安装和依赖等。借助 NPM， Node 与第三方模块之间形成了很好的一个 生态系统。  NPM 命令123456789npm -v  # 查看版本npm  # 帮助说明npm search 包名  # 搜索模块包npm install 包名  # 在当前目录下安装包npm install -g 包名  # 全局模式安装包npm remove 包名  # 删除一个模块npm install 文件路径  # 从本地安装npm install 包名 -registry=地址  # 从镜像源安装npm config set registry 地址  # 设置镜像源  Hello World1234567891011// 引入http模块const http = require(&quot;http&quot;);// 创建服务const server = http.createServer((req, res) =&gt;...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/DOC-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" title="Hexo博客搭建流程"><img class="post-bg" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客搭建流程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/DOC-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" title="Hexo博客搭建流程">Hexo博客搭建流程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-19T20:00:00.000Z" title="发表于 2019-09-19 20:00:00">2019-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/">技术文档</a></span></div><div class="content">博客搭建步骤</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/8/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JCAlways"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707mp/" title="搭建 RTMP 推流服务"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 RTMP 推流服务"/></a><div class="content"><a class="title" href="/posts/20250707mp/" title="搭建 RTMP 推流服务">搭建 RTMP 推流服务</a><time datetime="2025-07-07T00:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707zb/" title="OBS 多流推送"><img src="https://obsproject.com/assets/images/features-new/hero.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OBS 多流推送"/></a><div class="content"><a class="title" href="/posts/20250707zb/" title="OBS 多流推送">OBS 多流推送</a><time datetime="2025-07-07T00:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250424mc/" title="零基础搭建Minecraft基岩(Bedrock)服务器"><img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MCV_SpringDrop_DotNet_Homepage_2560x932-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="零基础搭建Minecraft基岩(Bedrock)服务器"/></a><div class="content"><a class="title" href="/posts/20250424mc/" title="零基础搭建Minecraft基岩(Bedrock)服务器">零基础搭建Minecraft基岩(Bedrock)服务器</a><time datetime="2025-04-24T00:00:00.000Z" title="发表于 2025-04-24 00:00:00">2025-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20241017dv/" title="PageSpy使用教程"><img src="https://www.pagespy.org/assets/doc-banner-D915jpec.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PageSpy使用教程"/></a><div class="content"><a class="title" href="/posts/20241017dv/" title="PageSpy使用教程">PageSpy使用教程</a><time datetime="2024-10-17T00:00:00.000Z" title="发表于 2024-10-17 00:00:00">2024-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20240924wg/" title="风灵月影下载"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风灵月影下载"/></a><div class="content"><a class="title" href="/posts/20240924wg/" title="风灵月影下载">风灵月影下载</a><time datetime="2024-09-24T00:00:00.000Z" title="发表于 2024-09-24 00:00:00">2024-09-24</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">47</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/JQuery/"><span class="card-category-list-name">JQuery</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/React-js/"><span class="card-category-list-name">React.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/Vue-js/"><span class="card-category-list-name">Vue.js</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/OBS/"><span class="card-category-list-name">OBS</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/PageSpy/" style="font-size: 1.1em; color: #999">PageSpy</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88/" style="font-size: 1.1em; color: #999">在线预览</a> <a href="/tags/%E6%8B%96%E6%8B%BD/" style="font-size: 1.1em; color: #999">拖拽</a> <a href="/tags/OBS-%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">OBS 插件</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="font-size: 1.1em; color: #999">我的世界</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 1.1em; color: #999">高德地图</a> <a href="/tags/React-jjs/" style="font-size: 1.1em; color: #999">React.jjs</a> <a href="/tags/OBS-RTMP-%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">OBS RTMP 服务器</a> <a href="/tags/Tauri/" style="font-size: 1.1em; color: #999">Tauri</a> <a href="/tags/JavaScript/" style="font-size: 1.42em; color: #99a6b7">JavaScript</a> <a href="/tags/VSCode/" style="font-size: 1.1em; color: #999">VSCode</a> <a href="/tags/reCAPTCHA/" style="font-size: 1.1em; color: #999">reCAPTCHA</a> <a href="/tags/Vue-js/" style="font-size: 1.26em; color: #999fa8">Vue.js</a> <a href="/tags/Fingerprintjs/" style="font-size: 1.1em; color: #999">Fingerprintjs</a> <a href="/tags/GeeTest/" style="font-size: 1.18em; color: #999ca1">GeeTest</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/kkFileViews/" style="font-size: 1.1em; color: #999">kkFileViews</a> <a href="/tags/WPS-Office/" style="font-size: 1.1em; color: #999">WPS Office</a> <a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.1em; color: #999">导航</a> <a href="/tags/%E9%80%9A%E8%A1%8C%E7%A7%98%E9%92%A5/" style="font-size: 1.1em; color: #999">通行秘钥</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.18em; color: #999ca1">微信小程序</a> <a href="/tags/Element-Plus/" style="font-size: 1.1em; color: #999">Element-Plus</a> <a href="/tags/Node-js/" style="font-size: 1.34em; color: #99a3b0">Node.js</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8A%E4%BC%A0/" style="font-size: 1.1em; color: #999">文件夹上传</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/09/">
+            <span class="card-archive-list-date">
+              九月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              四月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/08/">
+            <span class="card-archive-list-date">
+              八月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/05/">
+            <span class="card-archive-list-date">
+              五月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">74</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-09-11T12:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">244k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-14T07:43:19.944Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2019 - 2025 By JCAlways</span></div><div class="footer_custom_text"><a style="display:flex;justify-content:center" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" alt="本网站由又拍云提供CDN/云存储服务" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a><a href="https://ipw.cn/ipv6webcheck/?site=blog.zhangsifan.com" title="本站支持IPv6访问" target='_blank'>本站支持IPv6访问</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
