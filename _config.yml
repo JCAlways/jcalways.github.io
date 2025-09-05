@@ -9,7 +9,7 @@ description: "分享开发过程中遇到的问题,以及一些技术文章!"
 keywords: "博客,Blog,个人博客,张思帆,zhangsifan,zhangsifan.com,blog.zhangsifan.com,JCAlways,Always-Team,前端,前端技术,前端知识分享,前端技术分享"
 author: JCAlways
 language: zh-CN
-timezone: ""
+timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
