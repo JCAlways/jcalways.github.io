@@ -25,8 +25,8 @@
 - class_name: 技术支持
   class_desc: 特别鸣谢
   link_list:
-    - name: Always-Team
-      link: https://always-team.github.io/
+    - name: Always Team
+      link: https://team.zhangsifan.com
       avatar: https://x1.haoxianggroup.cn/static/20220516143528_78.jpg
       descr: Always-Team
     - name: Butterfly
