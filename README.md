@@ -9,7 +9,7 @@
 ```yml
 - name: 博客名
   link: 博客地址
-  avatar: 博客頭像
+  avatar: 博客头像
   descr: 博客描述
 ```
-- 点击下面的Commit changes，合并到butterfly.js.org仓库
+- 点击下面的Commit changes，合并到本仓库
