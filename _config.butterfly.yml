@@ -13,6 +13,7 @@ nav:
   # Navigation bar logo image
   logo:
   display_title: true
+  display_post_title: true
   # Whether to fix navigation bar
   fixed: false
 
@@ -161,7 +162,7 @@ subtitle:
   # Choose: false/1/2/3
   # false - disable the function
   # 1 - hitokoto.cn
-  # 2 - yijuzhan.com
+  # 2 - https://api.aa1.cn/doc/yiyan.html
   # 3 - jinrishici.com
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
@@ -257,13 +258,16 @@ noticeOutdate:
 # Footer Settings
 # --------------------------------------
 footer:
+  nav:
   owner:
     enable: true
     since: 2019
-  custom_text: <a style="display:flex;justify-content:center" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" alt="本网站由又拍云提供CDN/云存储服务" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a>
   # Copyright of theme and framework
-  copyright: true
-
+  copyright:
+    enable: true
+    version: true
+  custom_text: <a style="display:flex;justify-content:center" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由<img style="width:56px;display:inline-block;" alt="本网站由又拍云提供CDN/云存储服务" src="https://x1.haoxianggroup.cn/static/ypy_logo.png" ></img>提供CDN/云存储服务</a>
+ 
 # --------------------------------------
 # Aside Settings
 # --------------------------------------
@@ -402,6 +406,9 @@ rightside_item_order:
   # Default: toc,chat,comment
   show:
 
+# Animation for the bottom right config button
+rightside_config_animation: true
+
 # --------------------------------------
 # Global Settings
 # --------------------------------------
@@ -484,6 +491,11 @@ search:
     top_n_per_article: 1
     # Unescape html strings to the readable one.
     unescape: false
+    # Enable pagination for search results
+    pagination:
+      enable: false
+      # Number of search results per page
+      hitsPerPage: 8
     CDN:
 
   # Docsearch
@@ -691,6 +703,7 @@ umami_analytics:
   enable: false
   # For self-hosted setups, configure the hostname of the Umami instance
   serverURL:
+  script_name: script.js
   website_id:
   option:
   UV_PV:
@@ -700,13 +713,19 @@ umami_analytics:
     # Umami Cloud (API key) / self-hosted Umami (token)
     token:
 
+# https://www.googletagmanager.com/
+google_tag_manager:
+  tag_id:
+  # optional
+  domain:
+
 # --------------------------------------
 # Advertisement
 # --------------------------------------
 
 # Google Adsense
 google_adsense:
-  enable: true
+  enable: false
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-9415424991714769
@@ -985,19 +1004,14 @@ snackbar:
 
 # Instant.page
 # https://instant.page/
-instantpage: true
-
-# Pangu - Insert a space between Chinese character and English character
-# https://github.com/vinta/pangu.js
-pangu:
-  enable: true
-  # Specify the field to use pangu (site or post)
-  field: post
+instantpage: false
 
 # Lazyload
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
   enable: false
+  # Use browser's native lazyload instead of vanilla-lazyload
+  native: false
   # Specify the field to use lazyload (site or post)
   field: site
   placeholder:
@@ -1026,6 +1040,14 @@ Open_Graph_meta:
     # google_plus:
     # fb_admins:
     # fb_app_id:
+
+# Structured Data
+# https://developers.google.com/search/docs/guides/intro-structured-data
+structured_data:
+  enable: false
+  # Alternate name for the site, used in structured data
+  # Format: ['name1', 'name2']
+  alternate_name:
 
 # Add the vendor prefixes to ensure compatibility
 css_prefix: true
@@ -1085,7 +1107,6 @@ CDN:
     # gitalk_css:
     # giscus:
     # instantpage:
-    # instantsearch:
     # katex:
     # katex_copytex:
     # lazyload:
@@ -1096,7 +1117,6 @@ CDN:
     # medium_zoom:
     # mermaid:
     # meting_js:
-    # pangu:
     # prismjs_autoloader:
     # prismjs_js:
     # prismjs_lineNumber_js:
