@@ -13,10 +13,14 @@
       link: https://office.zhangsifan.com
       avatar: https://open-demo.wps.cn/v1/webofficedemo/images/app-64.png
       descr: WPS WebOffice 文档
+    - name: OpenList
+      link: http://pan.zhangsifan.com
+      avatar: https://res.oplist.org/logo/logo.svg
+      descr: 在线文件存储与分享服务
     - name: 青龙面板
       link: http://ql.zhangsifan.com
       avatar: https://qn.whyour.cn/logo.png
-      descr: 青龙面板
+      descr: 一款功能强大的任务管理工具
     - name: PageSpy
       link: http://pagespy.zhangsifan.com
       avatar: https://www.pagespy.org/favicon.svg
@@ -27,8 +31,8 @@
   link_list:
     - name: Always Team
       link: https://team.zhangsifan.com
-      avatar: https://x1.haoxianggroup.cn/static/20220516143528_78.jpg
-      descr: Always-Team
+      avatar: https://avatars.githubusercontent.com/u/111270594?s=400&u=c6f672da716c4cf7e806d48ddc6a2f28d9969154&v=4
+      descr: Always Team
     - name: Butterfly
       link: https://butterfly.js.org/
       avatar: https://butterfly.js.org/img/favicon.ico

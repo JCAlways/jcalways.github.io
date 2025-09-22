@@ -2,6 +2,7 @@
 title: 关于本站
 date: 2019-10-09 11:19:56
 type: "about"
+comments: false
 ---
 
 {% timeline 2024 %}
