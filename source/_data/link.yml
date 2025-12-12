@@ -11,7 +11,7 @@
       descr: 统一认证平台
     - name: WPS WebOffice
       link: https://office.zhangsifan.com
-      avatar: https://open-demo.wps.cn/v1/webofficedemo/images/app-64.png
+      avatar: https://qn.cache.wpscdn.cn/wwo/doc/pro/webOffice_logo.png
       descr: WPS WebOffice 文档
     - name: OpenList
       link: http://pan.zhangsifan.com
