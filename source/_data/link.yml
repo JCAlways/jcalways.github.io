@@ -14,18 +14,25 @@
       avatar: https://qn.cache.wpscdn.cn/wwo/doc/pro/webOffice_logo.png
       descr: WPS WebOffice 文档
     - name: OpenList
-      link: http://pan.zhangsifan.com
+      link: https://pan.zhangsifan.com
       avatar: https://res.oplist.org/logo/logo.svg
       descr: 在线文件存储与分享服务
     - name: 青龙面板
-      link: http://ql.zhangsifan.com
+      link: https://ql.zhangsifan.com
       avatar: https://qn.whyour.cn/logo.png
       descr: 一款功能强大的任务管理工具
     - name: PageSpy
-      link: http://pagespy.zhangsifan.com
+      link: https://pagespy.zhangsifan.com
       avatar: https://www.pagespy.org/favicon.svg
       descr: 像使用谷歌浏览器的控制台一样简单地开始远程调试。
-
+    - name: Halo
+      link: https://halo.zhangsifan.com
+      avatar: https://www.halo.run/upload/logo.png
+      descr: 强大易用的开源建站工具
+    - name: WordPress
+      link: https://wordpress.zhangsifan.com
+      avatar: https://wordpress.org/favicon.ico
+      descr: 强大易用的开源博客平台
 - class_name: 技术支持
   class_desc: 特别鸣谢
   link_list:
@@ -37,6 +44,10 @@
       link: https://butterfly.js.org/
       avatar: https://butterfly.js.org/img/favicon.ico
       descr: "🦋 A Hexo Theme: Butterfly"
+    - name: 腾讯云
+      link: https://curl.qcloud.com/vu2d8w9P
+      avatar: https://cloudcache.tencent-cloud.com/qcloud/app/resource/ac/favicon.ico
+      descr: 云服务器、云数据库、COS、CDN、短信等云产品特惠热卖中
 
 - class_name: 我的作品
   class_desc:
