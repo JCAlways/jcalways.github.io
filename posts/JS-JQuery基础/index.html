@@ -1,0 +1,607 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JQuery基础 | JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么是 Jquery 官方网站 jQuery 是 javascript 实现的一个库   优点 跨浏览器兼容 链式编程，隐式迭代 简化 DOM 操作，支持事件、样式、动画 支持插件扩展开发 开源免费    引入 Jquery1&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;static.zhangsifan.com&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery基础">
+<meta property="og:url" content="https://blog.zhangsifan.com/posts/JS-JQuery%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="什么是 Jquery 官方网站 jQuery 是 javascript 实现的一个库   优点 跨浏览器兼容 链式编程，隐式迭代 简化 DOM 操作，支持事件、样式、动画 支持插件扩展开发 开源免费    引入 Jquery1&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;static.zhangsifan.com&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&amp;g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png">
+<meta property="article:published_time" content="2019-08-30T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-14T01:49:10.231Z">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JQuery基础",
+  "url": "https://blog.zhangsifan.com/posts/JS-JQuery%E5%9F%BA%E7%A1%80/",
+  "image": "https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png",
+  "datePublished": "2019-08-30T12:00:00.000Z",
+  "dateModified": "2026-01-14T01:49:10.231Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "JCAlways",
+      "url": "https://blog.zhangsifan.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/posts/JS-JQuery%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JQuery基础',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a><a class="nav-page-title" href="/"><span class="site-name">JQuery基础</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">JQuery基础<a class="post-edit-link" href="https://github.com/jcalways/jcalways.github.io/edit/master/source/_posts/JS-JQuery基础.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-30T12:00:00.000Z" title="发表于 2019-08-30 20:00:00">2019-08-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-14T01:49:10.231Z" title="更新于 2026-01-14 09:49:10">2026-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/JQuery/">JQuery</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="什么是-Jquery"><a href="#什么是-Jquery" class="headerlink" title="什么是 Jquery"></a>什么是 Jquery</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jquery.com/">官方网站</a></p>
+<p>jQuery 是 javascript 实现的一个库</p>
+</blockquote>
+<ul>
+<li>优点<ul>
+<li>跨浏览器兼容</li>
+<li>链式编程，隐式迭代</li>
+<li>简化 DOM 操作，支持事件、样式、动画</li>
+<li>支持插件扩展开发</li>
+<li>开源免费</li>
+</ul>
+</li>
+</ul>
+<h2 id="引入-Jquery"><a href="#引入-Jquery" class="headerlink" title="引入 Jquery"></a>引入 Jquery</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://static.zhangsifan.com/jquery.min.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 代码</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 代码</span></span><br><span class="line">  <span class="title function_">alert</span>(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="jquery-的顶级对象"><a href="#jquery-的顶级对象" class="headerlink" title="jquery 的顶级对象$"></a>jquery 的顶级对象$</h2><blockquote>
+<p>$是 jQuery 的别称,也是 JQuery 的顶级对象</p>
+</blockquote>
+<h2 id="JQuery-和-DOM-对象相互转换"><a href="#JQuery-和-DOM-对象相互转换" class="headerlink" title="JQuery 和 DOM 对象相互转换"></a>JQuery 和 DOM 对象相互转换</h2><p>用原生 js 获取的对象就是 DOM 对象</p>
+<p>用 JQuery 方法获取的元素就是 JQuery 对象(伪数组)</p>
+<h3 id="DOM-对象转-JQuery-对象"><a href="#DOM-对象转-JQuery-对象" class="headerlink" title="DOM 对象转 JQuery 对象"></a>DOM 对象转 JQuery 对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable constant_">DOM</span>对象);</span><br></pre></td></tr></table></figure>
+
+<h3 id="JQuery-对象转-DOM-对象"><a href="#JQuery-对象转-DOM-对象" class="headerlink" title="JQuery 对象转 DOM 对象"></a>JQuery 对象转 DOM 对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index 是索引号</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>)[index];</span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">get</span>(index);</span><br></pre></td></tr></table></figure>
+
+<h2 id="隐式迭代"><a href="#隐式迭代" class="headerlink" title="隐式迭代"></a>隐式迭代</h2><blockquote>
+<p>遍历内部 DOM 元素(伪数组的形式存储)的过程就叫隐式迭代</p>
+</blockquote>
+<h2 id="排他思想"><a href="#排他思想" class="headerlink" title="排他思想"></a>排他思想</h2><blockquote>
+<p>当前元素设置样式，其余的兄弟元素清除样式。</p>
+</blockquote>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="事件注册"><a href="#事件注册" class="headerlink" title="事件注册"></a>事件注册</h2><table>
+<thead>
+<tr>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>click ()</td>
+<td>点击事件</td>
+</tr>
+<tr>
+<td>dblclick ()</td>
+<td>双击事件</td>
+</tr>
+<tr>
+<td>change ()</td>
+<td>发生改变</td>
+</tr>
+<tr>
+<td>scrol ()</td>
+<td>滚动事件</td>
+</tr>
+<tr>
+<td>focus ()</td>
+<td>获得焦点</td>
+</tr>
+<tr>
+<td>mouseenter()</td>
+<td>鼠标经过</td>
+</tr>
+<tr>
+<td>hover(移入,移出)</td>
+<td>发生改变</td>
+</tr>
+</tbody></table>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><blockquote>
+<p>可以在元素上绑定一个或多个事件<br>事件源.on(事件类型, [委派], 函数);</p>
+</blockquote>
+<h3 id="多事件多处理程序"><a href="#多事件多处理程序" class="headerlink" title="多事件多处理程序"></a>多事件多处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">on</span>(&#123;</span><br><span class="line">  <span class="attr">click</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;,</span><br><span class="line">  <span class="attr">mouseenter</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件委派-委托"><a href="#事件委派-委托" class="headerlink" title="事件委派&#x2F;委托"></a>事件委派&#x2F;委托</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;li&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&quot;hello world!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="给动态添加的元素添加事件"><a href="#给动态添加的元素添加事件" class="headerlink" title="给动态添加的元素添加事件"></a>给动态添加的元素添加事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;p&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&quot;给动态生成的元素绑定事件&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="解绑事件"><a href="#解绑事件" class="headerlink" title="解绑事件"></a>解绑事件</h3><blockquote>
+<p>事件源.off()</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解除全部事件</span></span><br><span class="line">事件源.<span class="title function_">off</span>();</span><br><span class="line"><span class="comment">// 解除那个事件</span></span><br><span class="line">事件源.<span class="title function_">off</span>(<span class="string">&quot;click&quot;</span>);</span><br><span class="line"><span class="comment">// 解除事件委派</span></span><br><span class="line">事件源.<span class="title function_">off</span>(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;li&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动触发事件"><a href="#自动触发事件" class="headerlink" title="自动触发事件"></a>自动触发事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// (事件类型)</span></span><br><span class="line">事件源.<span class="property">trigger</span>;</span><br><span class="line"><span class="comment">// (事件类型)</span></span><br><span class="line">事件源.<span class="property">triggerHandler</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 阻止冒泡</span></span><br><span class="line">e.<span class="title function_">stopPropagation</span>();</span><br><span class="line"><span class="comment">// 阻止默认行为</span></span><br><span class="line">e.<span class="title function_">preventDefault</span>();</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用-API"><a href="#常用-API" class="headerlink" title="常用 API"></a>常用 API</h1><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ID 选择器</td>
+<td>$(“#id”)</td>
+<td>获取指定 ID 的元素</td>
+</tr>
+<tr>
+<td>全选选择器</td>
+<td>$(“*“)</td>
+<td>匹配所有元素</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>$(“.class”)</td>
+<td>获取同一类名的元素</td>
+</tr>
+<tr>
+<td>标签选择器</td>
+<td>$(“div”)</td>
+<td>获取同一标签的元素</td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>$(“div,p”)</td>
+<td>选取多个元素</td>
+</tr>
+<tr>
+<td>交集选择器</td>
+<td>$(“li.current”)</td>
+<td>交集元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;选择器&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="筛选选择器"><a href="#筛选选择器" class="headerlink" title="筛选选择器"></a>筛选选择器</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:first</td>
+<td>$(‘元素:first’)</td>
+<td>获取第一个元素</td>
+</tr>
+<tr>
+<td>:last</td>
+<td>$(‘元素:last’)</td>
+<td>获取最后一个元素</td>
+</tr>
+<tr>
+<td>:eq(index)</td>
+<td>$(‘元素:eq(index)’)</td>
+<td>获取第几个元素</td>
+</tr>
+<tr>
+<td>:odd</td>
+<td>$(‘元素:odd’)</td>
+<td>获取奇数的元素</td>
+</tr>
+<tr>
+<td>:even</td>
+<td>$(‘元素:even’)</td>
+<td>获取偶数的元素</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>$(‘元素:checked’)</td>
+<td>选中的表单的元素</td>
+</tr>
+</tbody></table>
+<h3 id="筛选方法"><a href="#筛选方法" class="headerlink" title="筛选方法"></a>筛选方法</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>parent()</td>
+<td>$(‘元素’).parent()</td>
+<td>查找父集</td>
+</tr>
+<tr>
+<td>parents(“名称”)</td>
+<td>$(‘元素’).parent(“名称”)</td>
+<td>查找上级</td>
+</tr>
+<tr>
+<td>children(‘元素’)</td>
+<td>$(‘元素’).children(‘元素’)</td>
+<td>查找子集</td>
+</tr>
+<tr>
+<td>find(‘元素’)</td>
+<td>$(‘元素’).find(‘元素’)</td>
+<td>后代</td>
+</tr>
+<tr>
+<td>siblings(‘元素’)</td>
+<td>$(‘元素’).siblings(‘元素’)</td>
+<td>查找兄弟节点,不包括自己</td>
+</tr>
+<tr>
+<td>nextAll()</td>
+<td>$(‘元素’).nextAll()</td>
+<td>查找后面的元素</td>
+</tr>
+<tr>
+<td>prevAll()</td>
+<td>$(‘元素’).prevAll()</td>
+<td>查找前面的元素</td>
+</tr>
+<tr>
+<td>hasClass(‘类名’)</td>
+<td>$(‘元素’).hasClass(‘类名’)</td>
+<td>判断是否包含类名</td>
+</tr>
+<tr>
+<td>eq(index)</td>
+<td>$(‘元素’).eq(index)</td>
+<td>索引方法</td>
+</tr>
+</tbody></table>
+<h2 id="样式操作"><a href="#样式操作" class="headerlink" title="样式操作"></a>样式操作</h2><h3 id="操作-CSS-方法"><a href="#操作-CSS-方法" class="headerlink" title="操作 CSS 方法"></a>操作 CSS 方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取值</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">css</span>(<span class="string">&quot;width&quot;</span>);</span><br><span class="line"><span class="comment">// 设置值</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">css</span>(<span class="string">&quot;width&quot;</span>, <span class="string">&quot;200px&quot;</span>);</span><br><span class="line"><span class="comment">// 设置多个值</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">css</span>(&#123; <span class="attr">width</span>: <span class="number">200</span>, <span class="attr">height</span>: <span class="number">200</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置类样式方法"><a href="#设置类样式方法" class="headerlink" title="设置类样式方法"></a>设置类样式方法</h3><blockquote>
+<p>只会在原先基础上添加或更改,不会对原来的类操作</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加类</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">addClass</span>(<span class="string">&quot;big&quot;</span>);</span><br><span class="line"><span class="comment">// 删除类</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">removeClass</span>(<span class="string">&quot;big&quot;</span>);</span><br><span class="line"><span class="comment">// 切换类</span></span><br><span class="line">$(<span class="string">&quot;div&quot;</span>).<span class="title function_">toggleClass</span>(<span class="string">&quot;big&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="效果-动画"><a href="#效果-动画" class="headerlink" title="效果(动画)"></a>效果(动画)</h2><h3 id="动画队列及其停止排队方法"><a href="#动画队列及其停止排队方法" class="headerlink" title="动画队列及其停止排队方法"></a>动画队列及其停止排队方法</h3><blockquote>
+<p>必须写在动画前面</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="title function_">stop</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示隐藏"><a href="#显示隐藏" class="headerlink" title="显示隐藏"></a>显示隐藏</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 速度 slow nomal fast 或毫秒数</span></span><br><span class="line"><span class="comment">// 速度 swing(默认) linear</span></span><br><span class="line"><span class="comment">// 显示</span></span><br><span class="line"><span class="title function_">show</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 隐藏</span></span><br><span class="line"><span class="title function_">hide</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 切换</span></span><br><span class="line"><span class="title function_">toggle</span>([速度, [切换效果], [回调函数]]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="滑动"><a href="#滑动" class="headerlink" title="滑动"></a>滑动</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下滑效果</span></span><br><span class="line"><span class="title function_">slideDown</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 上滑效果</span></span><br><span class="line"><span class="title function_">slideUp</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 事件切换</span></span><br><span class="line"><span class="title function_">slideToggle</span>([速度, [切换效果], [回调函数]]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="淡入淡出"><a href="#淡入淡出" class="headerlink" title="淡入淡出"></a>淡入淡出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 淡入</span></span><br><span class="line"><span class="title function_">fadeIn</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 淡出</span></span><br><span class="line"><span class="title function_">fadeOut</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 切换</span></span><br><span class="line"><span class="title function_">fadeToggle</span>([速度, [切换效果], [回调函数]]);</span><br><span class="line"><span class="comment">// 到大某个位置 透明度 0-1之间 和速度必须写</span></span><br><span class="line"><span class="title function_">fadeTo</span>([[速度], 透明度, [切换效果], [回调函数]]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义动画"><a href="#自定义动画" class="headerlink" title="自定义动画"></a>自定义动画</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">animate</span>(样式属性, [速度], [切换效果], [回调函数]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><h3 id="设置或获取元素的固有属性"><a href="#设置或获取元素的固有属性" class="headerlink" title="设置或获取元素的固有属性"></a>设置或获取元素的固有属性</h3><blockquote>
+<p>element.prop(‘属性名’)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取</span></span><br><span class="line"><span class="title function_">prop</span>(<span class="string">&quot;href&quot;</span>);</span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line"><span class="title function_">prop</span>(<span class="string">&quot;href&quot;</span>, <span class="string">&quot;https://www.zhangsifan.com&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><blockquote>
+<p>element.attr(‘属性名’)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取属性值</span></span><br><span class="line"><span class="title function_">attr</span>(<span class="string">&quot;属性名&quot;</span>);</span><br><span class="line"><span class="comment">// 设置属性值</span></span><br><span class="line"><span class="title function_">attr</span>(<span class="string">&quot;属性&quot;</span>, <span class="string">&quot;属性值&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据缓存"><a href="#数据缓存" class="headerlink" title="数据缓存"></a>数据缓存</h3><blockquote>
+<p>数据存放在元素的内存中</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取</span></span><br><span class="line"><span class="title function_">data</span>(<span class="string">&quot;属性名&quot;</span>);</span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line"><span class="title function_">data</span>(<span class="string">&quot;属性名&quot;</span>, <span class="string">&quot;值&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="文本属性值"><a href="#文本属性值" class="headerlink" title="文本属性值"></a>文本属性值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的内容</span></span><br><span class="line"><span class="title function_">html</span>();</span><br><span class="line"><span class="comment">// 设置元素的内容</span></span><br><span class="line"><span class="title function_">html</span>(<span class="string">&quot;内容&quot;</span>);</span><br><span class="line"><span class="comment">// 获取元素的文本内容</span></span><br><span class="line"><span class="title function_">text</span>();</span><br><span class="line"><span class="comment">// 设置元素的文本内容</span></span><br><span class="line"><span class="title function_">text</span>(<span class="string">&quot;内容&quot;</span>);</span><br><span class="line"><span class="comment">// 获取表单的值</span></span><br><span class="line"><span class="title function_">val</span>();</span><br><span class="line"><span class="comment">// 设置表单的值</span></span><br><span class="line"><span class="title function_">val</span>(<span class="string">&quot;内容&quot;</span>);</span><br><span class="line"><span class="comment">// 保留几位小数</span></span><br><span class="line"><span class="title function_">toFixed</span>(数量);</span><br></pre></td></tr></table></figure>
+
+<h2 id="元素操作"><a href="#元素操作" class="headerlink" title="元素操作"></a>元素操作</h2><h3 id="遍历元素"><a href="#遍历元素" class="headerlink" title="遍历元素"></a>遍历元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用来遍历元素</span></span><br><span class="line">$(<span class="string">&quot;元素&quot;</span>).<span class="title function_">each</span>(<span class="keyword">function</span> (<span class="params">index, item</span>) &#123;</span><br><span class="line">  <span class="comment">// item是DOM对象</span></span><br><span class="line">  $(item).<span class="title function_">css</span>();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 用来遍历数据</span></span><br><span class="line">$.<span class="title function_">each</span>(对象, <span class="keyword">function</span> (<span class="params">index, element</span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;&lt;li&gt;我是li&lt;/li&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 内部添加(父子关系)</span></span><br><span class="line">元素.<span class="title function_">append</span>(<span class="string">&quot;内容&quot;</span>); <span class="comment">// 添加到末尾</span></span><br><span class="line">元素.<span class="title function_">prepend</span>(<span class="string">&quot;内容&quot;</span>); <span class="comment">//  添加到开头</span></span><br><span class="line"><span class="comment">// 外部添加(兄弟关系)</span></span><br><span class="line">元素.<span class="title function_">after</span>(<span class="string">&quot;内容&quot;</span>); <span class="comment">// 后面添加</span></span><br><span class="line">元素.<span class="title function_">before</span>(<span class="string">&quot;内容&quot;</span>); <span class="comment">//  添加到前面</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除元素</span></span><br><span class="line">元素.<span class="title function_">remove</span>();</span><br><span class="line"><span class="comment">// 删除标签内容</span></span><br><span class="line">元素.<span class="title function_">empty</span>();</span><br><span class="line"><span class="comment">// 清空元素内容</span></span><br><span class="line">元素.<span class="title function_">html</span>(<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="尺寸、位置操作"><a href="#尺寸、位置操作" class="headerlink" title="尺寸、位置操作"></a>尺寸、位置操作</h2><h3 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width()&#x2F;height ()</td>
+<td>获取元素的宽度和高度</td>
+</tr>
+<tr>
+<td>innerWidth()&#x2F;innerHeight()</td>
+<td>(包含 padding)</td>
+</tr>
+<tr>
+<td>outerWidth()&#x2F;outerHeight()</td>
+<td>(包含 padding,border)</td>
+</tr>
+<tr>
+<td>outerWidth(true)&#x2F;outerHeight(true)</td>
+<td>(包含 padding,border,margin)</td>
+</tr>
+</tbody></table>
+<h3 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offset().top&#x2F;.left</td>
+<td>获取距离文档的距离</td>
+</tr>
+<tr>
+<td>offset({top:10,left:30})</td>
+<td>设置距离文档的距离</td>
+</tr>
+<tr>
+<td>position().top&#x2F;.left</td>
+<td>获取距离带有定位父级位置(不能设置)</td>
+</tr>
+<tr>
+<td>scrollTop()</td>
+<td>获取元素被卷起的头部</td>
+</tr>
+<tr>
+<td>scrollLeft()</td>
+<td>获取元素被卷起的左侧</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回顶部</span></span><br><span class="line">$(<span class="string">&quot;body,html&quot;</span>)</span><br><span class="line">  .<span class="title function_">stop</span>()</span><br><span class="line">  .<span class="title function_">animate</span>(&#123;</span><br><span class="line">    <span class="attr">scrollTop</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><h2 id="JQuery-对象拷贝"><a href="#JQuery-对象拷贝" class="headerlink" title="JQuery 对象拷贝"></a>JQuery 对象拷贝</h2><blockquote>
+<p>浅拷贝:把原来对象里面的复杂数据类型地址拷贝给目标对象<br>深拷贝:把里面的数据完全复制一份给目标对象,有不冲突的属性会合并到一起</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 浅拷贝</span></span><br><span class="line"><span class="keyword">var</span> newObj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;dog&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line">$.<span class="title function_">extend</span>(newObj, obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷贝</span></span><br><span class="line">$.<span class="title function_">extend</span>(<span class="literal">true</span>, newObj, obj);</span><br></pre></td></tr></table></figure>
+
+<h2 id="多库共存"><a href="#多库共存" class="headerlink" title="多库共存"></a>多库共存</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jq = <span class="title class_">Jquery</span>.<span class="title function_">noConflict</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="JQuery-插件"><a href="#JQuery-插件" class="headerlink" title="JQuery 插件"></a>JQuery 插件</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.jq22.com/">Jquery 插件库</a> &gt; <a target="_blank" rel="noopener" href="http://www.htmleaf.com/">jQuery 之家</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com">JCAlways</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com/posts/JS-JQuery%E5%9F%BA%E7%A1%80/">https://blog.zhangsifan.com/posts/JS-JQuery%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.zhangsifan.com" target="_blank">JCAlways</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post-share"><div class="social-share" data-image="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/JS-JS%E9%AB%98%E7%BA%A7/" title="JS高级"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">JS高级</div></div><div class="info-2"><div class="info-item-1">标题</div></div></div></a><a class="pagination-related" href="/posts/JS-Web%20Apis/" title="Web Apis"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Web Apis</div></div><div class="info-2"><div class="info-item-1">DOM (文档对象模型&#x2F;Document Object Model)获取元素通过 ID 获取1&lt;div id=&quot;mybox&quot;&gt;&lt;/div&gt;  1var box = document.getElementById(&quot;mybox&quot;);  根据 标签名 获取 返回的是元素对象集合 以数组的形式存储如果要获取每个具体标签对象,通过循环遍历的方式  1234567&lt;ul&gt;  &lt;li&gt;1&lt;/li&gt;  &lt;li&gt;2&lt;/li&gt;  &lt;li&gt;3&lt;/li&gt;  &lt;li&gt;4&lt;/li&gt;  &lt;li&gt;5&lt;/li&gt;&lt;/ul&gt;  1document.getElementsByTagName(&quot;li&quot;);  根据 类名 获得1&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;  1document.getElementsByClassName(&...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/JS-Web%20Apis/" title="Web Apis"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-29</div><div class="info-item-2">Web Apis</div></div><div class="info-2"><div class="info-item-1">DOM (文档对象模型&#x2F;Document Object Model)获取元素通过 ID 获取1&lt;div id=&quot;mybox&quot;&gt;&lt;/div&gt;  1var box = document.getElementById(&quot;mybox&quot;);  根据 标签名 获取 返回的是元素对象集合 以数组的形式存储如果要获取每个具体标签对象,通过循环遍历的方式  1234567&lt;ul&gt;  &lt;li&gt;1&lt;/li&gt;  &lt;li&gt;2&lt;/li&gt;  &lt;li&gt;3&lt;/li&gt;  &lt;li&gt;4&lt;/li&gt;  &lt;li&gt;5&lt;/li&gt;&lt;/ul&gt;  1document.getElementsByTagName(&quot;li&quot;);  根据 类名 获得1&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;  1document.getElementsByClassName(&...</div></div></div></a><a class="pagination-related" href="/posts/DOC-Jquery%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Jquery的常见问题"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-14</div><div class="info-item-2">Jquery的常见问题</div></div><div class="info-2"><div class="info-item-1">你在公司是怎么使用 jquery 的？ 在项目中是怎么用的，就是面试官想考核你是否具备实际的项目开发经验，这个时候可以结合项目中的实际情况来解答（比如用过的选择器，复选框，表单，ajax，事件等）配置 jquery 环境，下载 jquery 类库，在 jsp 页面引入 jquery 类库即可 1&lt;script type=&quot;text/javascript&quot; src=&quot;jquery/jquery-1.7.2.min.js&quot; /&gt;  接下来通过在 1&lt;script&gt; $(function()&#123;&#125;); &lt;/script&gt; 你为什么要使用 jquery?(或者是这样问的：你认为 jquery 有哪些好处？) 因为 jQuery 是轻量级的框架，大小不到 30kb,它有强大的选择器，出色的 DOM 操作的封装，有可靠的事件处理机制(jQuery 在处理事件绑定的时候相当的可靠)，完善的 ajax(它的 ajax 封装的非常的好，不需要考虑复杂浏览器的兼容性和 XMLHttpRequest 对象的创...</div></div></div></a><a class="pagination-related" href="/posts/DOC-24%E9%81%93JavaScript%E7%AE%97%E6%B3%95/" title="24道JavaScript算法题"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-13</div><div class="info-item-2">24道JavaScript算法题</div></div><div class="info-2"><div class="info-item-1">标准排序第一种123456789101112var arr = [5, 8, 3, 6, 9];for (var i = 0; i &lt; arr.length; i++) &#123;  for (var j = i + 1; j &lt; arr.length; j++) &#123;    var temp;    if (arr[i] &gt; arr[j]) &#123;      temp = arr[i];      arr[i] = arr[j];      arr[j] = temp;    &#125;  &#125;&#125;console.log(arr);  第二种：冒泡排序123456789101112var arr = [5, 4, 6, 1, 3, 2];for (var i = 0; i &lt; arr.length; i++) &#123;  for (var j = 0; j &lt; arr.length - i + 1; j++) &#123;    var temp;    if (arr[j] &gt; arr[j + 1]) ...</div></div></div></a><a class="pagination-related" href="/posts/JS-JS%E5%9F%BA%E7%A1%80/" title="JS基础"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-17</div><div class="info-item-2">JS基础</div></div><div class="info-2"><div class="info-item-1">变量运算符循环for 循环123for(初始化变量,条件表达式,操作表达式)&#123;  // 循环体&#125;  双重 for 循环 外层循环一次,里面循环全部  123456for(初始化变量,条件表达式,操作表达式)&#123;  // 循环体  for(初始化变量,条件表达式,操作表达式)&#123;    // 循环体  &#125;&#125;  while 循环 条件表达式为 true 则循环表达体,否则退出循环  12345// 初始化变量while (条件表达式) &#123;  // 循环体  // 操作表达式&#125;  do while 循环 先执行循环体,在判断条件 为 true,继续循环,否则退出循环  1234do &#123;  // 循环体  // 操作表达式&#125; while (条件表达式);  continue break continue 退出当前循环,继续执行剩余次数的循环break 退出整个循环(循环结束)  1234567891011121314// continuefor (var i = 1; i &lt;= 5; i...</div></div></div></a><a class="pagination-related" href="/posts/JS-JS%E9%AB%98%E7%BA%A7/" title="JS高级"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-05</div><div class="info-item-2">JS高级</div></div><div class="info-2"><div class="info-item-1">标题</div></div></div></a><a class="pagination-related" href="/posts/DOC-JavaScript%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="JavaScript常见问题"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-13</div><div class="info-item-2">JavaScript常见问题</div></div><div class="info-2"><div class="info-item-1">javascript 的 typeof 返回哪些数据类型 string,boolean,number,undefined,function,object  例举 3 种强制类型转换和 2 种隐式类型转换? 强制（parseInt,parseFloat,number隐式（&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;）  Split 和 join 的区别 Split是将字符串切割成数组的形式join是将数组转换成字符串  数组方法 pop() push() unshift() shift() push()尾部添加pop()尾部删除unshift()头部添加shift()头部删除  IE 和标准下有哪些兼容性的写法123var ev = ev || window.eventdocument.documentElement.clientWidth || document.body.clientWidthVar target = ev.srcElement||ev.target  ajax 请求的时候 get 和 post 方式的区别 get请求值在 url 后面post...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sponsors/JCAlways"><i class="fas fa-heart"></i><span>Sponsor</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitlab.com/JCAlways" target="_blank" title="Gitlab"><i class="fab fa-gitlab"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Jquery"><span class="toc-number">1.</span> <span class="toc-text">什么是 Jquery</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-Jquery"><span class="toc-number">1.1.</span> <span class="toc-text">引入 Jquery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">入口函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-%E7%9A%84%E9%A1%B6%E7%BA%A7%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.</span> <span class="toc-text">jquery 的顶级对象$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery-%E5%92%8C-DOM-%E5%AF%B9%E8%B1%A1%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.4.</span> <span class="toc-text">JQuery 和 DOM 对象相互转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-%E5%AF%B9%E8%B1%A1%E8%BD%AC-JQuery-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.4.1.</span> <span class="toc-text">DOM 对象转 JQuery 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQuery-%E5%AF%B9%E8%B1%A1%E8%BD%AC-DOM-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.4.2.</span> <span class="toc-text">JQuery 对象转 DOM 对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.5.</span> <span class="toc-text">隐式迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E4%BB%96%E6%80%9D%E6%83%B3"><span class="toc-number">1.6.</span> <span class="toc-text">排他思想</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="toc-number">2.1.</span> <span class="toc-text">事件注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%8B%E4%BB%B6%E5%A4%9A%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">多事件多处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%B4%BE-%E5%A7%94%E6%89%98"><span class="toc-number">2.2.2.</span> <span class="toc-text">事件委派&#x2F;委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E7%9A%84%E5%85%83%E7%B4%A0%E6%B7%BB%E5%8A%A0%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.3.</span> <span class="toc-text">给动态添加的元素添加事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%BB%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.4.</span> <span class="toc-text">解绑事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.5.</span> <span class="toc-text">自动触发事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.3.</span> <span class="toc-text">事件对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8-API"><span class="toc-number">3.</span> <span class="toc-text">常用 API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.1.1.</span> <span class="toc-text">基础选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.1.2.</span> <span class="toc-text">筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.3.</span> <span class="toc-text">筛选方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">样式操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C-CSS-%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">操作 CSS 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%B1%BB%E6%A0%B7%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.2.</span> <span class="toc-text">设置类样式方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-%E5%8A%A8%E7%94%BB"><span class="toc-number">3.3.</span> <span class="toc-text">效果(动画)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E9%98%9F%E5%88%97%E5%8F%8A%E5%85%B6%E5%81%9C%E6%AD%A2%E6%8E%92%E9%98%9F%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">动画队列及其停止排队方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="toc-number">3.3.2.</span> <span class="toc-text">显示隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8"><span class="toc-number">3.3.3.</span> <span class="toc-text">滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA"><span class="toc-number">3.3.4.</span> <span class="toc-text">淡入淡出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BB"><span class="toc-number">3.3.5.</span> <span class="toc-text">自定义动画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">3.4.</span> <span class="toc-text">属性操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%88%96%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9A%84%E5%9B%BA%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="toc-number">3.4.1.</span> <span class="toc-text">设置或获取元素的固有属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="toc-number">3.4.2.</span> <span class="toc-text">自定义属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98"><span class="toc-number">3.4.3.</span> <span class="toc-text">数据缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-number">3.5.</span> <span class="toc-text">文本属性值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="toc-number">3.6.</span> <span class="toc-text">元素操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%85%83%E7%B4%A0"><span class="toc-number">3.6.1.</span> <span class="toc-text">遍历元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="toc-number">3.6.2.</span> <span class="toc-text">创建元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="toc-number">3.6.3.</span> <span class="toc-text">添加元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">3.6.4.</span> <span class="toc-text">删除元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BA%E5%AF%B8%E3%80%81%E4%BD%8D%E7%BD%AE%E6%93%8D%E4%BD%9C"><span class="toc-number">3.7.</span> <span class="toc-text">尺寸、位置操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%BA%E5%AF%B8"><span class="toc-number">3.7.1.</span> <span class="toc-text">尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE"><span class="toc-number">3.7.2.</span> <span class="toc-text">位置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">其他方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery-%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D"><span class="toc-number">4.1.</span> <span class="toc-text">JQuery 对象拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%BA%93%E5%85%B1%E5%AD%98"><span class="toc-number">4.2.</span> <span class="toc-text">多库共存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery-%E6%8F%92%E4%BB%B6"><span class="toc-number">4.3.</span> <span class="toc-text">JQuery 插件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程"><img src="https://static-www.onlyoffice.com/v9.5.0/images/press-downloads/logos/logo_color.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OnlyOffice 前端使用教程"/></a><div class="content"><a class="title" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程">OnlyOffice 前端使用教程</a><time datetime="2025-10-10T16:00:00.000Z" title="发表于 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器"><img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MCV_SpringDrop_DotNet_Homepage_2560x932-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nintendo Switch 我的世界 连接第三方服务器"/></a><div class="content"><a class="title" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器">Nintendo Switch 我的世界 连接第三方服务器</a><time datetime="2025-09-24T16:00:00.000Z" title="发表于 2025-09-25 00:00:00">2025-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器"><img src="https://res.cloudinary.com/about-gitlab-com/image/upload/v1758208064/dzl0dbift9xdizyelkk4.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 Gitlab CE 服务器"/></a><div class="content"><a class="title" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器">搭建 Gitlab CE 服务器</a><time datetime="2025-09-03T16:00:00.000Z" title="发表于 2025-09-04 00:00:00">2025-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707mp/" title="搭建 RTMP 推流服务"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 RTMP 推流服务"/></a><div class="content"><a class="title" href="/posts/20250707mp/" title="搭建 RTMP 推流服务">搭建 RTMP 推流服务</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707zb/" title="OBS 多流推送"><img src="https://obsproject.com/assets/images/features-new/hero.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OBS 多流推送"/></a><div class="content"><a class="title" href="/posts/20250707zb/" title="OBS 多流推送">OBS 多流推送</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2019 - 2026 By JCAlways</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-lang":"zh-CN"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'JCAlways/jcalways.github.io',
+      'data-repo-id': 'R_kgDOH7iipg',
+      'data-category-id': 'DIC_kwDOH7iips4Cvi27',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"/><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr/><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><a class="algolia-poweredBy" href="https://www.algolia.com/?utm_source=algoliasearch.js&amp;utm_medium=website&amp;utm_content=localhost&amp;utm_campaign=poweredby" target="_blank" aria-label="Search by Algolia" rel="noopener noreferrer"><svg class="ais-PoweredBy-logo" height="1.2em" viewBox="0 0 572 64" style="width: auto;"><path fill="#36395A" d="M16 48.3c-3.4 0-6.3-.6-8.7-1.7A12.4 12.4 0 0 1 1.9 42C.6 40 0 38 0 35.4h6.5a6.7 6.7 0 0 0 3.9 6c1.4.7 3.3 1.1 5.6 1.1 2.2 0 4-.3 5.4-1a7 7 0 0 0 3-2.4 6 6 0 0 0 1-3.4c0-1.5-.6-2.8-1.9-3.7-1.3-1-3.3-1.6-5.9-1.8l-4-.4c-3.7-.3-6.6-1.4-8.8-3.4a10 10 0 0 1-3.3-7.9c0-2.4.6-4.6 1.8-6.4a12 12 0 0 1 5-4.3c2.2-1 4.7-1.6 7.5-1.6s5.5.5 7.6 1.6a12 12 0 0 1 5 4.4c1.2 1.8 1.8 4 1.8 6.7h-6.5a6.4 6.4 0 0 0-3.5-5.9c-1-.6-2.6-1-4.4-1s-3.2.3-4.4 1c-1.1.6-2 1.4-2.6 2.4-.5 1-.8 2-.8 3.1a5 5 0 0 0 1.5 3.6c1 1 2.6 1.7 4.7 1.9l4 .3c2.8.2 5.2.8 7.2 1.8 2.1 1 3.7 2.2 4.9 3.8a9.7 9.7 0 0 1 1.7 5.8c0 2.5-.7 4.7-2 6.6a13 13 0 0 1-5.6 4.4c-2.4 1-5.2 1.6-8.4 1.6Zm35.6 0c-2.6 0-4.8-.4-6.7-1.3a13 13 0 0 1-4.7-3.5 17.1 17.1 0 0 1-3.6-10.4v-1c0-2 .3-3.8 1-5.6a13 13 0 0 1 7.3-8.3 15 15 0 0 1 6.3-1.4A13.2 13.2 0 0 1 64 24.3c1 2.2 1.6 4.6 1.6 7.2V34H39.4v-4.3h21.8l-1.8 2.2c0-2-.3-3.7-.9-5.1a7.3 7.3 0 0 0-2.7-3.4c-1.2-.7-2.7-1.1-4.6-1.1s-3.4.4-4.7 1.3a8 8 0 0 0-2.9 3.6c-.6 1.5-.9 3.3-.9 5.4 0 2 .3 3.7 1 5.3a7.9 7.9 0 0 0 2.8 3.7c1.3.8 3 1.3 5 1.3s3.8-.5 5.1-1.3c1.3-1 2.1-2 2.4-3.2h6a11.8 11.8 0 0 1-7 8.7 16 16 0 0 1-6.4 1.2ZM80 48c-2.2 0-4-.3-5.7-1a8.4 8.4 0 0 1-3.7-3.3 9.7 9.7 0 0 1-1.3-5.2c0-2 .5-3.8 1.5-5.2a9 9 0 0 1 4.3-3.1c1.8-.7 4-1 6.7-1H89v4.1h-7.5c-2 0-3.4.5-4.4 1.4-1 1-1.6 2.1-1.6 3.6s.5 2.7 1.6 3.6c1 1 2.5 1.4 4.4 1.4 1.1 0 2.2-.2 3.2-.7 1-.4 1.9-1 2.6-2 .6-1 1-2.4 1-4.2l1.7 2.1c-.2 2-.7 3.8-1.5 5.2a9 9 0 0 1-3.4 3.3 12 12 0 0 1-5.3 1Zm9.5-.7v-8.8h-1v-10c0-1.8-.5-3.2-1.4-4.1-1-1-2.4-1.4-4.2-1.4a142.9 142.9 0 0 0-10.2.4v-5.6a74.8 74.8 0 0 1 8.6-.4c3 0 5.5.4 7.5 1.2s3.4 2 4.4 3.6c1 1.7 1.4 4 1.4 6.7v18.4h-5Zm12.9 0V17.8h5v12.3h-.2c0-4.2 1-7.4 2.8-9.5a11 11 0 0 1 8.3-3.1h1v5.6h-2a9 9 0 0 0-6.3 2.2c-1.5 1.5-2.2 3.6-2.2 6.4v15.6h-6.4Zm34.4 1a15 15 0 0 1-6.6-1.3c-1.9-.9-3.4-2-4.7-3.5a15.5 15.5 0 0 1-2.7-5c-.6-1.7-1-3.6-1-5.4v-1c0-2 .4-3.8 1-5.6a15 15 0 0 1 2.8-4.9c1.3-1.5 2.8-2.6 4.6-3.5a16.4 16.4 0 0 1 13.3.2c2 1 3.5 2.3 4.8 4a12 12 0 0 1 2 6H144c-.2-1.6-1-3-2.2-4.1a7.5 7.5 0 0 0-5.2-1.7 8 8 0 0 0-4.7 1.3 8 8 0 0 0-2.8 3.6 13.8 13.8 0 0 0 0 10.3c.6 1.5 1.5 2.7 2.8 3.6s2.8 1.3 4.8 1.3c1.5 0 2.7-.2 3.8-.8a7 7 0 0 0 2.6-2c.7-1 1-2 1.2-3.2h6.2a11 11 0 0 1-2 6.2 15.1 15.1 0 0 1-11.8 5.5Zm19.7-1v-40h6.4V31h-1.3c0-3 .4-5.5 1.1-7.6a9.7 9.7 0 0 1 3.5-4.8A9.9 9.9 0 0 1 172 17h.3c3.5 0 6 1.1 7.9 3.5 1.7 2.3 2.6 5.7 2.6 10v16.8h-6.4V29.6c0-2.1-.6-3.8-1.8-5a6.4 6.4 0 0 0-4.8-1.8c-2 0-3.7.7-5 2a7.8 7.8 0 0 0-1.9 5.5v17h-6.4Zm63.8 1a12.2 12.2 0 0 1-10.9-6.2 19 19 0 0 1-1.8-7.3h1.4v12.5h-5.1v-40h6.4v19.8l-2 3.5c.2-3.1.8-5.7 1.9-7.7a11 11 0 0 1 4.4-4.5c1.8-1 3.9-1.5 6.1-1.5a13.4 13.4 0 0 1 12.8 9.1c.7 1.9 1 3.8 1 6v1c0 2.2-.3 4.1-1 6a13.6 13.6 0 0 1-13.2 9.4Zm-1.2-5.5a8.4 8.4 0 0 0 7.9-5c.7-1.5 1.1-3.3 1.1-5.3s-.4-3.8-1.1-5.3a8.7 8.7 0 0 0-3.2-3.6 9.6 9.6 0 0 0-9.2-.2 8.5 8.5 0 0 0-3.3 3.2c-.8 1.4-1.3 3-1.3 5v2.3a9 9 0 0 0 1.3 4.8 9 9 0 0 0 3.4 3c1.4.7 2.8 1 4.4 1Zm27.3 3.9-10-28.9h6.5l9.5 28.9h-6Zm-7.5 12.2v-5.7h4.9c1 0 2-.1 2.9-.4a4 4 0 0 0 2-1.4c.4-.7.9-1.6 1.2-2.7l8.6-30.9h6.2l-9.3 32.4a14 14 0 0 1-2.5 5 8.9 8.9 0 0 1-4 2.8c-1.5.6-3.4.9-5.6.9h-4.4Zm9-12.2v-5.2h6.4v5.2H248Z"></path><path fill="#003DFF" d="M534.4 9.1H528a.8.8 0 0 1-.7-.7V1.8c0-.4.2-.7.6-.8l6.5-1c.4 0 .8.2.9.6v7.8c0 .4-.4.7-.8.7zM428 35.2V.8c0-.5-.3-.8-.7-.8h-.2l-6.4 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.5 0 .8-.4.8-.8V43c0-.4-.3-.7-.6-.8-4.5-.5-4.5-6-4.5-7zm106.5-21.8H528c-.4 0-.7.4-.7.8v34c0 .4.3.8.7.8h6.5c.4 0 .8-.4.8-.8v-34c0-.5-.4-.8-.8-.8zm-17.7 21.8V.8c0-.5-.3-.8-.8-.8l-6.5 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.4 0 .8-.4.8-.8V43c0-.4-.3-.7-.7-.8-4.4-.5-4.4-6-4.4-7zm-22.2-20.6a16.5 16.5 0 0 1 8.6 9.3c.8 2.2 1.3 4.8 1.3 7.5a19.4 19.4 0 0 1-4.6 12.6 14.8 14.8 0 0 1-5.2 3.6c-2 .9-5.2 1.4-6.8 1.4a21 21 0 0 1-6.7-1.4 15.4 15.4 0 0 1-8.6-9.3 21.3 21.3 0 0 1 0-14.4 15.2 15.2 0 0 1 8.6-9.3c2-.8 4.3-1.2 6.7-1.2s4.6.4 6.7 1.2zm-6.7 27.6c2.7 0 4.7-1 6.2-3s2.2-4.3 2.2-7.8-.7-6.3-2.2-8.3-3.5-3-6.2-3-4.7 1-6.1 3c-1.5 2-2.2 4.8-2.2 8.3s.7 5.8 2.2 7.8 3.5 3 6.2 3zm-88.8-28.8c-6.2 0-11.7 3.3-14.8 8.2a18.6 18.6 0 0 0 4.8 25.2c1.8 1.2 4 1.8 6.2 1.7s.1 0 .1 0h.9c4.2-.7 8-4 9.1-8.1v7.4c0 .4.3.7.8.7h6.4a.7.7 0 0 0 .7-.7V14.2c0-.5-.3-.8-.7-.8h-13.5zm6.3 26.5a9.8 9.8 0 0 1-5.7 2h-.5a10 10 0 0 1-9.2-14c1.4-3.7 5-6.3 9-6.3h6.4v18.3zm152.3-26.5h13.5c.5 0 .8.3.8.7v33.7c0 .4-.3.7-.8.7h-6.4a.7.7 0 0 1-.8-.7v-7.4c-1.2 4-4.8 7.4-9 8h-.1a4.2 4.2 0 0 1-.5.1h-.9a10.3 10.3 0 0 1-7-2.6c-4-3.3-6.5-8.4-6.5-14.2 0-3.7 1-7.2 3-10 3-5 8.5-8.3 14.7-8.3zm.6 28.4c2.2-.1 4.2-.6 5.7-2V21.7h-6.3a9.8 9.8 0 0 0-9 6.4 10.2 10.2 0 0 0 9.1 13.9h.5zM452.8 13.4c-6.2 0-11.7 3.3-14.8 8.2a18.5 18.5 0 0 0 3.6 24.3 10.4 10.4 0 0 0 13 .6c2.2-1.5 3.8-3.7 4.5-6.1v7.8c0 2.8-.8 5-2.2 6.3-1.5 1.5-4 2.2-7.5 2.2l-6-.3c-.3 0-.7.2-.8.5l-1.6 5.5c-.1.4.1.8.5 1h.1c2.8.4 5.5.6 7 .6 6.3 0 11-1.4 14-4.1 2.7-2.5 4.2-6.3 4.5-11.4V14.2c0-.5-.4-.8-.8-.8h-13.5zm6.3 8.2v18.3a9.6 9.6 0 0 1-5.6 2h-1a10.3 10.3 0 0 1-8.8-14c1.4-3.7 5-6.3 9-6.3h6.4zM291 31.5A32 32 0 0 1 322.8 0h30.8c.6 0 1.2.5 1.2 1.2v61.5c0 1.1-1.3 1.7-2.2 1l-19.2-17a18 18 0 0 1-11 3.4 18.1 18.1 0 1 1 18.2-14.8c-.1.4-.5.7-.9.6-.1 0-.3 0-.4-.2l-3.8-3.4c-.4-.3-.6-.8-.7-1.4a12 12 0 1 0-2.4 8.3c.4-.4 1-.5 1.6-.2l14.7 13.1v-46H323a26 26 0 1 0 10 49.7c.8-.4 1.6-.2 2.3.3l3 2.7c.3.2.3.7 0 1l-.2.2a32 32 0 0 1-47.2-28.6z"></path></svg></a></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

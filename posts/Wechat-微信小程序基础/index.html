@@ -1,0 +1,1266 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微信小程序基础 | JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微信小程序开发准备编辑器VSCode 下载地址 微信小程序开发工具 下载地址 官方 API 文档官方文档 VSCode 推荐安装的插件minapp 小程序的结构目录小程序文件结构和传统 web 对比   结构 传统 web 微信小程序    结构 HTML WXML   样式 CSS WXSS   逻辑 JavaScript JavaScript   配置 无 JSON   基本的项目目录1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序基础">
+<meta property="og:url" content="https://blog.zhangsifan.com/posts/Wechat-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="微信小程序开发准备编辑器VSCode 下载地址 微信小程序开发工具 下载地址 官方 API 文档官方文档 VSCode 推荐安装的插件minapp 小程序的结构目录小程序文件结构和传统 web 对比   结构 传统 web 微信小程序    结构 HTML WXML   样式 CSS WXSS   逻辑 JavaScript JavaScript   配置 无 JSON   基本的项目目录1234">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png">
+<meta property="article:published_time" content="2019-11-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-14T01:49:10.232Z">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "微信小程序基础",
+  "url": "https://blog.zhangsifan.com/posts/Wechat-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/",
+  "image": "https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png",
+  "datePublished": "2019-11-30T00:00:00.000Z",
+  "dateModified": "2026-01-14T01:49:10.232Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "JCAlways",
+      "url": "https://blog.zhangsifan.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/posts/Wechat-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微信小程序基础',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a><a class="nav-page-title" href="/"><span class="site-name">微信小程序基础</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">微信小程序基础<a class="post-edit-link" href="https://github.com/jcalways/jcalways.github.io/edit/master/source/_posts/Wechat-微信小程序基础.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-30T00:00:00.000Z" title="发表于 2019-11-30 08:00:00">2019-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-14T01:49:10.232Z" title="更新于 2026-01-14 09:49:10">2026-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">7.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>33分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="微信小程序开发准备"><a href="#微信小程序开发准备" class="headerlink" title="微信小程序开发准备"></a>微信小程序开发准备</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><p>VSCode <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">下载地址</a></p>
+<p>微信小程序开发工具 <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">下载地址</a></p>
+<h2 id="官方-API-文档"><a href="#官方-API-文档" class="headerlink" title="官方 API 文档"></a>官方 API 文档</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/">官方文档</a></p>
+<h2 id="VSCode-推荐安装的插件"><a href="#VSCode-推荐安装的插件" class="headerlink" title="VSCode 推荐安装的插件"></a>VSCode 推荐安装的插件</h2><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=qiu8310.minapp-vscode">minapp</a></p>
+<h1 id="小程序的结构目录"><a href="#小程序的结构目录" class="headerlink" title="小程序的结构目录"></a>小程序的结构目录</h1><h2 id="小程序文件结构和传统-web-对比"><a href="#小程序文件结构和传统-web-对比" class="headerlink" title="小程序文件结构和传统 web 对比"></a>小程序文件结构和传统 web 对比</h2><table>
+<thead>
+<tr>
+<th>结构</th>
+<th>传统 web</th>
+<th>微信小程序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结构</td>
+<td>HTML</td>
+<td>WXML</td>
+</tr>
+<tr>
+<td>样式</td>
+<td>CSS</td>
+<td>WXSS</td>
+</tr>
+<tr>
+<td>逻辑</td>
+<td>JavaScript</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>配置</td>
+<td>无</td>
+<td>JSON</td>
+</tr>
+</tbody></table>
+<h2 id="基本的项目目录"><a href="#基本的项目目录" class="headerlink" title="基本的项目目录"></a>基本的项目目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">│  app.js              <span class="comment"># 全局的js(入口文件)</span></span><br><span class="line">│  app.json            <span class="comment"># 全局的配置文件</span></span><br><span class="line">│  app.wxss            <span class="comment"># 全局的样式文件</span></span><br><span class="line">│  project.config.json <span class="comment"># 整个项目的描述文件 类似node中的package.json</span></span><br><span class="line">│</span><br><span class="line">├─pages                <span class="comment"># 小程序对应的页面的目录</span></span><br><span class="line">│  ├─index             <span class="comment"># 首页</span></span><br><span class="line">│  │      index.js     <span class="comment"># js文件</span></span><br><span class="line">│  │      index.json   <span class="comment"># 配置文件</span></span><br><span class="line">│  │      index.wxml   <span class="comment"># 类似html</span></span><br><span class="line">│  │      index.wxss   <span class="comment"># 样式文件 类似CSS</span></span><br><span class="line">│  │</span><br><span class="line">│  └─logs              <span class="comment"># 子页面</span></span><br><span class="line">│          logs.js</span><br><span class="line">│          logs.json</span><br><span class="line">│          logs.wxml</span><br><span class="line">│          logs.wxss</span><br><span class="line">│</span><br><span class="line">└─utils                <span class="comment"># 自己封装的工具函数</span></span><br><span class="line">        util.js</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置介绍"><a href="#配置介绍" class="headerlink" title="配置介绍"></a>配置介绍</h1>  <div class="note danger"><p>注意:配置文件中不能出现注释</p></div>  
+&nbsp;
+
+<h2 id="全局配置-app-json"><a href="#全局配置-app-json" class="headerlink" title="全局配置 app.json"></a>全局配置 app.json</h2><blockquote>
+<p>通过 app.json 文件对小程序进行全局配置，如页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html">官方文档</a></p>
+</blockquote>
+<h3 id="app-json-配置清单"><a href="#app-json-配置清单" class="headerlink" title="app.json 配置清单"></a>app.json 配置清单</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pages</td>
+<td>String Array</td>
+<td>是</td>
+<td>设置页面路径</td>
+</tr>
+<tr>
+<td>window</td>
+<td>Object</td>
+<td>否</td>
+<td>设置默认窗口表现</td>
+</tr>
+<tr>
+<td>tabBar</td>
+<td>Object</td>
+<td>否</td>
+<td>设置底部 tab 表现</td>
+</tr>
+<tr>
+<td>networkTimeout</td>
+<td>Object</td>
+<td>否</td>
+<td>设置网络超时时间</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Boolean</td>
+<td>否</td>
+<td>设置是否开启调试模式</td>
+</tr>
+</tbody></table>
+<h4 id="pages-页面路径"><a href="#pages-页面路径" class="headerlink" title="pages-(页面路径)"></a>pages-(页面路径)</h4><blockquote>
+<p>用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名不需要写文件后缀，框架会自动去寻找对于位置的 .json, .js, .wxml, .wxss 四个文件进行处理。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#pages">官方文档</a></p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span> <span class="string">&quot;pages/detail/detail&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="window-默认窗口表现"><a href="#window-默认窗口表现" class="headerlink" title="window-(默认窗口表现)"></a>window-(默认窗口表现)</h4><blockquote>
+<p>用于设置小程序的状态栏、导航条、标题、窗口背景色。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#window">官方文档</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>navigationBarBackgroundColor</td>
+<td>HexColor</td>
+<td>#000000</td>
+<td>导航栏背景颜色，如”#000000”</td>
+</tr>
+<tr>
+<td>navigationBarTextStyle</td>
+<td>String</td>
+<td>white</td>
+<td>导航栏标题颜色，仅支持 black&#x2F;white</td>
+</tr>
+<tr>
+<td>navigationBarTitleText</td>
+<td>String</td>
+<td></td>
+<td>导航栏标题文字内容</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>HexColor</td>
+<td>#ffffff</td>
+<td>窗口的背景色</td>
+</tr>
+</tbody></table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;window&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#66ccff&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;名称&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;white&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#F0F0F0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="tabBar-底部-tab-栏的表现"><a href="#tabBar-底部-tab-栏的表现" class="headerlink" title="tabBar-( 底部 tab 栏的表现 )"></a>tabBar-( 底部 tab 栏的表现 )</h4><blockquote>
+<p>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#tabBar">官方文档</a></p>
+</blockquote>
+<p>对象类型，配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>HexColor</td>
+<td>是</td>
+<td></td>
+<td>tab 上的文字默认颜色</td>
+</tr>
+<tr>
+<td>selectedColor</td>
+<td>HexColor</td>
+<td>是</td>
+<td></td>
+<td>tab 上的文字选中时的颜色</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>HexColor</td>
+<td>是</td>
+<td></td>
+<td>tab 的背景色</td>
+</tr>
+<tr>
+<td>borderStyle</td>
+<td>String</td>
+<td>否</td>
+<td>black</td>
+<td>tabbar 上边框的颜色， 仅支持 black&#x2F;white</td>
+</tr>
+<tr>
+<td>list</td>
+<td>Array</td>
+<td>是</td>
+<td></td>
+<td>tab 的列表，最少 2 个、最多 5 个</td>
+</tr>
+<tr>
+<td>position</td>
+<td>String</td>
+<td>否</td>
+<td>bottom</td>
+<td>tab 的位置 可选值 bottom、top</td>
+</tr>
+</tbody></table>
+<p>其中 list 接受一个数组，数组中的每个项都是一个对象，其属性值如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pagePath</td>
+<td>String</td>
+<td>是</td>
+<td>页面路径，必须在 pages 中先定义</td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>是</td>
+<td>tab 上按钮文字</td>
+</tr>
+<tr>
+<td>iconPath</td>
+<td>String</td>
+<td>否</td>
+<td>图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，当 postion 为 top 时，此参数无效，<code>不支持网络图片</code></td>
+</tr>
+<tr>
+<td>selectedIconPath</td>
+<td>String</td>
+<td>否</td>
+<td>选中时的图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px ，当 postion 为 top 时，此参数无效</td>
+</tr>
+</tbody></table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;tabBar&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#D78B09&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;selectedColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#FFF&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#FECA49&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;borderStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;white&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;list&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;首页&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/home-default.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/home-active.png&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;日志&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/logs/logs&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/cards-default.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;icons/cards-active.png&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="页面配置-page-json"><a href="#页面配置-page-json" class="headerlink" title="页面配置 page.json"></a>页面配置 page.json</h2><blockquote>
+<p>每个页面可以有不同的表现，通过 pages 目录下的 .json 文件，如 logs.json ，实现页面的局部配置。但是只能设置 app.json 中的 window 配置项的内容，页面中配置项会覆盖 app.json 的 window 中相同的配置项。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">官方文档</a></p>
+</blockquote>
+<p>常用配置</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>navigationBarTitleText</td>
+<td>HexColor</td>
+<td>导航栏标题文字内容</td>
+</tr>
+<tr>
+<td>navigationBarBackgroundColor</td>
+<td>HexColor</td>
+<td>导航栏背景颜色</td>
+</tr>
+<tr>
+<td>navigationBarTextStyle</td>
+<td>String</td>
+<td>字体颜色 只支持<code>black</code> &#x2F; <code>white</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;页面标题&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#6cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;white&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><blockquote>
+<p>小程序打包体积不允许超过 2M<br>通过配置 <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html">project.config.json</a> 文件，可以忽略某些文件（如图片等）以减少预览发布资源所占空间的大小。</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;packOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;ignore&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;folder&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span> <span class="string">&quot;static&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><blockquote>
+<p>在小程序中可以像网页一样使用字体图标，并且使用方式基本一致。唯一的不同在于小程序中字体图标所引入的字体文件路径为网络路径，且必须为 https 协议。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;icomoon&quot;</span>;</span><br><span class="line">  <span class="comment">/* wxss 不支持本地资源（图片、字体） */</span> <span class="comment">/* 服务器地址需为 https 协议 */</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&quot;https://botue.github.io/85qi/fonts/icomoon.eot?lzaqut&quot;</span>);</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&quot;https://botue.github.io/85qi/fonts/icomoon.eot?lzaqut#iefix&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;embedded-opentype&quot;</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">&quot;https://botue.github.io/85qi/fonts/icomoon.ttf?lzaqut&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;truetype&quot;</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">&quot;https://botue.github.io/85qi/fonts/icomoon.woff?lzaqut&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;woff&quot;</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">&quot;https://botue.github.io/85qi/fonts/icomoon.svg?lzaqut#icomoon&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;svg&quot;</span>);</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h1><h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p><strong>所谓数据绑定是指数据与页面中组件的关联关系。使用 Mustache 语法（双大括号）将数据变量包起来</strong>。</p>
+<h3 id="简单数据—-官方文档"><a href="#简单数据—-官方文档" class="headerlink" title="简单数据—-官方文档"></a>简单数据—-<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/data.html#%E7%AE%80%E5%8D%95%E7%BB%91%E5%AE%9A">官方文档</a></h3><p>数据绑定使用 Mustache 语法（双大括号）将变量包起来，可以作用于：</p>
+<p>内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123; message &#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&quot;Hello MINA!&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>组件属性(需要在双引号之内)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">&quot;item-&#123;&#123;id&#125;&#125;&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="number">0</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>控制属性(需要在双引号之内)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;condition&#125;&#125;&quot;</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">condition</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>关键字(需要在双引号之内)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;&#123;&#123;false&#125;&#125;&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><p>特别注意：不要直接写 `checked="false"`，其计算结果是一个字符串，转成 boolean 类型后代表真值。</p></div>  
+&nbsp;
+
+<h3 id="复杂数据"><a href="#复杂数据" class="headerlink" title="复杂数据"></a>复杂数据</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span></span></span><br><span class="line"><span class="tag">  &gt;</span>我叫&#123;&#123;user.name&#125;&#125;，我今年&#123;&#123;user.age&#125;&#125;岁了，我在学习&#123;&#123;courses[0]&#125;&#125;课程。&lt;/text</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="comment">// 通过 data 属性，初始化页面中用到的数据</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;小明&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">16</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">courses</span>: [<span class="string">&quot;wxml&quot;</span>, <span class="string">&quot;wxss&quot;</span>, <span class="string">&quot;javascript&quot;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;a&#125;&#125; + &#123;&#123;b&#125;&#125; = &#123;&#123;a + b&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span> <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;flag ? &#x27;是&#x27;: &#x27;否&#x27;&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="comment">// 通过 data 属性，初始化页面中用到的数据</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="attr">flag</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><blockquote>
+<p>将数组数据遍历绑定到组件中。通过 wx:for 控制属（类似 vue 中的指令）性实现。<br>项的变量名默认为<code>item</code> 可以通过<code>wx:for-item=&quot;value&quot;</code>修改变量名<br>下标变量名默认为<code>index</code> 可以通过<code>wx:for-index=&quot;key&quot;</code>修改变量名 0<br>通过 block 可以将多个组件元素“包”到一起进行渲染，block 只是提供一种结构，并不会被渲染到页面中。一般这样做的目的是可以将多个组件按统一的逻辑进行控制。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;arr&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;index&#125;&#125;:&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;person&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;index&#125;&#125;:&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span></span></span><br><span class="line"><span class="tag">    <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;person&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;index&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">wx:for-index</span>=<span class="string">&quot;key&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">wx:for-item</span>=<span class="string">&quot;value&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- block最终不会变成真正的dom元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;arr&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;index&#125;&#125;:&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">arr</span>: [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;菠萝&quot;</span>, <span class="string">&quot;火龙果&quot;</span>],</span><br><span class="line">    <span class="attr">person</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;小张&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">22</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><blockquote>
+<p>根据条件控制是否渲染某个（些）组件，通过 wx:if 属性实现。</p>
+</blockquote>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;true&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>锄禾日当午<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多分支"><a href="#多分支" class="headerlink" title="多分支"></a>多分支</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;view == &#x27;小明&#x27;&#125;&#125;&quot;</span>&gt;</span>小明<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:elif</span>=<span class="string">&quot;&#123;&#123;view == &#x27;小张&#x27;&#125;&#125;&quot;</span>&gt;</span>小张<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:else</span>=<span class="string">&quot;&#123;&#123;view == &#x27;小李&#x27;&#125;&#125;&quot;</span>&gt;</span>小李<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">view</span>: <span class="string">&quot;小张&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="hidden—显示-隐藏"><a href="#hidden—显示-隐藏" class="headerlink" title="hidden—显示&#x2F;隐藏"></a>hidden—显示&#x2F;隐藏</h3><p>为小程序组件添加 hidden 属性也可以控制组件是否显示，其效果类似于 vue 中的 v-show，它与 wx:if 的不同之处是 wx:if 通过添加&#x2F;移除节点实现元素的显示&#x2F;隐藏，而 hidden 是对过样式 display 属性实现的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">&quot;&#123;&#123;true&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>hidden=true<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">&quot;&#123;&#123;false&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>hidden=false<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>小程序中组件属性的值如果为布尔类型时，只要包含这个属性即为 true，要表达 false 时，需要通过 { { } } 表达，原因是 { { } } 中的内容为被小程序当成表达式解析，所以 <code>hidden=&quot;&#123;&#123;false&#125;&#125;&quot;</code>会被解析成数据类型的布尔类型，而如果写成 hidden&#x3D;”false” 则将 false 当成字符串解析。</p>
+<h1 id="样式-WXSS"><a href="#样式-WXSS" class="headerlink" title="样式 WXSS"></a>样式 WXSS</h1><blockquote>
+<p>wxss 是一套样式语言,用于描述 WXML 的样式组件</p>
+</blockquote>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>获取 data 的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">name</span>;</span><br></pre></td></tr></table></figure>
+
+<p>修改 data 数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>事件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">in</span>(<span class="params">e</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取输入框的值是通过事件源对象获取的<code>e.detail.value</code></p>
+<p>传参要动过自定义属性传参</p>
+<h2 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h2><p>小程序不支持<code>XMLHTTPRequest</code>,<code>$.ajax</code>,<code>axios</code></p>
+<p>开发者所请求的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;&#125;,</span><br><span class="line">  <span class="title function_">success</span>(<span class="params"></span>) &#123;&#125;,</span><br><span class="line">  <span class="title function_">fail</span>(<span class="params"></span>) &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><blockquote>
+<p>使用<code>bind事件名称=&quot;事件回调&quot;</code>或者<code>bind:事件类型=&quot;事件回调&quot;</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bind:tap</span>=<span class="string">&quot;getTime&quot;</span>&gt;</span>获取时间<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 或者 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">&quot;getTime&quot;</span>&gt;</span>获取时间<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><blockquote>
+<p>盒子嵌套的事件会触发事件冒泡.<br>里面的事件先触发,随后外面的事件触发</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h3><blockquote>
+<p>实现监听的同时,阻止冒泡<br>使用 <code>catch:事件名称=&quot;事件回调&quot;</code>或者<code>catch事件名称=&quot;事件回调&quot;</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">catch:tap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 或者 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">catchtap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h2><blockquote>
+<p>点击里面盒子,外面的事件先执行,里面的事件在执行<br>使用<code>capture-bind:事件名称=&quot;事件回调&quot;</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span> <span class="attr">capture-bind:tap</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">capture-bind:tap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="阻止捕获"><a href="#阻止捕获" class="headerlink" title="阻止捕获"></a>阻止捕获</h3><blockquote>
+<p>在哪里阻止,里面的事件就不会执行<br>使用<code>capture-catch:事件名称=&quot;事件回调&quot;</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span> <span class="attr">capture-catch:tap</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">capture-bind:tap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件互斥"><a href="#事件互斥" class="headerlink" title="事件互斥"></a>事件互斥</h2><blockquote>
+<p>有 mut 的互斥<br>使用<code>mut-bind:事件名称=&quot;事件回调&quot;</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;fn&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span> <span class="attr">mut-bind:tap</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span> <span class="attr">mut-bind:tap</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件回调"><a href="#事件回调" class="headerlink" title="事件回调"></a>事件回调</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fn</span>(<span class="params">e</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><blockquote>
+<p>生命周期就是函数,只是会自己执行</p>
+</blockquote>
+<h2 id="APP—应用级别"><a href="#APP—应用级别" class="headerlink" title="APP—应用级别"></a>APP—应用级别</h2><h3 id="onLaunch"><a href="#onLaunch" class="headerlink" title="onLaunch"></a>onLaunch</h3><blockquote>
+<p>小程序启动时会自动执行该函数(只会执行一次)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onLaunch</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;小程序启动会执行&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onShow"><a href="#onShow" class="headerlink" title="onShow"></a>onShow</h3><blockquote>
+<p>小程序前台运行时会自动执行</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onShow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;小程序在前台会执行&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onHide"><a href="#onHide" class="headerlink" title="onHide"></a>onHide</h3><blockquote>
+<p>小程序后台运行时会自动执行</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onHide</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;小程序在后台会执行&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onError"><a href="#onError" class="headerlink" title="onError"></a>onError</h3><blockquote>
+<p>小程序错误会自动执行</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onError</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;小程序错误会执行&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onPageNotFound"><a href="#onPageNotFound" class="headerlink" title="onPageNotFound"></a>onPageNotFound</h3><blockquote>
+<p>小程序启动时,页面找不到会自动执行</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onPageNotFound</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面找不到呀！！！！&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Page—页面级别"><a href="#Page—页面级别" class="headerlink" title="Page—页面级别"></a>Page—页面级别</h2><h3 id="onLoad"><a href="#onLoad" class="headerlink" title="onLoad"></a>onLoad</h3><blockquote>
+<p>当前页面加载时会自动加载该函数 (只会执行一次)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onLoad</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面加载会调用&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onShow-1"><a href="#onShow-1" class="headerlink" title="onShow"></a>onShow</h3><blockquote>
+<p>当前页面加载完毕,显示时会自动加载该函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onShow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面加载完毕,显示会调用&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onReady"><a href="#onReady" class="headerlink" title="onReady"></a>onReady</h3><blockquote>
+<p>当前页面初次渲染时,显示时会自动加载该函数 (只会执行一次)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onReady</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面渲染完成会调用&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="onHide-1"><a href="#onHide-1" class="headerlink" title="onHide"></a>onHide</h3><blockquote>
+<p>页面隐藏会调用该函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onHide</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面隐藏会调用&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="场景值—官方文档"><a href="#场景值—官方文档" class="headerlink" title="场景值—官方文档"></a>场景值—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/scene.html">官方文档</a></h2><blockquote>
+<p>场景值用来描述用户进入小程序的路径<br>只能通过<code>App.js</code>下的<code>onLaunch</code>或<code>onShow</code>的事件回调来获取</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="title function_">onLaunch</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 只会执行一次</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">scene</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 或者</span></span><br><span class="line">  <span class="title function_">onShow</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">scene</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="地址参数"><a href="#地址参数" class="headerlink" title="地址参数"></a>地址参数</h2><blockquote>
+<p>使用 navigator 的地址穿参,在被传的 JS 文件调用 onLoad 的回调获取</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;../index3/index?a=1&amp;b=2&quot;</span>&gt;</span>跳转到下个页面<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onLoad</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="view—官方文档"><a href="#view—官方文档" class="headerlink" title="view—官方文档"></a>view—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/view.html">官方文档</a></h2><blockquote>
+<p>类似 div</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hover-class</td>
+<td>string</td>
+<td>none</td>
+<td>指定按下去的样式类。当 <code>hover-class=&quot;none&quot;</code> 时，没有点击态效果</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- WXML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hover-class</span>=<span class="string">&quot;hover_class&quot;</span>&gt;</span>view<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- WXSS --&gt;</span></span><br><span class="line">.hover_class&#123; background-color: red &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="scroll-view—官方文档"><a href="#scroll-view—官方文档" class="headerlink" title="scroll-view—官方文档"></a>scroll-view—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html">官方文档</a></h2><blockquote>
+<p>可滚动视图区域</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll-x</td>
+<td>boolean</td>
+<td>false</td>
+<td>允许横向滚动</td>
+</tr>
+<tr>
+<td>scroll-y</td>
+<td>boolean</td>
+<td>false</td>
+<td>允许纵向滚动</td>
+</tr>
+<tr>
+<td>bindscrolltoupper</td>
+<td>eventhandle</td>
+<td></td>
+<td>滚动到顶部&#x2F;左边时触发</td>
+</tr>
+<tr>
+<td>bindscrolltolower</td>
+<td>eventhandle</td>
+<td></td>
+<td>滚动到底部&#x2F;右边时触发</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">scroll-y</span> <span class="attr">style</span>=<span class="string">&quot;height:400rpx ;width:200rpx;border:1px solid red&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>文是文本<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>文是文本<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="text-—官方文档"><a href="#text-—官方文档" class="headerlink" title="text —官方文档"></a>text —<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/text.html">官方文档</a></h2><blockquote>
+<p>显示普通文本的标签 text 只能嵌套 text</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>selectable</td>
+<td>boolean</td>
+<td>false</td>
+<td>文本是否可选</td>
+</tr>
+<tr>
+<td>decode</td>
+<td>boolean</td>
+<td>dalse</td>
+<td>是否解码</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;&quot;</span> <span class="attr">selectable</span>=<span class="string">&quot;false&quot;</span> <span class="attr">space</span>=<span class="string">&quot;false&quot;</span> <span class="attr">decode</span>=<span class="string">&quot;false&quot;</span>&gt;</span>text<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="image—官方文档"><a href="#image—官方文档" class="headerlink" title="image—官方文档"></a>image—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/image.html">官方文档</a></h2><blockquote>
+<p>图片标签 image 组件默认宽度 320px 高度 240ppx <code>不支持背景图片的写法</code> &gt; <code>image组件中二维码/小程序码图片不支持长按识别。仅在wx.previewImage中支持长按识别</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src</td>
+<td>String</td>
+<td></td>
+<td>图片资源地址</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>scaleToFill</td>
+<td>图片裁剪、缩放的模式<code>参数见官方文档</code></td>
+</tr>
+<tr>
+<td>lazy-load</td>
+<td>boolean</td>
+<td>false</td>
+<td>图片懒加载，在即将进入一定范围（上下三屏）时才开始加载</td>
+</tr>
+</tbody></table>
+<p><code>mode 的合法值</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">scaleToFill</td>
+<td align="left">缩放模式，不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素</td>
+</tr>
+<tr>
+<td align="left">aspectFit</td>
+<td align="left">缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。</td>
+</tr>
+<tr>
+<td align="left">aspectFill</td>
+<td align="left">缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</td>
+</tr>
+<tr>
+<td align="left">widthFix</td>
+<td align="left">缩放模式，宽度不变，高度自动变化，保持原图宽高比不变</td>
+</tr>
+<tr>
+<td align="left">top</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的顶部区域</td>
+</tr>
+<tr>
+<td align="left">bottom</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的底部区域</td>
+</tr>
+<tr>
+<td align="left">center</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的中间区域</td>
+</tr>
+<tr>
+<td align="left">left</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的左边区域</td>
+</tr>
+<tr>
+<td align="left">right</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的右边区域</td>
+</tr>
+<tr>
+<td align="left">top left</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的左上边区域</td>
+</tr>
+<tr>
+<td align="left">top right</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的右上边区域</td>
+</tr>
+<tr>
+<td align="left">bottom left</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的左下边区域</td>
+</tr>
+<tr>
+<td align="left">bottom right</td>
+<td align="left">裁剪模式，不缩放图片，只显示图片的右下边区域</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">image</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;../../images/private.png&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">mode</span>=<span class="string">&quot;aspectFit|aspectFill|widthFix&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">lazy-load</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="swiper-轮播图-—官方文档"><a href="#swiper-轮播图-—官方文档" class="headerlink" title="swiper(轮播图)—官方文档"></a>swiper(轮播图)—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html">官方文档</a></h2><blockquote>
+<p>微信内置的轮播图插件<code>swiper的默认高度是150rpx</code></p>
+<p>swiper 的高度&#x3D;swiper 的宽 * 原图的高 &#x2F; 原图的宽</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>indicator-dots</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否显示面板指示点</td>
+</tr>
+<tr>
+<td>indicator-color</td>
+<td>color</td>
+<td>rgba(0, 0, 0, .3)</td>
+<td>指示点颜色</td>
+</tr>
+<tr>
+<td>indicator-active-color</td>
+<td>color</td>
+<td>#000000</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否自动切换</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>number</td>
+<td>5000</td>
+<td>自动切换时间间隔</td>
+</tr>
+<tr>
+<td>circular</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否采用衔接滑动</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">swiper</span></span></span><br><span class="line"><span class="tag">  <span class="attr">autoplay</span></span></span><br><span class="line"><span class="tag">  <span class="attr">circular</span></span></span><br><span class="line"><span class="tag">  <span class="attr">indicator-dots</span></span></span><br><span class="line"><span class="tag">  <span class="attr">indicator-color</span>=<span class="string">&quot;#ccc&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">indicator-active-color</span>=<span class="string">&quot;#6cf&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;swiper-image &quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../images/01.jpg &quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;swiper-image &quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../images/02.jpg &quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;swiper-image &quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../images/03.jpg &quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;swiper-image &quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../images/04.jpg &quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="navigator-a-标签-—官方文档"><a href="#navigator-a-标签-—官方文档" class="headerlink" title="navigator(a 标签)—官方文档"></a>navigator(a 标签)—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html">官方文档</a></h2><blockquote>
+<p>导航组件 类似超链接标签</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>target</td>
+<td>String</td>
+<td>seif</td>
+<td>在哪个目标上发生跳转，默认当前小程序</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td></td>
+<td>当前小程序内的跳转链接</td>
+</tr>
+<tr>
+<td>open-type</td>
+<td>String</td>
+<td>navigate</td>
+<td>跳转方式(见下表)</td>
+</tr>
+</tbody></table>
+<p>open-type 的有效值:</p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">navigate</td>
+<td align="left">保留当前页面,跳转到页面的某页 但是不能跳转到 tabbar 页面</td>
+</tr>
+<tr>
+<td align="left">redirect</td>
+<td align="left">关闭当前页面,跳转到页面的某页 但是不能跳转到 tabbar 页面</td>
+</tr>
+<tr>
+<td align="left">switchTab</td>
+<td align="left">跳转到 tabbar 页面 关闭其他菲 tabbar 页面</td>
+</tr>
+<tr>
+<td align="left">reLaunch</td>
+<td align="left">关闭所有页面,打开到页面的某个页面</td>
+</tr>
+<tr>
+<td align="left">navigateBack</td>
+<td align="left">关闭当前页面,返回上一页面或多级页面</td>
+</tr>
+<tr>
+<td align="left">exit</td>
+<td align="left">退出小程序，<code>target=&quot;miniProgram&quot;</code>时生效</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 保留当前页面,跳转到页面的某页 但是不能跳转到tabbar页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;../swiper/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;navigate&quot;</span>&gt;</span>swiper<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 关闭当前页面,跳转到页面的某页 但是不能跳转到tabbar页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;../swiper/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;redirect&quot;</span>&gt;</span>swiper<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line">类型 跳转到tabbar页面 关闭其他菲tabbar页面--&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;../index/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;switchTab&quot;</span>&gt;</span>swiper<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 关闭所有页面,打开到页面的某个页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;../swiper/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;reLaunch&quot;</span>&gt;</span>swiper<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="audio—官方文档"><a href="#audio—官方文档" class="headerlink" title="audio—官方文档"></a>audio—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/audio.html">官方文档</a></h2><blockquote>
+<p>音频组件<br>mp3 音乐链接来自[<a target="_blank" rel="noopener" href="https://music.liuzhijin.cn/">刘志进实验室</a>]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>audio 组件的唯一标识符</td>
+</tr>
+<tr>
+<td>src</td>
+<td>string</td>
+<td></td>
+<td>要播放音频的资源地址</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否循环播放</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否显示默认控件</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">&quot;my&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;&#123;&#123;audioSrc&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">poster</span>=<span class="string">&quot;&#123;&#123;audioPoster&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&quot;&#123;&#123;audioName&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">author</span>=<span class="string">&quot;&#123;&#123;audioAuthor&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">controls</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">audioPoster</span>:</span><br><span class="line">      <span class="string">&quot;http://p1.music.126.net/ka7kZIHdviNfYO9lqBaOEQ==/109951163906385177.jpg?param=300x300&quot;</span>,</span><br><span class="line">    <span class="attr">audioName</span>: <span class="string">&quot;前世今生&quot;</span>,</span><br><span class="line">    <span class="attr">audioAuthor</span>: <span class="string">&quot;十三里夏天,龚子笑&quot;</span>,</span><br><span class="line">    <span class="attr">audioSrc</span>:</span><br><span class="line">      <span class="string">&quot;http://m10.music.126.net/20191130104652/2466ef3c0dc4c3a159cf970e0f16c14b/ymusic/075e/025c/520c/049c0bb5455612be6aebef319191d974.mp3&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">onReady</span>: <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 使用 wx.createAudioContext 获取 audio 上下文 context</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">audioCtx</span> = wx.<span class="title function_">createAudioContext</span>(<span class="string">&quot;my&quot;</span>);</span><br><span class="line">    <span class="comment">// 强制播放</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">audioCtx</span>.<span class="title function_">play</span>();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="video—官方文档"><a href="#video—官方文档" class="headerlink" title="video—官方文档"></a>video—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/video.html">官方文档</a></h2><blockquote>
+<p>视频组件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src</td>
+<td>String</td>
+<td></td>
+<td>要播放视频的资源地址</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>number</td>
+<td></td>
+<td>指定视频时长 &#x2F;s</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>boolean</td>
+<td>true</td>
+<td>是否显示默认播放控件（播放&#x2F;暂停按钮、播放进度、时间）</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否自动播放</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否循环播放</td>
+</tr>
+<tr>
+<td>muted</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否静音播放</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&amp;bizid=1023&amp;hy=SH&amp;fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">loop</span></span></span><br><span class="line"><span class="tag">  <span class="attr">autoplay</span></span></span><br><span class="line"><span class="tag">  <span class="attr">controls</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="rich-text—官方文档"><a href="#rich-text—官方文档" class="headerlink" title="rich-text—官方文档"></a>rich-text—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/rich-text.html">官方文档</a></h2><blockquote>
+<p>富文本</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rich-text</span> <span class="attr">nodes</span>=<span class="string">&quot;&#123;&#123;html&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">rich-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">nodes</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;div&quot;</span>,</span><br><span class="line">        <span class="attr">attrs</span>: &#123;</span><br><span class="line">          <span class="attr">class</span>: <span class="string">&quot;div_class&quot;</span>,</span><br><span class="line">          <span class="attr">style</span>: <span class="string">&quot;line-height: 60px; color: red;&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">children</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">            <span class="attr">text</span>: <span class="string">&quot;Hello&amp;nbsp;World!&quot;</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="button—官方文档"><a href="#button—官方文档" class="headerlink" title="button—官方文档"></a>button—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/button.html">官方文档</a></h2><blockquote>
+<p>按钮</p>
+</blockquote>
+<h2 id="web-view—官方文档"><a href="#web-view—官方文档" class="headerlink" title="web-view—官方文档"></a>web-view—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html">官方文档</a></h2><blockquote>
+<p>承载网页的容器。会自动铺满整个小程序页面，<strong>个人类型的小程序暂不支持使用</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src</td>
+<td>String</td>
+<td>webview 指向网页的链接。可打开关联的公众号的文章，其它网页需登录<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">小程序管理后台</a>配置业务域名。</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-view</span> <span class="attr">src</span>=<span class="string">&quot;https://zhangsifan.com&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">web-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h1><h2 id="新建自定义组件"><a href="#新建自定义组件" class="headerlink" title="新建自定义组件"></a>新建自定义组件</h2><blockquote>
+<p>根目录&#x3D;&#x3D;&gt;components&#x3D;&#x3D;&gt;新建 Component</p>
+</blockquote>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">├── components .................................................. 组件目录</span><br><span class="line">|   ├── header</span><br><span class="line">|   |   ├── index.js ............................................ 组件header业务逻辑</span><br><span class="line">|   |   ├── index.json .......................................... 组件header配置</span><br><span class="line">|   |   ├── index.wxml .......................................... 组件header布局结构</span><br><span class="line">|   |   └── index.wxss .......................................... 组件header布局样式</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入自定义组件"><a href="#导入自定义组件" class="headerlink" title="导入自定义组件"></a>导入自定义组件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/index.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">usingComponents</span>: &#123;</span><br><span class="line">    <span class="comment">// 导入自定义组件</span></span><br><span class="line">    <span class="attr">header</span>: <span class="string">&quot;../../components/header/index&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pages/index/index.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 应用自定义组件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="父组件给子组件传值"><a href="#父组件给子组件传值" class="headerlink" title="父组件给子组件传值"></a>父组件给子组件传值</h2><blockquote>
+<p>父组件将数据传给子组件时,通过子组件定义的属性实现</p>
+</blockquote>
+<p>父组件代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">myheader</span> <span class="attr">list</span>=<span class="string">&quot;&#123;&#123;list&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">myheader</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">list</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>子组件代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;list&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;*this&quot;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Component</span>(&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 组件的属性列表</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">properties</span>: &#123;</span><br><span class="line">    <span class="attr">list</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">Array</span>,</span><br><span class="line">      <span class="attr">value</span>: [],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="子组件给父组件传值"><a href="#子组件给父组件传值" class="headerlink" title="子组件给父组件传值"></a>子组件给父组件传值</h2><blockquote>
+<p>子组件将数据传给父组件时通过自定义事件实现<br>父组件定义一个事件<br>子组件来触发父组件自定义的事件</p>
+</blockquote>
+<p>父组件代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">myheader</span> <span class="attr">bind:myevent</span>=<span class="string">&quot;mycallback&quot;</span> <span class="attr">list</span>=<span class="string">&quot;&#123;&#123;list&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">myheader</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;student.name&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;student.age&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">student</span>: &#123;&#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 自定义事件的回调函数</span></span><br><span class="line">  <span class="title function_">mycallback</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">detail</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">student</span>: e.<span class="property">detail</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>子组件代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;list&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;*this&quot;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">bind:tap</span>=<span class="string">&quot;mmm&quot;</span>&gt;</span>点我传值<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Component</span>(&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 组件的属性列表</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">properties</span>: &#123;</span><br><span class="line">    <span class="attr">list</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">Array</span>,</span><br><span class="line">      <span class="attr">value</span>: [],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 组件的初始数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;我是自定义组件的参数&quot;</span>,</span><br><span class="line">    <span class="attr">student</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;小张&quot;</span>,</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">16</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 组件的方法列表</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">mmm</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">triggerEvent</span>(<span class="string">&quot;myevent&quot;</span>, <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">student</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><blockquote>
+<p>Application Program Interface <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/">官方文档</a></p>
+</blockquote>
+<h2 id="消息提示框—官方文档"><a href="#消息提示框—官方文档" class="headerlink" title="消息提示框—官方文档"></a>消息提示框—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html">官方文档</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;成功&quot;</span>, <span class="comment">// 标题</span></span><br><span class="line">  <span class="attr">icon</span>: <span class="string">&quot;loading&quot;</span>, <span class="comment">// 图标 有效值 success loading none</span></span><br><span class="line">  <span class="attr">duration</span>: <span class="number">2000</span>, <span class="comment">// 提示的延迟时间</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loading-提示框—官方文档"><a href="#Loading-提示框—官方文档" class="headerlink" title="Loading 提示框—官方文档"></a>Loading 提示框—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showLoading.html">官方文档</a></h2><blockquote>
+<p>显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">showLoading</span>(&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;标题&quot;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  wx.<span class="title function_">hideLoading</span>();</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="确认对话框—官方文档"><a href="#确认对话框—官方文档" class="headerlink" title="确认对话框—官方文档"></a>确认对话框—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html">官方文档</a></h2><blockquote>
+<p>显示模态对话框</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">showModal</span>(&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;大标题&quot;</span>,</span><br><span class="line">  <span class="attr">content</span>: <span class="string">&quot;小标题&quot;</span>,</span><br><span class="line">  <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (res.<span class="property">confirm</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;确定&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.<span class="property">cancel</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;取消&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择框—官方文档"><a href="#选择框—官方文档" class="headerlink" title="选择框—官方文档"></a>选择框—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html">官方文档</a></h2><blockquote>
+<p>显示操作菜单</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">showActionSheet</span>(&#123;</span><br><span class="line">  <span class="attr">itemList</span>: [<span class="string">&quot;拍照&quot;</span>, <span class="string">&quot;从相册获取&quot;</span>],</span><br><span class="line">  <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">tapIndex</span>); <span class="comment">// 用户点击的按钮序号，从上到下的顺序，从0开始</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="拍照—官方文档"><a href="#拍照—官方文档" class="headerlink" title="拍照—官方文档"></a>拍照—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseImage.html">官方文档</a></h2><blockquote>
+<p>从本地相册选择图片或使用相机拍照</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">chooseImage</span>(&#123;</span><br><span class="line">  <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">tempFiles</span>[<span class="number">0</span>].<span class="property">path</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件上传接口—官方文档"><a href="#文件上传接口—官方文档" class="headerlink" title="文件上传接口—官方文档"></a>文件上传接口—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html">官方文档</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">uploadFile</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">filePath</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="title function_">success</span>(<span class="params">res</span>) &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="下拉刷新—官方文档"><a href="#下拉刷新—官方文档" class="headerlink" title="下拉刷新—官方文档"></a>下拉刷新—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onPullDownRefresh">官方文档</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="title function_">onPullDownRefresh</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">getFloorList</span>();</span><br><span class="line">  wx.<span class="title function_">stopPullDownRefresh</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="监听页面是否快到底部"><a href="#监听页面是否快到底部" class="headerlink" title="监听页面是否快到底部"></a>监听页面是否快到底部</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onReachBottom</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;快到底部了&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="分享小程序—官方文档"><a href="#分享小程序—官方文档" class="headerlink" title="分享小程序—官方文档"></a>分享小程序—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object">官方文档</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="title function_">onShareAppMessage</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&quot;标题:瞧一瞧,看一看啦&quot;</span>,</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&quot;/pages/index/index?id=888&quot;</span>,</span><br><span class="line">      <span class="attr">imageUrl</span>: <span class="string">&quot;https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg&quot;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><blockquote>
+<p>小程序遵循的是类似 CommonJS 的规范。</p>
+</blockquote>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/test.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">abc</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是模块的函数,传入的参数为&quot;</span>, arg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">abc</span> = abc;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/index.js</span></span><br><span class="line"><span class="keyword">const</span> mk = <span class="built_in">require</span>(<span class="string">&quot;./test.js&quot;</span>);</span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;233&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">onLoad</span>: <span class="keyword">function</span> (<span class="params">options</span>) &#123;</span><br><span class="line">    mk.<span class="title function_">abc</span>(<span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">msg</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><blockquote>
+<p>小程序默认不支持 npm 的模块,必须经过构建后才可以使用<br>微信开发工具&#x3D;&#x3D;&gt;工具&#x3D;&#x3D;&gt;构建 npm&#x3D;&#x3D;&gt;详情&#x3D;&#x3D;&gt;本地管理&#x3D;&#x3D;&gt;使用 npm</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化npm</span></span><br><span class="line">npm init -y</span><br><span class="line"><span class="comment"># 安装模块</span></span><br><span class="line">npm install mime</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/index.js</span></span><br><span class="line"><span class="comment">// 当通过开发工具进行构建后，才可以将 npm 模块导入，这时导入的是 miniprogram_npm 中的模块</span></span><br><span class="line"><span class="keyword">const</span> mime = <span class="built_in">require</span>(<span class="string">&quot;mime&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h2><blockquote>
+<p>在 JavaScript 文件中声明的变量和函数只在该文件中有效；不同的文件中可以声明相同名字的变量和函数，不会互相影响。<br>通过全局函数 getApp 可以获取全局的应用实例，如果需要全局的数据可以在 App() 中设置如:</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="comment">// 定义全局数据</span></span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;小张&quot;</span>,</span><br><span class="line">  <span class="comment">// 定义生命周期</span></span><br><span class="line">  <span class="title function_">onLaunch</span>(<span class="params"></span>) &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/index.js</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">getApp</span>();</span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: app.<span class="property">name</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="WXS—官方文档"><a href="#WXS—官方文档" class="headerlink" title="WXS—官方文档"></a>WXS—<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/">官方文档</a></h1><p><img src="https://i.loli.net/2019/12/06/RGjTWof8I1HzQtg.jpg" alt="WXS.jpg"></p>
+<p>由上图我们可以知道 JsCore（Javascript）和 界面（WXML、WXSS）是互相隔离的，它们之间的通信是通过 Native（微信）中转实现的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;学习小程序!&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">foo</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;wxml无法调用该函数...&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">sayHi</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;你好，小程序!&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;msg&quot;</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 将sayHi注册为事件回调，当事件触发时会被调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;sayHi&quot;</span>&gt;</span>打招呼<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 直接调用函数，无效！！！ --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>&#123;&#123;foo()&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 由于无法直接调用函数，故下面的写法是不允许的！！！ --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">bind:tap</span>=<span class="string">&quot;sayHi()&quot;</span>&gt;</span>打招呼<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h2><blockquote>
+<p>视图层和逻辑层的隔离性给开发带来了不便，通过 WXS 可以解决这个问题，WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/">WXS</a> 与 JavaScript 是不同的语言，有自己的语法，并不和 JavaScript 一致，**但类似！！！！**WXS 声明变量只能使用 var 、变量名不能为 $、通过 getDate 获取时间对象等，这些都是与 Javascript 不一致的方面。</p>
+</blockquote>
+<h3 id="内联式"><a href="#内联式" class="headerlink" title="内联式"></a>内联式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;m1.sayHi()&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">&quot;m1&quot;</span>&gt;</span></span><br><span class="line">  var name = &#x27;小明&#x27;; function sayHi()&#123; console.log(&#x27;Hi&#x27;) &#125; //</span><br><span class="line">  将内部封装的功能导出 module.exports.sayHi = sayHi</span><br><span class="line"><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="引入式"><a href="#引入式" class="headerlink" title="引入式"></a>引入式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// wxs/m1.wxs</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">name</span> = <span class="string">&quot;小张&quot;</span>;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span> (<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;你好!&quot;</span> + name + <span class="string">&quot;!&quot;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pages/index/index.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;m2.name&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;m2.sayHello(&#x27;小王&#x27;)&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">&quot;m2&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../wxs/m2.wxs&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p>WXS 一般是结合 WXML 使用的，它通过被用来格式展示数据，类似于 Vue 中过滤器的功能。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 将 now 时间戳传入 date.format 方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;now&quot;</span>&gt;</span>&#123;&#123;date.format(now)&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 模块 date 暴露了 format 方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">&quot;date&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../wxs/date.wxs&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="comment">// 获取当前时间（时间戳）</span></span><br><span class="line">  <span class="attr">now</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>(),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">format</span> = <span class="keyword">function</span> (<span class="params">timestamp</span>) &#123;</span><br><span class="line">  <span class="comment">// wxs 中通过 getDate 函数获得时间对象</span></span><br><span class="line">  <span class="keyword">var</span> d = <span class="title function_">getDate</span>(timestamp);</span><br><span class="line">  <span class="comment">// 返回值会在 wxml 中被渲染展示</span></span><br><span class="line">  <span class="keyword">return</span> d.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;年&#x27;</span> + (d.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> d.<span class="title function_">getDate</span>() + <span class="string">&#x27;日&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="Vant-Weapp—官方网站"><a href="#Vant-Weapp—官方网站" class="headerlink" title="Vant Weapp—官方网站"></a>Vant Weapp—<a target="_blank" rel="noopener" href="https://youzan.github.io/vant-weapp/#/intro">官方网站</a></h2><blockquote>
+<p>Vant Weapp 是移动端 Vue 组件库 <a target="_blank" rel="noopener" href="https://github.com/youzan/vant">Vant</a> 的小程序版本，两者基于相同的视觉规范，提供一致的 API 接口，助力开发者快速搭建小程序应用。</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @vant/weapp -S --production</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建-npm"><a href="#构建-npm" class="headerlink" title="构建 npm"></a>构建 npm</h3><blockquote>
+<p>构建和使用方法已在上面讲过,就不在重复讲述了</p>
+</blockquote>
+<h3 id="导入组件"><a href="#导入组件" class="headerlink" title="导入组件"></a>导入组件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;van-button&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@vant/weapp/button&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--index.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">van-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="F2—官方网站"><a href="#F2—官方网站" class="headerlink" title="F2—官方网站"></a>F2—<a target="_blank" rel="noopener" href="https://github.com/simaQ/f2-canvas">官方网站</a></h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://f2.antv.vision/zh">F2</a> 是一个专注于移动，开箱即用的可视化解决方案，完美支持 H5 环境同时兼容多种环境（Node, 小程序，Weex），完备的图形语法理论，满足你的各种可视化需求，专业的移动设计指引为你带来最佳的移动端图表体验。</p>
+</blockquote>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @antv/f2-canvas</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建-npm-1"><a href="#构建-npm-1" class="headerlink" title="构建 npm"></a>构建 npm</h3><blockquote>
+<p>构建和使用方法已在上面讲过,就不在重复讲述了</p>
+</blockquote>
+<h3 id="导入组件-1"><a href="#导入组件-1" class="headerlink" title="导入组件"></a>导入组件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/index/index.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;ff-canvas&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@antv/f2-canvas&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/index/index.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ff-canvas</span> <span class="attr">id</span>=<span class="string">&quot;column-dom&quot;</span> <span class="attr">canvas-id</span>=<span class="string">&quot;column&quot;</span> <span class="attr">opts</span>=<span class="string">&quot;&#123;&#123; opts &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ff-canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/index/index.wxss */</span></span><br><span class="line">ff-<span class="selector-tag">canvas</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">750</span>rpx;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">640</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="variable constant_">F2</span> <span class="keyword">from</span> <span class="string">&quot;@antv/wx-f2&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> chart = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">initChart</span>(<span class="params">canvas, width, height, F2</span>) &#123;</span><br><span class="line">  <span class="comment">// 图表数据（也可通过请求后端获得）</span></span><br><span class="line">  <span class="keyword">const</span> data = [</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1951 年&quot;</span>, <span class="attr">sales</span>: <span class="number">38</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1952 年&quot;</span>, <span class="attr">sales</span>: <span class="number">52</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1956 年&quot;</span>, <span class="attr">sales</span>: <span class="number">61</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1957 年&quot;</span>, <span class="attr">sales</span>: <span class="number">145</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1958 年&quot;</span>, <span class="attr">sales</span>: <span class="number">48</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1959 年&quot;</span>, <span class="attr">sales</span>: <span class="number">38</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1960 年&quot;</span>, <span class="attr">sales</span>: <span class="number">38</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">year</span>: <span class="string">&quot;1962 年&quot;</span>, <span class="attr">sales</span>: <span class="number">38</span> &#125;,</span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 实例化图表</span></span><br><span class="line">  chart = <span class="keyword">new</span> <span class="variable constant_">F2</span>.<span class="title class_">Chart</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: canvas,</span><br><span class="line">    width,</span><br><span class="line">    height,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 配置图表数据</span></span><br><span class="line">  chart.<span class="title function_">source</span>(data, &#123;</span><br><span class="line">    <span class="attr">sales</span>: &#123;</span><br><span class="line">      <span class="attr">tickCount</span>: <span class="number">5</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  chart.<span class="title function_">interval</span>().<span class="title function_">position</span>(<span class="string">&quot;year*sales&quot;</span>);</span><br><span class="line">  chart.<span class="title function_">render</span>();</span><br><span class="line">  <span class="keyword">return</span> chart;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="comment">// 图表参数</span></span><br><span class="line">    <span class="attr">opts</span>: &#123;</span><br><span class="line">      <span class="attr">onInit</span>: initChart,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="日历"><a href="#日历" class="headerlink" title="日历"></a>日历</h1><blockquote>
+<p>一个非常好用的小程序<a target="_blank" rel="noopener" href="https://github.com/treadpit/wx_calendar">日历</a>组件。</p>
+</blockquote>
+<p>下载并解压缩，拷贝 calendar 文件到小程序项目下</p>
+<h2 id="导入组件-2"><a href="#导入组件-2" class="headerlink" title="导入组件"></a>导入组件</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--pages/index/index.json--&gt;</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;calendar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/components/calendar/index&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 wxml 中引入组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/index/index.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">calendar</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com">JCAlways</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com/posts/Wechat-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">https://blog.zhangsifan.com/posts/Wechat-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.zhangsifan.com" target="_blank">JCAlways</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></div><div class="post-share"><div class="social-share" data-image="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/DOC-ESLint/" title="ESLint"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">ESLint</div></div><div class="info-2"><div class="info-item-1">vscode中的vscode的配置代码123456789&quot;eslint.validate&quot;: [  &quot;javascript&quot;,  &quot;javascriptreact&quot;,  &#123;    &quot;language&quot;: &quot;vue&quot;,    &quot;autoFix&quot;: true  &#125;],&quot;eslint.autoFixOnSave&quot;: true,</div></div></div></a><a class="pagination-related" href="/posts/Vue-Vuex/" title="VueX"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">VueX</div></div><div class="info-2"><div class="info-item-1">VueX 介绍 官方网站Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。(管理数据共享的工具)  看图结论：  state 管理数据，管理的数据是响应式的，当数据改变时驱动视图更新。 mutations 更新数据，state 中的数据只能使用 mutations 去改变数据。 actions 请求数据，响应成功后把数据提交给 mutations  初始化功能安装1npm i vuex --save  新建 store.js 文件123456789101112// 初始化一个vuex的实例（数据仓库） 导出即可import Vue from &quot;vue&quot;;import Vuex from &quot;vuex&quot;;// 使用安装Vue.use(Vuex);// 初始化const store = new Vuex.Store(&#123;  state: null,  mutations: null,  actions: null,&#125;);ex...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/Wechat-Uni-App%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/" title="Uni-App开发项目"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-06</div><div class="info-item-2">Uni-App开发项目</div></div><div class="info-2"><div class="info-item-1">uni-app—官方网站 uni-app 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到 iOS、Android、H5、以及各种小程序（微信&#x2F;支付宝&#x2F;百度&#x2F;头条&#x2F;QQ&#x2F;钉钉）等多个平台。即使不跨端，uni-app同时也是更好的小程序开发框架。  使用 uni-app 创建项目环境安装1npm install -g @vue/cli  创建 uni-app1vue create -p dcloudio/uni-preset-vue myapp  配置 AppID在manifest.json中填入 appid 运行并发布 uni-app1npm run dev:%PLATFORM%  %PLATFORM% 可取值如下：    值 平台    h5 H5   mp-alipay 支付宝小程序   mp-baidu 百度小程序   mp-weixin 微信小程序   mp-toutiao 头条小程序   mp-qq qq 小程序   导入 less1npm i less less-loader --save </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sponsors/JCAlways"><i class="fas fa-heart"></i><span>Sponsor</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitlab.com/JCAlways" target="_blank" title="Gitlab"><i class="fab fa-gitlab"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">微信小程序开发准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9-API-%E6%96%87%E6%A1%A3"><span class="toc-number">1.2.</span> <span class="toc-text">官方 API 文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode-%E6%8E%A8%E8%8D%90%E5%AE%89%E8%A3%85%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">VSCode 推荐安装的插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9E%84%E7%9B%AE%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">小程序的结构目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%92%8C%E4%BC%A0%E7%BB%9F-web-%E5%AF%B9%E6%AF%94"><span class="toc-number">2.1.</span> <span class="toc-text">小程序文件结构和传统 web 对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="toc-number">2.2.</span> <span class="toc-text">基本的项目目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">配置介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-app-json"><span class="toc-number">3.1.</span> <span class="toc-text">全局配置 app.json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#app-json-%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95"><span class="toc-number">3.1.1.</span> <span class="toc-text">app.json 配置清单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pages-%E9%A1%B5%E9%9D%A2%E8%B7%AF%E5%BE%84"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">pages-(页面路径)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#window-%E9%BB%98%E8%AE%A4%E7%AA%97%E5%8F%A3%E8%A1%A8%E7%8E%B0"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">window-(默认窗口表现)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tabBar-%E5%BA%95%E9%83%A8-tab-%E6%A0%8F%E7%9A%84%E8%A1%A8%E7%8E%B0"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">tabBar-( 底部 tab 栏的表现 )</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE-page-json"><span class="toc-number">3.2.</span> <span class="toc-text">页面配置 page.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="toc-number">3.3.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87"><span class="toc-number">3.4.</span> <span class="toc-text">字体图标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text">视图层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">4.1.</span> <span class="toc-text">数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E2%80%94-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">4.1.1.</span> <span class="toc-text">简单数据—-官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE"><span class="toc-number">4.1.2.</span> <span class="toc-text">复杂数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">4.1.3.</span> <span class="toc-text">运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93"><span class="toc-number">4.2.</span> <span class="toc-text">列表渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">4.3.</span> <span class="toc-text">条件渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">4.3.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E6%94%AF"><span class="toc-number">4.3.2.</span> <span class="toc-text">多分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hidden%E2%80%94%E6%98%BE%E7%A4%BA-%E9%9A%90%E8%97%8F"><span class="toc-number">4.3.3.</span> <span class="toc-text">hidden—显示&#x2F;隐藏</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F-WXSS"><span class="toc-number">5.</span> <span class="toc-text">样式 WXSS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">5.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82"><span class="toc-number">5.2.</span> <span class="toc-text">发送请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="toc-number">6.1.</span> <span class="toc-text">事件绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-number">6.2.</span> <span class="toc-text">事件冒泡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-number">6.2.1.</span> <span class="toc-text">阻止事件冒泡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="toc-number">6.3.</span> <span class="toc-text">事件捕获</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E6%8D%95%E8%8E%B7"><span class="toc-number">6.3.1.</span> <span class="toc-text">阻止捕获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BA%92%E6%96%A5"><span class="toc-number">6.4.</span> <span class="toc-text">事件互斥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83"><span class="toc-number">6.5.</span> <span class="toc-text">事件回调</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">7.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#APP%E2%80%94%E5%BA%94%E7%94%A8%E7%BA%A7%E5%88%AB"><span class="toc-number">7.1.</span> <span class="toc-text">APP—应用级别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#onLaunch"><span class="toc-number">7.1.1.</span> <span class="toc-text">onLaunch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onShow"><span class="toc-number">7.1.2.</span> <span class="toc-text">onShow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onHide"><span class="toc-number">7.1.3.</span> <span class="toc-text">onHide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onError"><span class="toc-number">7.1.4.</span> <span class="toc-text">onError</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onPageNotFound"><span class="toc-number">7.1.5.</span> <span class="toc-text">onPageNotFound</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Page%E2%80%94%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB"><span class="toc-number">7.2.</span> <span class="toc-text">Page—页面级别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#onLoad"><span class="toc-number">7.2.1.</span> <span class="toc-text">onLoad</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onShow-1"><span class="toc-number">7.2.2.</span> <span class="toc-text">onShow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onReady"><span class="toc-number">7.2.3.</span> <span class="toc-text">onReady</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#onHide-1"><span class="toc-number">7.2.4.</span> <span class="toc-text">onHide</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%80%BC%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">7.3.</span> <span class="toc-text">场景值—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%82%E6%95%B0"><span class="toc-number">7.4.</span> <span class="toc-text">地址参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#view%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.1.</span> <span class="toc-text">view—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scroll-view%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.2.</span> <span class="toc-text">scroll-view—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#text-%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.3.</span> <span class="toc-text">text —官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#image%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.4.</span> <span class="toc-text">image—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swiper-%E8%BD%AE%E6%92%AD%E5%9B%BE-%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.5.</span> <span class="toc-text">swiper(轮播图)—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#navigator-a-%E6%A0%87%E7%AD%BE-%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.6.</span> <span class="toc-text">navigator(a 标签)—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#audio%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.7.</span> <span class="toc-text">audio—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#video%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.8.</span> <span class="toc-text">video—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rich-text%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.9.</span> <span class="toc-text">rich-text—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#button%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.10.</span> <span class="toc-text">button—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-view%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.11.</span> <span class="toc-text">web-view—官方文档</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">自定义组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-number">9.1.</span> <span class="toc-text">新建自定义组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">9.1.1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-number">9.1.2.</span> <span class="toc-text">导入自定义组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E7%BB%99%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC"><span class="toc-number">9.2.</span> <span class="toc-text">父组件给子组件传值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%BB%84%E4%BB%B6%E7%BB%99%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC"><span class="toc-number">9.3.</span> <span class="toc-text">子组件给父组件传值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API"><span class="toc-number">10.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA%E6%A1%86%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.1.</span> <span class="toc-text">消息提示框—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loading-%E6%8F%90%E7%A4%BA%E6%A1%86%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.2.</span> <span class="toc-text">Loading 提示框—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E5%AF%B9%E8%AF%9D%E6%A1%86%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.3.</span> <span class="toc-text">确认对话框—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%A1%86%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.4.</span> <span class="toc-text">选择框—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%8D%E7%85%A7%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.5.</span> <span class="toc-text">拍照—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.6.</span> <span class="toc-text">文件上传接口—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.7.</span> <span class="toc-text">下拉刷新—官方文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%98%AF%E5%90%A6%E5%BF%AB%E5%88%B0%E5%BA%95%E9%83%A8"><span class="toc-number">10.8.</span> <span class="toc-text">监听页面是否快到底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E4%BA%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">10.9.</span> <span class="toc-text">分享小程序—官方文档</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">11.</span> <span class="toc-text">模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E8%8C%83"><span class="toc-number">11.1.</span> <span class="toc-text">规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm"><span class="toc-number">11.2.</span> <span class="toc-text">npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">11.3.</span> <span class="toc-text">文件作用域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WXS%E2%80%94%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">12.</span> <span class="toc-text">WXS—官方文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-1"><span class="toc-number">12.1.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%BC%8F"><span class="toc-number">12.1.1.</span> <span class="toc-text">内联式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%BC%8F"><span class="toc-number">12.1.2.</span> <span class="toc-text">引入式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">12.2.</span> <span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">13.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vant-Weapp%E2%80%94%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99"><span class="toc-number">13.1.</span> <span class="toc-text">Vant Weapp—官方网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">13.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA-npm"><span class="toc-number">13.1.2.</span> <span class="toc-text">构建 npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%BB%84%E4%BB%B6"><span class="toc-number">13.1.3.</span> <span class="toc-text">导入组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F2%E2%80%94%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99"><span class="toc-number">13.2.</span> <span class="toc-text">F2—官方网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">13.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA-npm-1"><span class="toc-number">13.2.2.</span> <span class="toc-text">构建 npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%BB%84%E4%BB%B6-1"><span class="toc-number">13.2.3.</span> <span class="toc-text">导入组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E8%A1%A8"><span class="toc-number">13.2.4.</span> <span class="toc-text">绘制图表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%8E%86"><span class="toc-number">14.</span> <span class="toc-text">日历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%BB%84%E4%BB%B6-2"><span class="toc-number">14.1.</span> <span class="toc-text">导入组件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程"><img src="https://static-www.onlyoffice.com/v9.5.0/images/press-downloads/logos/logo_color.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OnlyOffice 前端使用教程"/></a><div class="content"><a class="title" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程">OnlyOffice 前端使用教程</a><time datetime="2025-10-10T16:00:00.000Z" title="发表于 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器"><img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MCV_SpringDrop_DotNet_Homepage_2560x932-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nintendo Switch 我的世界 连接第三方服务器"/></a><div class="content"><a class="title" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器">Nintendo Switch 我的世界 连接第三方服务器</a><time datetime="2025-09-24T16:00:00.000Z" title="发表于 2025-09-25 00:00:00">2025-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器"><img src="https://res.cloudinary.com/about-gitlab-com/image/upload/v1758208064/dzl0dbift9xdizyelkk4.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 Gitlab CE 服务器"/></a><div class="content"><a class="title" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器">搭建 Gitlab CE 服务器</a><time datetime="2025-09-03T16:00:00.000Z" title="发表于 2025-09-04 00:00:00">2025-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707mp/" title="搭建 RTMP 推流服务"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 RTMP 推流服务"/></a><div class="content"><a class="title" href="/posts/20250707mp/" title="搭建 RTMP 推流服务">搭建 RTMP 推流服务</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707zb/" title="OBS 多流推送"><img src="https://obsproject.com/assets/images/features-new/hero.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OBS 多流推送"/></a><div class="content"><a class="title" href="/posts/20250707zb/" title="OBS 多流推送">OBS 多流推送</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2019 - 2026 By JCAlways</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-lang":"zh-CN"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'JCAlways/jcalways.github.io',
+      'data-repo-id': 'R_kgDOH7iipg',
+      'data-category-id': 'DIC_kwDOH7iips4Cvi27',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"/><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr/><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><a class="algolia-poweredBy" href="https://www.algolia.com/?utm_source=algoliasearch.js&amp;utm_medium=website&amp;utm_content=localhost&amp;utm_campaign=poweredby" target="_blank" aria-label="Search by Algolia" rel="noopener noreferrer"><svg class="ais-PoweredBy-logo" height="1.2em" viewBox="0 0 572 64" style="width: auto;"><path fill="#36395A" d="M16 48.3c-3.4 0-6.3-.6-8.7-1.7A12.4 12.4 0 0 1 1.9 42C.6 40 0 38 0 35.4h6.5a6.7 6.7 0 0 0 3.9 6c1.4.7 3.3 1.1 5.6 1.1 2.2 0 4-.3 5.4-1a7 7 0 0 0 3-2.4 6 6 0 0 0 1-3.4c0-1.5-.6-2.8-1.9-3.7-1.3-1-3.3-1.6-5.9-1.8l-4-.4c-3.7-.3-6.6-1.4-8.8-3.4a10 10 0 0 1-3.3-7.9c0-2.4.6-4.6 1.8-6.4a12 12 0 0 1 5-4.3c2.2-1 4.7-1.6 7.5-1.6s5.5.5 7.6 1.6a12 12 0 0 1 5 4.4c1.2 1.8 1.8 4 1.8 6.7h-6.5a6.4 6.4 0 0 0-3.5-5.9c-1-.6-2.6-1-4.4-1s-3.2.3-4.4 1c-1.1.6-2 1.4-2.6 2.4-.5 1-.8 2-.8 3.1a5 5 0 0 0 1.5 3.6c1 1 2.6 1.7 4.7 1.9l4 .3c2.8.2 5.2.8 7.2 1.8 2.1 1 3.7 2.2 4.9 3.8a9.7 9.7 0 0 1 1.7 5.8c0 2.5-.7 4.7-2 6.6a13 13 0 0 1-5.6 4.4c-2.4 1-5.2 1.6-8.4 1.6Zm35.6 0c-2.6 0-4.8-.4-6.7-1.3a13 13 0 0 1-4.7-3.5 17.1 17.1 0 0 1-3.6-10.4v-1c0-2 .3-3.8 1-5.6a13 13 0 0 1 7.3-8.3 15 15 0 0 1 6.3-1.4A13.2 13.2 0 0 1 64 24.3c1 2.2 1.6 4.6 1.6 7.2V34H39.4v-4.3h21.8l-1.8 2.2c0-2-.3-3.7-.9-5.1a7.3 7.3 0 0 0-2.7-3.4c-1.2-.7-2.7-1.1-4.6-1.1s-3.4.4-4.7 1.3a8 8 0 0 0-2.9 3.6c-.6 1.5-.9 3.3-.9 5.4 0 2 .3 3.7 1 5.3a7.9 7.9 0 0 0 2.8 3.7c1.3.8 3 1.3 5 1.3s3.8-.5 5.1-1.3c1.3-1 2.1-2 2.4-3.2h6a11.8 11.8 0 0 1-7 8.7 16 16 0 0 1-6.4 1.2ZM80 48c-2.2 0-4-.3-5.7-1a8.4 8.4 0 0 1-3.7-3.3 9.7 9.7 0 0 1-1.3-5.2c0-2 .5-3.8 1.5-5.2a9 9 0 0 1 4.3-3.1c1.8-.7 4-1 6.7-1H89v4.1h-7.5c-2 0-3.4.5-4.4 1.4-1 1-1.6 2.1-1.6 3.6s.5 2.7 1.6 3.6c1 1 2.5 1.4 4.4 1.4 1.1 0 2.2-.2 3.2-.7 1-.4 1.9-1 2.6-2 .6-1 1-2.4 1-4.2l1.7 2.1c-.2 2-.7 3.8-1.5 5.2a9 9 0 0 1-3.4 3.3 12 12 0 0 1-5.3 1Zm9.5-.7v-8.8h-1v-10c0-1.8-.5-3.2-1.4-4.1-1-1-2.4-1.4-4.2-1.4a142.9 142.9 0 0 0-10.2.4v-5.6a74.8 74.8 0 0 1 8.6-.4c3 0 5.5.4 7.5 1.2s3.4 2 4.4 3.6c1 1.7 1.4 4 1.4 6.7v18.4h-5Zm12.9 0V17.8h5v12.3h-.2c0-4.2 1-7.4 2.8-9.5a11 11 0 0 1 8.3-3.1h1v5.6h-2a9 9 0 0 0-6.3 2.2c-1.5 1.5-2.2 3.6-2.2 6.4v15.6h-6.4Zm34.4 1a15 15 0 0 1-6.6-1.3c-1.9-.9-3.4-2-4.7-3.5a15.5 15.5 0 0 1-2.7-5c-.6-1.7-1-3.6-1-5.4v-1c0-2 .4-3.8 1-5.6a15 15 0 0 1 2.8-4.9c1.3-1.5 2.8-2.6 4.6-3.5a16.4 16.4 0 0 1 13.3.2c2 1 3.5 2.3 4.8 4a12 12 0 0 1 2 6H144c-.2-1.6-1-3-2.2-4.1a7.5 7.5 0 0 0-5.2-1.7 8 8 0 0 0-4.7 1.3 8 8 0 0 0-2.8 3.6 13.8 13.8 0 0 0 0 10.3c.6 1.5 1.5 2.7 2.8 3.6s2.8 1.3 4.8 1.3c1.5 0 2.7-.2 3.8-.8a7 7 0 0 0 2.6-2c.7-1 1-2 1.2-3.2h6.2a11 11 0 0 1-2 6.2 15.1 15.1 0 0 1-11.8 5.5Zm19.7-1v-40h6.4V31h-1.3c0-3 .4-5.5 1.1-7.6a9.7 9.7 0 0 1 3.5-4.8A9.9 9.9 0 0 1 172 17h.3c3.5 0 6 1.1 7.9 3.5 1.7 2.3 2.6 5.7 2.6 10v16.8h-6.4V29.6c0-2.1-.6-3.8-1.8-5a6.4 6.4 0 0 0-4.8-1.8c-2 0-3.7.7-5 2a7.8 7.8 0 0 0-1.9 5.5v17h-6.4Zm63.8 1a12.2 12.2 0 0 1-10.9-6.2 19 19 0 0 1-1.8-7.3h1.4v12.5h-5.1v-40h6.4v19.8l-2 3.5c.2-3.1.8-5.7 1.9-7.7a11 11 0 0 1 4.4-4.5c1.8-1 3.9-1.5 6.1-1.5a13.4 13.4 0 0 1 12.8 9.1c.7 1.9 1 3.8 1 6v1c0 2.2-.3 4.1-1 6a13.6 13.6 0 0 1-13.2 9.4Zm-1.2-5.5a8.4 8.4 0 0 0 7.9-5c.7-1.5 1.1-3.3 1.1-5.3s-.4-3.8-1.1-5.3a8.7 8.7 0 0 0-3.2-3.6 9.6 9.6 0 0 0-9.2-.2 8.5 8.5 0 0 0-3.3 3.2c-.8 1.4-1.3 3-1.3 5v2.3a9 9 0 0 0 1.3 4.8 9 9 0 0 0 3.4 3c1.4.7 2.8 1 4.4 1Zm27.3 3.9-10-28.9h6.5l9.5 28.9h-6Zm-7.5 12.2v-5.7h4.9c1 0 2-.1 2.9-.4a4 4 0 0 0 2-1.4c.4-.7.9-1.6 1.2-2.7l8.6-30.9h6.2l-9.3 32.4a14 14 0 0 1-2.5 5 8.9 8.9 0 0 1-4 2.8c-1.5.6-3.4.9-5.6.9h-4.4Zm9-12.2v-5.2h6.4v5.2H248Z"></path><path fill="#003DFF" d="M534.4 9.1H528a.8.8 0 0 1-.7-.7V1.8c0-.4.2-.7.6-.8l6.5-1c.4 0 .8.2.9.6v7.8c0 .4-.4.7-.8.7zM428 35.2V.8c0-.5-.3-.8-.7-.8h-.2l-6.4 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.5 0 .8-.4.8-.8V43c0-.4-.3-.7-.6-.8-4.5-.5-4.5-6-4.5-7zm106.5-21.8H528c-.4 0-.7.4-.7.8v34c0 .4.3.8.7.8h6.5c.4 0 .8-.4.8-.8v-34c0-.5-.4-.8-.8-.8zm-17.7 21.8V.8c0-.5-.3-.8-.8-.8l-6.5 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.4 0 .8-.4.8-.8V43c0-.4-.3-.7-.7-.8-4.4-.5-4.4-6-4.4-7zm-22.2-20.6a16.5 16.5 0 0 1 8.6 9.3c.8 2.2 1.3 4.8 1.3 7.5a19.4 19.4 0 0 1-4.6 12.6 14.8 14.8 0 0 1-5.2 3.6c-2 .9-5.2 1.4-6.8 1.4a21 21 0 0 1-6.7-1.4 15.4 15.4 0 0 1-8.6-9.3 21.3 21.3 0 0 1 0-14.4 15.2 15.2 0 0 1 8.6-9.3c2-.8 4.3-1.2 6.7-1.2s4.6.4 6.7 1.2zm-6.7 27.6c2.7 0 4.7-1 6.2-3s2.2-4.3 2.2-7.8-.7-6.3-2.2-8.3-3.5-3-6.2-3-4.7 1-6.1 3c-1.5 2-2.2 4.8-2.2 8.3s.7 5.8 2.2 7.8 3.5 3 6.2 3zm-88.8-28.8c-6.2 0-11.7 3.3-14.8 8.2a18.6 18.6 0 0 0 4.8 25.2c1.8 1.2 4 1.8 6.2 1.7s.1 0 .1 0h.9c4.2-.7 8-4 9.1-8.1v7.4c0 .4.3.7.8.7h6.4a.7.7 0 0 0 .7-.7V14.2c0-.5-.3-.8-.7-.8h-13.5zm6.3 26.5a9.8 9.8 0 0 1-5.7 2h-.5a10 10 0 0 1-9.2-14c1.4-3.7 5-6.3 9-6.3h6.4v18.3zm152.3-26.5h13.5c.5 0 .8.3.8.7v33.7c0 .4-.3.7-.8.7h-6.4a.7.7 0 0 1-.8-.7v-7.4c-1.2 4-4.8 7.4-9 8h-.1a4.2 4.2 0 0 1-.5.1h-.9a10.3 10.3 0 0 1-7-2.6c-4-3.3-6.5-8.4-6.5-14.2 0-3.7 1-7.2 3-10 3-5 8.5-8.3 14.7-8.3zm.6 28.4c2.2-.1 4.2-.6 5.7-2V21.7h-6.3a9.8 9.8 0 0 0-9 6.4 10.2 10.2 0 0 0 9.1 13.9h.5zM452.8 13.4c-6.2 0-11.7 3.3-14.8 8.2a18.5 18.5 0 0 0 3.6 24.3 10.4 10.4 0 0 0 13 .6c2.2-1.5 3.8-3.7 4.5-6.1v7.8c0 2.8-.8 5-2.2 6.3-1.5 1.5-4 2.2-7.5 2.2l-6-.3c-.3 0-.7.2-.8.5l-1.6 5.5c-.1.4.1.8.5 1h.1c2.8.4 5.5.6 7 .6 6.3 0 11-1.4 14-4.1 2.7-2.5 4.2-6.3 4.5-11.4V14.2c0-.5-.4-.8-.8-.8h-13.5zm6.3 8.2v18.3a9.6 9.6 0 0 1-5.6 2h-1a10.3 10.3 0 0 1-8.8-14c1.4-3.7 5-6.3 9-6.3h6.4zM291 31.5A32 32 0 0 1 322.8 0h30.8c.6 0 1.2.5 1.2 1.2v61.5c0 1.1-1.3 1.7-2.2 1l-19.2-17a18 18 0 0 1-11 3.4 18.1 18.1 0 1 1 18.2-14.8c-.1.4-.5.7-.9.6-.1 0-.3 0-.4-.2l-3.8-3.4c-.4-.3-.6-.8-.7-1.4a12 12 0 1 0-2.4 8.3c.4-.4 1-.5 1.6-.2l14.7 13.1v-46H323a26 26 0 1 0 10 49.7c.8-.4 1.6-.2 2.3.3l3 2.7c.3.2.3.7 0 1l-.2.2a32 32 0 0 1-47.2-28.6z"></path></svg></a></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

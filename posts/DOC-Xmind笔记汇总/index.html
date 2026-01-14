@@ -1,0 +1,4834 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Xmind笔记汇总 | JCAlways</title><meta name="author" content="JCAlways"><meta name="copyright" content="JCAlways"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HTML到Node.js之前笔记汇总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xmind笔记汇总">
+<meta property="og:url" content="https://blog.zhangsifan.com/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="JCAlways">
+<meta property="og:description" content="HTML到Node.js之前笔记汇总">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg">
+<meta property="article:published_time" content="2019-10-13T12:39:11.000Z">
+<meta property="article:modified_time" content="2026-01-14T01:49:10.226Z">
+<meta property="article:author" content="JCAlways">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Xmind笔记汇总",
+  "url": "https://blog.zhangsifan.com/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/",
+  "image": "https://x1.haoxianggroup.cn/static/20220516143528_78.jpg",
+  "datePublished": "2019-10-13T12:39:11.000Z",
+  "dateModified": "2026-01-14T01:49:10.226Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "JCAlways",
+      "url": "https://blog.zhangsifan.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://www.zhangsifan.com/favicon.ico"><link rel="canonical" href="https://blog.zhangsifan.com/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="https://www.zhangsifan.com/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://www.zhangsifan.com/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://www.zhangsifan.com/favicon-16x16.png"/><link rel="mask-icon" href="https://www.zhangsifan.com/favicon.ico" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69875ea5f2adb86bb9fb3d729cfc4a2e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EWZ3LRRMDJ"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-EWZ3LRRMDJ')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-EWZ3LRRMDJ', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"YQUJUB5NGV","apiKey":"501be01d4df300779328014a1a5ba292","indexName":"my-hexo-blog","hitsPerPage":6,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Xmind笔记汇总',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="JCAlways" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JCAlways</span></a><a class="nav-page-title" href="/"><span class="site-name">Xmind笔记汇总</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章总览</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Xmind笔记汇总<a class="post-edit-link" href="https://github.com/jcalways/jcalways.github.io/edit/master/source/_posts/DOC-Xmind笔记汇总.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-13T12:39:11.000Z" title="发表于 2019-10-13 20:39:11">2019-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-14T01:49:10.226Z" title="更新于 2026-01-14 09:49:10">2026-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/">技术文档</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">13.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>47分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="前端与移动开发"><a href="#前端与移动开发" class="headerlink" title="前端与移动开发"></a>前端与移动开发</h1><h2 id="HTML阶段"><a href="#HTML阶段" class="headerlink" title="HTML阶段"></a>HTML阶段</h2><h3 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h3><ul>
+<li><p>超链接标签</p>
+<ul>
+<li>a</li>
+</ul>
+</li>
+<li><p>标题标签</p>
+<ul>
+<li>h</li>
+</ul>
+</li>
+<li><p>段落标签</p>
+<ul>
+<li>p</li>
+</ul>
+</li>
+<li><p>字体样式</p>
+<ul>
+<li>font</li>
+</ul>
+</li>
+<li><p>图片标签</p>
+<ul>
+<li>img</li>
+</ul>
+</li>
+<li><p>换行标签</p>
+<ul>
+<li>br</li>
+</ul>
+</li>
+<li><p>横线标签</p>
+<ul>
+<li>hr</li>
+</ul>
+</li>
+<li><p>媒体标签</p>
+<ul>
+<li><p>音频标签</p>
+<ul>
+<li>audio</li>
+</ul>
+</li>
+<li><p>视屏标签</p>
+<ul>
+<li>video</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表标签</p>
+<ul>
+<li><p>有序列表</p>
+<ul>
+<li><p>ol</p>
+<ul>
+<li>li</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>无序列表</p>
+<ul>
+<li><p>ul</p>
+<ul>
+<li>li</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义列表</p>
+<ul>
+<li><p>dl</p>
+<ul>
+<li><p>dt </p>
+<ul>
+<li>dd</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下拉列表</p>
+<ul>
+<li><p>select</p>
+<ul>
+<li>option</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表格标签</p>
+<ul>
+<li><p>table</p>
+<ul>
+<li><p>tr</p>
+<ul>
+<li>td</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表单标签</p>
+<ul>
+<li>form</li>
+</ul>
+</li>
+<li><p>输入框</p>
+<ul>
+<li><p>文本框</p>
+<ul>
+<li>text</li>
+</ul>
+</li>
+<li><p>密码输入框</p>
+<ul>
+<li>password</li>
+</ul>
+</li>
+<li><p>单选框</p>
+<ul>
+<li>radio</li>
+</ul>
+</li>
+<li><p>多选框</p>
+<ul>
+<li>checkbox</li>
+</ul>
+</li>
+<li><p>文本域</p>
+<ul>
+<li>textarea</li>
+</ul>
+</li>
+<li><p>邮箱</p>
+<ul>
+<li>email</li>
+</ul>
+</li>
+<li><p>电话</p>
+<ul>
+<li>tel</li>
+</ul>
+</li>
+<li><p>数字</p>
+<ul>
+<li>number</li>
+</ul>
+</li>
+<li><p>URL</p>
+<ul>
+<li>url</li>
+</ul>
+</li>
+<li><p>搜索</p>
+<ul>
+<li>search</li>
+</ul>
+</li>
+<li><p>区域</p>
+<ul>
+<li>range</li>
+</ul>
+</li>
+<li><p>时间</p>
+<ul>
+<li><p>年月日</p>
+<ul>
+<li>date</li>
+</ul>
+</li>
+<li><p>时分</p>
+<ul>
+<li>time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>颜色</p>
+<ul>
+<li>color</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>按钮</p>
+<ul>
+<li><p>普通按钮</p>
+<ul>
+<li>button</li>
+</ul>
+</li>
+<li><p>提交按钮</p>
+<ul>
+<li>submit</li>
+</ul>
+</li>
+<li><p>重置按钮</p>
+<ul>
+<li>reset</li>
+</ul>
+</li>
+<li><p>图象按钮</p>
+<ul>
+<li>image</li>
+</ul>
+</li>
+<li><p>文件按钮</p>
+<ul>
+<li>file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文字最小化</p>
+<ul>
+<li>small</li>
+</ul>
+</li>
+</ul>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><p>长度</p>
+<ul>
+<li>width  宽度</li>
+<li>height  高度</li>
+</ul>
+</li>
+<li><p>字体 font</p>
+<ul>
+<li>ins  下划线</li>
+<li>em  斜体</li>
+<li>strong  粗体</li>
+<li>del  删除线</li>
+<li>color  颜色</li>
+<li>size  文本大小</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li>src  路径</li>
+<li>title 悬停时的文本提示</li>
+<li>ait  图片文字描述</li>
+</ul>
+</li>
+<li><p>表格</p>
+<ul>
+<li>acption  标题</li>
+<li>border  边框</li>
+<li>cellspacing  单元格间距</li>
+<li>cellpadding 文字与边框的距离</li>
+<li>colspan  合并列</li>
+<li>rowspan  合并行</li>
+</ul>
+</li>
+<li><p>对齐  align</p>
+<ul>
+<li>left  左对齐 </li>
+<li>center  居中</li>
+<li>right  右对齐</li>
+</ul>
+</li>
+<li><p>媒体</p>
+<ul>
+<li>autoplay  自动播放</li>
+<li>controls  控件</li>
+</ul>
+</li>
+<li><p>共用属性</p>
+<ul>
+<li>name  名称</li>
+<li>id   id</li>
+<li>value  值</li>
+<li>checked  默认选中(选择框)</li>
+<li>selected  默认选中(下拉列表)</li>
+<li>multiple  单选变多选</li>
+<li>readonly  只读</li>
+<li>disabled  禁用</li>
+<li>maxlenght  最大长度</li>
+<li>placeholder  提示信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS阶段"><a href="#CSS阶段" class="headerlink" title="CSS阶段"></a>CSS阶段</h2><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
+<li>标签选择器</li>
+<li>类选择器(最常用)</li>
+<li>ID选择器</li>
+<li>通配符选择器</li>
+<li>后代选择器</li>
+<li>子代选择器</li>
+<li>标签指定式选择器</li>
+<li>并集选择器</li>
+</ul>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><ul>
+<li>:hover   设置鼠标悬停样式</li>
+<li>:link {}  设置连接样式</li>
+<li>:active{}   标签被激活的样式</li>
+<li>:visited {}  标签被访问过的样式</li>
+<li>:focus {}  设置当获取鼠标焦点时候的样式</li>
+<li>:checked    选中的样式</li>
+</ul>
+<h3 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h3><ul>
+<li>:first-child {}  选中父元素第一个元素</li>
+<li>:last-child {}  选中父元素最后一个元素</li>
+<li>:nth-child(n) {}  选中父元素中第n个子元素</li>
+</ul>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><p>字体样式</p>
+<ul>
+<li><p>font-size  文字大小</p>
+</li>
+<li><p>font-family  字体样式</p>
+<ul>
+<li>使用汉字</li>
+<li>使用英文</li>
+<li>使用unicode</li>
+</ul>
+</li>
+<li><p>font-width  字体粗体</p>
+<ul>
+<li>700（bold）【加粗】 | 400（normal） 【正常显示】</li>
+</ul>
+</li>
+<li><p>font-style  文字斜体</p>
+<ul>
+<li>italic(斜体) | normal (正常显示)</li>
+</ul>
+</li>
+<li><p>line-height  行高</p>
+</li>
+<li><p>text-indent   文本缩进 首行缩进</p>
+</li>
+<li><p>text-align  文本对齐</p>
+<ul>
+<li>left  左对齐</li>
+<li>center  居中</li>
+<li>right  右对齐</li>
+</ul>
+</li>
+<li><p>text-decoration  文本修饰</p>
+</li>
+<li><p>合写</p>
+<ul>
+<li>font: 700 italic 50px &#x2F; 60px ‘宋体’;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>颜色表示方法</p>
+<ul>
+<li>使用单词表示颜色</li>
+<li>使用十六进制表示颜色</li>
+<li>使用RGB表示颜色</li>
+<li>使用RGBA表示颜色(透明度)</li>
+</ul>
+</li>
+<li><p>元素显示方式</p>
+<ul>
+<li><p>display: block</p>
+<ul>
+<li>块级元素</li>
+</ul>
+</li>
+<li><p>display:inline-block</p>
+<ul>
+<li>行内块元素</li>
+</ul>
+</li>
+<li><p>display:inline</p>
+<ul>
+<li>行内元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>背景</p>
+<ul>
+<li><p>背景图</p>
+<ul>
+<li>background-image: url(‘1.jpg’);</li>
+</ul>
+</li>
+<li><p>显示方式</p>
+<ul>
+<li><p>background-repeat:</p>
+<ul>
+<li>repeat 平铺</li>
+<li>no-repeat 不平铺</li>
+<li>repeat-x</li>
+<li>repeat-y</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图片位置</p>
+</li>
+<li><p>背景颜色</p>
+<ul>
+<li>background-color</li>
+</ul>
+</li>
+<li><p>图片大小</p>
+<ul>
+<li><p>background-size:</p>
+<ul>
+<li>值</li>
+<li>cover   图片盒子一样大</li>
+<li>contain   比例</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>背景合写方式</p>
+<ul>
+<li>background: red url(‘1.jpg’) no-repeat center;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>a标签</p>
+<ul>
+<li><p>去除下划线</p>
+<ul>
+<li>text-decoration: none;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表样式</p>
+<ul>
+<li><p>去除li的小圆点</p>
+<ul>
+<li>list-style:none;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文本域</p>
+<ul>
+<li><p>禁止文本域拖动</p>
+<ul>
+<li>resize:none;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>盒子模型</p>
+<ul>
+<li><p>边框</p>
+<ul>
+<li><p>边框颜色</p>
+</li>
+<li><p>边框样式</p>
+<ul>
+<li>none  没有边框</li>
+<li>solid  实线边框</li>
+<li>dashed  虚线边框</li>
+<li>dotted  点线边框</li>
+</ul>
+</li>
+<li><p>边框宽度</p>
+</li>
+<li><p>边框合写</p>
+<ul>
+<li>boder:颜色  样式 宽度</li>
+</ul>
+</li>
+<li><p>单独给边框设置样式</p>
+<ul>
+<li>border-top  上边框</li>
+<li>border-left  左边框</li>
+<li>border-right  右边框</li>
+<li>border-buttom  下边框</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内边距</p>
+<ul>
+<li><p>padding-top  上边距</p>
+</li>
+<li><p>padding-left  左边距</p>
+</li>
+<li><p>padding-right  右边距</p>
+</li>
+<li><p>padding-buttom  下边距</p>
+</li>
+<li><p>简写</p>
+<ul>
+<li>padding:10px  上 右 下 左都为10px</li>
+<li>padding:10px 20px  上下10px  左右20px</li>
+<li>padding:10px 20px 30px 上10px  左右20px 下30px</li>
+<li>padding:10px 20px 30px 40px 上10px 右20px 下30px 左40px</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外边距</p>
+<ul>
+<li><p>margin-top 上边距</p>
+</li>
+<li><p>margin-left  左边距</p>
+</li>
+<li><p>margin-right  右边距</p>
+</li>
+<li><p>margin-buttom  下边距</p>
+</li>
+<li><p>margin:0  auto    使盒子居中</p>
+</li>
+<li><p>简写</p>
+<ul>
+<li>margin:10px  上 右 下 左都为10px</li>
+<li>margin:10px 20px  上下10px  左右20px</li>
+<li>margin:10px 20px 30px 上10px  左右20px 下30px</li>
+<li>margin:10px 20px 30px 40px 上10px 右20px 下30px 左40px</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>边框圆角</p>
+<ul>
+<li>border-radius</li>
+</ul>
+</li>
+<li><p>盒子阴影</p>
+<ul>
+<li>box-shadow:</li>
+</ul>
+</li>
+<li><p>文字阴影</p>
+<ul>
+<li>text-shadow:</li>
+</ul>
+</li>
+<li><p>盒子大小</p>
+<ul>
+<li><p>box-sizing</p>
+<ul>
+<li>border-box;  实际大小</li>
+<li>content-box;  内容区域大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>浮动</p>
+<ul>
+<li><p>float:left  左浮动</p>
+</li>
+<li><p>float:right  右浮动</p>
+</li>
+<li><p>清除浮动</p>
+<ul>
+<li><p>clear属性</p>
+<p>在浮动元素后面添加一个空的div</p>
+<p>选中当前div设置属性 clear: both | left | right;</p>
+</li>
+<li><p>使用伪元素清除浮动</p>
+<p>clearfix::after {<br>content: “”;<br>display: block;<br>clear: both;<br>height: 0;<br>line-height: 0;<br>visibility: hidden;<br>}<br>.clearfix {<br>&#x2F;* 为了兼容IE浏览器 *&#x2F;<br>zoom: 1;<br>}</p>
+</li>
+<li><p>给父元素设置 overflow:hidden;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>伪元素</p>
+<ul>
+<li>::before {}</li>
+<li>::after {}</li>
+</ul>
+</li>
+<li><p>定位</p>
+<ul>
+<li><p>静态定位</p>
+<ul>
+<li>position: static;</li>
+</ul>
+</li>
+<li><p>绝对定位</p>
+<ul>
+<li>position:abso</li>
+</ul>
+</li>
+<li><p>相对定位</p>
+<ul>
+<li>position: relative;</li>
+</ul>
+</li>
+<li><p>固定定位</p>
+<ul>
+<li>position: fixed;</li>
+</ul>
+</li>
+<li><p>层级</p>
+<ul>
+<li>z-index</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>动画</p>
+<ul>
+<li><p>animation动画</p>
+<ul>
+<li><p>1.定义动画集</p>
+<p>@keyframes  自定义动画集名称  {</p>
+<pre><code>                from {
+                     开始状态的代码
+                }
+
+                to {
+                    结束状态的代码
+                }
+          }
+</code></pre>
+</li>
+<li><p>2.调用动画集</p>
+<ul>
+<li>animation-name</li>
+</ul>
+</li>
+<li><p>3.设置动画执行时间</p>
+<ul>
+<li>animation-duration</li>
+</ul>
+</li>
+<li><p>4.设置动画执行次数</p>
+<ul>
+<li>animation-iteration-count: infinite;</li>
+</ul>
+</li>
+<li><p>5.设置动画的速度    </p>
+<ul>
+<li>animation-timing-function</li>
+</ul>
+</li>
+<li><p>6.设置动画逆播</p>
+<ul>
+<li>animation-direction: alternate;</li>
+</ul>
+</li>
+<li><p>7.设置动画在结束位置停止</p>
+<ul>
+<li>animation-fill-mode: forwards;</li>
+</ul>
+</li>
+<li><p>8.设置动画延时</p>
+<ul>
+<li>animation-delay</li>
+</ul>
+</li>
+<li><p>合写</p>
+</li>
+</ul>
+</li>
+<li><p>补间动画</p>
+<ul>
+<li><p>transition</p>
+<ul>
+<li><p>补间对象</p>
+</li>
+<li><p>补间时间</p>
+</li>
+<li><p>动画速度类型</p>
+<ul>
+<li>ease 速度由快到慢</li>
+<li>linear 匀速的</li>
+<li>ease-in 加速效果</li>
+<li>ease-out 减速</li>
+<li>ease-in-out 先加速再减速</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2D转换</p>
+<ul>
+<li><p>位移</p>
+<ul>
+<li><p>transform: translate(x, y);</p>
+</li>
+<li><p>绝对定位盒子居中</p>
+<p>通过位移的方式实现绝对定位的盒子居中显示：<br>position: absolute;<br>父元素宽度的一半<br>left: 50%;<br>元素自己宽度的一半<br>transform: translate(-50%);</p>
+</li>
+</ul>
+</li>
+<li><p>旋转</p>
+<ul>
+<li><p>transform: rotate()</p>
+</li>
+<li><p>单位是 ‘deg’</p>
+</li>
+<li><p>修改旋转位置</p>
+<ul>
+<li><p>transform-origin</p>
+<ul>
+<li>left | right | top | bottom | center</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缩放</p>
+<ul>
+<li>transform: scale(x, y)</li>
+<li>1  大小不变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3D转换</p>
+<ul>
+<li><p>位移</p>
+<ul>
+<li>transform: translateX()  translateY()  translateZ();</li>
+</ul>
+</li>
+<li><p>透视</p>
+<ul>
+<li>perspective: 1000px;</li>
+</ul>
+</li>
+<li><p>旋转</p>
+<ul>
+<li>transform: rotateX()  rotateY()   rotateZ();</li>
+</ul>
+</li>
+<li><p>缩放</p>
+<ul>
+<li>transform: scaleX() scaleY()  scaleZ();</li>
+</ul>
+</li>
+<li><p>平面图形转3D</p>
+<ul>
+<li>transform-style: preserve-3d;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>私有前缀</p>
+<ul>
+<li><p>-webkit-</p>
+<ul>
+<li>让webkit内核浏览器支持对应的属性</li>
+</ul>
+</li>
+<li><p>-moz-</p>
+<ul>
+<li>让火狐浏览器支持对应的属性</li>
+</ul>
+</li>
+<li><p>-o-</p>
+<ul>
+<li>让欧朋浏览器支持对应的属性</li>
+</ul>
+</li>
+<li><p>-ms-</p>
+<ul>
+<li>让IE浏览器支持对应的属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>渐变</p>
+<ul>
+<li><p>线性渐变  background-image: linear-gradient()</p>
+<ul>
+<li><p>渐变方向</p>
+<ul>
+<li><p>方位</p>
+<ul>
+<li>to  top</li>
+<li>to bottom</li>
+<li>to left</li>
+<li>to right</li>
+</ul>
+</li>
+<li><p>角度</p>
+<ul>
+<li><p>0deg</p>
+<ul>
+<li>从下向上</li>
+</ul>
+</li>
+<li><p>90deg</p>
+<ul>
+<li>从左向右</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>颜色</p>
+<ul>
+<li><p>开始颜色</p>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+<ul>
+<li><p>渐变范围 百分比表示(默认是宽度)</p>
+<ul>
+<li>如果设置了background-size</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>结束颜色</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>径向渐变  background-image: radial-gradient()</p>
+<ul>
+<li><p>范围</p>
+<ul>
+<li><p>半径范围</p>
+<ul>
+<li><p>at</p>
+<ul>
+<li>圆点位置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>颜色</p>
+<ul>
+<li>开始颜色</li>
+<li>结束颜色</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多背景</p>
+</li>
+<li><p>元素隐藏</p>
+<ul>
+<li><p>display</p>
+<ul>
+<li>display:none  隐藏元素，不占位置</li>
+<li>display: block  显示元素</li>
+</ul>
+</li>
+<li><p>visibility:hidden  隐藏元素，占位置</p>
+</li>
+<li><p>overflow</p>
+<ul>
+<li>visible  可见的</li>
+<li>hidden; 溢出隐藏</li>
+<li>auto  超出添加滚动条，不超出不添加</li>
+<li>scroll  设置滚动条</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文本修饰</p>
+<ul>
+<li><p>文字换行</p>
+<ul>
+<li><p>word-break: break-all;</p>
+<ul>
+<li>让内容在末尾处换行</li>
+</ul>
+</li>
+<li><p>word-break: keep-all;</p>
+<ul>
+<li>遇到空格就换行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文字溢出显示省略号</p>
+<ul>
+<li><p>overflow: hidden;</p>
+<ul>
+<li>子主题 1</li>
+</ul>
+</li>
+<li><p>text-overflow: ellipsis;</p>
+<ul>
+<li>超出容器出现省略号</li>
+</ul>
+</li>
+<li><p>display: -webkit-box;</p>
+<ul>
+<li>设置为伸缩盒子</li>
+</ul>
+</li>
+<li><p>-webkit-line-clamp: 2;</p>
+<ul>
+<li>设置文字要显示几行</li>
+</ul>
+</li>
+<li><p>-webkit-box-orient: vertical;</p>
+<ul>
+<li>设置文字的显示为垂直</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>去除图片底边三像素</p>
+<ul>
+<li><p>dispaly:blcok;  设置为行内块</p>
+</li>
+<li><p>vertical-align</p>
+<ul>
+<li>top</li>
+<li>middle </li>
+<li>bottom</li>
+<li>baseline</li>
+</ul>
+</li>
+<li><p>overflow:hidden</p>
+</li>
+</ul>
+</li>
+<li><p>鼠标样式</p>
+<ul>
+<li><p>cursor</p>
+<ul>
+<li>help    帮助指针</li>
+<li>pointer   手</li>
+<li>move 移动</li>
+<li>帮助链接</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h3><ul>
+<li><p>用来维护或管理CSS代码的工具</p>
+</li>
+<li><p>使用方法</p>
+<ul>
+<li><p>定义变量</p>
+<p>@自定义变量名称 ：值；</p>
+<p>div{<br>font-size:@自定义变量名称；<br>}</p>
+</li>
+<li><p>嵌套写法</p>
+<p>选择器 {<br>    选择器{<br>}<br>}</p>
+</li>
+<li><p>公共样式设置（函数）</p>
+<p>.public（@自定义变量名称）{<br>    color：red；<br>}</p>
+<p>p{<br>.public(值);<br>}</p>
+</li>
+<li><p>支持数学运算</p>
+</li>
+</ul>
+</li>
+<li><p>引用方法</p>
+<ul>
+<li><p>link标签引用less文件</p>
+<ul>
+<li><link rel="stylesheet/less" href=""></li>
+</ul>
+</li>
+<li><p>引用less.js</p>
+<ul>
+<li><script src="less.js"></script></li>
+</ul>
+</li>
+<li><p>需要放到服务器下</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="移动WEB阶段"><a href="#移动WEB阶段" class="headerlink" title="移动WEB阶段"></a>移动WEB阶段</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>页面水平方向不能出现水平条</li>
+<li>页面不能出现缩放效果</li>
+</ul>
+<h3 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h3><ul>
+<li>屏幕分辨率</li>
+<li>物理分辨率</li>
+</ul>
+<h3 id="像素密度-PPI"><a href="#像素密度-PPI" class="headerlink" title="像素密度(PPI)"></a>像素密度(PPI)</h3><ul>
+<li>每英寸面积中所能容纳像素点个数</li>
+</ul>
+<h3 id="设备独立像素-DPR"><a href="#设备独立像素-DPR" class="headerlink" title="设备独立像素(DPR)"></a>设备独立像素(DPR)</h3><h3 id="页面适配方法"><a href="#页面适配方法" class="headerlink" title="页面适配方法"></a>页面适配方法</h3><ul>
+<li><p>流式布局(百分比布局)+视口设置(meta标签)</p>
+<ul>
+<li><p>宽度</p>
+<ul>
+<li><p>max-width:768px;</p>
+<ul>
+<li>最大宽度</li>
+</ul>
+</li>
+<li><p>min-width:320px;</p>
+<ul>
+<li>最小宽度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>伸缩布局</p>
+<ul>
+<li><p>display:flex</p>
+<ul>
+<li><p>伸缩盒子</p>
+<ul>
+<li><p>两条轴</p>
+<ul>
+<li><p>主轴</p>
+<ul>
+<li>子元素都会默认在主轴方向显示</li>
+</ul>
+</li>
+<li><p>侧轴</p>
+<ul>
+<li>垂直于主轴</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置主轴方向</p>
+<ul>
+<li><p>flex-direction: </p>
+<ul>
+<li>row—在一行上</li>
+<li>column—独占一行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>元素的对其方式</p>
+<ul>
+<li><p>主轴的对其方式</p>
+<ul>
+<li><p>justify-content: </p>
+<ul>
+<li><p>flex-start</p>
+<ul>
+<li>在主轴的开始位置显示</li>
+</ul>
+</li>
+<li><p>flex-end</p>
+<ul>
+<li>在主轴的结束位置</li>
+</ul>
+</li>
+<li><p>center</p>
+<ul>
+<li>居中</li>
+</ul>
+</li>
+<li><p>space-between</p>
+<ul>
+<li>两端对其 中间自适应</li>
+</ul>
+</li>
+<li><p>space-around</p>
+<ul>
+<li>围绕式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>侧轴的对其方式</p>
+<ul>
+<li><p>align-items: </p>
+<ul>
+<li><p>flex-start</p>
+<ul>
+<li>在侧轴的开始位置</li>
+</ul>
+</li>
+<li><p>flex-end</p>
+<ul>
+<li>在侧轴的结束位置</li>
+</ul>
+</li>
+<li><p>center</p>
+<ul>
+<li>居中</li>
+</ul>
+</li>
+<li><p>stretch</p>
+<ul>
+<li>默认值  拉伸</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置换行后的对其方式</p>
+<ul>
+<li><p>align-content: </p>
+<ul>
+<li><p>flex-start</p>
+<ul>
+<li>在主轴的开始位置显示</li>
+</ul>
+</li>
+<li><p>flex-end</p>
+<ul>
+<li>在主轴的结束位置</li>
+</ul>
+</li>
+<li><p>center</p>
+<ul>
+<li>居中</li>
+</ul>
+</li>
+<li><p>space-between</p>
+<ul>
+<li>两端对其 中间自适应</li>
+</ul>
+</li>
+<li><p>space-around</p>
+<ul>
+<li>围绕式</li>
+</ul>
+</li>
+<li><p>stretch</p>
+<ul>
+<li>默认值  拉伸</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单独设置对其方式</p>
+<ul>
+<li>align-self:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置子元素占父元素的几份</p>
+<ul>
+<li>flex:</li>
+<li>给子元素设置</li>
+</ul>
+</li>
+<li><p>排序</p>
+<ul>
+<li><p>order</p>
+<ul>
+<li>值越小  越靠前</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>换行</p>
+<ul>
+<li><p>flex-wrap: </p>
+<ul>
+<li>nowrap;    不换行</li>
+<li>wrap;    换行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>rem+媒体查询</p>
+<ul>
+<li><p>rem 相对单位</p>
+</li>
+<li><p>媒体查询</p>
+<ul>
+<li><p>媒体类型</p>
+<ul>
+<li>all    所有设备</li>
+<li>print    打印设备</li>
+<li>screen    带有屏幕的设备</li>
+</ul>
+</li>
+<li><p>媒体特性</p>
+<ul>
+<li><p>width</p>
+<ul>
+<li>min-width</li>
+<li>max-width</li>
+</ul>
+</li>
+<li><p>height</p>
+<ul>
+<li>min-height</li>
+<li>max-height</li>
+</ul>
+</li>
+<li><p>orientation    屏幕方向</p>
+<ul>
+<li>portrait    竖屏</li>
+<li>landscape    横屏</li>
+</ul>
+</li>
+<li><p>语法</p>
+<p>@media only screen and (width :320px) {<br>        设置CSS代码<br>    }</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应式布局  媒体查询 +  流式布局（伸缩布局）</p>
+</li>
+</ul>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><ul>
+<li><p>本质:就是一个CSS文件</p>
+</li>
+<li><p>Bootstrap</p>
+<ul>
+<li><p>下载Bootstrap CSS文件</p>
+</li>
+<li><p>初始化结构</p>
+<ul>
+<li><p>添加  解决IE浏览器支持媒体查询兼容性问题</p>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</li>
+<li><p>添加  解决IE低版本兼容H5标签</p>
+<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--></li>
+</ul>
+</li>
+<li><p>基本的排版</p>
+</li>
+<li><p>状态类</p>
+</li>
+<li><p>栅格系统</p>
+<ul>
+<li><p>引用bootstrap.min.css文件</p>
+</li>
+<li><p>给父元素设置一个固定的类名</p>
+<ul>
+<li>.container    带版心</li>
+<li>或</li>
+<li>.container-fluid    通栏显示</li>
+</ul>
+</li>
+<li><p>实现响应式布局(栅格参数)</p>
+<ul>
+<li>col-lg-值    适配大设备</li>
+<li>col-md-值    适配中等设备</li>
+<li>col-sm-值    适配小设备</li>
+<li>col-xs-值    适配手机设配</li>
+<li>取值范围1-12</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应式工具</p>
+<ul>
+<li>控制元素的隐藏和显示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Amazeui</p>
+</li>
+<li><p>Framework7</p>
+</li>
+</ul>
+<h2 id="JavaScript阶段"><a href="#JavaScript阶段" class="headerlink" title="JavaScript阶段"></a>JavaScript阶段</h2><h3 id="学习线路"><a href="#学习线路" class="headerlink" title="学习线路"></a>学习线路</h3><ul>
+<li><p>JS的基本组成</p>
+<ul>
+<li><p>js的基本语法ECMA SCRIPT</p>
+<ul>
+<li><p>JS书写位置</p>
+<ul>
+<li><p>外联式</p>
+<ul>
+<li><p>通过script标签引入</p>
+<ul>
+<li><script src="./js/helloworld.js"></script></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内嵌式</p>
+<ul>
+<li>在script标签中写入js代码</li>
+</ul>
+</li>
+<li><p>行内式</p>
+<ul>
+<li><p>将js代码写入到标签中</p>
+<ul>
+<li><p 世事件类型="js代码"></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关键字</p>
+<ul>
+<li><p>var    声明变量</p>
+</li>
+<li><p>break    跳出</p>
+</li>
+<li><p>this    谁调用,就指向谁</p>
+</li>
+<li><p>instanceof    判断当前对象是不是通过指定的构造函数创建出来的(在继承中使用)</p>
+<p>对象  instanceof  构造函数</p>
+</li>
+<li><p>typeof    获取变量的数据类型</p>
+<p>typeof 值</p>
+</li>
+</ul>
+</li>
+<li><p>通过JS网页中输出消息</p>
+<ul>
+<li><p>弹窗</p>
+<p>alert(“你好世界”)</p>
+</li>
+<li><p>在网页输出文字或标签</p>
+<p>document.write(‘你好’);</p>
+</li>
+<li><p>打印log</p>
+<p>console.log(‘nihao’);</p>
+</li>
+<li><p>弹窗输入框</p>
+<p>prompt(“请输入Password”);</p>
+</li>
+<li><p>确定取消框</p>
+<p>confirm(“是否确认”);</p>
+</li>
+</ul>
+</li>
+<li><p>变量(容器)</p>
+<ul>
+<li><p>定义变量</p>
+<ul>
+<li>var 自定义变量名称;</li>
+</ul>
+</li>
+<li><p>给变量赋值</p>
+<ul>
+<li>变量名称 &#x3D; 值;</li>
+</ul>
+</li>
+<li><p>命名规范</p>
+<ul>
+<li>不能以数字开头</li>
+<li>不能以特殊符号开头</li>
+<li>不推荐使用汉字</li>
+<li>不能是关键字</li>
+<li>不能是保留字</li>
+<li>不能出现空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据类形</p>
+<ul>
+<li><p>简单数据类型</p>
+<ul>
+<li><p>字符串类型(string)</p>
+</li>
+<li><p>数字类型(number)</p>
+<ul>
+<li><p>最大值</p>
+<ul>
+<li>Number.MAX_VALUE;</li>
+</ul>
+</li>
+<li><p>最小值</p>
+<ul>
+<li>Number.MIN_VALUE;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>布尔类型(boolean)</p>
+</li>
+<li><p>未定义(undefined)</p>
+</li>
+</ul>
+</li>
+<li><p>复杂数据类型</p>
+</li>
+</ul>
+</li>
+<li><p>数据类型转换</p>
+<ul>
+<li><p>强制类型转换</p>
+<ul>
+<li><p>转换为数字</p>
+<ul>
+<li>Number(变量);</li>
+<li>parseInt(变量);  只保留整数</li>
+<li>parseFloat(变量); 会保留小数</li>
+</ul>
+</li>
+<li><p>转换为字符串</p>
+<ul>
+<li>变量.toString();</li>
+<li>String(变量);</li>
+</ul>
+</li>
+<li><p>转换为布尔类型</p>
+<ul>
+<li>Boolean();</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>影式类型转换</p>
+</li>
+</ul>
+</li>
+<li><p>判断一个值是不是数字</p>
+<ul>
+<li><p>isNaN(值);</p>
+<ul>
+<li>true  不是数字</li>
+<li>false  是数字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>运算符</p>
+<ul>
+<li><p>算数运算符</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>&#x2F; % () 优先级()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>赋值运算符</p>
+<ul>
+<li><p>&#x3D;  把右侧的结果赋值给左边的变量</p>
+</li>
+<li><p>a +&#x3D;b</p>
+<ul>
+<li>a &#x3D; a + b;</li>
+</ul>
+</li>
+<li><p>a -&#x3D;b</p>
+</li>
+<li><p>a *&#x3D;b</p>
+</li>
+<li><p>a &#x2F;&#x3D;b</p>
+</li>
+</ul>
+</li>
+<li><p>一元运算符</p>
+<ul>
+<li><p>++</p>
+<ul>
+<li><p>++a</p>
+<ul>
+<li>加1后在赋值</li>
+</ul>
+</li>
+<li><p>a++</p>
+<ul>
+<li>赋值后在加1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<pre><code>  - --a
+  - a--
+</code></pre>
+</li>
+<li><p>比较运算符</p>
+<ul>
+<li><blockquote>
+</blockquote>
+</li>
+<li>&lt;</li>
+<li><blockquote>
+<p>&#x3D;    大于或等于</p>
+</blockquote>
+</li>
+<li>&lt;&#x3D;    小于或等于</li>
+<li>&#x3D;&#x3D;    判断值是否相等  不考虑数据类型</li>
+<li>&#x3D;&#x3D;&#x3D;    全等于    考虑数据类型</li>
+<li>!&#x3D;    不等于</li>
+<li>!&#x3D;&#x3D;    全不等于</li>
+</ul>
+</li>
+<li><p>逻辑运算符</p>
+<ul>
+<li>&amp;&amp;    且</li>
+<li>||    或</li>
+<li>!    飞</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断语句</p>
+<ul>
+<li><p>if语句</p>
+<p>if(条件){</p>
+<pre><code>    }else{
+</code></pre>
+<p>}</p>
+</li>
+<li><p>三元表达式</p>
+<p>条件表达式 ? 逻辑代码1:逻辑代码2</p>
+</li>
+<li><p>多条件判断</p>
+<p>if(条件){</p>
+<pre><code>    }else if{
+</code></pre>
+<p>}</p>
+</li>
+<li><p>switch语句</p>
+<p>switch (变量) {<br>        case ‘1’:<br>        &#x2F;&#x2F;    代码<br>            break;<br>        default:<br>            &#x2F;&#x2F; 代码<br>            break;<br>    }</p>
+</li>
+</ul>
+</li>
+<li><p>循环</p>
+<ul>
+<li>while循环</li>
+<li>do  while循环</li>
+<li>for  循环</li>
+</ul>
+</li>
+<li><p>数组(容器)</p>
+<ul>
+<li><p>保存变量的容器,一次可以保存多个值</p>
+</li>
+<li><p>定义数组(ary)</p>
+<ul>
+<li><p>通过字面量的方式</p>
+<p>var 自定义数组名称 &#x3D; [];</p>
+</li>
+</ul>
+</li>
+<li><p>赋值</p>
+<ul>
+<li><p>定义数组赋值(初始化)</p>
+<p>var ary &#x3D; [1,2,3,’A’,’B’,’C’,true,false];</p>
+</li>
+<li><p>数组名称[索引值]&#x3D;值;</p>
+<p>ary[0]&#x3D;1;</p>
+</li>
+</ul>
+</li>
+<li><p>从数组中取值</p>
+<p>ary[3];</p>
+</li>
+<li><p>数组的遍历</p>
+<ul>
+<li><p>通过循环的方式找数组中的值</p>
+</li>
+<li><p>获取数组的长度</p>
+<p>ary.length</p>
+</li>
+</ul>
+</li>
+<li><p>冒泡排序</p>
+<ul>
+<li><p>升序排序</p>
+<p>var ary &#x3D; [1, 2, 3, 4, 5];<br>for (var i &#x3D; 0; i &lt; ary.length - 1; i++) {<br>for (var j &#x3D; 0; j &lt; ary.length - 1 - i; j++) {<br>            if (ary[j] &gt; ary[j + 1]) {<br>                var temp &#x3D; ary[j];<br>                ary[j] &#x3D; ary[j + 1];<br>                ary[j + 1] &#x3D; temp<br>            }<br>        }<br>    }<br> alert(ary);</p>
+</li>
+<li><p>降序排序</p>
+<p>var ary &#x3D; [1, 2, 3, 4, 5];<br>for (var i &#x3D; 0; i &lt; ary.length - 1; i++) {<br>for (var j &#x3D; 0; j &lt; ary.length - 1 - i; j++) {<br>            if (ary[j] &lt; ary[j + 1]) {<br>                var temp &#x3D; ary[j];<br>                ary[j] &#x3D; ary[j + 1];<br>                ary[j + 1] &#x3D; temp<br>            }<br>        }<br>    }<br> alert(ary);</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>函数</p>
+<ul>
+<li><p>将程序中重复出现的代码封装成一个公共的代码</p>
+</li>
+<li><p>定义函数</p>
+<ul>
+<li><p>通过function定义函数</p>
+<p>function 自定义函数名称 (){<br>        逻辑代码<br>}</p>
+</li>
+<li><p>通过表达式定义函数</p>
+<p>var  函数名称&#x3D; function(){}</p>
+</li>
+<li><p>命名规范</p>
+<ul>
+<li>以动词开始</li>
+<li>小驼峰命名法(单词首字母小写,第二个单词首字母大写)</li>
+</ul>
+</li>
+<li><p>函数后面的’()’不能丢</p>
+</li>
+<li><p>需要调用函数才会执行</p>
+</li>
+</ul>
+</li>
+<li><p>调用函数</p>
+<ul>
+<li>函数名称();</li>
+</ul>
+</li>
+<li><p>函数中的参数</p>
+<ul>
+<li><p>形式参数（形参)</p>
+<ul>
+<li>在定义函数时候，函数名后面（）中的变量</li>
+</ul>
+</li>
+<li><p>实际参数（实参)</p>
+<ul>
+<li>在调用函数的时候，函数名后面（）中的值</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ol>
+<li>如果函数有参数，那么该函数就叫有参函数</li>
+<li>如果函数没有参数，那么该函数就叫无参函数</li>
+<li>函数中，形参的个数是根据需求中设计的。</li>
+<li>形参的名字叫什么都可以。</li>
+<li>形参变量的值来自于实参的赋值结果</li>
+<li>形参和实参是一一对应的（赋值结果，个数）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>函数中的返回值</p>
+<ul>
+<li>将函数里面的值返回给函数外部</li>
+<li>函数内部的值无法在外部使用(作用域的原因)</li>
+<li>return后面是什么,返回的就是什么</li>
+<li>return后面的代码不在执行</li>
+<li>如果只有return  那么返回的就是undefined</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li><p>程序中代码能够起作用的区域</p>
+</li>
+<li><p>全局作用域(全局变量)</p>
+<ul>
+<li>函数外部形成的区域,在全局定义的变量,就是全局变量</li>
+<li>可以在任何区域使用</li>
+</ul>
+</li>
+<li><p>局部作用域(局部变量)</p>
+<ul>
+<li>函数内部形成的区域,在局部定义的变量,就是局部变量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>作用域链</p>
+<ul>
+<li>多个作用域形成的链条状</li>
+<li>在作用域链中,如果没有值,就会沿着链条向上查找</li>
+</ul>
+</li>
+<li><p>匿名函数</p>
+<ul>
+<li><p>函数没有名字</p>
+<p>function () {<br>    }</p>
+</li>
+</ul>
+</li>
+<li><p>命名函数</p>
+<ul>
+<li><p>函数有名字</p>
+<p>function name() {<br>    }<br>    name();</p>
+</li>
+</ul>
+</li>
+<li><p>自调用函数(自执行函数)</p>
+<ul>
+<li><p>函数自己调用自己</p>
+<p>(function () {<br>        alert(‘1’);<br>    })();</p>
+</li>
+</ul>
+</li>
+<li><p>arguments</p>
+<ul>
+<li><p>在函数中用来保存实参信息的容器</p>
+</li>
+<li><p>实参的个数</p>
+<ul>
+<li>length(保存的就是实参的个数)</li>
+</ul>
+</li>
+<li><p>实参中的具体值</p>
+<ul>
+<li>值是以数组的方式保存在arguments中</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li>如果函数中的形参个数是确定的,推荐使用形参获取即可</li>
+<li>如果函数中的形参个数不确定,那么使用arguments的方式获取</li>
+</ul>
+</li>
+<li><p>例子</p>
+<p>alert(getMax(1, 311, 9, 2));<br>    function getMax() {<br>        var max &#x3D; arguments[0];<br>        for (var i &#x3D; 1; i &lt; arguments.length; i++) {<br>            if (arguments[i] &gt; max) {<br>                max &#x3D; arguments[i];<br>            }<br>        }<br>        return max;<br>    }</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象(容器)</p>
+<ul>
+<li><p>在程序中对具体事物的一个抽象描述(特征,功能)  </p>
+</li>
+<li><p>定义&#x2F;创建对象</p>
+<ul>
+<li><p>通过字面量的方式</p>
+<p>var  自定义对象名称 &#x3D; {}</p>
+</li>
+<li><p>通过构造函数创建对象</p>
+<p>var 自定义对象名称 &#x3D; new Object();</p>
+</li>
+<li><p>通过工厂的方式创建对象</p>
+<p>function creatrObject(xm, sjh) {<br>        var dx &#x3D; new Object();<br>        dx.username &#x3D; xm;<br>        dx.phone &#x3D; sjh;<br>        return dx;<br>    }<br>    var zs &#x3D; creatrObject(“张三”, 123);<br>    var ls &#x3D; creatrObject(“李四”, 123);</p>
+<ul>
+<li>将构造函数创建对象封装成一个函数</li>
+</ul>
+</li>
+<li><p>通过自定义构造函数的方式创建对象</p>
+<p>function People(xm, sjh) {<br>        this.username &#x3D; xm;<br>        this.phone &#x3D; sjh;<br>        this.sing &#x3D; function () {<br>            alert(‘在唱歌’);<br>        }<br>    }<br>    var zs &#x3D; new People(“01”,1);<br>    var ls &#x3D; new People(“02”,2);</p>
+<ul>
+<li><p>先准备一个自定义构造函数</p>
+</li>
+<li><p>通过自定义构造函数创建对象</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li>命名规范:帕斯卡命名法(大驼峰法)每个单词首字母大写</li>
+<li>构造函数以名词开始</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>赋值</p>
+<ul>
+<li><p>定义对象赋值(初始化)</p>
+<p>var mc &#x3D; {<br>        username: “张三”,<br>        height: 180,<br>        weight: 75,<br>    }</p>
+</li>
+<li><p>键值对赋值</p>
+<p>mc[“username”] &#x3D; “张三”;<br>  mc[“sing”] &#x3D; function(){<br>        alert(“张三正在唱歌”);<br>    };</p>
+</li>
+<li><p>通过”对象.”的方式赋值</p>
+<p>mc.username &#x3D; “张三”;<br>mc.sing &#x3D; function (){<br>        alert(“张三正在唱歌”);<br>    }</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li><p>对象中的值是以 键&#x2F;值  对的形式出现</p>
+<p>例如:<br> username: “张三”,<br>height: 180,<br>weight:75,</p>
+</li>
+<li><p>键    就是自定义变量</p>
+</li>
+<li><p>在对象的函数叫方法</p>
+</li>
+<li><p>在对象中 用来描述对象特征的键称之为对象的属性</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>从对象中取值</p>
+<ul>
+<li><p>键值对的方式取值</p>
+<p>mc[‘username’]<br>mc<a href="">“sing”</a>;</p>
+</li>
+<li><p>“对象.”的方式取值</p>
+<p>mc.username<br>mc.sing()</p>
+</li>
+</ul>
+</li>
+<li><p>对象的遍历</p>
+<p>for (key in 对象) {<br>  console.log(obj[key]);<br> }</p>
+</li>
+<li><p>简单数据类型(栈区)</p>
+</li>
+<li><p>复杂数据类型(堆区)</p>
+<ul>
+<li>在堆区保存结果</li>
+<li>在赋值的过程中,将内存地址拷贝赋值给另外一个变量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内置对象</p>
+<ul>
+<li><p>在js中,已经写好的对象</p>
+</li>
+<li><p>如何学 自学查文档</p>
+</li>
+<li><p>Math</p>
+<ul>
+<li><p>Math.PI</p>
+<ul>
+<li>圆周率</li>
+</ul>
+</li>
+<li><p>Math.pow(x,y)</p>
+<ul>
+<li>x的y次方</li>
+</ul>
+</li>
+<li><p>Math.abs(x)</p>
+<ul>
+<li>x的绝对值</li>
+</ul>
+</li>
+<li><p>Math.round(x)</p>
+<ul>
+<li>x四舍五入</li>
+</ul>
+</li>
+<li><p>Math.max()</p>
+<ul>
+<li>获取一组数字的最大值</li>
+</ul>
+</li>
+<li><p>Math.min()</p>
+<ul>
+<li>获取一组数字的最小值</li>
+</ul>
+</li>
+<li><p>Math.sin(a)</p>
+<ul>
+<li>获取角的正弦值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Date</p>
+</li>
+<li><p>Array</p>
+<ul>
+<li><p>取值</p>
+<ul>
+<li><p>数组名.pop();</p>
+<ul>
+<li>在数组的结尾处取值</li>
+</ul>
+</li>
+<li><p>数组名.shift();</p>
+<ul>
+<li>在数组的开始处取值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>赋值</p>
+<ul>
+<li><p>数组名.push();</p>
+<ul>
+<li>在数组的结尾处添加值</li>
+</ul>
+</li>
+<li><p>数组名.unshift();</p>
+<ul>
+<li>在数组的开始出添加值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>筛选</p>
+<ul>
+<li><p>数组名.indexOf();</p>
+<ul>
+<li>获取数组中对应值得索引位置(从前往后)</li>
+</ul>
+</li>
+<li><p>数组名.lastIndexOf();</p>
+<ul>
+<li>获取数组中对应值的索引位置(从后往前)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>翻转</p>
+<ul>
+<li>数组名.reverse();</li>
+</ul>
+</li>
+<li><p>拼接字符串</p>
+<ul>
+<li>数组名.join(“|”);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字符串</p>
+<ul>
+<li><p>分割字符串</p>
+<ul>
+<li>字符串.split</li>
+</ul>
+</li>
+<li><p>截取字符串</p>
+<ul>
+<li><p>字符串.slice(开始位置,结束位置);</p>
+<ul>
+<li>不包括结束位置</li>
+<li>返回的是字符串</li>
+<li>没有设置结束位置截取到最后</li>
+<li>如果是负数,从最后做减法</li>
+</ul>
+</li>
+<li><p>字符串.substring(开始位置,结束位置);</p>
+</li>
+<li><p>字符串.substr(开始位置,个数);</p>
+</li>
+</ul>
+</li>
+<li><p>去空白</p>
+<ul>
+<li><p>字符串.trim();</p>
+<ul>
+<li>去掉首尾空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>替换</p>
+<ul>
+<li><p>字符串.replace(x,y)</p>
+<ul>
+<li>x替换成y</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拼接字符串</p>
+<ul>
+<li>字符串.concat();</li>
+</ul>
+</li>
+<li><p>字符串.charAt(index)</p>
+</li>
+<li><p>字符串.str[index]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码预解析</p>
+<ul>
+<li><p>在代码开始执行之前,将代码进行一个预先编译的过程</p>
+</li>
+<li><p>变量的提升</p>
+<ul>
+<li>当程序中出现变量,那么就会将变量声明提升到当前作用域的开始位置.不包括变量的赋值</li>
+</ul>
+</li>
+<li><p>函数的提升</p>
+<ul>
+<li>当程序中出现函数,就会将函数的声明提升到当前作用域的开始位置,不包括函数的调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p>字符串中转义字符</p>
+<ul>
+<li>\</li>
+<li>\n  \r    回车换行</li>
+</ul>
+</li>
+<li><p>分割字符串</p>
+<ul>
+<li>字符串.split();    得到的是数组</li>
+</ul>
+</li>
+<li><p>获取系统时间</p>
+<ul>
+<li><p>定义一个日期对象</p>
+<ul>
+<li>var d &#x3D; new Date();</li>
+</ul>
+</li>
+<li><p>获取年</p>
+<ul>
+<li>getFullYear();</li>
+</ul>
+</li>
+<li><p>获取月</p>
+<ul>
+<li>getMonth()+1;</li>
+</ul>
+</li>
+<li><p>获取日</p>
+<ul>
+<li>getDate();</li>
+</ul>
+</li>
+<li><p>获取星期</p>
+<ul>
+<li>getDay();</li>
+</ul>
+</li>
+<li><p>时</p>
+<ul>
+<li>getHours();</li>
+</ul>
+</li>
+<li><p>分</p>
+<ul>
+<li>getMinutes();</li>
+</ul>
+</li>
+<li><p>秒</p>
+<ul>
+<li>getSeconds();</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数学</p>
+<ul>
+<li><p>Math.floor(值);</p>
+<ul>
+<li>地板函数:得到的都是整数(小于当前数并与它最接近的一个整数)</li>
+</ul>
+</li>
+<li><p>Math.ceil(值);</p>
+<ul>
+<li>天花板函数:得到的是整数(小于当前数并与它最接近的一个整数)</li>
+</ul>
+</li>
+<li><p>Math.random();</p>
+<ul>
+<li>随机数函数:[0,1)</li>
+</ul>
+</li>
+<li><p>Math.floor(Math.random()*(max-min+1)+min)</p>
+<ul>
+<li>随机数公式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>WebAPI</p>
+<ul>
+<li><p>DOM操作([文档对象模型]通过js的方式操作页面的标签)document</p>
+<ul>
+<li><p>记住各种API+逻辑思维&#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;网页效果</p>
+</li>
+<li><p>选中标签</p>
+<ul>
+<li><p>通过标签的名字获取标签</p>
+<p>document.getElementsByName(“标签名字”);</p>
+<ul>
+<li>返回的是一个伪数组</li>
+<li>如果要获取每个具体标签对象,通过循环遍历的方式</li>
+</ul>
+</li>
+<li><p>通过CSS选择器获取标签</p>
+<p>document.querySelector(“CSS选择器”);</p>
+<ul>
+<li>智能选中瞒住条件的一个标签</li>
+</ul>
+</li>
+<li><p>通过CSS选择器获取全部标签</p>
+<p>document.querySelectorAll(“css选择器”);</p>
+<ul>
+<li>返回的是一个伪数组</li>
+</ul>
+</li>
+<li><p>通过标签ID获取标签</p>
+<p>document.getElementById(“标签ID”);</p>
+<ul>
+<li>只能获取一个标签</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件</p>
+<ul>
+<li><p>给标签绑定事件</p>
+<ul>
+<li><p>事件源</p>
+<ul>
+<li>要绑定事件的标签</li>
+</ul>
+</li>
+<li><p>事件类型</p>
+<ul>
+<li><p>on的方式</p>
+<ul>
+<li><p>鼠标</p>
+<ul>
+<li>单击事件onclick</li>
+<li>双击ondblclick</li>
+<li>获取焦点onfocus</li>
+<li>失去焦点onblur</li>
+<li>onmouseenter鼠标进入</li>
+<li>onmouseleave鼠标离开</li>
+<li>onmouseover鼠标悬停</li>
+<li>onmouseout鼠标悬停离开</li>
+<li>onmousemove鼠标移动事件</li>
+<li>onmouseup鼠标弹起事件</li>
+<li>onmousedown鼠标按下事件</li>
+<li>onscroll滚动条事件</li>
+</ul>
+</li>
+<li><p>键盘</p>
+<ul>
+<li>oninput输入事件</li>
+<li>onkeydown键盘按下事件(可以获取所有按键)</li>
+<li>onkeyup键盘松开事件</li>
+<li>onkeypress键盘按下事件(不能获取系统按键)</li>
+</ul>
+</li>
+<li><p>onchange    发生改变</p>
+</li>
+<li><p>通过on的方式给元素注册事件的时候,注册用一个事件,那么最后的事件会覆盖前面的事件</p>
+</li>
+</ul>
+</li>
+<li><p>事件监听的方式(多个人使用)</p>
+<ul>
+<li><p>事件源.addEventListener(事件类型,处理程序,参数3);</p>
+<ul>
+<li>参数1–&gt;事件类型(不能加on除自带on)</li>
+<li>参数2–&gt;处理程序</li>
+<li>参数3–&gt;true捕获效果    false冒泡效果</li>
+</ul>
+</li>
+<li><p>移动端事件</p>
+<ul>
+<li><p>按下事件</p>
+<p>div.addEventListener(“touchstart”, function () {<br>        console.log(“按下事件”);<br>    });</p>
+</li>
+<li><p>抬起事件</p>
+<p>div.addEventListener(“touchend”, function () {<br>        console.log(“抬起事件”);<br>    });</p>
+</li>
+<li><p>移动事件</p>
+<p>div.addEventListener(“touchmove”, function () {<br>        console.log(“移动事件”);<br>    });</p>
+</li>
+<li><p>封装移动端的点击事件</p>
+<ul>
+<li><p>点击事件:判断;手指按下的位置和手指离开的距离(通过事件对象参数)</p>
+</li>
+<li><p>手指信息  手指位置和个数</p>
+</li>
+<li><p>移动端的事件对象参数</p>
+<ul>
+<li><p>e.touches获取位于移动设备的屏幕上的手指信息(伪数组)</p>
+<ul>
+<li>clientX —&gt;获取距离视口的位置</li>
+<li>pageX —&gt;获取距离页面的坐标</li>
+<li>screenX —&gt;获取距离整个屏幕的坐标</li>
+</ul>
+</li>
+<li><p>e.targetTouches获取元素身上的手指信息</p>
+</li>
+<li><p>e.changedTouches 离开屏幕的信息</p>
+</li>
+<li><p>封装案例</p>
+<ul>
+<li>index.html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ie低版本浏览器</p>
+<ul>
+<li><p>事件源.attachEvent(参数1,参数2)</p>
+<ul>
+<li>参数1–&gt;事件类型(需要加on)</li>
+<li>参数2–&gt;处理程序</li>
+</ul>
+</li>
+<li><p>腻子程序</p>
+<!--[if lt IE 8]>
+        script代码
+    <![endif]--></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>处理程序</p>
+<ul>
+<li>实现功能的一个函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>给元素移除事件</p>
+<ul>
+<li><p>on的方式</p>
+<ul>
+<li>事件源.事件类型&#x3D; null;</li>
+</ul>
+</li>
+<li><p>事件监听的方式</p>
+<ul>
+<li><p>事件源.removeEventListener(参数1,参数2)</p>
+<ul>
+<li>参数1–&gt;要被移除的事件类型</li>
+<li>参数2–&gt;要被移除的处理程序(命名函数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ie低版本浏览器</p>
+<ul>
+<li>事件源.detachEvent(参数1,参数2)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取标签中的值</p>
+<ul>
+<li><p>对象名.innerHTML</p>
+<ul>
+<li>同时可以获取文本或标签,特殊符号</li>
+</ul>
+</li>
+<li><p>对象名.innerText</p>
+<ul>
+<li>获取标签中的纯文本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>给标签动态的赋值</p>
+<ul>
+<li><p>对象名.innerHTML &#x3D; 值;</p>
+<ul>
+<li>遇到HTML标签会把标签进行解析</li>
+</ul>
+</li>
+<li><p>对象名.innerText &#x3D; 值;</p>
+<ul>
+<li>纯文本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>阻止a标签跳转</p>
+<ul>
+<li><p>在a标签的事件中设置return false</p>
+<p>a.onclick &#x3D; function () { return false }</p>
+</li>
+<li><p>在a标签的href中设置JavaScript:;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件流(事件执行过程)</p>
+<ul>
+<li><p>1.事件捕获</p>
+</li>
+<li><p>2.事件执行</p>
+</li>
+<li><p>3.事件冒泡</p>
+<ul>
+<li>可以阻止</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>委托(事件对象参数)</p>
+<ul>
+<li><p>自己应该完成的事情委托别人完成</p>
+</li>
+<li><p>事件对象参数</p>
+<ul>
+<li><p>当用户在执行某个事件的时候,会将执行过程中的信息保存起来</p>
+</li>
+<li><p>e.target—&gt;获取真正执行事件的事件源</p>
+</li>
+<li><p>e.target—&gt;获取正在执行事件的类型</p>
+</li>
+<li><p>e.key—&gt;键的名字</p>
+</li>
+<li><p>e.keyCode—&gt;键的值</p>
+</li>
+<li><p>鼠标在页面中的位置</p>
+<ul>
+<li>e.clientX—&gt;从HTML的可视区域左上角开始计算</li>
+<li>e.clientY—&gt;</li>
+<li>e.offsetX—&gt;从当前元素的左上边开始计算</li>
+<li>e.offsetY</li>
+<li>e.pageX—&gt;从页面的可视区域左上角开始计算</li>
+<li>e.pageY</li>
+<li>e.screenX—&gt;从整个屏幕的左上角开始计算</li>
+<li>e.screenX</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>改变样式</p>
+<ul>
+<li><p>给标签添加类样式</p>
+<ul>
+<li>先定义好一个类样式</li>
+<li>对象名.className &#x3D; “类名”;</li>
+<li>添加多个类名 使用多个空格隔开</li>
+<li>属性多的时候可以使用</li>
+</ul>
+</li>
+<li><p>行内添加样式</p>
+<ul>
+<li><p>style属性实现</p>
+</li>
+<li><p>对象名.style.css属性名字&#x3D;值</p>
+</li>
+<li><p>案例</p>
+<div>哈哈</div>
+    <script>
+        var div = document.querySelector("div");
+        div.style.color = "red";
+    </script>
+</li>
+<li><p>就是给标签动态添加了一个style属性</p>
+</li>
+<li><p>属性比较少的时候可以使用</p>
+</li>
+</ul>
+</li>
+<li><p>H5的方式操作样式</p>
+<ul>
+<li><p>通过H5的方式给标签添加类样式</p>
+</li>
+<li><p>添加类名</p>
+<ul>
+<li>对象名.classList.add(“类名”,”类名”);</li>
+</ul>
+</li>
+<li><p>删除类名</p>
+<ul>
+<li>对象名.classList.remove(“类名”);</li>
+</ul>
+</li>
+<li><p>是否包含</p>
+<ul>
+<li>对象名.classList.contains(“类名”);</li>
+</ul>
+</li>
+<li><p>有删无加</p>
+<ul>
+<li>对象名.classList.toggle(“类名”);</li>
+</ul>
+</li>
+<li><p>案例</p>
+<div></div>
+    <input type="button" value="添加">
+    <script>
+        var div = document.querySelector("div");
+        var btn = document.querySelector("input");
+    
+<pre><code>    btn.onclick = function () {
+        div.classList.add(&quot;box&quot;);
+    }
+    
+&lt;/script&gt;
+</code></pre>
+</li>
+<li><p>属性多可以使用</p>
+</li>
+<li><p>如果设置多个类名,使用,号隔开</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作表单控件</p>
+<ul>
+<li><p>值</p>
+<ul>
+<li><p>获取表单控件的值</p>
+<ul>
+<li>对象名.value</li>
+</ul>
+</li>
+<li><p>给表单赋值</p>
+<ul>
+<li>对象名.value &#x3D; “值”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li><p>选中(复选框)</p>
+<ul>
+<li><p>对象名.checked &#x3D; </p>
+<ul>
+<li>true 选中</li>
+<li>false  未选中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选中(下拉列表)</p>
+<ul>
+<li><p>对象名.selected &#x3D;</p>
+<ul>
+<li>true 选中</li>
+<li>false 未选中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>禁用(按钮)</p>
+<ul>
+<li><p>对象名.disabled &#x3D;</p>
+<ul>
+<li>true 禁用</li>
+<li>false 启用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>元素的隐藏和显示</p>
+<ul>
+<li><p>对象名.style.display</p>
+<ul>
+<li>none</li>
+<li>block</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作属性</p>
+<ul>
+<li><p>可以获取内置属性,也可以获取自定义的属性</p>
+</li>
+<li><p>获取值</p>
+<ul>
+<li>对象名.getAttribute(“属性名称”)</li>
+</ul>
+</li>
+<li><p>设置值</p>
+<ul>
+<li>对象名.setAttribute(“属性名称”,值)</li>
+</ul>
+</li>
+<li><p>移除</p>
+<ul>
+<li>对象名.removeAttribute(“属性名称”)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义属性</p>
+<ul>
+<li><p>规范   ‘data-属性名称’</p>
+</li>
+<li><p>通过H5的方式获取只能获取到自定义属性</p>
+</li>
+<li><p>返回的是一个对象</p>
+</li>
+<li><p>获取值</p>
+<ul>
+<li>对象名.dataset.属性名称</li>
+</ul>
+</li>
+<li><p>设置值</p>
+<ul>
+<li>对象名.dataset.属性名称&#x3D;值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文档树</p>
+<ul>
+<li><p>节点</p>
+<ul>
+<li><p>在文档树中,每个标签的属性文本 回车符 空格符等等</p>
+</li>
+<li><p>获取父元素是否有子节点</p>
+<ul>
+<li><p>对象名.hasChildNodes</p>
+<ul>
+<li>true有</li>
+<li>false无</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取第一个子节点</p>
+<ul>
+<li>对象名.firstChild</li>
+</ul>
+</li>
+<li><p>获取最后一个节点</p>
+<ul>
+<li>对象名.lastChild</li>
+</ul>
+</li>
+<li><p>通过子元素获取父节点</p>
+<ul>
+<li>对象名.parentNode</li>
+<li>返回的是标签对象</li>
+</ul>
+</li>
+<li><p>获取当前节点上一个兄弟节点</p>
+<ul>
+<li>对象名.nextElementSibling</li>
+</ul>
+</li>
+<li><p>获取当前节点上一个兄弟节点</p>
+<ul>
+<li>对象名.previousElementSibling</li>
+</ul>
+</li>
+<li><p>获取节点的类型</p>
+<ul>
+<li><p>对象名.nodeType</p>
+<ul>
+<li>返回1  当前节点就是元素&#x2F;标签</li>
+<li>返回3  当前节点不是元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取节点的名称</p>
+<ul>
+<li><p>对象名.nodeName</p>
+<ul>
+<li>返回#text  当前节点是文本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取文本节点值</p>
+<ul>
+<li><p>对象名.nodeValue</p>
+<ul>
+<li>获取文本节点的值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>元素</p>
+<ul>
+<li><p>在文档树中,每个具体点的标签就是元素</p>
+</li>
+<li><p>获取父元素中的子元素</p>
+<ul>
+<li>对象名.children</li>
+<li>返回的是一个伪数组对象</li>
+<li>根据.length的值是否等于0判断</li>
+</ul>
+</li>
+<li><p>获取第一个子元素</p>
+<ul>
+<li>对象名.firstElementChild</li>
+<li>返回的是标签对象</li>
+</ul>
+</li>
+<li><p>获取最后一个元素</p>
+<ul>
+<li>对象名.lastElementChild</li>
+<li>返回的是标签对象</li>
+</ul>
+</li>
+<li><p>获取当前标签下一个兄弟元素</p>
+<ul>
+<li>对象名.nextElementSibling</li>
+<li>返回的是标签对象</li>
+</ul>
+</li>
+<li><p>获取当前标签上一个兄弟元素</p>
+<ul>
+<li>对象名.previousElementSibling</li>
+<li>返回的是标签对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>动态创建元素</p>
+<ul>
+<li><p>在网页中通过js的方式在页面里添加标签</p>
+</li>
+<li><p>document.write();</p>
+<ul>
+<li>页面中需要创建少量的标签</li>
+</ul>
+</li>
+<li><p>对象名.innerHTML&#x3D;”值”</p>
+<ul>
+<li>页面中需要创建少量的标签</li>
+</ul>
+</li>
+<li><p>document.createElement(“标签的名字”)</p>
+<ul>
+<li><p>创建一个元素</p>
+<ul>
+<li>document.createElement(“标签的名字”)</li>
+</ul>
+</li>
+<li><p>定义一个变量接收</p>
+</li>
+<li><p>将创建好的标签添加到对应的文档树中</p>
+<ul>
+<li><p>对象名.appendChild(节点对象)</p>
+<ul>
+<li>在元素的末尾处添加</li>
+</ul>
+</li>
+<li><p>对象名.content.insertBefore(‘新节点’,’目标节点’);</p>
+<ul>
+<li>在谁之前插入</li>
+</ul>
+</li>
+<li><p>对象名.cloneNode(Boolean);</p>
+<ul>
+<li>克隆元素</li>
+<li>true–&gt;将标签中所有元素都克隆</li>
+<li>false–&gt;只复制当前标签,无法复制里面的内容</li>
+</ul>
+</li>
+<li><p>对象名.replaceChild(“新节点”,”旧节点”);</p>
+<ul>
+<li>替换元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>返回的就是创建好的节点对象</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BOM操作([浏览器对象模型]通过js的方式操作浏览器)js的顶级对象是window</p>
+<ul>
+<li><p>学习window下的方法和属性</p>
+</li>
+<li><p>页面加载事件</p>
+<ul>
+<li>onload —&gt;文档树渲染完后执行</li>
+</ul>
+</li>
+<li><p>操作网页地址</p>
+<ul>
+<li><p>location.href&#x3D;”路径” —&gt;通过程序的方法实现页面跳转</p>
+</li>
+<li><p>location.href —&gt;获取页面路径</p>
+</li>
+<li><p>window.open(页面路径) —&gt;在新窗口打开页面</p>
+</li>
+<li><p>location.assign(页面路径) —&gt;委派  实现页面跳转</p>
+</li>
+<li><p>location.replace(路径) —&gt;替换  跳转页面</p>
+</li>
+<li><p>location.reload(boolean) —&gt;重新加载页面</p>
+<ul>
+<li>true 需要去服务器中查询数据 然后将服务器中新数据显示出来</li>
+<li>false  本地缓存中重新查询数据,将数据显示出来</li>
+</ul>
+</li>
+<li><p>location.host —&gt;获取域名&#x2F;ip</p>
+</li>
+<li><p>location.hostname —&gt;获取域名名称</p>
+</li>
+<li><p>location.pathname —&gt;获取路径的名字</p>
+</li>
+<li><p>location.port —&gt;端口</p>
+</li>
+<li><p>location.protocol —&gt;获取协议类型</p>
+</li>
+<li><p>location.search —&gt;查询条件值</p>
+</li>
+<li><p>window.URL.createObjectURL(url)    设置临时图片资源</p>
+</li>
+</ul>
+</li>
+<li><p>定时器</p>
+<ul>
+<li><p>setTimeout延时多少时间后执行</p>
+<ul>
+<li>setTimeout(处理程序,时间) —&gt;开启定时器</li>
+<li>clearTimeout(定时器编号) —&gt;取消定时器</li>
+<li>每执行一次,就换产生一个定时器</li>
+</ul>
+</li>
+<li><p>setInterval每隔一段时间执行一次</p>
+<ul>
+<li>setInterval(处理程序,时间) —&gt;开启定时器</li>
+<li>clearInterval(定时器编号)</li>
+<li>每执行一次,就换产生一个定时器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取元素位置和大小</p>
+<ul>
+<li><p>offset系列</p>
+<ul>
+<li>对象名.offsetLeft —&gt;元素在网页中的水平距离</li>
+<li>对象名.offsetTop —&gt;元素在网页中的垂直距离</li>
+<li>对象名.offsetWidth —&gt;元素在网页中的宽度(实际大小)</li>
+<li>对象名.offsetHeight —&gt;元素在网页中的高度(实际大小)</li>
+</ul>
+</li>
+<li><p>client系列</p>
+<ul>
+<li>对象名.clientLeft —&gt;获取元素的左边框</li>
+<li>对象名.clientTop —&gt;获取元素的上边框</li>
+<li>对象名.clientWidth —&gt;获取元素的宽度(除去边框)</li>
+<li>对象名.clientHeight —&gt;获取元素的高度(除去边框)</li>
+</ul>
+</li>
+<li><p>scroll系列</p>
+<ul>
+<li>对象名.scroolLeft —&gt;水平方向滚动出去的距离</li>
+<li>对象名.scrollTop —&gt;垂直方向滚动出去的距离</li>
+<li>对象名.scrollWidth —&gt;获取元素的宽度(包括超出去的部分)</li>
+<li>对象名.scrollHeight —&gt;获取元素的高度(包括超出去的部分)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拖拽案例</p>
+<p>box.onmousedown &#x3D; function (e) {<br>        var mouse_x &#x3D; e.clientX - this.offsetLeft;<br>        var mouse_y &#x3D; e.clientY - this.offsetTop;<br>        document.onmousemove &#x3D; function (e) {<br>            var m_x &#x3D; e.clientX;<br>            var m_y &#x3D; e.clientY;<br>            var x &#x3D; m_x - mouse_x;<br>            var y &#x3D; m_y - mouse_y;<br>            box.style.left &#x3D; x + “px”;<br>            box.style.top &#x3D; y + “px”;<br>        }<br>    }<br>    box.onmouseup &#x3D; function () {<br>        document.onmousemove &#x3D; null;<br>    }</p>
+</li>
+<li><p>轮播图插件</p>
+<ul>
+<li>swiper插件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>H5中的API</p>
+<ul>
+<li><p>文件读取</p>
+<ul>
+<li><p>准备一个上传文件的按钮</p>
+</li>
+<li><p>设置change事件</p>
+</li>
+<li><p>获取用户上传的资源对象 files(伪数组)</p>
+</li>
+<li><p>创建读取器</p>
+<p>var reader &#x3D; new FileReader();</p>
+<ul>
+<li>读取器对象.onload —&gt;读取器将文件读取完成后悔触发该事件</li>
+<li>读取器对象.result —&gt;获取读取最后的结果</li>
+<li>readAsText()  —&gt;将文件中的文本读取出来</li>
+<li>readAsDataURL() —&gt;将文件的路径读取出来</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本地存储</p>
+<ul>
+<li><p>sessionStorage</p>
+<ul>
+<li>sessionStorage.setItem(键, 值); —&gt;保存</li>
+<li>sessionStorage.getItem(键)；—&gt;获取</li>
+<li>sessionStorage.removeItem(键);  —&gt;删除</li>
+<li>sessionStorage.clear(); —&gt;清空</li>
+</ul>
+</li>
+<li><p>localStorage</p>
+<ul>
+<li>localStorage.setItem(键, 值); —&gt;保存</li>
+<li>localStorage.getItem(键)；—&gt;获取</li>
+<li>localStorage.removeItem(键);  —&gt;删除</li>
+<li>localStorage.clear(); —&gt;清空</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li><ol>
+<li>sessionStorage 和 localStorage 都是以键值对的形式保存的值</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>sessionStorage 保存的是临时数据【网页关闭，数据清空】</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>localStorage 保存的数据持久化的数据</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>sessionStorage 保存的值只能在当前页面中使用</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>localStorage  保存的值可以在其他页面中使用</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>sessionStorage 保存的数据大约在 5M</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>localStorage 保存的数据大约在20M</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作多媒体</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li>play()—实现播放功能</li>
+<li>pause()—实现暂停功能</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li><p>paused—播放状态</p>
+<ul>
+<li>true（暂停状态）</li>
+<li>false （播放状态）</li>
+</ul>
+</li>
+<li><p>duration—获取多媒体的总时长 （秒）</p>
+</li>
+<li><p>currentTime—获取当前播放时间 （秒）</p>
+</li>
+</ul>
+</li>
+<li><p>事件</p>
+<ul>
+<li>timeupdate— 检测当时间发生更改后事件</li>
+</ul>
+</li>
+<li><p>注</p>
+<p>计算当前进度条的宽度 &#x3D; 整个进度条的宽度 *  当前播放时长 &#x2F; 总时长</p>
+<p>当前进度条的宽度 ： 整个进度条的宽度 &#x3D; 当前播放时长 ： 总时长<br>跳播：设置当前播放时间</p>
+<p>当前播放时长 &#x3D;   当前进度条的宽度[当前鼠标点击的位置] *  总时长 &#x2F; 整个进度条的宽度;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JQuery(对原生js的封装)</p>
+<ul>
+<li><p>快速,简洁的JavaScript库(js文件)</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li><p>轻量级</p>
+</li>
+<li><p>链式编程 </p>
+<ul>
+<li>a.b.c.d</li>
+</ul>
+</li>
+<li><p>隐式迭代</p>
+<ul>
+<li>遍历内部DOM元素的过程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如何使用</p>
+<ul>
+<li><p>下载</p>
+</li>
+<li><p>创建js文件</p>
+</li>
+<li><p>使用</p>
+</li>
+</ul>
+</li>
+<li><p>jQuery入门</p>
+<ul>
+<li><p>入口函数</p>
+<ul>
+<li><p>第一种写法</p>
+<p>$(function(){</p>
+<p>   &#x2F;&#x2F; 开始写 jQuery 代码…</p>
+<p> });</p>
+</li>
+<li><p>第二种写法</p>
+<p>$(document).ready(function(){</p>
+<p>   &#x2F;&#x2F; 开始写 jQuery 代码…</p>
+<p> });</p>
+</li>
+</ul>
+</li>
+<li><p>$    顶级对象</p>
+</li>
+<li><p>相互转换</p>
+<ul>
+<li><p>DOM&#x3D;&#x3D;&gt;jQuery $(DOM)</p>
+<p>var div &#x3D; document.querySelector(“div”);<br>$(div).css(“background”, “red”);</p>
+</li>
+<li><p>jQuery&#x3D;&#x3D;&gt;DOM  $(元素)[下标]</p>
+<p>$(“div”)[0].style.background &#x3D; “red”;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jQuery常用API</p>
+<ul>
+<li><p>jQuery选择器</p>
+<ul>
+<li>$(‘元素’)    元素选择器</li>
+<li>$(‘#id’)    #id 选择器</li>
+<li>$(‘.class’)    .class 选择器</li>
+<li>$(‘*’)    通配符选择器</li>
+<li>$(‘元素’,’元素’)    并集选择器</li>
+<li>$(‘元素.class’)    交集选择器</li>
+<li>$(‘元素&gt;元素’)    子代选择器</li>
+<li>$(‘元素 元素’)    后代选择器</li>
+</ul>
+</li>
+<li><p>jQuery筛选选择器</p>
+<ul>
+<li>$(‘元素:first’)    第一个元素</li>
+<li>$(‘元素:last’)    最后一个元素</li>
+<li>$(‘元素:eq(index)’)    第几个元素</li>
+<li>$(‘元素:odd’)    基数</li>
+<li>$(‘元素’:even)    偶数</li>
+<li>$(“元素:checked”)    选中的表单元素</li>
+</ul>
+</li>
+<li><p>jQuery筛选方法</p>
+<ul>
+<li>.parent()    父集</li>
+<li>.parent(“名称”)    找上级</li>
+<li>.children(‘元素’)    子集(只找儿子)</li>
+<li>.find(‘元素’)    后代</li>
+<li>.siblings(‘元素’)    兄弟</li>
+<li>.nextAll()    后面的</li>
+<li>.prevAll()    前面的</li>
+<li>.hasClass(‘类名’)    判断是否包含类名</li>
+<li>.eq(index)    索引方法</li>
+</ul>
+</li>
+<li><p>jQuery的排他思想</p>
+<ul>
+<li><p>想要多选一的效果，排他思想：当前元素设置样式，其余的兄弟元素清除样式。</p>
+</li>
+<li><p>案例</p>
+<p>$(this).css(“color”,”red”);</p>
+<p>$(this).siblings(). css(“color”,””);</p>
+</li>
+</ul>
+</li>
+<li><p>jQuery事件</p>
+<ul>
+<li><p>绑定事件</p>
+<ul>
+<li><p>click()    点击事件</p>
+<p>$(“p”).click(function(){<br>  $(this).hide();<br>});</p>
+</li>
+<li><p>dblclick()    双击事件</p>
+</li>
+<li><p>change()    发生改变</p>
+</li>
+<li><p>scroll()    滚动事件</p>
+</li>
+<li><p>focus()    获取焦点</p>
+</li>
+<li><p>事件切换</p>
+<ul>
+<li>hover([鼠标移入函数,]鼠标移出函数)</li>
+</ul>
+</li>
+<li><p>事件源.on(事件类型,[委派],函数)</p>
+<ul>
+<li><p>多事件多处理程序</p>
+<p>$(“div”).on({<br>  mouseover: function(){},<br>  mouseout: function(){},<br>  click: function(){}<br>});</p>
+</li>
+<li><p>事件委派&#x2F;委托</p>
+<p>$(‘ul’).on(‘click’, ‘li’, function() {<br>​    alert(‘hello world!’);<br>});</p>
+</li>
+<li><p>动态创建的可以绑定事件</p>
+<p>$(“div”).on(“click”,”p”, function(){<br>​     alert(“给动态生成的元素绑定事件”)<br> });</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解绑事件</p>
+<ul>
+<li>事件源.off()    解除全部事件</li>
+<li>事件源.off( “click”)    解除那个事件</li>
+<li>事件源.off(“click”, “li”);    解除事件委派</li>
+</ul>
+</li>
+<li><p>自动触发事件</p>
+<ul>
+<li>事件源.trigger(事件类型)</li>
+<li>事件源.triggerHandler(事件类型)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jQuery事件对象参数</p>
+<ul>
+<li>e.stopPropagation()    阻止冒泡</li>
+<li>e.preventDefault()    阻止默认行为</li>
+</ul>
+</li>
+<li><p>操作CSS方法</p>
+<ul>
+<li>$(元素).css(‘’样式’’)    返回样式值</li>
+<li>$(元素).css(‘’样式’’, ‘’值’’)    设置样式</li>
+<li>$(元素).css({ “样式”:”值”,”样式”:”值”})    对象方式设置样式</li>
+</ul>
+</li>
+<li><p>设置类样式方法</p>
+<ul>
+<li>$(“元素”).addClass(‘’类名’’)    添加类</li>
+<li>$(“元素”).removeClass(‘’类名’’)    删除类</li>
+<li>$(“元素”).toggleClass(‘’类名’’)    切换类</li>
+</ul>
+</li>
+<li><p>JQuery效果 动画</p>
+<ul>
+<li><p>动画队列及其停止排队方法</p>
+<ul>
+<li>.stop()    停止排队</li>
+</ul>
+</li>
+<li><p>显示隐藏效果</p>
+<ul>
+<li>show([速度,[切换效果],[回调函数]])    显示隐藏效果</li>
+<li>hide([速度,[切换效果],[回调函数]])    隐藏效果</li>
+<li>toggle([速度,[切换效果],[回调函数]])    事件切换</li>
+</ul>
+</li>
+<li><p>滑动效果</p>
+<ul>
+<li>slideDown([速度,[切换效果],[回调函数]])    下滑效果</li>
+<li>slideUp([速度,[切换效果],[回调函数]])    上滑效果</li>
+<li>slideToggle([速度,[切换效果],[回调函数]])    事件切换</li>
+</ul>
+</li>
+<li><p>淡入淡出效果</p>
+<ul>
+<li>fadeIn([速度,[切换效果],[回调函数]])    淡入</li>
+<li>fadeOut([速度,[切换效果],[回调函数]])    淡出</li>
+<li>fadeToggle([速度,[切换效果],[回调函数]])    切换</li>
+<li>fadeTo([[速度],透明度,[切换效果],[回调函数]])    到大某个位置</li>
+</ul>
+</li>
+<li><p>自定义动画</p>
+<ul>
+<li>animate(样式属性,[速度],[切换效果],[回调函数])</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jQuery属性操作</p>
+<ul>
+<li><p>固有属性</p>
+<ul>
+<li>prop(“属性名”)    获取属性值</li>
+<li>prop(“属性名”,”属性值”)    设置属性值</li>
+</ul>
+</li>
+<li><p>自定义属性</p>
+<ul>
+<li>attr(“属性名”)    获取属性值</li>
+<li>attr(‘’属性’’, ‘’属性值’’)    设置属性值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据缓存</p>
+<ul>
+<li>data(“属性名”)    获取</li>
+<li>data(“属性名”,”值”)    设置</li>
+</ul>
+</li>
+<li><p>jQuery内容文本值</p>
+<ul>
+<li>html()    获取元素的内容</li>
+<li>html(“内容”)    设置元素的内容</li>
+<li>text()    获取元素的文本内容</li>
+<li>text(“内容”)    设置元素的文本内容</li>
+<li>val()    获取表单的值</li>
+<li>val(“内容”)    设置表单的值</li>
+<li>toFixed(数量)    保留几位小数</li>
+</ul>
+</li>
+<li><p>jQuery元素操作</p>
+<ul>
+<li><p>遍历元素</p>
+<ul>
+<li><p>$(‘元素’).each()    用来遍历元素</p>
+<p>var ary &#x3D; [“red”, “blue”, “yellow”]<br>    $(“div”).each(function (i, eml) {<br>        $(eml).css(“background”, ary[i]);<br>    })</p>
+</li>
+<li><p>$.each(对象，function(index, element){ xxx;}）用来遍历数据</p>
+<p>var ary &#x3D; [“red”, “blue”, “yellow”]<br>$.each($(“div”),function(i,eml){<br>$(eml).css(“background”, ary[i]);<br>})</p>
+</li>
+</ul>
+</li>
+<li><p>创建元素</p>
+<ul>
+<li>$(‘’<li></li>‘’);</li>
+</ul>
+</li>
+<li><p>内部添加(父子关系)</p>
+<ul>
+<li>元素.append(‘’内容’’)    添加到末尾</li>
+<li>元素.prepend(‘’内容’’)    添加到开头</li>
+</ul>
+</li>
+<li><p>外部添加(兄弟关系)</p>
+<ul>
+<li>元素.after(‘’内容’’)    后面添加</li>
+<li>元素.before(‘’内容’’)    添加到前面</li>
+</ul>
+</li>
+<li><p>删除元素</p>
+<ul>
+<li>元素.remove()    删除元素</li>
+<li>元素.empty()    删除标签内容</li>
+<li>元素.html(‘’’’)    清空元素内容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jQuery尺寸&#x2F;位置</p>
+<ul>
+<li><p>内容</p>
+<ul>
+<li>width()    获取宽</li>
+<li>width(值)    设置宽</li>
+<li>height()    获取高</li>
+<li>height(值)    设置高</li>
+</ul>
+</li>
+<li><p>内+内容</p>
+<ul>
+<li>innerWidth()    获取宽</li>
+<li>innerWidth(值)    设置宽</li>
+<li>innerHeight()    获取高</li>
+<li>innerHeight(值)    设置高</li>
+</ul>
+</li>
+<li><p>内、边、内容</p>
+<ul>
+<li>outerWidth()    获取宽</li>
+<li>outerWidth(值)    设置宽</li>
+<li>outerHeight()    获取高</li>
+<li>outerHeight(值)    设置高</li>
+</ul>
+</li>
+<li><p>外、内、边、内容</p>
+<ul>
+<li>outerWidth(true)    获取宽</li>
+<li>outerHeight(true)    获取高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jQuery位置</p>
+<ul>
+<li><p>文档</p>
+<ul>
+<li>offset().top    获取</li>
+<li>offset().left    获取</li>
+<li>offset({ top: 10, left: 30 });    设置</li>
+</ul>
+</li>
+<li><p>带有定位的父级</p>
+<ul>
+<li>position().top</li>
+<li>position().left</li>
+</ul>
+</li>
+<li><p>卷起</p>
+<ul>
+<li>scrollTop()</li>
+<li>scrollLeft()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JSON</p>
+<ul>
+<li>var arr &#x3D; JSON.parse(str);    字符串转数组</li>
+<li>var str &#x3D; JSON.stringify(arr);    数组转字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JavaScript高级</p>
+<ul>
+<li><p>ES5</p>
+<ul>
+<li><p>创造对象</p>
+<ul>
+<li>对象字面量</li>
+<li>构造函数</li>
+<li>自定义构造函数</li>
+</ul>
+</li>
+<li><p>静态成员</p>
+<ul>
+<li>在构造函数本上添加的成员称为静态成员，只能由构造函数本身来访问</li>
+</ul>
+</li>
+<li><p>实例成员</p>
+<ul>
+<li>在构造函数内部创建的对象成员称为实例成员，只能由实例化的对象来访问</li>
+</ul>
+</li>
+<li><p>原型对象</p>
+<ul>
+<li><p>是为了共享方法，从而达到节省内存</p>
+</li>
+<li><p>函数名.prototype.方法名</p>
+<p>function Star (uname, age) {</p>
+<p>​        this.uname &#x3D; uname;<br>​        this.age &#x3D; age;<br>​        &#x2F;&#x2F; this.sing &#x3D; function () {<br>​        &#x2F;&#x2F;     console.log(this.name + ‘在唱歌’);<br>​        &#x2F;&#x2F; }</p>
+<p>​    }<br>​    Star.prototype.sing &#x3D; function () {<br>​        console.log(this.uname + ‘在唱歌’);<br>​    }</p>
+<p>​    var zxc &#x3D; new Star(‘周星驰’, 22);<br>​    var ldh &#x3D; new Star(‘刘德华’, 22);<br>​    &#x2F;&#x2F; console.log( Star.prototype );<br>​    ldh.sing();<br>​    zxc.sing();</p>
+</li>
+</ul>
+</li>
+<li><p>对象原形</p>
+<ul>
+<li>指向prototype</li>
+<li><strong>proto</strong></li>
+</ul>
+</li>
+<li><p>构造函数</p>
+<ul>
+<li><p>constructor </p>
+<ul>
+<li>记录是哪个构造函数创建出来的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原形链</p>
+<ul>
+<li>提供一个成员的查找机制，或者查找规则</li>
+<li>原型链.jpg</li>
+</ul>
+</li>
+<li><p>继承</p>
+<ul>
+<li>fn.call(this,参数1,参数2)    属性继承</li>
+<li>方法继承</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p>数组方法</p>
+<ul>
+<li><p>arr.forEach(fn(value,index,arr){}) 遍历数组</p>
+<p>var arr &#x3D; [‘red’,’blue’,’yellow’,’orange’];<br>arr.forEach(function (elm,i,arrAbc) {<br>console.log(elm,i,arrAbc);<br>});</p>
+</li>
+<li><p>arr.filter(fn(value, index,arr))数组遍历筛选</p>
+<p>var arr &#x3D; [100,66,99,123,333,33,44,66];<br>var reArr &#x3D; arr.filter(function (elm, a, n) {</p>
+<pre><code>// console.log(elm,a, n);
+return elm % 2 == 0;
+</code></pre>
+<p>});<br>console.log(reArr);</p>
+</li>
+<li><p>arr.some(fn(value,index, arr))数组遍历查找–找到停止</p>
+<p>var arr &#x3D; [100,200,300,400];<br>var re &#x3D; arr.some(function (elm,i,arr) {<br>    &#x2F;&#x2F; console.log(elm,i,arr);<br>    console.log(i);<br>    return elm &gt;&#x3D; 200;<br>});<br>console.log(re);</p>
+</li>
+</ul>
+</li>
+<li><p>字符串方法</p>
+<ul>
+<li>str.trim()    删除两边空白</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>函数进价</p>
+<ul>
+<li>函数定义和调用</li>
+</ul>
+</li>
+<li><p>改变函数内部this指向</p>
+<ul>
+<li><p>fn.call(obj,arg1,arg2…)    会调用,会改变this</p>
+</li>
+<li><p>fn.apply(this,[传递的值])</p>
+<p>var arr &#x3D; [1, 2, 3, 4, 5];<br>console.log(Math.max.apply(null, arr))</p>
+</li>
+<li><p>fn.bind(obj,arg1,arg2…)    不会调用函数,可以改变this指向</p>
+<p>var btn &#x3D;<br>document.querySelector(“input”)<br>btn.onclick &#x3D; function () {<br>    this.disabled &#x3D; true;<br>    setTimeout(function () {<br>    this.disabled &#x3D; false;<br>        }.bind(this), 3000);<br> }</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ES6</p>
+<ul>
+<li><p>类</p>
+<ul>
+<li><p>抽象了对象的公共部分 泛指某一大类</p>
+</li>
+<li><p>创建类</p>
+<ul>
+<li><p>class 类名 {}</p>
+<p>class Star {<br>};<br>var ldh &#x3D; new Star();</p>
+</li>
+</ul>
+</li>
+<li><p>构造函数</p>
+<ul>
+<li><p>constructor() {}</p>
+<p>class Star {<br>constructor (uname,age){<br>    this.uname &#x3D; uname;<br>    this.age &#x3D; age;<br>}<br>}</p>
+</li>
+<li><p>接收参数,添加属性,返回实例对象</p>
+</li>
+<li><p>this    当前实例对象</p>
+</li>
+</ul>
+</li>
+<li><p>添加方法</p>
+<ul>
+<li><p>class 类名 { constructor(){}   方法名(){} }</p>
+<p>class Star {</p>
+<pre><code>constructor () {}
+
+sing () {}
+
+tiao () {}
+</code></pre>
+<p>}</p>
+</li>
+<li><p>类中定义属性，调用方法都得用this</p>
+</li>
+<li><p>this    谁调用就指向谁</p>
+</li>
+<li><p>不能添加 function</p>
+</li>
+<li><p>不能添加  , 号</p>
+</li>
+</ul>
+</li>
+<li><p>继承</p>
+<ul>
+<li><p>extends</p>
+<p>class Father {}</p>
+<p>class Son extends Father{}</p>
+</li>
+<li><p>子类继承父类</p>
+</li>
+<li><p>super关键字</p>
+<ul>
+<li><p>super关键字用于访问和调用对象父类上的函数。可以调用父类的构造函数，也可以调用父类的普通函数</p>
+</li>
+<li><p>super(参数)    调用父类构造函数</p>
+<p>class F { constructor(name, age){} }</p>
+<p>class S extends F {<br>constructor (name, age) {<br>super(name,age);<br>}<br>}</p>
+</li>
+<li><p>super.方法();    调用父类普通函数</p>
+<p>class F {<br>constructor(name, age){} say () {}<br>}</p>
+<p>class S extends F {<br> constructor (name, age) {         super(name,age);<br>}<br> say () { super.say() }<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意</p>
+<ul>
+<li>没有变量提升，所以必须先定义类，才能通过类实例化对象.</li>
+<li>类里面的共有属性和方法一定要加this使用.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象</p>
+<ul>
+<li>特指某一个,通过类实例化一个具体的对象</li>
+<li>属性:对象.属性</li>
+<li>方法:对象.方法()</li>
+</ul>
+</li>
+<li><p>添加元素</p>
+<ul>
+<li><p>元素.insertAdjacentHTML(位置，要创建的元素)</p>
+<ul>
+<li>beforebegin    元素前面</li>
+<li>afterend    元素后面</li>
+<li>afterbegin    元素内部的最前面</li>
+<li>beforeend    元素内部的最后面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>运行模式</p>
+<ul>
+<li><p>正常模式</p>
+</li>
+<li><p>严格模式—-use strict</p>
+<ul>
+<li><p>提高安全性,</p>
+</li>
+<li><p>开启严格模式</p>
+<ul>
+<li><p>为脚本开启</p>
+<script>"use strict"</script>
+</li>
+<li><p>为函数开启</p>
+<p>function fn() {<br>        “use strict”<br>        var n &#x3D; 2;<br>        console.log(n)<br>    }<br>    fn();</p>
+</li>
+</ul>
+</li>
+<li><p>变量规定</p>
+<ul>
+<li>声明必须加var</li>
+<li>不能删除已定义的变量</li>
+</ul>
+</li>
+<li><p>this指向</p>
+<ul>
+<li>普通函数this是undefined</li>
+</ul>
+</li>
+<li><p>函数变化</p>
+<ul>
+<li>参数不能重名</li>
+<li>函数必须声明在顶层</li>
+</ul>
+</li>
+<li><p>更多严格模式要求参考</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>高阶函数</p>
+<ul>
+<li>对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出。</li>
+</ul>
+</li>
+<li><p>闭包</p>
+<ul>
+<li><p>一个作用域可以访问另外一个函数内部的局部变量</p>
+</li>
+<li><p>变量作用域</p>
+<ul>
+<li>函数内部可以使用全局变量</li>
+<li>函数外部不可以使用局部变量</li>
+<li>当函数执行完毕，本作用域内的局部变量会销毁</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>递归</p>
+<ul>
+<li>函数内部自己调用自己</li>
+<li>退出条件 return</li>
+</ul>
+</li>
+<li><p>拷贝</p>
+<ul>
+<li><p>浅拷贝</p>
+<ul>
+<li><p>只拷贝最外面一层</p>
+</li>
+<li><p>for in方法拷贝</p>
+<p>var obj &#x3D; {<br>        name : ‘张三丰’,<br>        age : 22<br>    };<br><br>    var newObj &#x3D; {};<br>    for (key in obj) {<br>        newObj[key] &#x3D; obj[key];<br>    }<br><br>    console.log(newObj);</p>
+</li>
+<li><p>Object.assign(新, 旧)</p>
+<p>Object.assign(target, sources);</p>
+<p>console.log(newObj);</p>
+</li>
+</ul>
+</li>
+<li><p>深拷贝</p>
+<ul>
+<li><p>使用递归</p>
+<p>var obj &#x3D; {<br>        name : ‘1张三丰’,<br>        age : 22,<br>        messige : {<br>            sex : ‘男’,<br>            score : 16<br>        },<br>        color : [‘red’,’purple’,’qing’]<br><br>    }<br><br>    var newObj &#x3D; {};<br><br><br>    function kaobei (newObj,obj) {<br><br>        for (key in obj) {<br><br>            if (obj[key] instanceof Array) {<br>                newObj[key] &#x3D; [];<br>                kaobei(newObj[key],obj[key]);<br>            } else if (obj[key] instanceof Object) {<br>                newObj[key] &#x3D; {};<br>                kaobei(newObj[key],obj[key])<br>            } else {<br>                newObj[key] &#x3D; obj[key];<br>            }<br><br>        }<br><br>    }<br>    obj.messige.sex &#x3D; 99;<br>    kaobei(newObj,obj);<br>    console.log(newObj);</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>正则表达式</p>
+<ul>
+<li><p>使用</p>
+<ul>
+<li><p>实例化对象</p>
+<p>var regexp &#x3D; new RegExp(&#x2F;123&#x2F;);<br>console.log(regexp);</p>
+</li>
+<li><p>字面量创建</p>
+<p>var rg &#x3D; &#x2F;abc&#x2F;;</p>
+</li>
+</ul>
+</li>
+<li><p>测试正则表达式 </p>
+<ul>
+<li>表达式名.test(str)</li>
+</ul>
+</li>
+<li><p>表达式</p>
+<ul>
+<li>简单字符</li>
+<li>特殊字符</li>
+</ul>
+</li>
+<li><p>边界符</p>
+<ul>
+<li><p>^    以谁开始</p>
+<p>var reg &#x3D; &#x2F;^abc&#x2F;;<br>console.log(reg.test(‘abca’));</p>
+</li>
+<li><p>$    以谁结束</p>
+<p>var q &#x3D; &#x2F;abc$&#x2F;;<br>console.log(q.test(‘aabc’));</p>
+</li>
+<li><p>&#x2F;^ $&#x2F;    精准匹配</p>
+<p>var q &#x3D; &#x2F;^abc$&#x2F;;<br>console.log(q.test(‘abc’));</p>
+</li>
+</ul>
+</li>
+<li><p>字符类</p>
+<ul>
+<li><p>[] 方括号</p>
+<ul>
+<li>&#x2F;[abc]&#x2F;    包含其中一个</li>
+<li>&#x2F;[a|b|c]&#x2F;    包含其中一个</li>
+<li>&#x2F;^[a-zA-Z0-9]$&#x2F;    包含</li>
+<li>&#x2F;^[^a-zA-Z0-9]$&#x2F;    取反</li>
+</ul>
+</li>
+<li><p>量词符</p>
+<ul>
+<li><ul>
+<li>重复0次或更多次</li>
+</ul>
+</li>
+<li><ul>
+<li>重复1次或更多次</li>
+</ul>
+</li>
+<li>?    重复0次或1次</li>
+<li>{n}    重复n次</li>
+<li>{n,}    重复n次或更多次</li>
+<li>{n,m}    重复n到m次</li>
+</ul>
+</li>
+<li><p>预定义类</p>
+<ul>
+<li>\d    匹配0-9之间任意数字</li>
+<li>\D    匹配0-9以外任意字符</li>
+<li>\w    匹配任意的字母 数字 下划线</li>
+<li>\W    除所有字母 数字 下划线以外的字符</li>
+<li>\s    匹配空格</li>
+<li>\S    匹配非空格的字符</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AJAX编程</p>
+<ul>
+<li><p>个人整理</p>
+<ul>
+<li><p>什么是AJAX?</p>
+<ul>
+<li><p>async javascript and xml</p>
+<ul>
+<li>异步的JavaScript和XML</li>
+</ul>
+</li>
+<li><p>什么是异步?</p>
+<ul>
+<li>不阻塞</li>
+</ul>
+</li>
+<li><p>XML    数据格式</p>
+<ul>
+<li>子主题 1</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>局部更新，用户体验好</li>
+<li>分离，有利于前后端分工合作</li>
+</ul>
+</li>
+<li><p>什么时候使用AJAX?</p>
+<ul>
+<li>在不更新页面的情况下,浏览器从web服务器新数据以更新界面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求与响应</p>
+<ul>
+<li>request    请求：浏览器向web服务器请求地址（文件，接口）</li>
+<li>response    响应：web服务器处理请求，返回结果（结果在响应体中）</li>
+</ul>
+</li>
+<li><p>服务器与客户端</p>
+<ul>
+<li>服务器&#x3D;&#x3D;高配置+特殊软件</li>
+<li>客户端&#x3D;&#x3D;低配置硬件 + 一般软件</li>
+</ul>
+</li>
+<li><p>本地虚拟服务器–小黑窗的使用</p>
+<ul>
+<li>自己访问网页</li>
+<li>让其它同学访问网页</li>
+<li>访问内置接口</li>
+</ul>
+</li>
+<li><p>使用jQuery调用</p>
+<ul>
+<li><p>$.ajax({})</p>
+<ul>
+<li>async    是否需要异步</li>
+<li>cache    缓存</li>
+<li>url    接口地址</li>
+<li>type    请求方式</li>
+<li>success    成功执行函数</li>
+<li>error    错误执行函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用原生调用</p>
+<ul>
+<li><p>get</p>
+<ul>
+<li><p>创建对象</p>
+<ul>
+<li>var xhr &#x3D; new XMLHttpRequest();</li>
+</ul>
+</li>
+<li><p>设置请求</p>
+<ul>
+<li>xhr.open(“get”, “url”+?参数&#x3D;值&amp;);</li>
+</ul>
+</li>
+<li><p>设置回调函数</p>
+<ul>
+<li>xhr.onload&#x3D;function () { console.log(xhr.responseText); };</li>
+<li>xhr.onreadystatechange &#x3D; function(){}兼容ie</li>
+</ul>
+</li>
+<li><p>发送</p>
+<ul>
+<li>xhr.send();</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>post</p>
+<ul>
+<li><p>创建对象</p>
+<ul>
+<li>var xhr &#x3D; new XMLHttpRequest();</li>
+</ul>
+</li>
+<li><p>设置请求</p>
+<ul>
+<li>xhr.open(“post”, “url”);</li>
+</ul>
+</li>
+<li><p>设置请求头</p>
+<ul>
+<li>xhr.setRequestHeader()</li>
+</ul>
+</li>
+<li><p>设置回调函数</p>
+<ul>
+<li>xhr.onload&#x3D;function () { console.log(xhr.responseText); };</li>
+<li>xhr.onreadystatechange &#x3D; function(){}兼容ie</li>
+</ul>
+</li>
+<li><p>发送</p>
+<ul>
+<li>xhr.send(参数);</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>服务器返回的数据</p>
+<ul>
+<li><p>JSON字符串</p>
+<ul>
+<li>var arr &#x3D; JSON.parse(str);    字符串转数组</li>
+<li>var str &#x3D; JSON.stringify(arr);    数组转字符串</li>
+</ul>
+</li>
+<li><p>XML字符串</p>
+</li>
+</ul>
+</li>
+<li><p>同步与异步</p>
+<ul>
+<li>xml.open(类型,地址,是否异步)</li>
+<li>建议使用异步</li>
+</ul>
+</li>
+<li><p>接口</p>
+<ul>
+<li>后端写好的函数，前端直接调用</li>
+<li>小黑窗服务器已经内置几个接口</li>
+<li>是一段代码</li>
+</ul>
+</li>
+<li><p>http协议</p>
+<ul>
+<li><p>浏览器与web服务器的约定</p>
+</li>
+<li><p>内容</p>
+<ul>
+<li><p>请求报文</p>
+<ul>
+<li><p>行</p>
+<ul>
+<li>请求方式   路径    协议及版本</li>
+</ul>
+</li>
+<li><p>头</p>
+<ul>
+<li>浏览器在向服务器发送请求的时候自动携带的信息</li>
+</ul>
+</li>
+<li><p>体</p>
+<ul>
+<li>post的传入的参数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应报文</p>
+<ul>
+<li><p>行</p>
+<ul>
+<li><p>Status    状态码</p>
+<ul>
+<li>200    成功</li>
+<li>302    重定向</li>
+<li>304    读取缓存</li>
+<li>404    资源不存在</li>
+<li>500    服务器内部错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>头</p>
+<ul>
+<li>服务器返回响应的时候携带了附加信息</li>
+<li>由键值对组成</li>
+<li>每个请求的响应头可能都不一样：它完全取决于服务器；</li>
+</ul>
+</li>
+<li><p>体</p>
+<ul>
+<li>响应内容，最重要的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>讲师整理</p>
+<ul>
+<li><p>$.ajax()</p>
+<ul>
+<li>$.ajax({url, type, data,success:function(res){}     })</li>
+</ul>
+</li>
+<li><p>接口</p>
+<ul>
+<li>后端写好的函数，前端直接调用</li>
+<li>小黑窗服务器已经内置几个接口</li>
+<li>是一段代码</li>
+</ul>
+</li>
+<li><p>http协议</p>
+<ul>
+<li><p>浏览器与web服务器的约定</p>
+</li>
+<li><p>内容</p>
+<ul>
+<li><p>请求报文</p>
+<ul>
+<li><p>行</p>
+<ul>
+<li>路径</li>
+</ul>
+</li>
+<li><p>头</p>
+</li>
+<li><p>体</p>
+</li>
+</ul>
+</li>
+<li><p>响应报文</p>
+<ul>
+<li><p>行</p>
+<ul>
+<li><p>状态码</p>
+<ul>
+<li>记得5个</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>头</p>
+</li>
+<li><p>体</p>
+<ul>
+<li>响应内容，最重要的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>服务器与客户端</p>
+<ul>
+<li>服务器：高配置+特殊软件</li>
+</ul>
+</li>
+<li><p>本地虚拟服务器–小黑窗的使用</p>
+<ul>
+<li>自己访问网页</li>
+<li>让其它同学访问网页</li>
+<li>访问内置接口</li>
+</ul>
+</li>
+<li><p>请求与响应</p>
+<ul>
+<li>请求：浏览器向web服务器请求地址（文件，接口）</li>
+<li>响应：web服务器处理请求，返回结果（结果在响应体中）</li>
+</ul>
+</li>
+<li><p>ajax</p>
+<ul>
+<li><p>场景</p>
+<ul>
+<li>局部更新</li>
+</ul>
+</li>
+<li><p>是什么</p>
+<ul>
+<li>async javascript and xml</li>
+<li>异步</li>
+<li>XML</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>局部更新，用户体验好</li>
+<li>分离，有利于前后端分工合作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>留言板案例</p>
+</li>
+<li><p>原生ajax</p>
+<ul>
+<li><p>get-带参数</p>
+<ul>
+<li>var xhr &#x3D; new XMLHttpRequest()</li>
+<li>xhr.open(‘get’,’url?参数1&#x3D;值1&amp;参数2&#x3D;值2&amp;参数3&#x3D;值3’）</li>
+<li>xhr.onload&#x3D;function(){ xhr.responseText ;&#x2F;&#x2F; 响应体}</li>
+<li>xhr.send()</li>
+</ul>
+</li>
+<li><p>post-带参数</p>
+<ul>
+<li>var xhr &#x3D; new XMLHttpRequest()</li>
+<li>xhr.open(‘post’,’url’）</li>
+<li>xhr.setRequestHeader(‘Content-type’,’application&#x2F;x-www-form-urlencoded’)</li>
+<li>xhr.onload&#x3D;function(){ xhr.responseText ;&#x2F;&#x2F; 响应体}</li>
+<li>xhr.send(参数1&#x3D;值1&amp;参数2&#x3D;值2&amp;参数3&#x3D;值3)</li>
+</ul>
+</li>
+<li><p>服务器返回的数据</p>
+<ul>
+<li><p>JSON字符串</p>
+<ul>
+<li><p>把JSON字符串转对象</p>
+<ul>
+<li>JSON.parse()</li>
+</ul>
+</li>
+<li><p>把js数据转成JSON字符串</p>
+<ul>
+<li>JSON.stringify()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>XML字符串</p>
+</li>
+</ul>
+</li>
+<li><p>ajax同步与异步</p>
+<ul>
+<li>xhr.open(类型,地址,是否异步)</li>
+<li>建议使用异步。</li>
+</ul>
+</li>
+<li><p>ie 的问题</p>
+<ul>
+<li><p>兼容性 onload 用 onreadystatechange</p>
+</li>
+<li><p>ie get请求有缓存</p>
+<ul>
+<li>解决：url?_&#x3D;时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解决ajax的异常</p>
+<ul>
+<li>500,404错误</li>
+<li>xhr.status 表示http响应状态码。</li>
+</ul>
+</li>
+<li><p>FormData</p>
+<ul>
+<li><p>1.上传文件 </p>
+<ul>
+<li>进度条</li>
+<li>xhr.upload.onprogress</li>
+</ul>
+</li>
+<li><p>2.快速获取表单元素的值</p>
+<ul>
+<li>var fd &#x3D; new FormData(表单的dom元素)；xhr.send(fd)</li>
+<li>不需要额外设置请求头</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>封装</p>
+<ul>
+<li>$.ajax({url,data,type,success})</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>postman</p>
+<ul>
+<li>测试接口</li>
+</ul>
+</li>
+<li><p>ajax库</p>
+<ul>
+<li><p>$.ajax()其它参数</p>
+<ul>
+<li>$.get</li>
+<li>$.post</li>
+<li>$.getJSON</li>
+</ul>
+</li>
+<li><p>axios</p>
+<ul>
+<li>会用get </li>
+<li>会用post</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[案例]会员管理系统</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>服务端程序</p>
+</li>
+</ul>
+<h3 id="js效果"><a href="#js效果" class="headerlink" title="js效果"></a>js效果</h3><ul>
+<li>制作游戏(手机端)</li>
+<li>通过JS实现地理定位</li>
+<li>实现服务端应用(bodejs)</li>
+</ul>
+<h2 id="Git阶段"><a href="#Git阶段" class="headerlink" title="Git阶段"></a>Git阶段</h2><h3 id="个人整理"><a href="#个人整理" class="headerlink" title="个人整理"></a>个人整理</h3><ul>
+<li><p>基本指令</p>
+<ul>
+<li>mkdir  目录名    新建目录</li>
+<li>cd 目录名    进入目录</li>
+<li>cd ..    返回上级</li>
+<li>ls    查看目录</li>
+<li>la -a    查看隐藏的目录</li>
+<li>touch  文件名    新建文件</li>
+<li>rm  文件名    删除文件</li>
+<li>clear    清屏</li>
+<li>cat  文件名    查看文件内容</li>
+<li>less  文件名  查看文件内容 按q退出</li>
+</ul>
+</li>
+<li><p>常见命令</p>
+<ul>
+<li><p>git init    初始化</p>
+</li>
+<li><p>git add .   添加文件</p>
+</li>
+<li><p>git commit -m “”    添加备注</p>
+</li>
+<li><p>git log    查看日志</p>
+</li>
+<li><p>git status    查看状态</p>
+<ul>
+<li>untracked    未跟踪</li>
+<li>staged    已暂存</li>
+<li>committed    已提交</li>
+<li>modified    已修改</li>
+</ul>
+</li>
+<li><p>git checkout .    放弃工作区的修改</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="讲师整理"><a href="#讲师整理" class="headerlink" title="讲师整理"></a>讲师整理</h3><ul>
+<li><p>作用</p>
+<ul>
+<li>对代码进行版本管理</li>
+</ul>
+</li>
+<li><p>工作流程</p>
+<ul>
+<li><p>初始git</p>
+<ul>
+<li>一个空目录</li>
+<li>git init</li>
+</ul>
+</li>
+<li><p>向这个目录添加文件 </p>
+</li>
+<li><p>git add</p>
+</li>
+<li><p>git commit</p>
+</li>
+<li><p>修改文件 </p>
+</li>
+<li><p>git commit -a -m “”</p>
+</li>
+</ul>
+</li>
+<li><p>三个区域</p>
+<ul>
+<li><p>工作区</p>
+</li>
+<li><p>暂存区</p>
+<ul>
+<li>add</li>
+</ul>
+</li>
+<li><p>仓库</p>
+<ul>
+<li>commit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文件四种状态</p>
+<ul>
+<li><p>未跟踪</p>
+</li>
+<li><p>已跟踪</p>
+<ul>
+<li>已修改</li>
+<li>已提交</li>
+<li>已暂存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>还原代码</p>
+<ul>
+<li><p>从工作区还原</p>
+<ul>
+<li>git checkout – 文件名</li>
+<li>git checkout .</li>
+</ul>
+</li>
+<li><p>从暂存区还原</p>
+<ul>
+<li><p>某个文件 </p>
+<ul>
+<li>git reset HEAD 文件名</li>
+<li>git checkout – 文件名</li>
+</ul>
+</li>
+<li><p>全部</p>
+<ul>
+<li>git reset HEAD</li>
+<li>git checkout .</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>从仓库中还原</p>
+<ul>
+<li><p>找出commitID</p>
+<ul>
+<li>git log</li>
+<li>git log –oneline</li>
+</ul>
+</li>
+<li><p>整体还原</p>
+<ul>
+<li>git reset –hard commitID</li>
+</ul>
+</li>
+<li><p>还原某个文件</p>
+<ul>
+<li>git checkout commitID 文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分支</p>
+<ul>
+<li><p>为什么要建分支</p>
+<ul>
+<li>为了不影响原来的代码。</li>
+</ul>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>创建</p>
+<ul>
+<li>git branch 分支名</li>
+</ul>
+</li>
+<li><p>切换</p>
+<ul>
+<li>git checkout 分支名</li>
+</ul>
+</li>
+<li><p>创建并切换</p>
+<ul>
+<li>git checkout -b 分支名</li>
+</ul>
+</li>
+<li><p>删除</p>
+<ul>
+<li>git brand -d 分支名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>合并分支</p>
+<ul>
+<li>为什么要合并</li>
+<li>git merge 分支名</li>
+</ul>
+</li>
+<li><p>冲突</p>
+<ul>
+<li>手动解决</li>
+<li>add ,commit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>远程仓库</p>
+<ul>
+<li><p>github</p>
+<ul>
+<li><p>git clone</p>
+<ul>
+<li>第一天上班，down代码</li>
+<li>找代码管理员要权限</li>
+</ul>
+</li>
+<li><p>git pull</p>
+<ul>
+<li>每天上班第一件事，拉最新的代码</li>
+</ul>
+</li>
+<li><p>git push</p>
+<ul>
+<li>下班最后一件班，提本地最新的代码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h2><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ul>
+<li><p>建立远程仓库 github</p>
+</li>
+<li><p>git clone 到本地</p>
+</li>
+<li><p>加入初始的代码</p>
+<ul>
+<li><p>apiserver</p>
+</li>
+<li><p>web_back</p>
+<ul>
+<li>管理员使用的页面</li>
+</ul>
+</li>
+<li><p>web_front</p>
+<ul>
+<li>游客使用的页面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>本地提交一次，形成第一个版本</p>
+</li>
+<li><p>git push 到远程</p>
+</li>
+<li><p>在本地开发：</p>
+<ul>
+<li><p>拉分支</p>
+<ul>
+<li>git checkout -b  dev</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="开发具体功能"><a href="#开发具体功能" class="headerlink" title="开发具体功能"></a>开发具体功能</h3><ul>
+<li><p>测接口是否正常工作 </p>
+<ul>
+<li>postman</li>
+</ul>
+</li>
+<li><p>发ajax请求。。。。。。</p>
+</li>
+<li><p>开发完成之后</p>
+<ul>
+<li>git 提交新版本</li>
+<li>vscode -git-提交版本</li>
+</ul>
+</li>
+</ul>
+<h3 id="ajax操作的封装"><a href="#ajax操作的封装" class="headerlink" title="ajax操作的封装"></a>ajax操作的封装</h3><ul>
+<li><p>js&#x2F;utils</p>
+<ul>
+<li><p>config.js</p>
+<ul>
+<li>把项目中要用到的配置信息，单独放置。包括每个接口的url地址</li>
+</ul>
+</li>
+<li><p>user.js</p>
+<ul>
+<li>把所有涉及用户操作的代码，全写在一起。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="具体功能"><a href="#具体功能" class="headerlink" title="具体功能"></a>具体功能</h3><ul>
+<li><p>管理员</p>
+<ul>
+<li><p>用户的登陆</p>
+<ul>
+<li>bootstrap的模态框</li>
+</ul>
+</li>
+<li><p>用户的退出</p>
+</li>
+<li><p>用户获取个人信息</p>
+</li>
+<li><p>修改个人信息</p>
+</li>
+</ul>
+</li>
+<li><p>文章类型管理</p>
+<ul>
+<li>添加</li>
+<li>修改</li>
+<li>删除</li>
+<li>查询-显示</li>
+</ul>
+</li>
+<li><p>文章管理</p>
+<ul>
+<li>显示，筛选</li>
+<li>分页</li>
+<li>添加</li>
+<li>删除</li>
+<li>编辑</li>
+</ul>
+</li>
+<li><p>插件</p>
+<ul>
+<li>分页</li>
+<li>日历</li>
+<li>富文本框</li>
+</ul>
+</li>
+<li><p>游客</p>
+<ul>
+<li><p>主页</p>
+</li>
+<li><p>详情页</p>
+<ul>
+<li>添加</li>
+<li>查看评论</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h3><ul>
+<li>观察在控制台中，是否出现了错误</li>
+</ul>
+<h3 id="arttemplate"><a href="#arttemplate" class="headerlink" title="arttemplate"></a>arttemplate</h3><ul>
+<li><p>模板引擎</p>
+<ul>
+<li>作用：把数据快速转换成html字符串</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>引入 .js文件</p>
+</li>
+<li><p>准备数据 res</p>
+<ul>
+<li>一定是一个对象 ｛ name: “XXX” ｝</li>
+</ul>
+</li>
+<li><p>准备模板</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=<span class="string">&quot;&quot;</span> type=<span class="string">&quot;text/html&quot;</span>&gt;&#123;&#123;name&#125;&#125;&lt;/script&gt;</span><br><span class="line">&#123;&#123;each res对象中的属性名-数组  item index&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> htmlStr = <span class="title function_">template</span>(模板id，res)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><ul>
+<li><p>在一个网页中嵌入另一个网页</p>
+</li>
+<li><p>典型结构</p>
+<ul>
+<li>a href&#x3D;”” target&#x3D;”iframe的name”</li>
+</ul>
+</li>
+</ul>
+<h3 id="达成的目标"><a href="#达成的目标" class="headerlink" title="达成的目标"></a>达成的目标</h3><ul>
+<li><p>初步建立pc端网站模块化的开发思想</p>
+</li>
+<li><p>熟悉常见的操作流程</p>
+<ul>
+<li><p>添加</p>
+<ul>
+<li><p>收集信息</p>
+</li>
+<li><p>检测信息的有效性</p>
+<ul>
+<li>用户名不能为空</li>
+<li>长度不能太小</li>
+<li>email格式</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>调用接口</p>
+<ul>
+<li><p>成功</p>
+</li>
+<li><p>失败</p>
+<ul>
+<li>模态框提示</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>删除</p>
+<ul>
+<li><p>提示是否删除</p>
+</li>
+<li><p>收集信息</p>
+<ul>
+<li>掌握从地址栏中传值到另一个页面</li>
+</ul>
+</li>
+<li><p>检测信息的有效性</p>
+<ul>
+<li>用户名不能为空</li>
+<li>长度不能太小</li>
+<li>email格式</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>调用接口</p>
+<ul>
+<li>成功</li>
+<li>失败</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>修改</p>
+<ul>
+<li><p>获取出详情数据</p>
+</li>
+<li><p>显示在页面上</p>
+</li>
+<li><p>收集信息</p>
+</li>
+<li><p>检测信息的有效性</p>
+<ul>
+<li>用户名不能为空</li>
+<li>长度不能太小</li>
+<li>email格式</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>调用接口</p>
+<ul>
+<li>成功</li>
+<li>失败</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>查询</p>
+<ul>
+<li><p>收集信息</p>
+</li>
+<li><p>检测信息的有效性</p>
+<ul>
+<li>用户名不能为空</li>
+<li>长度不能太小</li>
+<li>email格式</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>组装查询条件</p>
+</li>
+<li><p>调用接口</p>
+<ul>
+<li><p>成功</p>
+<ul>
+<li>使用模板引擎进行数据渲染</li>
+</ul>
+</li>
+<li><p>失败</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解决错误的基本方法</p>
+<ul>
+<li><p>alert()</p>
+</li>
+<li><p>console.log()</p>
+</li>
+<li><p>加断点</p>
+<ul>
+<li>debugger</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ajax使用</p>
+<ul>
+<li><p>在network面板中观察</p>
+<ul>
+<li><p>请求行</p>
+<ul>
+<li>有接口的地址</li>
+</ul>
+</li>
+<li><p>参数</p>
+<ul>
+<li>格式 </li>
+<li>个数</li>
+</ul>
+</li>
+<li><p>响应结果</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码量的训练</p>
+</li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com">JCAlways</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhangsifan.com/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/">https://blog.zhangsifan.com/posts/DOC-Xmind%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.zhangsifan.com" target="_blank">JCAlways</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post-share"><div class="social-share" data-image="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/Node-MySQL%E4%BD%BF%E7%94%A8/" title="Node操作MySQL"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Node操作MySQL</div></div><div class="info-2"><div class="info-item-1">数据库的增删改查增1insert into 表名(字段名1,字段名2,......) values(值1,值2,......)  删1delete  from 表名  where 删除条件  改1update 表名 set 字段1=值1, 字段2=值2,...  where 修改条件  查1SELECT  字段名1, 字段名2, .....  FROM 表名	WHERE &lt;条件表达式&gt;  Node.js 中使用 MySQL初始化文件夹1npm init -y  安装插件1npm i mysql  创建 server.js 将代码复制进去12345678910111213141516var mysql = require(&quot;mysql&quot;);var connection = mysql.createConnection(&#123;  host: &quot;localhost&quot;,  user: &quot;root&quot;,  password: &quot;root&quot;,  database: &quot;test&quot;...</div></div></div></a><a class="pagination-related" href="/posts/Node-Node%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/" title="Node中的会话技术"><img class="cover" src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Node中的会话技术</div></div><div class="info-2"><div class="info-item-1">会话技术有很多的网站都有登录的功能： 123|--login.html (登录页)|--index.html(主页)|--vip.html(设置页)  实际开发中，我们必须解决：  页面之间的状态共享问题：例如用户从 login.html 页面登陆之后，再去访问 index.html 或者 setting.html 页面时，应该还是能够获取用户的登陆信息。 权限控制。必须先 login 成功，之后才访问 vip.html。  由于 http 是无状态的，就是无记忆的，对于 HTTP 协议而言，无状态同样指每次 request 请求之间是相互独立的，当前请求并不会记录上一次请求信息。每次请求都是独立的，没有关联的，所以服务器和客户端都不知道是否是登录过的。 什么是会话控制会话控制就是用来弥补 http 无记忆的缺陷的一种技术。它能够将数据持久化（保存数据）的保存在客户端(浏览器)或者服务器端，从而让浏览器和服务器进行多次数据交换时，产生连续性。 让每一次的请求和响应都知道对方是谁。  会话控制的分类Cookie–将数据保存到客户端（浏览器）（饼干，甜点）Cookie 原理 从服务器...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://x1.haoxianggroup.cn/static/20220516143528_78.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JCAlways</div><div class="author-info-description">分享开发过程中遇到的问题,以及一些技术文章!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sponsors/JCAlways"><i class="fas fa-heart"></i><span>Sponsor</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/JCAlways" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitlab.com/JCAlways" target="_blank" title="Gitlab"><i class="fab fa-gitlab"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！遇到有用的文章记得分享哦!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E4%B8%8E%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">前端与移动开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E9%98%B6%E6%AE%B5"><span class="toc-number">1.1.</span> <span class="toc-text">HTML阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML%E6%A0%87%E7%AD%BE"><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.</span> <span class="toc-text">CSS阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">伪类选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">结构伪类选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Less"><span class="toc-number">1.2.5.</span> <span class="toc-text">Less</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8WEB%E9%98%B6%E6%AE%B5"><span class="toc-number">1.3.</span> <span class="toc-text">移动WEB阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-number">1.3.2.</span> <span class="toc-text">分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%83%8F%E7%B4%A0%E5%AF%86%E5%BA%A6-PPI"><span class="toc-number">1.3.3.</span> <span class="toc-text">像素密度(PPI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0-DPR"><span class="toc-number">1.3.4.</span> <span class="toc-text">设备独立像素(DPR)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%80%82%E9%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">页面适配方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-number">1.3.6.</span> <span class="toc-text">框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E9%98%B6%E6%AE%B5"><span class="toc-number">1.4.</span> <span class="toc-text">JavaScript阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF"><span class="toc-number">1.4.1.</span> <span class="toc-text">学习线路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E6%95%88%E6%9E%9C"><span class="toc-number">1.4.2.</span> <span class="toc-text">js效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E9%98%B6%E6%AE%B5"><span class="toc-number">1.5.</span> <span class="toc-text">Git阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86"><span class="toc-number">1.5.1.</span> <span class="toc-text">个人整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B2%E5%B8%88%E6%95%B4%E7%90%86"><span class="toc-number">1.5.2.</span> <span class="toc-text">讲师整理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">大事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-number">1.6.1.</span> <span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD"><span class="toc-number">1.6.2.</span> <span class="toc-text">开发具体功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E6%93%8D%E4%BD%9C%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-number">1.6.3.</span> <span class="toc-text">ajax操作的封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD"><span class="toc-number">1.6.4.</span> <span class="toc-text">具体功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E9%94%99"><span class="toc-number">1.6.5.</span> <span class="toc-text">排错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arttemplate"><span class="toc-number">1.6.6.</span> <span class="toc-text">arttemplate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iframe"><span class="toc-number">1.6.7.</span> <span class="toc-text">iframe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%BE%E6%88%90%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-number">1.6.8.</span> <span class="toc-text">达成的目标</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程"><img src="https://static-www.onlyoffice.com/v9.5.0/images/press-downloads/logos/logo_color.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OnlyOffice 前端使用教程"/></a><div class="content"><a class="title" href="/posts/20251011oo/" title="OnlyOffice 前端使用教程">OnlyOffice 前端使用教程</a><time datetime="2025-10-10T16:00:00.000Z" title="发表于 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器"><img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MCV_SpringDrop_DotNet_Homepage_2560x932-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nintendo Switch 我的世界 连接第三方服务器"/></a><div class="content"><a class="title" href="/posts/20250925mc/" title="Nintendo Switch 我的世界 连接第三方服务器">Nintendo Switch 我的世界 连接第三方服务器</a><time datetime="2025-09-24T16:00:00.000Z" title="发表于 2025-09-25 00:00:00">2025-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器"><img src="https://res.cloudinary.com/about-gitlab-com/image/upload/v1758208064/dzl0dbift9xdizyelkk4.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 Gitlab CE 服务器"/></a><div class="content"><a class="title" href="/posts/20250905gl/" title="搭建 Gitlab CE 服务器">搭建 Gitlab CE 服务器</a><time datetime="2025-09-03T16:00:00.000Z" title="发表于 2025-09-04 00:00:00">2025-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707mp/" title="搭建 RTMP 推流服务"><img src="https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 RTMP 推流服务"/></a><div class="content"><a class="title" href="/posts/20250707mp/" title="搭建 RTMP 推流服务">搭建 RTMP 推流服务</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/20250707zb/" title="OBS 多流推送"><img src="https://obsproject.com/assets/images/features-new/hero.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OBS 多流推送"/></a><div class="content"><a class="title" href="/posts/20250707zb/" title="OBS 多流推送">OBS 多流推送</a><time datetime="2025-07-06T16:00:00.000Z" title="发表于 2025-07-07 00:00:00">2025-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2019 - 2026 By JCAlways</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-lang":"zh-CN"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'JCAlways/jcalways.github.io',
+      'data-repo-id': 'R_kgDOH7iipg',
+      'data-category-id': 'DIC_kwDOH7iips4Cvi27',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"/><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr/><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><a class="algolia-poweredBy" href="https://www.algolia.com/?utm_source=algoliasearch.js&amp;utm_medium=website&amp;utm_content=localhost&amp;utm_campaign=poweredby" target="_blank" aria-label="Search by Algolia" rel="noopener noreferrer"><svg class="ais-PoweredBy-logo" height="1.2em" viewBox="0 0 572 64" style="width: auto;"><path fill="#36395A" d="M16 48.3c-3.4 0-6.3-.6-8.7-1.7A12.4 12.4 0 0 1 1.9 42C.6 40 0 38 0 35.4h6.5a6.7 6.7 0 0 0 3.9 6c1.4.7 3.3 1.1 5.6 1.1 2.2 0 4-.3 5.4-1a7 7 0 0 0 3-2.4 6 6 0 0 0 1-3.4c0-1.5-.6-2.8-1.9-3.7-1.3-1-3.3-1.6-5.9-1.8l-4-.4c-3.7-.3-6.6-1.4-8.8-3.4a10 10 0 0 1-3.3-7.9c0-2.4.6-4.6 1.8-6.4a12 12 0 0 1 5-4.3c2.2-1 4.7-1.6 7.5-1.6s5.5.5 7.6 1.6a12 12 0 0 1 5 4.4c1.2 1.8 1.8 4 1.8 6.7h-6.5a6.4 6.4 0 0 0-3.5-5.9c-1-.6-2.6-1-4.4-1s-3.2.3-4.4 1c-1.1.6-2 1.4-2.6 2.4-.5 1-.8 2-.8 3.1a5 5 0 0 0 1.5 3.6c1 1 2.6 1.7 4.7 1.9l4 .3c2.8.2 5.2.8 7.2 1.8 2.1 1 3.7 2.2 4.9 3.8a9.7 9.7 0 0 1 1.7 5.8c0 2.5-.7 4.7-2 6.6a13 13 0 0 1-5.6 4.4c-2.4 1-5.2 1.6-8.4 1.6Zm35.6 0c-2.6 0-4.8-.4-6.7-1.3a13 13 0 0 1-4.7-3.5 17.1 17.1 0 0 1-3.6-10.4v-1c0-2 .3-3.8 1-5.6a13 13 0 0 1 7.3-8.3 15 15 0 0 1 6.3-1.4A13.2 13.2 0 0 1 64 24.3c1 2.2 1.6 4.6 1.6 7.2V34H39.4v-4.3h21.8l-1.8 2.2c0-2-.3-3.7-.9-5.1a7.3 7.3 0 0 0-2.7-3.4c-1.2-.7-2.7-1.1-4.6-1.1s-3.4.4-4.7 1.3a8 8 0 0 0-2.9 3.6c-.6 1.5-.9 3.3-.9 5.4 0 2 .3 3.7 1 5.3a7.9 7.9 0 0 0 2.8 3.7c1.3.8 3 1.3 5 1.3s3.8-.5 5.1-1.3c1.3-1 2.1-2 2.4-3.2h6a11.8 11.8 0 0 1-7 8.7 16 16 0 0 1-6.4 1.2ZM80 48c-2.2 0-4-.3-5.7-1a8.4 8.4 0 0 1-3.7-3.3 9.7 9.7 0 0 1-1.3-5.2c0-2 .5-3.8 1.5-5.2a9 9 0 0 1 4.3-3.1c1.8-.7 4-1 6.7-1H89v4.1h-7.5c-2 0-3.4.5-4.4 1.4-1 1-1.6 2.1-1.6 3.6s.5 2.7 1.6 3.6c1 1 2.5 1.4 4.4 1.4 1.1 0 2.2-.2 3.2-.7 1-.4 1.9-1 2.6-2 .6-1 1-2.4 1-4.2l1.7 2.1c-.2 2-.7 3.8-1.5 5.2a9 9 0 0 1-3.4 3.3 12 12 0 0 1-5.3 1Zm9.5-.7v-8.8h-1v-10c0-1.8-.5-3.2-1.4-4.1-1-1-2.4-1.4-4.2-1.4a142.9 142.9 0 0 0-10.2.4v-5.6a74.8 74.8 0 0 1 8.6-.4c3 0 5.5.4 7.5 1.2s3.4 2 4.4 3.6c1 1.7 1.4 4 1.4 6.7v18.4h-5Zm12.9 0V17.8h5v12.3h-.2c0-4.2 1-7.4 2.8-9.5a11 11 0 0 1 8.3-3.1h1v5.6h-2a9 9 0 0 0-6.3 2.2c-1.5 1.5-2.2 3.6-2.2 6.4v15.6h-6.4Zm34.4 1a15 15 0 0 1-6.6-1.3c-1.9-.9-3.4-2-4.7-3.5a15.5 15.5 0 0 1-2.7-5c-.6-1.7-1-3.6-1-5.4v-1c0-2 .4-3.8 1-5.6a15 15 0 0 1 2.8-4.9c1.3-1.5 2.8-2.6 4.6-3.5a16.4 16.4 0 0 1 13.3.2c2 1 3.5 2.3 4.8 4a12 12 0 0 1 2 6H144c-.2-1.6-1-3-2.2-4.1a7.5 7.5 0 0 0-5.2-1.7 8 8 0 0 0-4.7 1.3 8 8 0 0 0-2.8 3.6 13.8 13.8 0 0 0 0 10.3c.6 1.5 1.5 2.7 2.8 3.6s2.8 1.3 4.8 1.3c1.5 0 2.7-.2 3.8-.8a7 7 0 0 0 2.6-2c.7-1 1-2 1.2-3.2h6.2a11 11 0 0 1-2 6.2 15.1 15.1 0 0 1-11.8 5.5Zm19.7-1v-40h6.4V31h-1.3c0-3 .4-5.5 1.1-7.6a9.7 9.7 0 0 1 3.5-4.8A9.9 9.9 0 0 1 172 17h.3c3.5 0 6 1.1 7.9 3.5 1.7 2.3 2.6 5.7 2.6 10v16.8h-6.4V29.6c0-2.1-.6-3.8-1.8-5a6.4 6.4 0 0 0-4.8-1.8c-2 0-3.7.7-5 2a7.8 7.8 0 0 0-1.9 5.5v17h-6.4Zm63.8 1a12.2 12.2 0 0 1-10.9-6.2 19 19 0 0 1-1.8-7.3h1.4v12.5h-5.1v-40h6.4v19.8l-2 3.5c.2-3.1.8-5.7 1.9-7.7a11 11 0 0 1 4.4-4.5c1.8-1 3.9-1.5 6.1-1.5a13.4 13.4 0 0 1 12.8 9.1c.7 1.9 1 3.8 1 6v1c0 2.2-.3 4.1-1 6a13.6 13.6 0 0 1-13.2 9.4Zm-1.2-5.5a8.4 8.4 0 0 0 7.9-5c.7-1.5 1.1-3.3 1.1-5.3s-.4-3.8-1.1-5.3a8.7 8.7 0 0 0-3.2-3.6 9.6 9.6 0 0 0-9.2-.2 8.5 8.5 0 0 0-3.3 3.2c-.8 1.4-1.3 3-1.3 5v2.3a9 9 0 0 0 1.3 4.8 9 9 0 0 0 3.4 3c1.4.7 2.8 1 4.4 1Zm27.3 3.9-10-28.9h6.5l9.5 28.9h-6Zm-7.5 12.2v-5.7h4.9c1 0 2-.1 2.9-.4a4 4 0 0 0 2-1.4c.4-.7.9-1.6 1.2-2.7l8.6-30.9h6.2l-9.3 32.4a14 14 0 0 1-2.5 5 8.9 8.9 0 0 1-4 2.8c-1.5.6-3.4.9-5.6.9h-4.4Zm9-12.2v-5.2h6.4v5.2H248Z"></path><path fill="#003DFF" d="M534.4 9.1H528a.8.8 0 0 1-.7-.7V1.8c0-.4.2-.7.6-.8l6.5-1c.4 0 .8.2.9.6v7.8c0 .4-.4.7-.8.7zM428 35.2V.8c0-.5-.3-.8-.7-.8h-.2l-6.4 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.5 0 .8-.4.8-.8V43c0-.4-.3-.7-.6-.8-4.5-.5-4.5-6-4.5-7zm106.5-21.8H528c-.4 0-.7.4-.7.8v34c0 .4.3.8.7.8h6.5c.4 0 .8-.4.8-.8v-34c0-.5-.4-.8-.8-.8zm-17.7 21.8V.8c0-.5-.3-.8-.8-.8l-6.5 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.4 0 .8-.4.8-.8V43c0-.4-.3-.7-.7-.8-4.4-.5-4.4-6-4.4-7zm-22.2-20.6a16.5 16.5 0 0 1 8.6 9.3c.8 2.2 1.3 4.8 1.3 7.5a19.4 19.4 0 0 1-4.6 12.6 14.8 14.8 0 0 1-5.2 3.6c-2 .9-5.2 1.4-6.8 1.4a21 21 0 0 1-6.7-1.4 15.4 15.4 0 0 1-8.6-9.3 21.3 21.3 0 0 1 0-14.4 15.2 15.2 0 0 1 8.6-9.3c2-.8 4.3-1.2 6.7-1.2s4.6.4 6.7 1.2zm-6.7 27.6c2.7 0 4.7-1 6.2-3s2.2-4.3 2.2-7.8-.7-6.3-2.2-8.3-3.5-3-6.2-3-4.7 1-6.1 3c-1.5 2-2.2 4.8-2.2 8.3s.7 5.8 2.2 7.8 3.5 3 6.2 3zm-88.8-28.8c-6.2 0-11.7 3.3-14.8 8.2a18.6 18.6 0 0 0 4.8 25.2c1.8 1.2 4 1.8 6.2 1.7s.1 0 .1 0h.9c4.2-.7 8-4 9.1-8.1v7.4c0 .4.3.7.8.7h6.4a.7.7 0 0 0 .7-.7V14.2c0-.5-.3-.8-.7-.8h-13.5zm6.3 26.5a9.8 9.8 0 0 1-5.7 2h-.5a10 10 0 0 1-9.2-14c1.4-3.7 5-6.3 9-6.3h6.4v18.3zm152.3-26.5h13.5c.5 0 .8.3.8.7v33.7c0 .4-.3.7-.8.7h-6.4a.7.7 0 0 1-.8-.7v-7.4c-1.2 4-4.8 7.4-9 8h-.1a4.2 4.2 0 0 1-.5.1h-.9a10.3 10.3 0 0 1-7-2.6c-4-3.3-6.5-8.4-6.5-14.2 0-3.7 1-7.2 3-10 3-5 8.5-8.3 14.7-8.3zm.6 28.4c2.2-.1 4.2-.6 5.7-2V21.7h-6.3a9.8 9.8 0 0 0-9 6.4 10.2 10.2 0 0 0 9.1 13.9h.5zM452.8 13.4c-6.2 0-11.7 3.3-14.8 8.2a18.5 18.5 0 0 0 3.6 24.3 10.4 10.4 0 0 0 13 .6c2.2-1.5 3.8-3.7 4.5-6.1v7.8c0 2.8-.8 5-2.2 6.3-1.5 1.5-4 2.2-7.5 2.2l-6-.3c-.3 0-.7.2-.8.5l-1.6 5.5c-.1.4.1.8.5 1h.1c2.8.4 5.5.6 7 .6 6.3 0 11-1.4 14-4.1 2.7-2.5 4.2-6.3 4.5-11.4V14.2c0-.5-.4-.8-.8-.8h-13.5zm6.3 8.2v18.3a9.6 9.6 0 0 1-5.6 2h-1a10.3 10.3 0 0 1-8.8-14c1.4-3.7 5-6.3 9-6.3h6.4zM291 31.5A32 32 0 0 1 322.8 0h30.8c.6 0 1.2.5 1.2 1.2v61.5c0 1.1-1.3 1.7-2.2 1l-19.2-17a18 18 0 0 1-11 3.4 18.1 18.1 0 1 1 18.2-14.8c-.1.4-.5.7-.9.6-.1 0-.3 0-.4-.2l-3.8-3.4c-.4-.3-.6-.8-.7-1.4a12 12 0 1 0-2.4 8.3c.4-.4 1-.5 1.6-.2l14.7 13.1v-46H323a26 26 0 1 0 10 49.7c.8-.4 1.6-.2 2.3.3l3 2.7c.3.2.3.7 0 1l-.2.2a32 32 0 0 1-47.2-28.6z"></path></svg></a></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
