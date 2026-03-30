@@ -94,7 +94,8 @@ category_per_img:
 footer_img: false
 
 # Website Background
-# Can set it to color or image url
+# Can set it to color, image URL or an array containing colors and/or image URLs
+# If an array is provided, a random background will be selected from the array on each load
 background:
 
 cover:
@@ -266,8 +267,8 @@ footer:
   copyright:
     enable: true
     version: true
-  custom_text: 
- 
+  custom_text:
+
 # --------------------------------------
 # Aside Settings
 # --------------------------------------
@@ -321,6 +322,7 @@ aside:
     # If set 0 will show all
     limit: 40
     color: false
+    custom_colors:
     # Order of tags, random/name/length
     orderby: random
     # Sort of order. 1, asc for ascending; -1, desc for descending
@@ -518,12 +520,12 @@ share:
   # Share.js
   # https://github.com/overtrue/share.js
   sharejs:
-    sites: facebook,twitter,wechat,weibo,qq
+    sites: facebook,x,wechat,weibo,qq
 
   # AddToAny
   # https://www.addtoany.com/
   addtoany:
-    item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+    item: facebook,x,wechat,sina_weibo,facebook_messenger,email,copy_link
 
 # --------------------------------------
 # Comments System
@@ -725,7 +727,7 @@ google_tag_manager:
 
 # Google Adsense
 google_adsense:
-  enable: false
+  enable: true
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-9415424991714769
@@ -942,6 +944,10 @@ mermaid:
   theme:
     light: default
     dark: dark
+  # Enable "Open in New Tab" button to view diagram in a separate window
+  open_in_new_tab: true
+  # Enable zoom and pan interactions on diagrams
+  zoom_pan: true
 
 # chartjs
 # see https://www.chartjs.org/docs/latest/
