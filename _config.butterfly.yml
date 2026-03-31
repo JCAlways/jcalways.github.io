@@ -695,10 +695,10 @@ baidu_analytics: 69875ea5f2adb86bb9fb3d729cfc4a2e
 google_analytics: G-EWZ3LRRMDJ
 
 # https://www.cloudflare.com/zh-tw/web-analytics/
-cloudflare_analytics:
+cloudflare_analytics: 4cfbc577b5724eb196646ad714bb2a60
 
 # https://clarity.microsoft.com/
-microsoft_clarity:
+microsoft_clarity: b81f8b6b2f
 
 # https://umami.is/
 umami_analytics:
