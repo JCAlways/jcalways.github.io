@@ -1,6 +1,6 @@
 {
   "name": "hexo-site",
-  "version": "26.4.20",
+  "version": "26.5.13",
   "private": true,
   "scripts": {
     "algolia": "hexo algolia",
@@ -10,11 +10,11 @@
     "douban": "hexo douban"
   },
   "hexo": {
-    "version": "8.1.1"
+    "version": "8.1.2"
   },
   "dependencies": {
     "algolia": "^0.0.0",
-    "hexo": "^8.1.1",
+    "hexo": "^8.1.2",
     "hexo-algolia": "^1.3.2",
     "hexo-deployer-git": "^4.0.0",
     "hexo-douban": "^2.3.6",
@@ -36,6 +36,6 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.10.20"
+    "baseline-browser-mapping": "^2.10.29"
   }
 }

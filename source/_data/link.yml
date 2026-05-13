@@ -3,11 +3,15 @@
   link_list:
     - name: 天天起始页
       link: https://www.zhangsifan.com
-      avatar: https://www.zhangsifan.com/apple-touch-icon.png
+      avatar: https://static.zhangsifan.com/apple-touch-icon.png
       descr: 简洁的起始页
     - name: 统一认证平台
       link: https://account.zhangsifan.com
-      avatar: https://www.zhangsifan.com/apple-touch-icon.png
+      avatar: https://static.zhangsifan.com/apple-touch-icon.png
+      descr: 统一认证平台
+    - name: 静态资源服务器
+      link: https://static.zhangsifan.com
+      avatar: https://static.zhangsifan.com/apple-touch-icon.png
       descr: 统一认证平台
     - name: WPS WebOffice
       link: https://office.zhangsifan.com
@@ -41,6 +45,10 @@
       link: https://git.zhangsifan.com
       avatar: https://git.zhangsifan.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
       descr: 代码与文档管理工具
+    - name: LBS服务聚合
+      link: https://lbs.zhangsifan.com
+      avatar: https://static.zhangsifan.com/apple-touch-icon.png
+      descr: LBS服务聚合
 - class_name: 技术支持
   class_desc: 特别鸣谢
   link_list:
