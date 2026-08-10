@@ -25,10 +25,6 @@
       link: https://ql.zhangsifan.com
       avatar: https://qn.whyour.cn/logo.png
       descr: 一款功能强大的任务管理工具
-    - name: PageSpy
-      link: https://pagespy.zhangsifan.com
-      avatar: https://www.pagespy.org/favicon.svg
-      descr: 像使用谷歌浏览器的控制台一样简单地开始远程调试。
     - name: Halo
       link: https://halo.zhangsifan.com
       avatar: https://www.halo.run/upload/logo.png
@@ -45,6 +41,10 @@
       link: https://git.zhangsifan.com
       avatar: https://git.zhangsifan.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
       descr: 代码与文档管理工具
+    - name: NextCloud
+      link: https://cloud.zhangsifan.com
+      avatar: https://cloud.zhangsifan.com//apps/theming/favicon
+      descr: NextCloud
     - name: LBS服务聚合
       link: https://lbs.zhangsifan.com
       avatar: https://static.zhangsifan.com/apple-touch-icon.png

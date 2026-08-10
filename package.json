@@ -1,6 +1,6 @@
 {
   "name": "hexo-site",
-  "version": "26.5.13",
+  "version": "26.8.10",
   "private": true,
   "scripts": {
     "algolia": "hexo algolia",
@@ -31,11 +31,11 @@
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-butterfly": "^5.5.4",
+    "hexo-theme-butterfly": "^5.7.0",
     "hexo-theme-landscape": "^1.1.0",
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.10.29"
+    "baseline-browser-mapping": "^2.11.13"
   }
 }
