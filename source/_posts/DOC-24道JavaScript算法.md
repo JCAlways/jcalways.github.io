@@ -1,10 +1,11 @@
 ---
 title: 24道JavaScript算法题
 date: 2019-10-13 20:29:46
+updated: 2019-10-13
 categories: 技术文档
 tags: JavaScript
-keywords:
-description:
+keywords: 技术文档
+description: 24道JavaScript算法题 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

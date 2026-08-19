@@ -1,11 +1,12 @@
 ---
 title: 微信小程序基础
 date: 2019-11-30 08:00:00
+updated: 2019-11-30
 categories:
   - 微信小程序
 tags: 微信小程序
-keywords:
-description:
+keywords: 微信小程序
+description: 微信小程序基础 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

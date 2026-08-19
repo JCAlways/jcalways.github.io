@@ -1,12 +1,13 @@
 ---
 title: VueX
 date: 2019-11-12 14:30:00
+updated: 2019-11-12
 categories:
   - JavaScript
   - Vue.js
 tags: Vue.js
-keywords:
-description:
+keywords: Vue.js
+description: VueX 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

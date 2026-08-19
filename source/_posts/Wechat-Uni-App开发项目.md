@@ -1,11 +1,12 @@
 ---
 title: Uni-App开发项目
 date: 2019-12-06 21:11:43
+updated: 2019-12-06
 categories:
   - 微信小程序
 tags: 微信小程序
-keywords:
-description:
+keywords: 微信小程序
+description: Uni-App开发项目 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

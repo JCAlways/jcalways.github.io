@@ -1,12 +1,13 @@
 ---
 title: Vue-Cli的使用
 date: 2019-10-22 20:00:00
+updated: 2019-10-22
 categories:
   - JavaScript
   - Vue.js
 tags: Vue.js
-keywords:
-description:
+keywords: Vue.js
+description: Vue-Cli的使用 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

@@ -1,12 +1,13 @@
 ---
 title: MVVM原理
 date: 2019-10-16 14:00:00
+updated: 2019-10-16
 categories:
   - JavaScript
   - Vue.js
 tags: Vue.js
-keywords:
-description:
+keywords: Vue.js
+description: MVVM原理 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

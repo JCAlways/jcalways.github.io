@@ -1,6 +1,7 @@
 ---
 title: Hexo博客搭建流程
 date: 2019-09-19 20:00:00
+updated: 2019-09-19
 tags: Hexo
 categories: 技术文档
 keywords: 博客搭建

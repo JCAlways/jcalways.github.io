@@ -1,12 +1,13 @@
 ---
 title: React基础
 date: 2020-01-06 00:00:00
+updated: 2020-01-06
 categories:
   - JavaScript
   - React.js
-tags: React.jjs
-keywords:
-description:
+tags: React.js
+keywords: React.js
+description: React基础 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

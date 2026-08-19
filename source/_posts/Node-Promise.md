@@ -1,12 +1,13 @@
 ---
 title: Promise
 date: 2019-10-14 18:15:47
+updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js
 tags: Node.js
-keywords:
-description:
+keywords: Node.js
+description: Promise 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png

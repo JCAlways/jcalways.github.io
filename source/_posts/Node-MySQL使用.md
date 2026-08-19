@@ -1,18 +1,21 @@
 ---
 title: Node操作MySQL
 date: 2019-10-14 14:57:48
+updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js
 tags: Node.js
-keywords:
-description:
+keywords: Node.js
+description: Node操作MySQL 学习笔记与使用总结
 top_img:
 comments:
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 数据库的增删改查
+
+先回顾 MySQL 的基础 SQL 语法，Node.js 中执行的就是这些语句。
 
 ## 增
 
@@ -71,4 +74,22 @@ connection.query(sql, function (error, results, fields) {
 });
 
 connection.end();
+```
+
+# 代码说明
+
+- `mysql.createConnection()`：创建连接，`host` / `user` / `password` / `database` 分别对应数据库地址、账号、密码和库名
+- `connection.query(sql, callback)`：执行 SQL 语句，回调中 `results` 为查询结果（增删改时返回影响行数 `affectedRows`），`fields` 为字段信息
+- `connection.end()`：关闭连接，注意需在查询完成后调用，否则会提前断开导致查询失败
+
+## 参数化查询（防 SQL 注入）
+
+实际开发中建议使用 `?` 占位符传参，避免拼接字符串带来的 SQL 注入风险：
+
+```js
+let sql = "SELECT * FROM users WHERE name = ? AND age > ?";
+connection.query(sql, ["小明", 18], function (error, results) {
+  if (error) throw error;
+  console.log(results);
+});
 ```

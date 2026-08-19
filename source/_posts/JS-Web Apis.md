@@ -1,10 +1,12 @@
 ---
 title: Web Apis
-date: 2019-8-29 20:00:00
+date: 2019-08-29 20:00:00
+updated: 2019-08-29
 categories:
   - JavaScript
 tags: JavaScript
 cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
+description: JavaScript Web APIs 学习笔记：DOM 文档对象模型、元素获取与操作等基础知识
 ---
 
 # DOM (文档对象模型/Document Object Model)
