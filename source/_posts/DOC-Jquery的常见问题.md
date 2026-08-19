@@ -8,7 +8,6 @@ keywords: 技术文档
 description: Jquery的常见问题 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 你在公司是怎么使用 jquery 的？

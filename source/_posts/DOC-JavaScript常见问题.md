@@ -8,7 +8,6 @@ keywords: 技术文档
 description: JavaScript常见问题 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # javascript 的 typeof 返回哪些数据类型

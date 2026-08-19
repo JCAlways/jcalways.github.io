@@ -5,7 +5,6 @@ updated: 2019-09-05
 categories:
   - JavaScript
 tags: JavaScript
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 description: JavaScript 高级语法学习笔记：作用域与闭包、this 指向、原型链、异步编程等核心知识点
 ---
 

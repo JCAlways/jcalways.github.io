@@ -5,7 +5,6 @@ updated: 2021-03-02
 categories:
   - TypeScript
 tags: TypeScript
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 description: "TypeScript 是一种由微软开发的开源、跨平台的编程语言。它是 JavaScript 的超集，最终会被编译为 JavaScript 代码。"
 ---
 

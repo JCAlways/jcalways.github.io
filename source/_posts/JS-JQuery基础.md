@@ -6,7 +6,6 @@ categories:
   - JavaScript
   - JQuery
 tags: JavaScript
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 description: jQuery 基础学习笔记：跨浏览器兼容、链式编程、简化 DOM 操作，支持事件、样式、动画
 ---
 

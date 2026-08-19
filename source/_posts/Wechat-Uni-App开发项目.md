@@ -9,7 +9,6 @@ keywords: 微信小程序
 description: Uni-App开发项目 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # uni-app---[官方网站](https://uniapp.dcloud.io/)

@@ -10,7 +10,6 @@ keywords: Vue.js
 description: Vue-Cli的使用 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Vue-Cli
@@ -110,23 +109,23 @@ npm run serve
 > 导航
 >
 > - UI 组件库
->   - [Element-UI](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#Element-UI)
->   - [Vant](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#Vant)
+>   - [Element-UI](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#Element-UI)
+>   - [Vant](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#Vant)
 > - Vue 组件
->   - [Vue-Router](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#Vue-Router)
->   - [VueX](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#VueX)
+>   - [Vue-Router](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#Vue-Router)
+>   - [VueX](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#VueX)
 > - 网络请求
->   - [Axios](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#Axios)
->   - [JSONP](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#jsonp)
->   - [qs](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#qs)
+>   - [Axios](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#Axios)
+>   - [JSONP](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#jsonp)
+>   - [qs](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#qs)
 > - 时间处理
->   - [moment](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#moment)
->   - [dayjs](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#dayjs)
+>   - [moment](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#moment)
+>   - [dayjs](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#dayjs)
 > - 图表
->   - [Echarts](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#Echarts)
+>   - [Echarts](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#Echarts)
 > - 工具类
->   - [JSON-bigint](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#json-bigint)
->   - [vue-lazyload----图片懒加载](https://blog.zhangsifan.com/2019/10/22/Vue-vue-cli/#vue-lazyload)
+>   - [JSON-bigint](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#json-bigint)
+>   - [vue-lazyload----图片懒加载](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#vue-lazyload)
 
 ## Element-UI
 
@@ -264,7 +263,7 @@ new Vue({
 <div class="note warning"><p>推荐使用路由懒加载方式导入</p></div>
 &nbsp;
 
-> [参考笔记](https://www.zhangsifan.com/2019/10/16/Vue-什么是Vue,如何使用Vue/#vue-router-插件)
+> [参考笔记](https://blog.zhangsifan.com/posts/Vue-Vue基础/#vue-router-插件)
 
 ### 路由懒加载
 
@@ -322,7 +321,7 @@ npm i vuex
 
 ### 导入和使用
 
-> [查看专栏](https://www.zhangsifan.com/2019/11/12/Vue-vuex/)
+> [查看专栏](https://blog.zhangsifan.com/posts/Vue-Vuex/)
 
 ## Axios
 
@@ -374,7 +373,7 @@ axios.defaults.baseURL = "http://ttapi.research.itcast.cn/mp/v1_0/";
 
 #### 处理数字最大安全值
 
-> 使用 JSON-bigint 解决,[使用方法](https://zhangsifan.com/2019/10/22/Vue-vue-cli/#json-bigint)
+> 使用 JSON-bigint 解决,[使用方法](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/#json-bigint)
 
 #### 请求拦截器
 

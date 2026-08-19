@@ -10,7 +10,6 @@ keywords: Node.js
 description: Node中的会话技术 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 会话技术

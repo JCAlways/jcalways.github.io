@@ -10,7 +10,6 @@ keywords: Vue.js
 description: Vue的钩子函数 学习笔记与使用总结：8 个生命周期钩子详解与使用场景
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 前言

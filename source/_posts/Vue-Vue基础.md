@@ -10,7 +10,6 @@ keywords: Vue.js
 description: Vue基础 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Vue 是什么之前端现状
@@ -1424,8 +1423,8 @@ var vm = new Vue({
 
 # Vue 的生命周期
 
-> [点击查看](http://zhangsifan.com/2019/10/22/Vue-vue的生命周期/#前言)
+> [点击查看](https://blog.zhangsifan.com/posts/Vue-vue的钩子函数/#前言)
 
 # 使用 Vue-Cli 开发项目
 
-> [点击查看](https://zhangsifan.com/2019/10/22/Vue-vue-cli/)
+> [点击查看](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/)

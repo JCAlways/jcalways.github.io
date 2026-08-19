@@ -9,12 +9,12 @@
   "icons": [
     {
       "sizes": "192x192",
-      "src": "https://www.zhangsifan.com/android-chrome-192x192.png",
+      "src": "https://static.zhangsifan.com/android-chrome-192x192.png",
       "type": "image/png"
     },
     {
       "sizes": "512x512",
-      "src": "https://www.zhangsifan.com/android-chrome-512x512.png",
+      "src": "https://static.zhangsifan.com/android-chrome-512x512.png",
       "type": "image/png"
     }
   ],

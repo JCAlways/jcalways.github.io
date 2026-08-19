@@ -10,7 +10,6 @@ keywords: Node.js
 description: Express框架 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # Express 介绍

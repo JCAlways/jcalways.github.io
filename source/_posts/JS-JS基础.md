@@ -5,7 +5,6 @@ updated: 2019-08-17
 categories:
   - JavaScript
 tags: JavaScript
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 description: JavaScript 基础语法学习笔记：变量、运算符、循环、函数等核心知识
 ---
 

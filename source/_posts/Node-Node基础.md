@@ -10,7 +10,6 @@ keywords: Node.js
 description: Node基础 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # 安装 Node.js

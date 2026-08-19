@@ -10,7 +10,6 @@ keywords: Vue.js
 description: VueX 学习笔记与使用总结
 top_img:
 comments:
-cover: https://gcore.jsdelivr.net/gh/jerryc127/CDN/img/Hexo-Built-in-Tag-Plugins-COVER.png
 ---
 
 # VueX 介绍
