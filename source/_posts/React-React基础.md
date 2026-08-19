@@ -24,7 +24,7 @@ comments:
 > - 一次学习,随处编写
 >   - React 可以进行服务端渲染，也可以用于移动 APP 开发（React Native）
 
-# Hello World
+## Hello World
 
 ```html
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ comments:
 </html>
 ```
 
-# 开发工具
+## 开发工具
 
 ## VS Code 插件
 
@@ -67,7 +67,7 @@ comments:
 },
 ```
 
-# JSX 基础语法
+## JSX 基础语法
 
 ## JSX 是什么
 

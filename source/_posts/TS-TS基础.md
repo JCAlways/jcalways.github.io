@@ -8,7 +8,7 @@ tags: TypeScript
 description: "TypeScript 是一种由微软开发的开源、跨平台的编程语言。它是 JavaScript 的超集，最终会被编译为 JavaScript 代码。"
 ---
 
-# 初识 TypeScript
+## 初识 TypeScript
 
 ## TypeScript 的介绍
 
@@ -39,7 +39,7 @@ TypeScript 主要有 3 大特点：
 - 先进的 JavaScript
   TypeScript 提供最新的和不断发展的 JavaScript 特性，包括那些来自 2015 年的 ECMAScript 和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件。
 
-# 安装 TypeScript
+## 安装 TypeScript
 
 命令行运行如下命令，全局安装 TypeScript：
 
@@ -53,7 +53,7 @@ npm install -g typescript
 tsc -V
 ```
 
-# HelloWorld
+## HelloWorld
 
 ```typescript
 function sayHi(str) {

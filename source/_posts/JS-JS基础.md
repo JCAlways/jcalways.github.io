@@ -8,11 +8,11 @@ tags: JavaScript
 description: JavaScript 基础语法学习笔记：变量、运算符、循环、函数等核心知识
 ---
 
-# 变量
+## 变量
 
-# 运算符
+## 运算符
 
-# 循环
+## 循环
 
 ## for 循环
 
@@ -80,7 +80,7 @@ for (var i = 1; i <= 10; i++) {
 }
 ```
 
-# 数组
+## 数组
 
 ## 创建数组
 
@@ -149,7 +149,7 @@ for (var i = 0; i <= arr.length - 1; i++) {
 console.log(arr);
 ```
 
-# 函数
+## 函数
 
 ## 声明函数
 
@@ -214,7 +214,7 @@ function 函数名称() {
 
 > 内部函数访问外部函数的变量,采取的是链式查找的方式取值
 
-# 对象
+## 对象
 
 > 包含属性和方法
 
@@ -282,7 +282,7 @@ for (var key in obj) {
 - 执行代码,添加属性和方法
 - 返回这个对象
 
-# 内置对象
+## 内置对象
 
 > [文档地址](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 

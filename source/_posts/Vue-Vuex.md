@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# VueX 介绍
+## VueX 介绍
 
 > [官方网站](https://vuex.vuejs.org/zh/)
 > Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。`(管理数据共享的工具)`
@@ -23,7 +23,7 @@ comments:
 - mutations 更新数据，state 中的数据只能使用 mutations 去改变数据。
 - actions 请求数据，响应成功后把数据提交给 mutations
 
-# 初始化功能
+## 初始化功能
 
 ## 安装
 
@@ -60,7 +60,7 @@ new Vue({
 }).$mount("#app");
 ```
 
-# state (管理数据)
+## state (管理数据)
 
 ## 普通写法
 
@@ -179,7 +179,7 @@ computed: {
 }
 ```
 
-# mutations (修改数据)
+## mutations (修改数据)
 
 ## 常规写法
 
@@ -226,7 +226,7 @@ methods: {
 }
 ```
 
-# actions (异步获取数据)
+## actions (异步获取数据)
 
 ## 常规写法
 
@@ -268,7 +268,7 @@ methods: {
 }
 ```
 
-# modules
+## modules
 
 > 在 store 全局数据 是可以分模块化管理的
 

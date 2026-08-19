@@ -13,7 +13,7 @@ cover:
 
 ESLint 是目前 JavaScript 最流行的**代码检查工具**，它可以根据配置的规则集对代码进行静态分析，在运行前就发现潜在的语法错误、未定义变量、不符合团队规范的问题，并支持**保存时自动修复**。
 
-# 安装 ESLint
+## 安装 ESLint
 
 在项目根目录安装：
 
@@ -27,7 +27,7 @@ npm install eslint --save-dev
 npx eslint --init
 ```
 
-# VSCode 中的配置
+## VSCode 中的配置
 
 在 VSCode 中配合 ESLint 插件使用，需要在项目根目录的 `.vscode/settings.json` 中添加以下配置：
 
@@ -62,7 +62,7 @@ npx eslint --init
 }
 ```
 
-# 常用配置示例
+## 常用配置示例
 
 ```json
 // .eslintrc.js
@@ -85,7 +85,7 @@ module.exports = {
 };
 ```
 
-# 命令行使用
+## 命令行使用
 
 ```bash
 # 检查某个文件

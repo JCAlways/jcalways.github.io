@@ -12,11 +12,11 @@ top_img:
 comments:
 ---
 
-# 安装 Node.js
+## 安装 Node.js
 
 [软件下载地址](https://nodejs.org/en/)
 
-# NPM
+## NPM
 
 ## 介绍
 
@@ -37,7 +37,7 @@ npm install 包名 -registry=地址  # 从镜像源安装
 npm config set registry 地址  # 设置镜像源
 ```
 
-# Hello World
+## Hello World
 
 ```js
 // 引入http模块
@@ -53,7 +53,7 @@ server.listen(8081, () => {
 });
 ```
 
-# 模块化
+## 模块化
 
 - 核心模块
   - 就是 nodejs 自带的模块，在安装完 nodejs 之后，就可以随意使用啦。相当于学习 js 时使用的 Array 对象。
@@ -64,14 +64,14 @@ server.listen(8081, () => {
   - 其他程序员写好的模块。nodejs 生态提供了一个专门的工具 npm 来管理第三方模块，后面我们会专门讲到。
   - 相当于别人写好的函数或者库。例如我们前面学习的 JQuery 库，arttemplate 等。
 
-# Node 的全局变量
+## Node 的全局变量
 
 ```js
 __filename; // 当前文件的绝对路径
 __dirname; // 当前文件所在目录的绝对路径
 ```
 
-# fs 模块(文件系统)
+## fs 模块(文件系统)
 
 > [文档地址](http://nodejs.cn/api/fs.html)
 
@@ -160,7 +160,7 @@ const fs = require("fs");
 fs.appendFileSync("1.txt", "我是文本");
 ```
 
-# path 模块(路径)
+## path 模块(路径)
 
 > [文档地址](http://nodejs.cn/api/path.html#path_path)
 
@@ -176,7 +176,7 @@ path 模块其它方法列表
 | path.parse(path)           | 把路径字符串解析成对象的格式       |
 | path.resolve([...paths])   | 基于当前**工作目录**拼接路径       |
 
-# http 模块
+## http 模块
 
 ## 搭建 web 服务器
 

@@ -1,0 +1,2 @@
+{% for post in posts %}{% if post.source.split('.').pop() != 'json' %}{{ post.permalink | uriencode }}
+{% endif %}{% endfor %}{{ config.url | uriencode }}

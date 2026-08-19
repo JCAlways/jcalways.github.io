@@ -10,7 +10,7 @@ description: JavaScript 高级语法学习笔记：作用域与闭包、this 指
 
 JavaScript 是一门基于原型（Prototype）的弱类型脚本语言，掌握好"高级"部分才能真正理解它的运行机制。本文整理了 JS 进阶阶段最常遇到的几个核心知识点。
 
-# 作用域与闭包
+## 作用域与闭包
 
 ## 作用域
 
@@ -54,7 +54,7 @@ console.log(counter()); // 2
 
 > 注意：滥用闭包会导致内存占用过大，用完应手动置空引用。
 
-# this 指向
+## this 指向
 
 `this` 的指向在**调用时**才确定，与声明位置无关。常见场景：
 
@@ -84,7 +84,7 @@ const obj2 = {
 };
 ```
 
-# 原型与原型链
+## 原型与原型链
 
 每个函数都有 `prototype` 属性，实例对象通过 `__proto__` 指向构造函数的原型。当访问一个属性时，会沿着 `__proto__` 逐级向上查找，直到找到或到达 `null`，这条查找链路就是**原型链**。
 
@@ -102,7 +102,7 @@ console.log(p.__proto__ === Person.prototype); // true
 
 ES6 的 `class` 本质就是基于原型的语法糖，`extends` 实现的是原型链上的继承。
 
-# 异步编程
+## 异步编程
 
 ## 回调函数 → Promise → async/await
 
@@ -141,7 +141,7 @@ const res = await Promise.all([fetchA(), fetchB()]);
 const res = await Promise.race([fetchA(), fetchB()]);
 ```
 
-# 其他常用高级特性
+## 其他常用高级特性
 
 - **深拷贝**：`JSON.parse(JSON.stringify(obj))` 或 `structuredClone(obj)`，注意前者会丢失函数与 `undefined`
 - **防抖 / 节流**：控制高频事件（滚动、输入、resize）的触发频率

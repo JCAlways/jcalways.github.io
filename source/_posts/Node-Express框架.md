@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# Express 介绍
+## Express 介绍
 
 - Express 是一个基于 Node.js 平台，快速、开放、极简的 **web 开发框架**
 - Express 是一个第三方模块，有丰富的 API 支持，强大而灵活的**中间件**特性
@@ -22,7 +22,7 @@ comments:
   - [Express 中文文档（非官方）](http://www.expressjs.com.cn/)
   - [Express GitHub 仓库](https://github.com/expressjs/express)
 
-# Hello World
+## Hello World
 
 - 下载 Express 包
 
@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
 app.listen(3000, () => console.log("app listening on port 3000!"));
 ```
 
-# 托管静态资源
+## 托管静态资源
 
 [产考文档](http://www.expressjs.com.cn/starter/static-files.html)
 
@@ -91,7 +91,7 @@ app.listen(3000, () => console.log("app listening on port 3000!"));
 app.use("/public", express.static("public"));
 ```
 
-# 路由
+## 路由
 
 [产考文档](http://www.expressjs.com.cn/starter/basic-routing.html)
 
@@ -193,7 +193,7 @@ const upload = multer({ dest: "uploads/" }); // 上传的文件会保存在这�
 app.post("postfile", upload.single("cover"), function (req, res) {});
 ```
 
-# 常见问题
+## 常见问题
 
 ## node 中的异步问题
 

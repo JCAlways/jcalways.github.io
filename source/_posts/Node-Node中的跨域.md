@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# 什么是跨域
+## 什么是跨域
 
 不同源的`AJAX`就是跨域
 
@@ -42,7 +42,7 @@ comments:
 
   注意，错误是发生在浏览器端的。请求是可以正常从浏览器发到服务器端，服务器也可以处理请求，只是返回到浏览器端时出错了。
 
-# 实现跨域的解决方案--JSONP
+## 实现跨域的解决方案--JSONP
 
 ## JSONP 简介
 
@@ -301,7 +301,7 @@ app.listen(3000, () => {
 </html>
 ```
 
-# 实现跨域的解决方案--CORS
+## 实现跨域的解决方案--CORS
 
 CORS 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出[`XMLHttpRequest`](http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html)请求，从而克服了 AJAX 只能[同源](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)使用的限制。CORS 需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE 浏览器不能低于 IE10(ie8 通过 XDomainRequest 能支持 CORS)。
 
@@ -325,7 +325,7 @@ app.get("/time", (req, res) => {
 
 自行下载使用 `npm cors` https://www.npmjs.com/package/cors
 
-# jsonp 和 CORS 的对比
+## jsonp 和 CORS 的对比
 
 jsonp：
 

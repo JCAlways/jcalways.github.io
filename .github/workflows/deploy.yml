@@ -43,6 +43,14 @@ jobs:
           HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
         run: npm run algolia
 
+      - name: Baidu URL submit
+        # 主动向百度站长平台推送最新文章（token 由 secrets 注入）
+        # 推送失败不阻断部署
+        if: github.actor != 'nektos/act'
+        env:
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+        run: npx hexo baidu-submit || echo "Baidu push failed (non-blocking)"
+
       - name: Upload GitHub Pages artifact
         if: github.actor != 'nektos/act'
         uses: actions/upload-pages-artifact@v5

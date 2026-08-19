@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# 前言
+## 前言
 
 > [官方介绍文档](https://cn.vuejs.org/v2/guide/instance.html#实例生命周期钩子)
 >
@@ -20,7 +20,7 @@ comments:
 
 ![vue生命周期详细图解版.png](https://i.loli.net/2019/11/07/D53BuAXMZCoRp8F.png)
 
-# 钩子函数详解
+## 钩子函数详解
 
 每个 Vue 实例在被创建时都要经过一系列的初始化过程（设置数据监听、编译模板、挂载实例到 DOM、数据变化时更新 DOM 等）。在这个过程中会运行一些叫做**生命周期钩子**的函数，让开发者有机会在特定阶段加入自己的代码。
 
@@ -37,7 +37,7 @@ Vue2 共有 8 个生命周期钩子：
 | `beforeDestroy` | 实例销毁之前 | 此时实例仍可用 |
 | `destroyed` | 实例销毁完成后 | 常用于**清理定时器、解绑事件** |
 
-# 示例代码
+## 示例代码
 
 ```html
 <div id="app">{{ msg }}</div>
@@ -70,7 +70,7 @@ new Vue({
 });
 ```
 
-# 使用场景总结
+## 使用场景总结
 
 - **`created`**：发起 AJAX 请求获取初始化数据（此时 DOM 未生成，但数据可用）
 - **`mounted`**：初始化 DOM 相关的第三方库（如 echarts、Swiper、地图）

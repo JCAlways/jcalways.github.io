@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# Promise 构造器
+## Promise 构造器
 
 Promise 是一个构造器，用来创建 Promise 类型的对象 。就好像 Array 是一个构造器，用来创建数组。
 
@@ -92,7 +92,7 @@ var p = new Promise( (resolve,reject) => { reject(1); } );
 
 单独来看 promiseValue 似乎没有什么意义，它的使用场景在于结合 promise 对象的实例方法一起来用来。
 
-# Promise 实例的方法
+## Promise 实例的方法
 
 ## then()
 

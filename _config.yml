@@ -4,8 +4,8 @@
 
 # Site
 title: JCAlways
-subtitle: ""
-description: "分享开发过程中遇到的问题,以及一些技术文章!"
+subtitle: "前端开发与编程技术笔记 | 张思帆的博客"
+description: "JCAlways 个人技术博客，分享前端开发（Vue、React、TypeScript、Node.js、JavaScript）过程中遇到的问题与解决方案，以及后端、工具类技术文章。"
 keywords: "博客,Blog,个人博客,张思帆,zhangsifan,zhangsifan.com,blog.zhangsifan.com,JCAlways,Always-Team,前端,前端技术,前端知识分享,前端技术分享"
 author: JCAlways
 language: zh-CN
@@ -81,7 +81,9 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: "mtime"
+## 使用 'date' 而非 'mtime'：CI 部署时 checkout 会重置文件 mtime，
+## 避免无 updated 字段的文章被搜索引擎误判为频繁更新
+updated_option: "date"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -105,6 +107,30 @@ deploy:
   type: git
   repository: git@github.com:JCAlways/jcalways.github.io.git
   branch: master
+
+# Sitemap
+## https://github.com/hexojs/hexo-generator-sitemap
+## tags/categories 聚合页内容单薄，不收录进 sitemap，避免浪费抓取配额
+## 自定义模板排除 manifest.json 等非内容文件
+sitemap:
+  path:
+    - sitemap.xml
+    - sitemap.txt
+  template: sitemap_template.xml
+  template_txt: sitemap_template.txt
+  rel: true
+  tags: false
+  categories: false
+
+# 百度主动推送
+## https://github.com/huiwang/hexo-baidu-url-submit
+## token 通过环境变量 BAIDU_TOKEN 注入（见 scripts/baidu-url-submit.js），
+## 由 CI secrets 提供，避免明文提交到仓库
+baidu_url_submit:
+  count: 10 # 百度普通收录每日配额有限，提交最近 10 篇
+  host: blog.zhangsifan.com # 百度站长平台已验证域名
+  token: "" # 勿在此填写，用环境变量 BAIDU_TOKEN 注入
+  path: baidu_urls.txt # 生成的 URL 列表文件（不含 token）
 
 algolia:
   applicationID: "YQUJUB5NGV"

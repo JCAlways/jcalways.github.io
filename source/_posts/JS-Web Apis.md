@@ -8,7 +8,7 @@ tags: JavaScript
 description: JavaScript Web APIs 学习笔记：DOM 文档对象模型、元素获取与操作等基础知识
 ---
 
-# DOM (文档对象模型/Document Object Model)
+## DOM (文档对象模型/Document Object Model)
 
 ## 获取元素
 
@@ -308,7 +308,7 @@ node.removeChild("节点");
 node.cloneNode(boolean); // true(复制标签复制内容) / false(复制标签)
 ```
 
-# BOM (浏览器对象模型/Browser Object Model)
+## BOM (浏览器对象模型/Browser Object Model)
 
 ## 常见事件
 
@@ -456,7 +456,7 @@ window.pageYOffset; // 页面被卷起的高度
 (function () {})();
 ```
 
-# click 延时解决方案
+## click 延时解决方案
 
 - 禁用缩放
 

@@ -9,7 +9,7 @@ tags: JavaScript
 description: jQuery 基础学习笔记：跨浏览器兼容、链式编程、简化 DOM 操作，支持事件、样式、动画
 ---
 
-# 什么是 Jquery
+## 什么是 Jquery
 
 > [官方网站](https://www.jquery.com)
 >
@@ -73,7 +73,7 @@ $("div").get(index);
 
 > 当前元素设置样式，其余的兄弟元素清除样式。
 
-# 事件
+## 事件
 
 ## 事件注册
 
@@ -148,7 +148,7 @@ e.stopPropagation();
 e.preventDefault();
 ```
 
-# 常用 API
+## 常用 API
 
 ## 选择器
 
@@ -397,7 +397,7 @@ $("body,html")
   });
 ```
 
-# 其他方法
+## 其他方法
 
 ## JQuery 对象拷贝
 

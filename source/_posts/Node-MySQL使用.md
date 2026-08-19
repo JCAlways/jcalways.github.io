@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# 数据库的增删改查
+## 数据库的增删改查
 
 先回顾 MySQL 的基础 SQL 语法，Node.js 中执行的就是这些语句。
 
@@ -40,7 +40,7 @@ update 表名 set 字段1=值1, 字段2=值2,...  where 修改条件
 SELECT  字段名1, 字段名2, .....  FROM 表名	WHERE <条件表达式>
 ```
 
-# Node.js 中使用 MySQL
+## Node.js 中使用 MySQL
 
 ## 初始化文件夹
 
@@ -75,7 +75,7 @@ connection.query(sql, function (error, results, fields) {
 connection.end();
 ```
 
-# 代码说明
+## 代码说明
 
 - `mysql.createConnection()`：创建连接，`host` / `user` / `password` / `database` 分别对应数据库地址、账号、密码和库名
 - `connection.query(sql, callback)`：执行 SQL 语句，回调中 `results` 为查询结果（增删改时返回影响行数 `affectedRows`），`fields` 为字段信息

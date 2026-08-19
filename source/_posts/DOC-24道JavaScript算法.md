@@ -10,7 +10,7 @@ top_img:
 comments:
 ---
 
-# 标准排序
+## 标准排序
 
 ## 第一种
 
@@ -46,7 +46,7 @@ for (var i = 0; i < arr.length; i++) {
 console.log(arr);
 ```
 
-# 字符串出现最多个数（2 种）
+## 字符串出现最多个数（2 种）
 
 ## 第一种
 
@@ -93,7 +93,7 @@ function change(arr) {
 console.log(change(strr));
 ```
 
-# 编程实现，往数组里插入一个元素
+## 编程实现，往数组里插入一个元素
 
 ```js
 var arr = ["1411A", "44", "34305", "djg", "pic"];
@@ -107,7 +107,7 @@ fun3(arr, 2, "hello");
 console.log(arr);
 ```
 
-# 编程实现 IndexOf 方法
+## 编程实现 IndexOf 方法
 
 ```js
 var brr = [5, 9, 6, 3, 2, 5];
@@ -122,7 +122,7 @@ function indexfun(arr, val) {
 console.log(indexfun(brr, 13));
 ```
 
-# 求数组中最大值和最小值
+## 求数组中最大值和最小值
 
 ```js
 var arr = [2, 41, 3, 1, 8];
@@ -135,7 +135,7 @@ for (var i = 0; i < arr.length; i++) {
 console.log(temp);
 ```
 
-# 将字符串转换为驼峰形式
+## 将字符串转换为驼峰形式
 
 ```js
 var str = "border-bottom-color";
@@ -150,7 +150,7 @@ function isstr(str) {
 console.log(isstr(str));
 ```
 
-# var str='a2b4admin3'字符的每个数字都乘 2 ,成为'a4b8admin6'
+## var str='a2b4admin3'字符的每个数字都乘 2 ,成为'a4b8admin6'
 
 ```js
 var url = "a2b4admin3";
@@ -165,7 +165,7 @@ for (var i = 0; i < url.length; i++) {
 console.log(str11);
 ```
 
-# var str='a2b4admin3'将字符串中的数字用中括号括起来 'a[2]b[4]admin[3]'
+## var str='a2b4admin3'将字符串中的数字用中括号括起来 'a[2]b[4]admin[3]'
 
 ```js
 function num(str) {
@@ -180,7 +180,7 @@ function num(str) {
 console.log(num(url));
 ```
 
-# 首先判断在数组中哪个数最大，然后让数组中的第一个数与最大的数相乘，返回结果
+## 首先判断在数组中哪个数最大，然后让数组中的第一个数与最大的数相乘，返回结果
 
 ```js
 function maxn(arr) {
@@ -195,7 +195,7 @@ function maxn(arr) {
 console.log(maxn([2, 1, 80, 6, 10]));
 ```
 
-# var str='abc' 让字符串重复 3 遍，成为 str='abcabcabc'
+## var str='abc' 让字符串重复 3 遍，成为 str='abcabcabc'
 
 ```js
 var str = "abc";
@@ -209,7 +209,7 @@ function xun(a, b) {
 console.log(xun(str, 3));
 ```
 
-# 10 到 100 的十位随机数并排序
+## 10 到 100 的十位随机数并排序
 
 ```js
 for (var i = 1; i <= 10; i++) {
@@ -223,7 +223,7 @@ console.log(
 );
 ```
 
-# 写出一个段脚本，输出当前日期 5 天之后是星期几,三种方法
+## 写出一个段脚本，输出当前日期 5 天之后是星期几,三种方法
 
 ## 第一种
 
@@ -259,7 +259,7 @@ fulture.setTime(ftime);
 console.log('5天之后是星期'+week[fulture.getDay()])*/
 ```
 
-# 封装一个 n 天之后是星期几的函数
+## 封装一个 n 天之后是星期几的函数
 
 ```js
 function getday(n) {
@@ -274,13 +274,13 @@ function getday(n) {
 console.log(getday());
 ```
 
-# "wellcome to beijing"把第一个变大写返回'WellcomeToBeijing'
+## "wellcome to beijing"把第一个变大写返回'WellcomeToBeijing'
 
 ```js
 //和上题相同。驼峰
 ```
 
-# 封装一个方法，实现求任意多个数的平均值。
+## 封装一个方法，实现求任意多个数的平均值。
 
 ```js
 function f1() {
@@ -296,7 +296,7 @@ function f1() {
 console.log(f1(1, 2, 3, 4, 9));
 ```
 
-# 判断字符串是否对称
+## 判断字符串是否对称
 
 ```js
 var str1 = "abch6g5g6hcba";
@@ -314,7 +314,7 @@ function isduic(str) {
 console.log(isduic(str1));
 ```
 
-# 千分符
+## 千分符
 
 ```js
 var str2=46548978911;
@@ -338,7 +338,7 @@ function qianff(str){
 console.log(qianff(str2))
 ```
 
-# 随机生成十六进制的颜色值 var arr=["0","2","3","4","5","6","7","8","9","a","b","c","d"]
+## 随机生成十六进制的颜色值 var arr=["0","2","3","4","5","6","7","8","9","a","b","c","d"]
 
 ```js
 var arrHex = ["0", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d"];
@@ -351,7 +351,7 @@ for (var i = 0; i < 6; i++) {
 console.log(fuhao);
 ```
 
-# 随机从数组中取出三个不同的值。var arr = [1,2,3,4,5,6,7,8,9];
+## 随机从数组中取出三个不同的值。var arr = [1,2,3,4,5,6,7,8,9];
 
 ```js
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -366,7 +366,7 @@ for (var i = 0; brr.length < 3; i++) {
 console.log(brr);
 ```
 
-# 求数组中字符串的个数
+## 求数组中字符串的个数
 
 ```js
 var str=[0,1,2,3,4,5,"a","b","c","b"],sum=0;
@@ -376,7 +376,7 @@ function strn(arr){
         sum+
 ```
 
-# 求数组中字符串的个数
+## 求数组中字符串的个数
 
 ```js
 var str = [0, 1, 2, 3, 4, 5, "a", "b", "c", "b"],
@@ -392,7 +392,7 @@ function strn(arr) {
 console.log(strn(str));
 ```
 
-# 删除数组中指定的值
+## 删除数组中指定的值
 
 ```js
 var drr = ["1411A", "44", "34305", "djg", "pic", 100, 35, 28];
@@ -409,7 +409,7 @@ function fun5(rr, num) {
 console.log(fun5(drr, 1));
 ```
 
-# 把重复的值放入一个新的数组中 这中方法过于繁琐，可以使用 indexOf 方法，等于-1 判断
+## 把重复的值放入一个新的数组中 这中方法过于繁琐，可以使用 indexOf 方法，等于-1 判断
 
 ```js
 var hrr = ["55", "55", "2", "1"];
@@ -432,7 +432,7 @@ for (var i = 0; i < hrr.length; i++) {
 console.log(rrb);
 ```
 
-# 截取字符串的 var s="abcdefg";截取完成后实现反转功能：g,f,e 其实等同于数组翻转
+## 截取字符串的 var s="abcdefg";截取完成后实现反转功能：g,f,e 其实等同于数组翻转
 
 ## 第一种
 
@@ -465,9 +465,9 @@ for (var i = 0; i < str.length; i++) {
 console.log(arr);
 ```
 
-# 拓展一个方法，用于删除数组中的指定值。同 21 题一样
+## 拓展一个方法，用于删除数组中的指定值。同 21 题一样
 
-# 编程实现数组中有几个字符串元素
+## 编程实现数组中有几个字符串元素
 
 ```js
 var brr = ["1411A", "44", "34305", "djg", "pic", 100, 35, 28];
@@ -483,7 +483,7 @@ function fun4(crr) {
 fun4(brr);
 ```
 
-# 数组反转
+## 数组反转
 
 ```js
 var s = "abcdefghiklmn";
@@ -499,7 +499,7 @@ function fun6(str) {
 fun6(s);
 ```
 
-# 将所有数组内所有重复的值取出来放到一个新的数组中
+## 将所有数组内所有重复的值取出来放到一个新的数组中
 
 ```js
 var st = "123abcdefgaaaasssssssssssssss123",
@@ -525,7 +525,7 @@ for (var i = 0; i < str.length; i++) {
 console.log("出现最多的字母是" + srn + "次数" + cou);
 ```
 
-# 求出一组数中的最大值和最小值并返回俩数的积
+## 求出一组数中的最大值和最小值并返回俩数的积
 
 ```js
 var arr = [45, 234, 24, 34, 35, 4, 6, 57, 65];
@@ -549,7 +549,7 @@ function maxValue(arr) {
 console.log(maxValue(arr));
 ```
 
-# 10 到 100 的十位随机数并升序排序(不允许重复)
+## 10 到 100 的十位随机数并升序排序(不允许重复)
 
 ```js
 function fn() {

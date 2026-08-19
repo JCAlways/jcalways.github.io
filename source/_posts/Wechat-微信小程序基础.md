@@ -11,7 +11,7 @@ top_img:
 comments:
 ---
 
-# 微信小程序开发准备
+## 微信小程序开发准备
 
 ## 编辑器
 
@@ -27,7 +27,7 @@ VSCode [下载地址](https://code.visualstudio.com/)
 
 [minapp](https://marketplace.visualstudio.com/items?itemName=qiu8310.minapp-vscode)
 
-# 小程序的结构目录
+## 小程序的结构目录
 
 ## 小程序文件结构和传统 web 对比
 
@@ -63,7 +63,7 @@ VSCode [下载地址](https://code.visualstudio.com/)
         util.js
 ```
 
-# 配置介绍
+## 配置介绍
 
   <div class="note danger"><p>注意:配置文件中不能出现注释</p></div>  
 &nbsp;
@@ -220,7 +220,7 @@ VSCode [下载地址](https://code.visualstudio.com/)
 }
 ```
 
-# 视图层
+## 视图层
 
 ## 数据绑定
 
@@ -398,7 +398,7 @@ Page({
 
 小程序中组件属性的值如果为布尔类型时，只要包含这个属性即为 true，要表达 false 时，需要通过 { { } } 表达，原因是 { { } } 中的内容为被小程序当成表达式解析，所以 `hidden="{{false}}"`会被解析成数据类型的布尔类型，而如果写成 hidden="false" 则将 false 当成字符串解析。
 
-# 样式 WXSS
+## 样式 WXSS
 
 > wxss 是一套样式语言,用于描述 WXML 的样式组件
 
@@ -446,7 +446,7 @@ wx.request({
 });
 ```
 
-# 事件
+## 事件
 
 ## 事件绑定
 
@@ -525,7 +525,7 @@ fn(e){
 }
 ```
 
-# 生命周期
+## 生命周期
 
 > 生命周期就是函数,只是会自己执行
 
@@ -675,7 +675,7 @@ Page({
 });
 ```
 
-# 组件
+## 组件
 
 ## view---[官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/view.html)
 
@@ -941,7 +941,7 @@ Page({
 <web-view src="https://zhangsifan.com"></web-view>
 ```
 
-# 自定义组件
+## 自定义组件
 
 ## 新建自定义组件
 
@@ -1087,7 +1087,7 @@ Component({
 });
 ```
 
-# API
+## API
 
 > Application Program Interface [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/)
 
@@ -1201,7 +1201,7 @@ Page({
 });
 ```
 
-# 模块化
+## 模块化
 
 > 小程序遵循的是类似 CommonJS 的规范。
 
@@ -1271,7 +1271,7 @@ Page({
 });
 ```
 
-# WXS---[官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)
+## WXS---[官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)
 
 ![WXS.jpg](https://i.loli.net/2019/12/06/RGjTWof8I1HzQtg.jpg)
 
@@ -1364,7 +1364,7 @@ module.exports.format = function (timestamp) {
 }
 ```
 
-# 其他
+## 其他
 
 ## Vant Weapp---[官方网站](https://youzan.github.io/vant-weapp/#/intro)
 
@@ -1485,7 +1485,7 @@ Page({
 });
 ```
 
-# 日历
+## 日历
 
 > 一个非常好用的小程序[日历](https://github.com/treadpit/wx_calendar)组件。
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in posts %}
+  {% if post.source.split('.').pop() != 'json' %}
+  <url>
+    <loc>{{ post.permalink | uriencode }}</loc>
+    {% if post.updated %}
+    <lastmod>{{ post.updated | formatDate }}</lastmod>
+    {% elif post.date %}
+    <lastmod>{{ post.date | formatDate }}</lastmod>
+    {% endif %}
+    {% if post.layout == 'post' %}
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    {% elif post.type == 'tags' or post.type == 'categories' %}
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    {% else %}
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    {% endif %}
+  </url>
+  {% endif %}
+  {% endfor %}
+
+  <url>
+    <loc>{{ config.url | uriencode }}</loc>
+    <lastmod>{{ sNow | formatDate }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

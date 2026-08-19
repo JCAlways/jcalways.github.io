@@ -12,7 +12,7 @@ top_img:
 comments:
 ---
 
-# Vue 是什么之前端现状
+## Vue 是什么之前端现状
 
 > - Vue 是一个优秀的**`前端框架`** 国内大多数中小型公司都在用,
 >
@@ -23,7 +23,7 @@ comments:
 > 3.  传统网站开发 一般来说 需求不大
 > 4.  当下各种新框架都采用了**`类Vue`**或者**`类React`**的语法去作 为主语法, 微信小程序/MpVue/uni-app
 
-# Vue 特点
+## Vue 特点
 
 > 1.  **`响应式数据`** 数据驱动视图 可以让我们只关注数据 Vue 中数据是响应式的 => 数据变化 => 视图一定变化
 > 2.  **`MVVM`** 双向绑定 => 数据 <=> 视图 , 数据变化 ==>视图变化 ,视图变化 => 数据变化
@@ -35,18 +35,18 @@ comments:
 > 3.  **`指令`**增强了 html 功能 新特性 ,Vue 扩展了 html 标签的功能 用指令, /angular ng-
 > 4.  **`组件化开发`** 复用代码 => SPA => 10 页面 => 10 个组件
 
-# 相关链接
+## 相关链接
 
 > [Vue 官方文档](https://cn.vuejs.org/) >[Vue 开源项目汇总](https://github.com/opendigg/awesome-github-vue) >[Vue.js 中文社区](https://www.vue-js.com/)
 > 所有关于 Vue 的问题都可以通过**`查阅文档`**解决
 
-# 如何安装 Vue.js
+## 如何安装 Vue.js
 
 ## 采用本地文件引入的方式 直接下载 在 script 标签中引入
 
 > [开发版本](https://cn.vuejs.org/js/vue.js) > [生产版本](https://cn.vuejs.org/js/vue.min.js)
 
-# 第一个程序--Hello World
+## 第一个程序--Hello World
 
 ```js
 <!--1. 设置Vue实例管理的视图 -->
@@ -75,7 +75,7 @@ comments:
 </script>
 ```
 
-# 实例选项
+## 实例选项
 
 ## el
 
@@ -135,7 +135,7 @@ methods: {
 
 ## mounted
 
-# 插值表达式
+## 插值表达式
 
 > [官方文档](https://cn.vuejs.org/v2/guide/syntax.html#插值)
 
@@ -161,7 +161,7 @@ methods: {
 <p>{{ fn() }}</p>
 ```
 
-# 系统指令
+## 系统指令
 
 > [官方文档](https://cn.vuejs.org/v2/guide/syntax.html#指令)
 
@@ -504,7 +504,7 @@ data: {
 },
 ```
 
-# vue 过滤器
+## vue 过滤器
 
 > [官方文档](https://cn.vuejs.org/v2/guide/filters.html)
 
@@ -548,13 +548,13 @@ var vm = new Vue({
 });
 ```
 
-# ref 操作 dom
+## ref 操作 dom
 
 ```html
 <button ref="自定义名称">按钮</button> this.$refs.自定义名称.value;
 ```
 
-# 自定义指令
+## 自定义指令
 
 > [官方文档](https://cn.vuejs.org/v2/guide/custom-directive.html)
 
@@ -592,7 +592,7 @@ var vm = new Vue({
 });
 ```
 
-# 计算属性
+## 计算属性
 
 > [官方文档](https://cn.vuejs.org/v2/guide/computed.html)
 
@@ -630,7 +630,7 @@ var vm = new Vue({
 });
 ```
 
-# json-server 工具的使用
+## json-server 工具的使用
 
 > [官方文档](https://www.npmjs.com/package/json-server)
 
@@ -670,7 +670,7 @@ npm i -g json-server
 json-server --watch db.json
 ```
 
-# RESTFUL 的接口规则
+## RESTFUL 的接口规则
 
 > - RESTful 是一套接口设计规范
 > - 用**`不同的请求类型`**发送**`同样一个请求标识`** 所对应的处理是`不同的`
@@ -697,7 +697,7 @@ json-server --watch db.json
 >
 > - 查询 GET /brands?**`title`**\_like=关键字 -> 模糊搜索
 
-# 使用 axios 插件发送网络请求
+## 使用 axios 插件发送网络请求
 
 > promise 是一种对于 ajax**`回调地狱`**的一种 异形封装,它让代码看上去更优雅
 
@@ -746,7 +746,7 @@ axios
 });
 ```
 
-# watch-监听
+## watch-监听
 
 > [官方文档](https://cn.vuejs.org/v2/api/#watch)
 
@@ -771,7 +771,7 @@ new Vue(
 
 ```
 
-# 组件
+## 组件
 
 > [官方文档](https://cn.vuejs.org/v2/guide/components-registration.html)
 
@@ -1043,7 +1043,7 @@ const routes = [
 ];
 ```
 
-# 单页应用-SPA
+## 单页应用-SPA
 
 > - 传统模式 每个页面及其内容都需要从服务器**一次次**请求 如果网络差, 体验则会感觉很慢
 > - spa 模式, **`第一次加载`** 会将**所有的**资源都请求到页面 模块之间切换不会再请求服务器
@@ -1070,7 +1070,7 @@ const routes = [
 >
 > 拿到了 hash 值,就可以根据不同的 hash 值进行不同的**`模块切换`**
 
-# 路由
+## 路由
 
 > [官方文档](https://cn.vuejs.org/v2/guide/routing.html)
 
@@ -1166,7 +1166,7 @@ var vm = new Vue({
 })
 ```
 
-# 动态路由
+## 动态路由
 
 > [官方文档](https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html)
 
@@ -1377,7 +1377,7 @@ var router = new VueRouter({
 });
 ```
 
-# 过渡动效
+## 过渡动效
 
 > [官方文档](https://router.vuejs.org/zh/guide/advanced/transitions.html#单个路由的过渡)
 
@@ -1421,10 +1421,10 @@ var vm = new Vue({
 })
 ```
 
-# Vue 的生命周期
+## Vue 的生命周期
 
 > [点击查看](https://blog.zhangsifan.com/posts/Vue-vue的钩子函数/#前言)
 
-# 使用 Vue-Cli 开发项目
+## 使用 Vue-Cli 开发项目
 
 > [点击查看](https://blog.zhangsifan.com/posts/Vue-Vue-Cli的使用/)
