@@ -25,10 +25,6 @@
       link: https://ql.zhangsifan.com
       avatar: https://qn.whyour.cn/logo.png
       descr: 一款功能强大的任务管理工具
-    - name: Halo
-      link: https://halo.zhangsifan.com
-      avatar: https://www.halo.run/upload/logo.png
-      descr: 强大易用的开源建站工具
     - name: WordPress
       link: https://wordpress.zhangsifan.com
       avatar: https://wordpress.org/favicon.ico
@@ -38,8 +34,8 @@
       avatar: https://download.onlyoffice.com/assets/fb/fb_icon_325x325.jpg
       descr: 在线办公套件
     - name: GitLab
-      link: https://git.zhangsifan.com
-      avatar: https://git.zhangsifan.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
+      link: https://gitlab.zhangsifan.com
+      avatar: https://gitlab.zhangsifan.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
       descr: 代码与文档管理工具
     - name: NextCloud
       link: https://cloud.zhangsifan.com

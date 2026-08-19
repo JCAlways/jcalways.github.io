@@ -1,6 +1,6 @@
 {
   "name": "hexo-site",
-  "version": "26.8.10",
+  "version": "26.8.19",
   "private": true,
   "scripts": {
     "algolia": "hexo algolia",
@@ -36,6 +36,6 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.11.13"
+    "baseline-browser-mapping": "^2.11.15"
   }
 }
