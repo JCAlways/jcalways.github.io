@@ -1,13 +1,15 @@
 ---
 title: Express框架
+cover: https://aka.doubaocdn.com/s/bSqpUDhcjd
 date: 2019-10-10 20:00:00
 updated: 2019-10-10
 categories:
   - JavaScript
   - Node.js
-tags: Node.js
+tags:
+  - Node.js
 keywords: Node.js
-description: Express框架 学习笔记与使用总结
+description: Express 框架学习笔记：Node.js Web 框架的安装、Hello World、路由与中间件的使用总结
 top_img:
 comments:
 ---

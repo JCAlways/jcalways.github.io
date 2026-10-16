@@ -1,13 +1,15 @@
 ---
 title: React基础
+cover: https://aka.doubaocdn.com/s/H3GngEbdVD
 date: 2020-01-06 00:00:00
 updated: 2020-01-06
 categories:
   - JavaScript
   - React.js
-tags: React.js
+tags:
+  - React.js
 keywords: React.js
-description: React基础 学习笔记与使用总结
+description: React 基础学习笔记：声明式视图、组件化开发思想与第一个 React 程序的编写
 top_img:
 comments:
 ---

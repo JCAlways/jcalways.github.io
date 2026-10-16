@@ -1,13 +1,15 @@
 ---
 title: Vue基础
+cover: https://aka.doubaocdn.com/s/oV0uiF9KUn
 date: 2019-10-16 20:00:00
 updated: 2019-10-16
 categories:
   - JavaScript
   - Vue.js
-tags: Vue.js
+tags:
+  - Vue.js
 keywords: Vue.js
-description: Vue基础 学习笔记与使用总结
+description: Vue 基础学习笔记：框架特点、MVVM 响应式、常用指令与组件化开发入门
 top_img:
 comments:
 ---

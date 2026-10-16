@@ -1,11 +1,13 @@
 ---
 title: JQuery基础
+cover: https://aka.doubaocdn.com/s/ETjQNMREze
 date: 2019-08-30 20:00:00
 updated: 2019-08-30
 categories:
   - JavaScript
   - JQuery
-tags: JavaScript
+tags:
+  - JavaScript
 description: jQuery 基础学习笔记：跨浏览器兼容、链式编程、简化 DOM 操作，支持事件、样式、动画
 ---
 

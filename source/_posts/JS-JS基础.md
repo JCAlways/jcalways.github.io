@@ -1,10 +1,12 @@
 ---
 title: JS基础
+cover: https://aka.doubaocdn.com/s/DoaLweMNaB
 date: 2019-08-17 20:00:00
 updated: 2019-08-17
 categories:
   - JavaScript
-tags: JavaScript
+tags:
+  - JavaScript
 description: JavaScript 基础语法学习笔记：变量、运算符、循环、函数等核心知识
 ---
 

@@ -32,7 +32,7 @@ comments: false
 
 ### 联系方式
 
-- 博客：[blog.zhangsifan.com](https://blog.zhangsifan.com)
+- 博客：[zhangsifan.com](https://blog.zhangsifan.com)
 - GitHub：[JCAlways](https://github.com/JCAlways)
 
 欢迎在评论区留言交流，如果本站内容对你有帮助，欢迎点赞、收藏、分享~

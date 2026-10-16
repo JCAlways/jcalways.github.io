@@ -1,12 +1,14 @@
 ---
 title: 微信小程序基础
+cover: https://aka.doubaocdn.com/s/n3Yqd4AOEc
 date: 2019-11-30 08:00:00
 updated: 2019-11-30
 categories:
   - 微信小程序
-tags: 微信小程序
+tags:
+  - 微信小程序
 keywords: 微信小程序
-description: 微信小程序基础 学习笔记与使用总结
+description: 微信小程序基础学习笔记：开发工具准备、项目目录结构、WXML/WXSS/JS 与 JSON 配置
 top_img:
 comments:
 ---
@@ -938,7 +940,7 @@ Page({
 | src  | String | webview 指向网页的链接。可打开关联的公众号的文章，其它网页需登录[小程序管理后台](https://mp.weixin.qq.com/)配置业务域名。 |
 
 ```html
-<web-view src="https://zhangsifan.com"></web-view>
+<web-view src="https://blog.zhangsifan.com"></web-view>
 ```
 
 ## 自定义组件

@@ -1,11 +1,13 @@
 ---
 title: Vue-Cli的使用
+cover: https://aka.doubaocdn.com/s/vcXnQ738iB
 date: 2019-10-22 20:00:00
 updated: 2019-10-22
 categories:
   - JavaScript
   - Vue.js
-tags: Vue.js
+tags:
+  - Vue.js
 keywords: Vue.js
 description: Vue-Cli的使用 学习笔记与使用总结
 top_img:

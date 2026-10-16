@@ -1,11 +1,14 @@
 ---
 title: Hexo博客搭建流程
+cover: https://aka.doubaocdn.com/s/du1B2eRcEM
 date: 2019-09-19 20:00:00
 updated: 2019-09-19
-tags: Hexo
-categories: 技术文档
+tags:
+  - Hexo
+categories:
+  - 技术文档
 keywords: 博客搭建
-description: 博客搭建步骤
+description: Hexo 博客搭建流程：安装初始化、常用命令、deployer-git 部署到 GitHub Pages，含 CNAME 与主题配置注意事项
 top_img:
 comments:
 ---

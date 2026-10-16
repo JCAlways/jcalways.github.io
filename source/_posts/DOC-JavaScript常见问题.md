@@ -1,9 +1,12 @@
 ---
 title: JavaScript常见问题
+cover: https://aka.doubaocdn.com/s/XXEzVabYjd
 date: 2019-10-13 20:29:46
 updated: 2019-10-13
-categories: 技术文档
-tags: JavaScript
+categories:
+  - 技术文档
+tags:
+  - JavaScript
 keywords: 技术文档
 description: JavaScript常见问题 学习笔记与使用总结
 top_img:

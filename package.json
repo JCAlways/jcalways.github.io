@@ -37,6 +37,6 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.11.15"
+    "baseline-browser-mapping": "^2.11.28"
   }
 }

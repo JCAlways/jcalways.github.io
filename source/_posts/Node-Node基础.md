@@ -1,13 +1,15 @@
 ---
 title: Node基础
+cover: https://aka.doubaocdn.com/s/1R7UFDvxED
 date: 2019-09-29 20:00:00
 updated: 2019-09-29
 categories:
   - JavaScript
   - Node.js
-tags: Node.js
+tags:
+  - Node.js
 keywords: Node.js
-description: Node基础 学习笔记与使用总结
+description: Node.js 基础学习笔记：安装配置、NPM 包管理命令、模块系统与第一个程序
 top_img:
 comments:
 ---

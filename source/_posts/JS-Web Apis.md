@@ -1,10 +1,12 @@
 ---
 title: Web Apis
+cover: https://aka.doubaocdn.com/s/bQHb2dgKAp
 date: 2019-08-29 20:00:00
 updated: 2019-08-29
 categories:
   - JavaScript
-tags: JavaScript
+tags:
+  - JavaScript
 description: JavaScript Web APIs 学习笔记：DOM 文档对象模型、元素获取与操作等基础知识
 ---
 

@@ -1,13 +1,15 @@
 ---
 title: MVVM原理
+cover: https://aka.doubaocdn.com/s/bp3CWgXUWT
 date: 2019-10-16 14:00:00
 updated: 2019-10-16
 categories:
   - JavaScript
   - Vue.js
-tags: Vue.js
+tags:
+  - Vue.js
 keywords: Vue.js
-description: MVVM原理 学习笔记与使用总结
+description: MVVM 原理详解：Vue 数据响应式与双向绑定机制、数据驱动视图的底层实现思路
 top_img:
 comments:
 ---

@@ -1,10 +1,12 @@
 ---
 title: TS基础
+cover: https://aka.doubaocdn.com/s/XLbm7H7Fbx
 date: 2021-03-02 20:00:00
 updated: 2021-03-02
 categories:
   - TypeScript
-tags: TypeScript
+tags:
+  - TypeScript
 description: "TypeScript 是一种由微软开发的开源、跨平台的编程语言。它是 JavaScript 的超集，最终会被编译为 JavaScript 代码。"
 ---
 

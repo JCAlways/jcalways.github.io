@@ -3,13 +3,14 @@ title: Xmind笔记汇总
 date: 2019-10-13 20:39:11
 updated: 2019-10-13
 categories:
-- 技术文档
-tags: 笔记
+  - 技术文档
+tags:
+  - 笔记
 keywords: Xmind笔记
-description: HTML到Node.js之前笔记汇总
+description: 前端到 Node.js 知识笔记汇总：HTML、CSS、JavaScript、Node.js 核心知识点大纲，适合复习与查漏补缺
 top_img: 
 comments: 
-cover: 
+cover: https://aka.doubaocdn.com/s/ncOBucgb7Y
 ---
 
 ## 前端与移动开发

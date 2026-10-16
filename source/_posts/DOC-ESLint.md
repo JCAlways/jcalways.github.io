@@ -2,13 +2,15 @@
 title: ESLint
 date: 2019-12-01 21:30:49
 updated: 2019-12-01
-tags: VSCode
-categories: 技术文档
+tags:
+  - VSCode
+categories:
+  - 技术文档
 keywords: 技术文档
 description: ESLint 学习笔记与使用总结：VSCode 中的 ESLint 配置、保存自动修复
 top_img:
 comments:
-cover:
+cover: https://aka.doubaocdn.com/s/SJhdMtUotd
 ---
 
 ESLint 是目前 JavaScript 最流行的**代码检查工具**，它可以根据配置的规则集对代码进行静态分析，在运行前就发现潜在的语法错误、未定义变量、不符合团队规范的问题，并支持**保存时自动修复**。

@@ -1,13 +1,15 @@
 ---
 title: VueX
+cover: https://aka.doubaocdn.com/s/VDcKoCQOXU
 date: 2019-11-12 14:30:00
 updated: 2019-11-12
 categories:
   - JavaScript
   - Vue.js
-tags: Vue.js
+tags:
+  - Vue.js
 keywords: Vue.js
-description: VueX 学习笔记与使用总结
+description: Vuex 状态管理学习笔记：state/mutations/actions 核心概念、安装配置与数据共享实战
 top_img:
 comments:
 ---

@@ -1,11 +1,13 @@
 ---
 title: Node操作MySQL
+cover: https://aka.doubaocdn.com/s/q4uhstUiT8
 date: 2019-10-14 14:57:48
 updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js
-tags: Node.js
+tags:
+  - Node.js
 keywords: Node.js
 description: Node操作MySQL 学习笔记与使用总结
 top_img:

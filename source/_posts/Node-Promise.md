@@ -1,13 +1,15 @@
 ---
 title: Promise
+cover: https://aka.doubaocdn.com/s/k2aWfn00Dy
 date: 2019-10-14 18:15:47
 updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js
-tags: Node.js
+tags:
+  - Node.js
 keywords: Node.js
-description: Promise 学习笔记与使用总结
+description: Promise 学习笔记：构造器用法、pending/resolved/rejected 三种状态与链式调用、常用 API
 top_img:
 comments:
 ---

@@ -1,13 +1,15 @@
 ---
 title: Node中的跨域
+cover: https://aka.doubaocdn.com/s/4xUuKVShXn
 date: 2019-10-13 18:15:47
 updated: 2019-10-13
 categories:
   - JavaScript
   - Node.js
-tags: Node.js
+tags:
+  - Node.js
 keywords: Node.js
-description: Node中的跨域 学习笔记与使用总结
+description: Node.js 跨域问题详解：同源策略原理、跨域产生条件与常见解决方案（CORS、代理等）
 top_img:
 comments:
 ---
