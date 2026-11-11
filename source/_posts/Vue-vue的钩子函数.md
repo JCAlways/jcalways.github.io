@@ -2,7 +2,6 @@
 title: Vue的钩子函数
 cover: https://aka.doubaocdn.com/s/iWWpy5ktx3
 date: 2019-10-23 20:00:00
-updated: 2019-10-23
 categories:
   - JavaScript
   - Vue.js

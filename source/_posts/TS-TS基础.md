@@ -2,7 +2,6 @@
 title: TS基础
 cover: https://aka.doubaocdn.com/s/XLbm7H7Fbx
 date: 2021-03-02 20:00:00
-updated: 2021-03-02
 categories:
   - TypeScript
 tags:

@@ -1,7 +1,6 @@
 ---
 title: Xmind笔记汇总
 date: 2019-10-13 20:39:11
-updated: 2019-10-13
 categories:
   - 技术文档
 tags:

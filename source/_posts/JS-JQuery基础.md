@@ -2,7 +2,6 @@
 title: JQuery基础
 cover: https://aka.doubaocdn.com/s/ETjQNMREze
 date: 2019-08-30 20:00:00
-updated: 2019-08-30
 categories:
   - JavaScript
   - JQuery

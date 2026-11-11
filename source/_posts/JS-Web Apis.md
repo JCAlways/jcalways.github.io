@@ -2,7 +2,6 @@
 title: Web Apis
 cover: https://aka.doubaocdn.com/s/bQHb2dgKAp
 date: 2019-08-29 20:00:00
-updated: 2019-08-29
 categories:
   - JavaScript
 tags:

@@ -2,7 +2,6 @@
 title: Node基础
 cover: https://aka.doubaocdn.com/s/1R7UFDvxED
 date: 2019-09-29 20:00:00
-updated: 2019-09-29
 categories:
   - JavaScript
   - Node.js

@@ -2,7 +2,6 @@
 title: React基础
 cover: https://aka.doubaocdn.com/s/H3GngEbdVD
 date: 2020-01-06 00:00:00
-updated: 2020-01-06
 categories:
   - JavaScript
   - React.js

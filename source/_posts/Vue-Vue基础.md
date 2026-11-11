@@ -2,7 +2,6 @@
 title: Vue基础
 cover: https://aka.doubaocdn.com/s/oV0uiF9KUn
 date: 2019-10-16 20:00:00
-updated: 2019-10-16
 categories:
   - JavaScript
   - Vue.js

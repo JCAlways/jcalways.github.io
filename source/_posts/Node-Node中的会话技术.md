@@ -2,7 +2,6 @@
 title: Node中的会话技术
 cover: https://aka.doubaocdn.com/s/yVUBIP407Y
 date: 2019-10-13 20:29:46
-updated: 2019-10-13
 categories:
   - JavaScript
   - Node.js

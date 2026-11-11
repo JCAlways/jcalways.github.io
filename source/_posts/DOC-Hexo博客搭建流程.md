@@ -2,7 +2,6 @@
 title: Hexo博客搭建流程
 cover: https://aka.doubaocdn.com/s/du1B2eRcEM
 date: 2019-09-19 20:00:00
-updated: 2019-09-19
 tags:
   - Hexo
 categories:
@@ -12,6 +11,8 @@ description: Hexo 博客搭建流程：安装初始化、常用命令、deployer
 top_img:
 comments:
 ---
+
+> ⚠️ 本文写于 2019 年，部分内容已过时（如主题分支、搜索插件、置顶方式），请以 [Butterfly 官方文档](https://butterfly.js.org/) 为准。
 
 ## 安装 hexo
 
@@ -40,7 +41,7 @@ hexo init
 npm install hexo-deployer-git
 ```
 
-## Hexo 发布到 github 的时候,会丢失 reanme 和 CNAME
+## Hexo 发布到 github 的时候,会丢失 rename 和 CNAME
 
 ```shell
 npm install hexo-generator-cname
@@ -48,19 +49,15 @@ npm install hexo-generator-cname
 
 ## 安装主题 Butterfly
 
-> [官方网站](https://docs.jerryc.me/)
+> [官方网站](https://butterfly.js.org/)
 
 在博客根目录安装主题
 
 ```shell
-git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly
+git clone -b main https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly
 ```
 
-安装 cheerio
-
-```bash
-npm install cheerio@0.22.0 --save
-```
+> 说明：较新版本的 Butterfly 主题已内置所需依赖，通常无需手动安装 `cheerio`；若构建报缺少 cheerio 再按主题文档处理。
 
 安装渲染器
 
@@ -70,11 +67,11 @@ npm install hexo-renderer-pug hexo-renderer-stylus
 
 修改 hexo 配置文件`_config.yml`，把主题改为`Butterfly`
 
-```xml
+```yml
 theme: Butterfly
 ```
 
-其余配置请参考主题的[配置文档](https://docs.jerryc.me/)
+其余配置请参考主题的[配置文档](https://butterfly.js.org/)
 
 ## 常用插件
 
@@ -83,7 +80,7 @@ theme: Butterfly
 安装插件
 
 ```shell
-npm install hexo-generator-search --save
+npm install hexo-generator-searchdb --save
 ```
 
 此`_config.yml`配置插件
@@ -97,14 +94,11 @@ search:
 
 ### 文章顶置
 
-```bash
-npm uninstall hexo-generator-index --save
-npm install hexo-generator-index-pin-top --save
-```
+> Butterfly 主题已内置文章置顶：在文章的 front-matter 直接写 `top: true` 即可，**无需安装** `hexo-generator-index-pin-top`（旧方案已淘汰）。示例见下。
 
 ```md
 ---
-top: True
+top: true
 ---
 ```
 
@@ -149,7 +143,6 @@ npm install hexo-generator-feed --save
 
 ```shell
 npm install hexo-helper-live2d --save
-# 参考文章:https://vonsdite.cn/posts/fbd1f97f.html
 ```
 
 ### 安装 sitmap 插件

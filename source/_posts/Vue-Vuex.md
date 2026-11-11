@@ -2,7 +2,6 @@
 title: VueX
 cover: https://aka.doubaocdn.com/s/VDcKoCQOXU
 date: 2019-11-12 14:30:00
-updated: 2019-11-12
 categories:
   - JavaScript
   - Vue.js

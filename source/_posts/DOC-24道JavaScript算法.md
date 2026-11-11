@@ -2,7 +2,6 @@
 title: 24道JavaScript算法题
 cover: https://aka.doubaocdn.com/s/WfVvqA9b5e
 date: 2019-10-13 20:29:46
-updated: 2019-10-13
 categories:
   - 技术文档
 tags:
@@ -215,6 +214,7 @@ console.log(xun(str, 3));
 ## 10 到 100 的十位随机数并排序
 
 ```js
+var arr = [];
 for (var i = 1; i <= 10; i++) {
   var ran = Math.floor(Math.random() * 91 + 10);
   arr.push(ran);
@@ -259,7 +259,7 @@ var fulture=new Date();
 var ftime=time+24*60*60*1000*5;
 var week=['日','一','二','三','四','五','六'];
 fulture.setTime(ftime);
-console.log('5天之后是星期'+week[fulture.getDay()])*/
+console.log('5天之后是星期'+week[fulture.getDay()])
 ```
 
 ## 封装一个 n 天之后是星期几的函数
@@ -280,7 +280,14 @@ console.log(getday());
 ## "wellcome to beijing"把第一个变大写返回'WellcomeToBeijing'
 
 ```js
-//和上题相同。驼峰
+// 标题化：把每个单词首字母大写后拼接成驼峰式
+function toPascal(str) {
+  return str
+    .split(' ')
+    .map(function (w) { return w.charAt(0).toUpperCase() + w.slice(1); })
+    .join('');
+}
+console.log(toPascal('wellcome to beijing'));
 ```
 
 ## 封装一个方法，实现求任意多个数的平均值。
@@ -303,12 +310,9 @@ console.log(f1(1, 2, 3, 4, 9));
 
 ```js
 var str1 = "abch6g5g6hcba";
-aba;
 function isduic(str) {
   for (var i = 0, len = str1.length; i < len / 2; i++) {
-    alert(str[i]);
     if (str[i] != str[len - 1 - i]) {
-      str.charAt(i) != str.charAt(len - 1 - i);
       return "不对称";
     }
   }
@@ -344,12 +348,11 @@ console.log(qianff(str2))
 ## 随机生成十六进制的颜色值 var arr=["0","2","3","4","5","6","7","8","9","a","b","c","d"]
 
 ```js
-var arrHex = ["0", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d"];
+var arrHex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d"];
 var fuhao = "#";
 for (var i = 0; i < 6; i++) {
   var color = arrHex[Math.floor(Math.random() * arrHex.length)];
   fuhao = fuhao + color;
-  str = str + arrHex[a];
 }
 console.log(fuhao);
 ```
@@ -369,15 +372,6 @@ for (var i = 0; brr.length < 3; i++) {
 console.log(brr);
 ```
 
-## 求数组中字符串的个数
-
-```js
-var str=[0,1,2,3,4,5,"a","b","c","b"],sum=0;
-function strn(arr){
-    for(var i=0;i<arr.length;i++){
-    if(typeof(arr[i])=="string"){
-        sum+
-```
 
 ## 求数组中字符串的个数
 
@@ -406,13 +400,12 @@ function fun5(rr, num) {
       break;
     }
   }
-  var newrr = rr.splice(num, 1);
   return rr;
 }
 console.log(fun5(drr, 1));
 ```
 
-## 把重复的值放入一个新的数组中 这中方法过于繁琐，可以使用 indexOf 方法，等于-1 判断
+## 统计数组中某个值出现的次数（indexOf 判断）
 
 ```js
 var hrr = ["55", "55", "2", "1"];
@@ -451,7 +444,7 @@ console.log(rts);
 ```js
 var str = "hello";
 var strn = "";
-for (var i = str.length; i >= 0; i--) {
+for (var i = str.length - 1; i >= 0; i--) {
   strn += str[i];
 }
 console.log(strn);
@@ -467,8 +460,6 @@ for (var i = 0; i < str.length; i++) {
 }
 console.log(arr);
 ```
-
-## 拓展一个方法，用于删除数组中的指定值。同 21 题一样
 
 ## 编程实现数组中有几个字符串元素
 
@@ -491,7 +482,6 @@ fun4(brr);
 ```js
 var s = "abcdefghiklmn";
 function fun6(str) {
-  var ss = s.splice("");
   var ss = s.split("");
   var ssa = [];
   for (var i = 0; i < ss.length; i++) {
@@ -533,9 +523,9 @@ console.log("出现最多的字母是" + srn + "次数" + cou);
 ```js
 var arr = [45, 234, 24, 34, 35, 4, 6, 57, 65];
 function maxValue(arr) {
-  //假设一个最大值
-  var max = 0,
-    min = 999999999999;
+  //以数组第一个元素为基准，兼容负数数组
+  var max = arr[0],
+    min = arr[0];
   //遍历数组
   for (var i = 0; i < arr.length; i++) {
     //判断当前值是否大于max

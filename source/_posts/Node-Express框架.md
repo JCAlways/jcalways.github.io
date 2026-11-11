@@ -2,7 +2,6 @@
 title: Express框架
 cover: https://aka.doubaocdn.com/s/bSqpUDhcjd
 date: 2019-10-10 20:00:00
-updated: 2019-10-10
 categories:
   - JavaScript
   - Node.js

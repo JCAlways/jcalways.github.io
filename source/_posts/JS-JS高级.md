@@ -2,7 +2,6 @@
 title: JS高级
 cover: https://aka.doubaocdn.com/s/QtPh8Sxycj
 date: 2019-09-05 20:00:00
-updated: 2019-09-05
 categories:
   - JavaScript
 tags:

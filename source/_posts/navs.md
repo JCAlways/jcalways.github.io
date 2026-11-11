@@ -2,7 +2,6 @@
 title: 文章导航
 cover: https://aka.doubaocdn.com/s/Mks1TVKM5s
 date: 2019-11-01
-updated: 2026-08-19
 tags:
   - 导航
 categories:

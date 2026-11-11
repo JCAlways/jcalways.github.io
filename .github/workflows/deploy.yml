@@ -5,9 +5,11 @@ on:
     branches: [master]
   workflow_dispatch:
 
+# 同一时刻只允许一个 Pages 部署，且不取消进行中的部署，
+# 避免中途取消留下悬空 deployment（官方 Pages 模板的推荐做法）
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 # 优化：收紧了 contents 权限
 permissions:
@@ -24,7 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          # 构建不依赖 git 历史（updated_option 已设为 date）
+          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -32,13 +35,17 @@ jobs:
           node-version: "24"
 
       - name: Install dependencies
+        # 仓库刻意忽略 package-lock.json（见 .gitignore），
+        # 因此不能用 npm ci，也不能开 setup-node 的 npm 缓存
         run: npm install
 
       - name: Build site
         run: npm run build
 
       - name: Update Algolia Index
-        if: github.actor != 'nektos/act'
+        # 索引更新失败不阻断部署；非 master 分支只构建，不产生副作用
+        if: github.ref == 'refs/heads/master' && github.actor != 'nektos/act'
+        continue-on-error: true
         env:
           HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
         run: npm run algolia
@@ -46,13 +53,13 @@ jobs:
       - name: Baidu URL submit
         # 主动向百度站长平台推送最新文章（token 由 secrets 注入）
         # 推送失败不阻断部署
-        if: github.actor != 'nektos/act'
+        if: github.ref == 'refs/heads/master' && github.actor != 'nektos/act'
         env:
           BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
         run: npx hexo baidu-submit || echo "Baidu push failed (non-blocking)"
 
       - name: Upload GitHub Pages artifact
-        if: github.actor != 'nektos/act'
+        if: github.ref == 'refs/heads/master' && github.actor != 'nektos/act'
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./public

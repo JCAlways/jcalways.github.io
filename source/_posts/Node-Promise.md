@@ -2,7 +2,6 @@
 title: Promise
 cover: https://aka.doubaocdn.com/s/k2aWfn00Dy
 date: 2019-10-14 18:15:47
-updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js

@@ -2,7 +2,6 @@
 title: 微信小程序基础
 cover: https://aka.doubaocdn.com/s/n3Yqd4AOEc
 date: 2019-11-30 08:00:00
-updated: 2019-11-30
 categories:
   - 微信小程序
 tags:

@@ -2,7 +2,6 @@
 title: Node中的跨域
 cover: https://aka.doubaocdn.com/s/4xUuKVShXn
 date: 2019-10-13 18:15:47
-updated: 2019-10-13
 categories:
   - JavaScript
   - Node.js

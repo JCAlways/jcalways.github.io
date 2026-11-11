@@ -2,7 +2,6 @@
 title: Node操作MySQL
 cover: https://aka.doubaocdn.com/s/q4uhstUiT8
 date: 2019-10-14 14:57:48
-updated: 2019-10-14
 categories:
   - JavaScript
   - Node.js

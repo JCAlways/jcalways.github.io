@@ -1,7 +1,6 @@
 ---
 title: ESLint
 date: 2019-12-01 21:30:49
-updated: 2019-12-01
 tags:
   - VSCode
 categories:

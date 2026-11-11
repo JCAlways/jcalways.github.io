@@ -2,7 +2,6 @@
 title: MVVM原理
 cover: https://aka.doubaocdn.com/s/bp3CWgXUWT
 date: 2019-10-16 14:00:00
-updated: 2019-10-16
 categories:
   - JavaScript
   - Vue.js

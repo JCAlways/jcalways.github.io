@@ -2,7 +2,6 @@
 title: Vue-Cli的使用
 cover: https://aka.doubaocdn.com/s/vcXnQ738iB
 date: 2019-10-22 20:00:00
-updated: 2019-10-22
 categories:
   - JavaScript
   - Vue.js
